@@ -31,8 +31,10 @@ export default function HomePage() {
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-white/80 md:text-xl">
               Wills.com is a practical starting point for understanding wills, trusts, and the decisions that help protect the people and work that matter to you.
             </p>
-            <div className="relative mx-auto mt-8 aspect-[16/8] max-w-4xl overflow-hidden rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)]">
-              <Image src="/images/estate-planning/family-hero.png" alt="A family spending time together outdoors" fill priority className="object-cover" sizes="(min-width: 1280px) 58rem, (min-width: 768px) 78vw, 100vw" />
+            <div className="mx-auto mt-8 grid max-w-4xl grid-cols-3 gap-3">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)]"><Image src="/images/estate-planning/hero-family-young.png" alt="A young family spending time together outdoors" fill priority className="object-cover" sizes="(min-width: 1280px) 18rem, (min-width: 768px) 25vw, 30vw" /></div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)]"><Image src="/images/estate-planning/hero-family-couple.png" alt="A couple enjoying time together outdoors" fill priority className="object-cover" sizes="(min-width: 1280px) 18rem, (min-width: 768px) 25vw, 30vw" /></div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)]"><Image src="/images/estate-planning/hero-family-grandparent.png" alt="A multigenerational family spending time together" fill priority className="object-cover" sizes="(min-width: 1280px) 18rem, (min-width: 768px) 25vw, 30vw" /></div>
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <ButtonLink href="/wills" label="Learn about wills" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" />
