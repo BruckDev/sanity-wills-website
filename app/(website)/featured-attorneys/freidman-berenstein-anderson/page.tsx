@@ -1,5 +1,7 @@
+import {sampleAttorneyArticles} from './articleData'
 import type {Metadata} from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Sample featured attorney listing',
@@ -92,6 +94,18 @@ export default function FeaturedAttorneySamplePage() {
             <div className="mt-7 flex items-center gap-4 rounded-xl border border-[#cbdce3] bg-white p-4"><div className="relative h-20 w-16 shrink-0"><Image src="/images/featured-attorneys/best-law-firms-badge.png" alt="Best Law Firms badge, shown as a sample recognition placement" fill className="object-contain" sizes="4rem" /></div><p className="text-xs leading-5 text-[color:var(--muted)]"><span className="block font-semibold text-[color:var(--fg)]">Sample recognition placement</span>Best Law Firms badge shown for marketing-layout demonstration only.</p></div>
           </div>
         </aside>
+      </section>
+
+      <section>
+        <div className="max-w-3xl"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Illustrative attorney articles</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">Give readers useful reasons to return.</h2><p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">A featured office can pair its profile with practical, clearly dated education that helps people prepare for a legal conversation.</p></div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">{sampleAttorneyArticles.map((article) => <Link key={article.slug} href={`/featured-attorneys/freidman-berenstein-anderson/articles/${article.slug}`} className="group rounded-2xl border border-[color:var(--border)] bg-white p-6 shadow-[0_14px_35px_rgba(8,35,58,0.05)] transition hover:-translate-y-1 hover:border-[color:var(--accent)]"><div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">{article.readingTime}</div><h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">{article.title}</h3><p className="mt-3 leading-7 text-[color:var(--muted)]">{article.summary}</p><span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">Read sample article →</span></Link>)}</div>
+        <p className="mt-5 text-sm leading-6 text-[color:var(--muted)]">Article titles and copy are illustrative marketing content for this fictional sample profile.</p>
+      </section>
+
+      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
+        <div className="max-w-3xl"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Sample consultation experience</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">Set expectations before the first conversation.</h2><p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">This sample section shows how an office can help prospective clients understand what to prepare and what the first conversation may cover.</p></div>
+        <ol className="mt-8 grid gap-5 md:grid-cols-3">{[['01', 'Share what matters most', 'Start with the people, property, and priorities you want the plan to address.'], ['02', 'Review the full picture', 'Discuss existing documents, beneficiary designations, and questions for the attorney.'], ['03', 'Understand next steps', 'Leave with a clearer sense of options, timing, and any information to gather.']].map(([number, title, copy]) => <li key={number} className="rounded-xl border border-[#d6e2e8] bg-white p-6"><span className="text-sm font-bold text-[color:var(--accent)]">{number}</span><h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">{title}</h3><p className="mt-3 leading-7 text-[color:var(--muted)]">{copy}</p></li>)}</ol>
+        <p className="mt-6 text-sm leading-6 text-[color:var(--muted)]">Consultation process details are illustrative for this fictional profile and may differ among actual law offices.</p>
       </section>
 
       <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white lg:grid lg:grid-cols-2">

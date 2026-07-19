@@ -15,15 +15,29 @@ const initialValues: FormValues = {firmName: '', contactName: '', email: '', pho
 export function AttorneyContactForm() {
   const [values, setValues] = useState<FormValues>(initialValues)
   const [errors, setErrors] = useState<Partial<Record<keyof FormValues, string>>>({})
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'fallback'>('idle')
 
   function updateValue(field: keyof FormValues, value: string) {
     setValues((current) => ({...current, [field]: value}))
     setErrors((current) => ({...current, [field]: undefined}))
-    setSubmitted(false)
+    setStatus('idle')
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function emailHref() {
+    const body = [
+      `Firm: ${values.firmName.trim()}`,
+      `Contact: ${values.contactName.trim()}`,
+      `Email: ${values.email.trim()}`,
+      `Phone: ${values.phone.trim()}`,
+      '',
+      'Message:',
+      values.message.trim(),
+    ].join('\n')
+
+    return `mailto:gbruck@bruckcpa.com?subject=${encodeURIComponent(`Wills.com attorney inquiry — ${values.firmName.trim()}`)}&body=${encodeURIComponent(body)}`
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const nextErrors: Partial<Record<keyof FormValues, string>> = {}
 
@@ -36,18 +50,17 @@ export function AttorneyContactForm() {
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length) return
 
-    const body = [
-      `Firm: ${values.firmName.trim()}`,
-      `Contact: ${values.contactName.trim()}`,
-      `Email: ${values.email.trim()}`,
-      `Phone: ${values.phone.trim()}`,
-      '',
-      'Message:',
-      values.message.trim(),
-    ].join('\n')
-
-    window.location.href = `mailto:gbruck@bruckcpa.com?subject=${encodeURIComponent(`Wills.com attorney inquiry — ${values.firmName.trim()}`)}&body=${encodeURIComponent(body)}`
-    setSubmitted(true)
+    setStatus('submitting')
+    try {
+      const response = await fetch('/api/attorney-inquiry', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({...values, website: ''}),
+      })
+      setStatus(response.ok ? 'success' : 'fallback')
+    } catch {
+      setStatus('fallback')
+    }
   }
 
   return (
@@ -64,8 +77,9 @@ export function AttorneyContactForm() {
         {errors.message ? <p id="message-error" className="mt-2 text-sm text-red-600">{errors.message}</p> : null}
       </div>
       <div>
-        <button type="submit" className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-strong)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]">Submit inquiry</button>
-        {submitted ? <p role="status" className="mt-3 text-sm leading-6 text-[color:var(--muted)]">Your email application should now be open with your inquiry addressed to gbruck@bruckcpa.com.</p> : null}
+        <button type="submit" disabled={status === 'submitting'} className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-strong)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)] disabled:cursor-not-allowed disabled:opacity-70">{status === 'submitting' ? 'Sending inquiry…' : 'Submit inquiry'}</button>
+        {status === 'success' ? <p role="status" className="mt-3 text-sm leading-6 text-[color:var(--muted)]">Thank you—your inquiry has been sent. We will be in touch soon.</p> : null}
+        {status === 'fallback' ? <p role="status" className="mt-3 text-sm leading-6 text-[color:var(--muted)]">Direct delivery is temporarily unavailable. <a href={emailHref()} className="font-semibold text-[color:var(--accent-strong)] underline">Email your inquiry to gbruck@bruckcpa.com instead.</a></p> : null}
       </div>
     </form>
   )

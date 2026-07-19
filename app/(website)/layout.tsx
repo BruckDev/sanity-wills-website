@@ -93,6 +93,7 @@ function WebsiteHeader({data}: {data: any}) {
         {label: 'Wills', href: '/wills'},
         {label: 'Trusts', href: '/trusts'},
         {label: 'Estate planning', href: '/estate-planning'},
+        {label: 'Find an attorney', href: '/find-an-attorney'},
         {label: 'Articles', href: '/insights'},
         {label: 'For attorneys', href: '/contact'},
       ]}

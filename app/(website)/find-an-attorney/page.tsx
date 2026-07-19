@@ -19,6 +19,11 @@ export default function FindAnAttorneyPage() {
         </div>
       </section>
 
+      <section>
+        <div className="max-w-3xl"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">How the directory works</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">A clearer path to the right conversation.</h2></div>
+        <ol className="mt-8 grid gap-5 md:grid-cols-3">{[['01', 'Search by ZIP code', 'Start with the location where you need estate-planning help.'], ['02', 'Review verified profiles', 'As offices join, compare their jurisdiction, focus areas, and contact options.'], ['03', 'Contact the office', 'Reach out directly to ask about availability, fit, and next steps.']].map(([number, title, copy]) => <li key={number} className="rounded-2xl border border-[color:var(--border)] bg-white p-7 shadow-[0_14px_35px_rgba(8,35,58,0.05)]"><span className="text-sm font-bold text-[color:var(--accent)]">{number}</span><h3 className="mt-5 font-serif text-3xl tracking-[-0.03em] text-[color:var(--fg)]">{title}</h3><p className="mt-4 leading-7 text-[color:var(--muted)]">{copy}</p></li>)}</ol>
+      </section>
+
       <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-6 md:p-10">
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">For attorney offices</div>

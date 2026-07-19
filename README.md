@@ -138,6 +138,10 @@ You have the freedom to deploy your Next.js app to your hosting provider of choi
 2. Create a new Vercel project and connect it to your Github repository.
 3. Configure your Environment Variables.
 
+#### Attorney inquiry delivery
+
+The attorney partnership form can send submissions through [Resend](https://resend.com). Copy `.env.example` into your local environment and add the same values to Vercel. `CONTACT_FORM_FROM` must be a verified Resend sender; `CONTACT_FORM_RECIPIENT` defaults to `gbruck@bruckcpa.com` if it is not set. Until these values are configured, the form offers a direct-email fallback rather than claiming to have sent the submission.
+
 #### 2. Invite a collaborator
 
 Now that you’ve deployed your Next.js application and Sanity Studio, you can optionally invite a collaborator to your Studio. Open up [Manage](https://www.sanity.io/manage), select your project and click "Invite project members"
