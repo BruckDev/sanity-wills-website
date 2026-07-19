@@ -1,321 +1,117 @@
-import {CustomPortableText} from '@/components/CustomPortableText'
-import {AbstractPanel} from '@/components/site/AbstractPanel'
 import {ButtonLink} from '@/components/site/ButtonLink'
-import {CircuitAnimation} from '@/components/site/CircuitAnimation'
-import {InsightImage} from '@/components/site/InsightImage'
-import {PageHero} from '@/components/site/PageHero'
-import {SectionIntro} from '@/components/site/SectionIntro'
-import {ServiceImage} from '@/components/site/ServiceImage'
-import {getDynamicFetchOptions, sanityFetch} from '@/sanity/lib/live'
-import {
-  fallbackCaseStudies,
-  fallbackHome,
-  fallbackInsights,
-  fallbackServices,
-} from '@/sanity/lib/siteFallbacks'
-import {homeQuery, settingsQuery} from '@/sanity/lib/siteQueries'
 import Link from 'next/link'
 
-const defaultDisplayCopy = {
-  heroEyebrow: 'Wills',
-  heroBackgroundImageAlt:
-    'Abstract digital network background with glowing blue lines and hexagonal interface shapes.',
-  servicesEyebrow: 'Services overview',
-  serviceCardLinkLabel: 'View service',
-  allServicesLinkLabel: 'Explore All Services',
-  servicesAnimationAriaLabel: 'Abstract blue technology animation',
-  insightsEyebrow: 'Insights',
-  caseStudiesEyebrow: 'Case studies',
-  caseStudiesTitle: 'Editorial-ready client story structure',
-  caseStudiesDescription:
-    'The site is prepared for future approved case studies without inventing past performance.',
-  caseStudyPlaceholderLabel: 'Placeholder structure',
-  industriesEyebrow: 'Industries',
-  governmentEyebrow: 'Government',
-  governmentCtaLabel: 'View Government Capabilities',
-  governmentPanelTitle: 'Mission-focused support for procurement and modernization.',
-  governmentPanelSubtitle: 'Government support',
-  engineeringEyebrow: 'Engineering delivery',
-  whyUsEyebrow: 'Why us',
-  finalCtaEyebrow: 'Contact',
-}
+const planningSteps = [
+  ['01', 'Take stock', 'List what you own, what you owe, the people who depend on you, and the accounts that already have beneficiary designations.'],
+  ['02', 'Choose people carefully', 'Think through executors, trustees, guardians, health-care decision-makers, and backups. Talk with them before naming them.'],
+  ['03', 'Create documents that work together', 'A will, trust, powers of attorney, health-care documents, beneficiary designations, and asset titles can each play a different role.'],
+  ['04', 'Keep it current', 'Review after a marriage, divorce, birth, death, move, major purchase, business change, or a meaningful change in the law.'],
+]
 
-export default async function HomePage() {
-  const fetchOptions = await getDynamicFetchOptions()
-  const [{data: homeData}, {data: settingsData}] = await Promise.all([
-    sanityFetch({query: homeQuery, ...fetchOptions}),
-    sanityFetch({query: settingsQuery, ...fetchOptions}),
-  ])
-  const data: any = homeData
-  const home: any = data || fallbackHome
-  const display = {...defaultDisplayCopy, ...(home.display || {})}
-  const uiText = (settingsData as any)?.uiText || {}
-  const services = data?.featuredServices?.length
-    ? data.featuredServices
-    : fallbackServices.slice(0, 3)
-  const insights = data?.featuredInsights?.length ? data.featuredInsights : fallbackInsights
-  const caseStudies = data?.featuredCaseStudies?.length
-    ? data.featuredCaseStudies
-    : fallbackCaseStudies
-  const servicesVideoLinks = home.servicesVideoLinks?.length
-    ? home.servicesVideoLinks
-    : fallbackHome.servicesVideoLinks
-  const engineeringCapabilities = home.engineeringCapabilities?.length
-    ? home.engineeringCapabilities
-    : fallbackHome.engineeringCapabilities
+const consequences = [
+  ['State law decides', 'Without a valid will, a state’s intestacy rules generally determine who inherits. Those rules may not match your relationships or intentions.'],
+  ['No guardian nomination', 'A court may need to decide who will care for minor children if no legally effective nomination is in place.'],
+  ['More pressure on loved ones', 'Family members may need to locate records, open an estate, satisfy creditors, and make difficult choices with less direction.'],
+  ['Assets can pass differently', 'Joint ownership, beneficiary designations, and trust-owned property may pass outside a will—sometimes with results that surprise families.'],
+]
 
+export default function HomePage() {
   return (
-    <div className="space-y-24 pb-8 md:space-y-32">
-      <div className="w-full">
-        <PageHero
-          eyebrow={display.heroEyebrow}
-          title={home.title}
-          description={home.overview}
-          backgroundImageAlt={display.heroBackgroundImageAlt}
-          backgroundImageSrc="/images/home/hero-background.png"
-          primaryCta={home.heroPrimaryCta}
-          secondaryCta={home.heroSecondaryCta}
-          stats={home.heroHighlights?.length ? home.heroHighlights : fallbackHome.heroHighlights}
-          statsHeading={uiText.heroStatsHeading}
-        />
-      </div>
-
-      <section>
-        <SectionIntro
-          eyebrow={display.servicesEyebrow}
-          title={home.servicesTitle}
-          description={
-            <CustomPortableText id={null} type={null} path={[]} value={home.servicesIntro || []} />
-          }
-        />
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service: any) => (
-            <Link
-              key={service.slug || service.title}
-              href={`/services/${service.slug}`}
-              className="surface-card group flex min-h-full flex-col overflow-hidden rounded-2xl border border-[color:var(--border)] bg-white p-5 transition hover:-translate-y-1 hover:border-[color:var(--accent)]/40 md:p-6"
-            >
-              <ServiceImage
-                slug={service.slug}
-                image={service.image}
-                alt={service.image?.alt}
-                className="relative aspect-[16/10] overflow-hidden rounded-xl"
-                sizes="(min-width: 1280px) 24rem, (min-width: 768px) 50vw, 100vw"
-              />
-              <div className="mt-6">
-                <h3 className="text-2xl font-semibold leading-tight tracking-[-0.03em] text-[color:var(--fg)]">
-                  {service.title}
-                </h3>
-                <p className="mt-3 text-base leading-7 text-[color:var(--muted)]">
-                  {service.summary}
-                </p>
-              </div>
-              <div className="mt-auto pt-6 text-sm font-semibold text-[color:var(--accent)] group-hover:text-[color:var(--accent-strong)]">
-                {display.serviceCardLinkLabel}
-              </div>
-            </Link>
-          ))}
-        </div>
-        <div className="mt-8">
-          <ButtonLink href="/services" label={display.allServicesLinkLabel} style="secondary" />
-        </div>
-      </section>
-
-      <div className="w-full">
-        <section
-          aria-label={display.servicesAnimationAriaLabel}
-          className="relative isolate aspect-video overflow-hidden rounded-2xl bg-[#031429] shadow-[0_24px_60px_rgba(7,26,43,0.16)]"
-        >
-          <CircuitAnimation />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(3,16,35,0.82)_0%,rgba(3,16,35,0.58)_46%,rgba(3,16,35,0.16)_100%)]" />
-          <div className="relative z-10 flex h-full items-center justify-center px-6 py-8 text-center md:px-12 md:py-12">
-            <div className="max-w-4xl rounded-2xl border border-white/12 bg-[#031429]/76 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.22)] backdrop-blur-[2px] md:p-10">
-              <h2 className="text-4xl font-semibold leading-[0.98] tracking-tight text-white md:text-6xl xl:text-7xl">
-                {home.servicesVideoTitle || fallbackHome.servicesVideoTitle}
-              </h2>
-              <p className="mx-auto mt-5 max-w-3xl text-sm leading-6 text-white md:mt-7 md:text-lg md:leading-8">
-                {home.servicesVideoText || fallbackHome.servicesVideoText}
-              </p>
-              <div className="mt-7 flex flex-wrap justify-center gap-3">
-                {servicesVideoLinks.map((link: any) => (
-                  <Link
-                    key={`${link.label}-${link.href}`}
-                    href={link.href || '/'}
-                    className="inline-flex min-h-12 w-full items-center justify-center rounded-lg border border-white/30 bg-white px-6 py-3 text-sm font-semibold text-[#075d80] shadow-[0_8px_20px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:border-white hover:bg-[#eaf9ff] sm:w-[13rem]"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
+    <div className="space-y-20 pb-8 md:space-y-28">
+      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#173f36] bg-[#123c34] px-6 py-14 text-white shadow-[0_28px_70px_rgba(17,55,48,0.24)] md:px-12 md:py-20 lg:px-16">
+        <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#e9dcbd]/20" />
+        <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(228,192,111,0.22),transparent_64%)]" />
+        <div className="relative grid gap-12 lg:grid-cols-[minmax(0,1.18fr)_minmax(18rem,0.82fr)] lg:items-end">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e5ca8c]">Estate planning, made clearer</div>
+            <h1 className="mt-6 max-w-4xl font-serif text-5xl leading-[0.97] tracking-[-0.045em] md:text-7xl xl:text-8xl">
+              Make your wishes easier to carry out.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
+              Wills.com is a practical starting point for understanding wills, trusts, and the decisions that help protect the people and work that matter to you.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <ButtonLink href="/wills" label="Learn about wills" className="border-[#e7d2a1] bg-[#e7d2a1] !text-[#123c34] hover:bg-[#f3e5c7]" />
+              <ButtonLink href="/trusts" label="Explore trusts" style="secondary" className="border-white/30 bg-transparent !text-white hover:border-white hover:bg-white/10" />
             </div>
           </div>
-        </section>
-      </div>
-
-      <section className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-        <div>
-          <SectionIntro
-            eyebrow={display.insightsEyebrow}
-            title={home.insightsTitle}
-            description={
-              <CustomPortableText
-                id={null}
-                type={null}
-                path={[]}
-                value={home.insightsIntro || []}
-              />
-            }
-          />
-          <div className="mt-8 grid gap-6">
-            {insights.map((insight: any) => (
-              <article
-                key={insight.slug || insight.title}
-                className="surface-card rounded-2xl border border-[color:var(--border)] bg-white p-6 transition hover:-translate-y-1"
-              >
-                <div className="flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-[color:var(--accent)]">
-                  <span>{insight.articleType}</span>
-                  <span className="text-[color:var(--muted)]">{insight.estimatedReadTime}</span>
-                </div>
-                <InsightImage
-                  alt={insight.coverImage?.alt}
-                  className="relative mt-5 aspect-[16/9]"
-                  image={insight.coverImage}
-                  slug={insight.slug}
-                />
-                <h3 className="mt-5 text-2xl font-semibold leading-tight tracking-[-0.03em] text-[color:var(--fg)]">
-                  <Link href={`/insights/${insight.slug}`}>{insight.title}</Link>
-                </h3>
-                <p className="mt-3 text-base leading-7 text-[color:var(--muted)]">
-                  {insight.excerpt}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <SectionIntro
-            eyebrow={display.caseStudiesEyebrow}
-            title={display.caseStudiesTitle}
-            description={display.caseStudiesDescription}
-          />
-          <div className="mt-8 grid gap-6">
-            {caseStudies.map((study: any) => (
-              <article
-                key={study.slug || study.title}
-                className="surface-card rounded-2xl border border-[color:var(--border)] bg-white p-6"
-              >
-                <div className="text-xs font-bold uppercase tracking-[0.16em] text-[color:var(--accent)]">
-                  {display.caseStudyPlaceholderLabel}
-                </div>
-                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[color:var(--fg)]">
-                  <Link href={`/insights/case-studies/${study.slug}`}>{study.title}</Link>
-                </h3>
-                <p className="mt-3 text-base leading-7 text-[color:var(--muted)]">
-                  {study.excerpt}
-                </p>
-              </article>
-            ))}
-          </div>
+          <aside className="rounded-2xl border border-white/15 bg-white/[0.08] p-6 backdrop-blur-sm md:p-8">
+            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#e5ca8c]">Start with these questions</div>
+            <ul className="mt-6 space-y-5 text-base leading-7 text-white/85">
+              <li className="border-t border-white/15 pt-5 first:border-0 first:pt-0">Who should receive your property—and who should receive it if they cannot?</li>
+              <li className="border-t border-white/15 pt-5">Who do you trust to handle money, paperwork, and decisions?</li>
+              <li className="border-t border-white/15 pt-5">What needs special care: children, a home, a business, pets, or a loved one with disabilities?</li>
+            </ul>
+          </aside>
         </div>
       </section>
 
-      <section className="editorial-panel relative isolate grid gap-12 overflow-hidden rounded-2xl border border-white/10 bg-[color:var(--charcoal)] p-6 shadow-[0_24px_60px_rgba(7,26,43,0.2)] md:p-10 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.9fr)]">
+      <section className="grid gap-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:items-start">
         <div>
-          <SectionIntro
-            eyebrow={display.governmentEyebrow}
-            title={home.governmentTitle}
-            tone="dark"
-            description={
-              <CustomPortableText
-                id={null}
-                type={null}
-                path={[]}
-                value={home.governmentIntro || []}
-              />
-            }
-          />
-          <div className="mt-8 flex flex-wrap gap-3">
-            {(home.governmentCapabilities || []).map((capability: string) => (
-              <div
-                key={capability}
-                className="rounded-full border border-white/14 bg-white/[0.06] px-4 py-2 text-sm font-medium text-white/86"
-              >
-                {capability}
-              </div>
-            ))}
-          </div>
-          <div className="mt-8">
-            <ButtonLink href="/government" label={display.governmentCtaLabel} style="primary" />
-          </div>
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">The foundation</div>
+          <h2 className="mt-4 font-serif text-4xl leading-tight tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">A will and a trust solve different problems.</h2>
+          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">For many plans, the question is not “will or trust?” A well-considered plan can use a will as a safety net and a trust where ongoing management, privacy, or a more tailored distribution plan is useful.</p>
         </div>
-        <AbstractPanel
-          title={display.governmentPanelTitle}
-          subtitle={display.governmentPanelSubtitle}
-        />
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Link href="/wills" className="group rounded-2xl border border-[color:var(--border)] bg-white p-7 shadow-[0_18px_45px_rgba(29,46,41,0.06)] transition hover:-translate-y-1 hover:border-[#6a927a]">
+            <div className="text-sm font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Wills</div>
+            <h3 className="mt-5 font-serif text-3xl tracking-[-0.03em] text-[color:var(--fg)]">Give clear directions.</h3>
+            <p className="mt-4 leading-7 text-[color:var(--muted)]">Name an executor, nominate guardians for minor children, and direct probate assets to the people or causes you choose.</p>
+            <span className="mt-6 inline-flex text-sm font-semibold text-[color:var(--accent)] group-hover:underline">Read the will guide →</span>
+          </Link>
+          <Link href="/trusts" className="group rounded-2xl border border-[color:var(--border)] bg-[#f2f3eb] p-7 shadow-[0_18px_45px_rgba(29,46,41,0.06)] transition hover:-translate-y-1 hover:border-[#6a927a]">
+            <div className="text-sm font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Trusts</div>
+            <h3 className="mt-5 font-serif text-3xl tracking-[-0.03em] text-[color:var(--fg)]">Set terms for stewardship.</h3>
+            <p className="mt-4 leading-7 text-[color:var(--muted)]">A trust can hold property for beneficiaries and spell out how a trustee manages or distributes it under the terms you establish.</p>
+            <span className="mt-6 inline-flex text-sm font-semibold text-[color:var(--accent)] group-hover:underline">Read the trust guide →</span>
+          </Link>
+        </div>
       </section>
 
-      <section>
-        <SectionIntro
-          eyebrow={display.engineeringEyebrow}
-          title={home.engineeringCapabilitiesTitle || fallbackHome.engineeringCapabilitiesTitle}
-          description={
-            <CustomPortableText
-              id={null}
-              type={null}
-              path={[]}
-              value={home.engineeringCapabilitiesIntro || fallbackHome.engineeringCapabilitiesIntro}
-            />
-          }
-        />
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {engineeringCapabilities.map((capability: any) => (
-            <article
-              key={capability.title}
-              className="surface-card rounded-2xl border border-[color:var(--border)] bg-white p-6"
-            >
-              <h3 className="text-xl font-semibold leading-tight tracking-[-0.025em] text-[color:var(--fg)]">
-                {capability.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">{capability.text}</p>
+      <section className="rounded-[2rem] border border-[#d7d8ca] bg-[#e9ede1] p-6 md:p-10 lg:p-12">
+        <div className="max-w-3xl">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Why planning matters</div>
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">When there is no plan, there is still a process.</h2>
+          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">The difference is that more of the important choices may be made by default rules, a court, or the practical limits facing the people left behind.</p>
+        </div>
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {consequences.map(([title, text]) => (
+            <article key={title} className="rounded-xl border border-[#cfd4c4] bg-[#f9faf6] p-6">
+              <h3 className="font-serif text-2xl text-[color:var(--fg)]">{title}</h3>
+              <p className="mt-3 leading-7 text-[color:var(--muted)]">{text}</p>
             </article>
           ))}
         </div>
+        <p className="mt-7 text-sm leading-6 text-[color:var(--muted)]">Inheritance, probate, guardianship, creditor, tax, and trust rules differ by state and circumstances. A qualified attorney can explain how the rules apply to you.</p>
       </section>
 
       <section>
-        <SectionIntro eyebrow={display.whyUsEyebrow} title={home.whyUsTitle} />
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {(home.whyUsCards || []).map((card: any) => (
-            <article
-              key={card.title}
-              className="surface-card rounded-2xl border border-[color:var(--border)] bg-white p-6"
-            >
-              <h3 className="text-xl font-semibold leading-tight tracking-[-0.025em] text-[color:var(--fg)]">
-                {card.title}
-              </h3>
-              <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">{card.text}</p>
-            </article>
-          ))}
+        <div className="max-w-3xl">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">A practical path</div>
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">Planning is a series of decisions, not a single document.</h2>
         </div>
+        <ol className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {planningSteps.map(([number, title, text]) => (
+            <li key={number} className="border-t-2 border-[#b8cdb6] pt-5">
+              <div className="text-sm font-bold tracking-[0.15em] text-[color:var(--accent)]">{number}</div>
+              <h3 className="mt-3 font-serif text-2xl text-[color:var(--fg)]">{title}</h3>
+              <p className="mt-3 leading-7 text-[color:var(--muted)]">{text}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
-      <section className="editorial-panel overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--charcoal)] px-6 py-12 text-white shadow-[0_24px_60px_rgba(7,26,43,0.16)] md:px-10 md:py-16">
-        <div className="relative z-10 max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8de1b1]">
-            {display.finalCtaEyebrow}
-          </div>
-          <h2 className="mt-4 text-4xl font-semibold leading-[1.02] tracking-[-0.04em] md:text-5xl">
-            {home.finalCtaTitle}
-          </h2>
-          <div className="mt-6 text-lg leading-8 text-white/76">
-            <CustomPortableText id={null} type={null} path={[]} value={home.finalCtaText || []} />
-          </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink {...home.finalPrimaryCta} />
-            <ButtonLink {...home.finalSecondaryCta} />
-          </div>
+      <section className="grid gap-8 rounded-[2rem] bg-[#173f36] px-6 py-12 text-white md:px-10 md:py-14 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
+        <div>
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e5ca8c]">For attorneys and firms</div>
+          <h2 className="mt-4 max-w-3xl font-serif text-4xl tracking-[-0.035em] md:text-5xl">Share useful guidance with people who are ready to plan.</h2>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-white/75">We are building an editorial home for attorney-reviewed articles and practical explanations. Help readers understand the questions to ask before they seek legal advice.</p>
         </div>
+        <div className="lg:justify-self-end"><ButtonLink href="/contact" label="Contribute an article" className="border-[#e7d2a1] bg-[#e7d2a1] !text-[#123c34] hover:bg-[#f3e5c7]" /></div>
+      </section>
+
+      <section className="border-t border-[color:var(--border)] pt-8 text-sm leading-6 text-[color:var(--muted)]">
+        <strong className="font-semibold text-[color:var(--fg)]">Important:</strong> Wills.com provides general educational information, not legal, tax, or financial advice. Reading this site does not create an attorney-client relationship. Consult a licensed professional in your state about your circumstances.
       </section>
     </div>
   )
