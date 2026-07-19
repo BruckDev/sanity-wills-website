@@ -19,7 +19,7 @@ const consequences = [
 export default function HomePage() {
   return (
     <div className="space-y-20 pb-8 md:space-y-28">
-      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#071f33] bg-[#071f33] px-6 py-10 text-white shadow-[0_28px_70px_rgba(7,31,51,0.24)] md:px-12 md:py-12 lg:px-16">
+      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#071f33] bg-[#071f33] p-0 text-white shadow-[0_28px_70px_rgba(7,31,51,0.24)]">
         <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#00bb78]/25" />
         <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,187,120,0.22),transparent_64%)]" />
         <div className="relative">
