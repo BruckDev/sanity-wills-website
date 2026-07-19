@@ -83,6 +83,11 @@ export default function FeaturedAttorneySamplePage() {
         </aside>
       </section>
 
+      <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white lg:grid lg:grid-cols-2">
+        <div className="relative min-h-[24rem]"><Image src="/images/featured-attorneys/fba-corporate-leadership.png" alt="Sample corporate leadership team at Freidman, Berenstein and Anderson Law Group" fill className="object-cover object-center" sizes="(min-width: 1024px) 50vw, 100vw" /></div>
+        <div className="p-7 md:p-10 lg:flex lg:flex-col lg:justify-center"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Corporate leadership</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">A team built around responsive counsel.</h2><p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">This sample section shows how a featured office can introduce its leadership team and give prospective clients a more personal view of the people behind the practice.</p></div>
+      </section>
+
       <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Services</div>
