@@ -13,6 +13,31 @@ const qualifications = [
   'Known for a hands-on, accessible, and responsive client approach',
 ]
 
+const services = [
+  'Charitable Trusts',
+  'Deeds',
+  'Estate Planning',
+  'Estate Tax Planning',
+  'Irrevocable Insurance Trusts',
+  'Life Insurance Trusts',
+  'Living Wills',
+  'Postnuptial Agreements',
+  'Powers of Attorney',
+  'Powers of Attorney for Healthcare',
+  'Powers of Attorney for Property',
+  'Prenuptial Agreements',
+  'Probate Administration',
+  'QPRTS – Qualified Personal Residence Trusts',
+  'QTIP Trusts',
+  'Revocable Living Trusts',
+  'Special Needs Trusts',
+  'Tax Planning',
+  'Transfer on Death Instruments for Real Estate',
+  'Trust Administration',
+  'Trusts',
+  'Wills',
+]
+
 export default function FeaturedAttorneySamplePage() {
   return (
     <div className="space-y-12 pb-8 md:space-y-16">
@@ -55,6 +80,19 @@ export default function FeaturedAttorneySamplePage() {
             <div><dt className="font-semibold text-[color:var(--fg)]">Email</dt><dd className="mt-1 break-all"><a className="text-[color:var(--accent-strong)] hover:underline" href="mailto:freidman@fbalaw.com">freidman@fbalaw.com</a></dd></div>
           </dl>
         </aside>
+      </section>
+
+      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
+        <div className="max-w-3xl">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Services</div>
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">Our Estate Planning Services</h2>
+          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">A sample featured office can make its focus areas easy for readers to scan before reaching out.</p>
+        </div>
+        <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <li key={service} className="rounded-xl border border-[#d6e2e8] bg-white px-5 py-4 text-sm font-semibold leading-6 text-[color:var(--fg)]">{service}</li>
+          ))}
+        </ul>
       </section>
 
       <section className="rounded-[2rem] border border-[#071f33] bg-[#071f33] px-7 py-10 text-white md:px-10 md:py-12">
