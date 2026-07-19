@@ -62,7 +62,7 @@ export default function FeaturedAttorneySamplePage() {
           </div>
           <p className="mt-5 text-sm font-semibold text-[color:var(--accent)]">Free consultations available</p>
         </div>
-        <div className="relative min-h-[28rem] border-t border-white/15 bg-white p-8 lg:border-l lg:border-t-0 md:p-12"><Image src="/images/featured-attorneys/freidman-berenstein-anderson-logo.png" alt="Freidman, Berenstein and Anderson Attorneys at Law" fill priority className="object-contain p-8 md:p-12" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
+        <div className="relative min-h-[22rem] border-t border-white/15 bg-white lg:border-l lg:border-t-0"><Image src="/images/featured-attorneys/freidman-berenstein-anderson-logo.png" alt="Freidman, Berenstein and Anderson Attorneys at Law" fill priority className="object-contain p-8 md:p-12" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
       </section>
 
       <section className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)] lg:items-start">
@@ -78,19 +78,23 @@ export default function FeaturedAttorneySamplePage() {
           </ul>
         </div>
 
-        <aside className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-8">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Office details</div>
-          <h2 className="mt-4 font-serif text-3xl tracking-[-0.035em] text-[color:var(--fg)]">Chicago, Illinois</h2>
-          <address className="mt-5 not-italic leading-7 text-[color:var(--muted)]">411 A Wacker Dr<br />Suite 7007<br />Chicago, IL 60606</address>
-          <dl className="mt-7 space-y-5 border-t border-[#cbdce3] pt-6 text-sm">
-            <div><dt className="font-semibold text-[color:var(--fg)]">Phone</dt><dd className="mt-1"><a className="text-[color:var(--accent-strong)] hover:underline" href="tel:+16306257571">+1-630-625-7571</a></dd></div>
-            <div><dt className="font-semibold text-[color:var(--fg)]">Email</dt><dd className="mt-1 break-all"><a className="text-[color:var(--accent-strong)] hover:underline" href="mailto:freidman@fbalaw.com">freidman@fbalaw.com</a></dd></div>
-          </dl>
+        <aside className="overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6]">
+          <div className="relative aspect-[16/10]"><Image src="/images/featured-attorneys/chicago-office-building.jpg" alt="Chicago office building near the sample firm location" fill className="object-cover object-center" sizes="(min-width: 1024px) 32vw, 100vw" /></div>
+          <div className="p-7 md:p-8">
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Office details</div>
+            <h2 className="mt-4 font-serif text-3xl tracking-[-0.035em] text-[color:var(--fg)]">Chicago, Illinois</h2>
+            <address className="mt-5 not-italic leading-7 text-[color:var(--muted)]">411 A Wacker Dr<br />Suite 7007<br />Chicago, IL 60606</address>
+            <dl className="mt-7 space-y-5 border-t border-[#cbdce3] pt-6 text-sm">
+              <div><dt className="font-semibold text-[color:var(--fg)]">Phone</dt><dd className="mt-1"><a className="text-[color:var(--accent-strong)] hover:underline" href="tel:+16306257571">+1-630-625-7571</a></dd></div>
+              <div><dt className="font-semibold text-[color:var(--fg)]">Email</dt><dd className="mt-1 break-all"><a className="text-[color:var(--accent-strong)] hover:underline" href="mailto:freidman@fbalaw.com">freidman@fbalaw.com</a></dd></div>
+              <div><dt className="font-semibold text-[color:var(--fg)]">Website</dt><dd className="mt-1 break-all"><a className="text-[color:var(--accent-strong)] hover:underline" href="https://www.fdalaw.com">www.fdalaw.com</a></dd></div>
+            </dl>
+          </div>
         </aside>
       </section>
 
       <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white lg:grid lg:grid-cols-2">
-        <div className="relative min-h-[24rem]"><Image src="/images/featured-attorneys/fba-corporate-leadership.png" alt="Sample corporate leadership team at Freidman, Berenstein and Anderson Law Group" fill className="object-cover object-center" sizes="(min-width: 1024px) 50vw, 100vw" /></div>
+        <div className="relative min-h-[20rem]"><Image src="/images/featured-attorneys/fba-corporate-leadership.png" alt="Sample corporate leadership team at Freidman, Berenstein and Anderson Law Group" fill className="object-cover object-center" sizes="(min-width: 1024px) 50vw, 100vw" /></div>
         <div className="p-7 md:p-10 lg:flex lg:flex-col lg:justify-center"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Corporate leadership</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">A team built around responsive counsel.</h2><p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">This sample section shows how a featured office can introduce its leadership team and give prospective clients a more personal view of the people behind the practice.</p></div>
       </section>
 
