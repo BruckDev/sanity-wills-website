@@ -22,24 +22,24 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#071f33] bg-[#071f33] px-6 py-14 text-white shadow-[0_28px_70px_rgba(7,31,51,0.24)] md:px-12 md:py-20 lg:px-16">
         <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#00bb78]/25" />
         <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,187,120,0.22),transparent_64%)]" />
-        <div className="relative grid gap-12 lg:grid-cols-[minmax(0,1.18fr)_minmax(18rem,0.82fr)] lg:items-end">
-          <div>
+        <div className="relative">
+          <div className="mx-auto max-w-4xl text-center">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Estate planning, made clearer</div>
-            <h1 className="mt-6 max-w-4xl font-serif text-5xl leading-[0.97] tracking-[-0.045em] md:text-7xl xl:text-8xl">
+            <h1 className="mt-6 font-serif text-5xl leading-[0.97] tracking-[-0.045em] md:text-7xl xl:text-8xl">
               Make your wishes easier to carry out.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
+            <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-white/80 md:text-xl">
               Wills.com is a practical starting point for understanding wills, trusts, and the decisions that help protect the people and work that matter to you.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap justify-center gap-3">
               <ButtonLink href="/wills" label="Learn about wills" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" />
               <ButtonLink href="/trusts" label="Explore trusts" style="secondary" className="border-white/30 bg-transparent !text-white hover:border-white hover:bg-white/10" />
             </div>
           </div>
-          <aside className="overflow-hidden rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur-sm">
-            <div className="relative aspect-[4/3]"><Image src="/images/estate-planning/advisor-consultation.png" alt="An estate-planning professional meeting with an older couple" fill priority className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
-            <div className="p-6 md:p-8"><div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Start with these questions</div>
-              <ul className="mt-6 space-y-5 text-base leading-7 text-white/85">
+          <aside className="mt-12">
+            <div className="relative hidden aspect-[4/3]"><Image src="/images/estate-planning/advisor-consultation.png" alt="An estate-planning professional meeting with an older couple" fill priority className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
+            <div><div className="text-center text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Start with these questions</div>
+              <ul className="mt-6 grid gap-4 text-left text-base leading-7 text-white/85 md:grid-cols-3 md:gap-5 [&_li]:!rounded-2xl [&_li]:!border [&_li]:!border-white/15 [&_li]:!bg-white/[0.07] [&_li]:!p-6">
                 <li className="border-t border-white/15 pt-5 first:border-0 first:pt-0">Who should receive your property—and who should receive it if they cannot?</li>
                 <li className="border-t border-white/15 pt-5">Who do you trust to handle money, paperwork, and decisions?</li>
                 <li className="border-t border-white/15 pt-5">What needs special care: children, a home, a business, pets, or a loved one with disabilities?</li>
