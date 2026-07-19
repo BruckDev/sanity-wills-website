@@ -14,7 +14,7 @@ export function ButtonLink({href, label, style = 'primary', className = ''}: But
 
   const styles = {
     primary:
-      'border border-[color:var(--charcoal)] bg-[color:var(--charcoal)] text-white shadow-[0_10px_24px_rgba(7,26,43,0.18)] hover:-translate-y-0.5 hover:bg-[#102b43] hover:shadow-[0_14px_30px_rgba(7,26,43,0.25)] focus-visible:outline-[color:var(--accent)]',
+      'border border-[color:var(--accent)] bg-[color:var(--accent)] text-[#061e31] shadow-[0_10px_24px_rgba(7,31,51,0.16)] hover:-translate-y-0.5 hover:bg-[color:var(--accent-strong)] hover:text-white hover:shadow-[0_14px_30px_rgba(7,31,51,0.22)] focus-visible:outline-[color:var(--accent)]',
     secondary:
       'border border-[color:var(--border-strong)] bg-white text-[color:var(--fg)] shadow-[0_8px_18px_rgba(7,26,43,0.05)] hover:-translate-y-0.5 hover:border-[color:var(--accent)] hover:text-[color:var(--fg)] focus-visible:outline-[color:var(--accent)]',
     text: 'border-none bg-transparent px-0 text-[color:var(--fg)] underline decoration-[color:var(--accent)] underline-offset-4 hover:text-[color:var(--accent)]',

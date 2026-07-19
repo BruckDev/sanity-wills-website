@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export const viewport: Viewport = {themeColor: '#173f36'}
+export const viewport: Viewport = {themeColor: '#071f33'}
 
 export default async function WebsiteLayout({children}: LayoutProps<'/'>) {
   const {isEnabled: isDraftMode} = await draftMode()

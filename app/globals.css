@@ -6,22 +6,22 @@
   --font-sans: Inter, Aptos, 'Segoe UI Variable', 'Helvetica Neue', Arial, sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
   --font-mono: Consolas, 'Courier New', monospace;
-  --bg: #f8f8f3;
+  --bg: #f7fafc;
   --surface: #ffffff;
   --bg-elevated: rgba(255, 255, 255, 0.9);
-  --bg-strong: #e9ede1;
-  --fg: #1c352d;
-  --muted: #51635c;
-  --border: rgba(28, 53, 45, 0.14);
-  --border-strong: rgba(28, 53, 45, 0.25);
-  --accent: #176648;
-  --accent-strong: #0c5239;
+  --bg-strong: #e7eff4;
+  --fg: #08233a;
+  --muted: #52677a;
+  --border: rgba(8, 35, 58, 0.14);
+  --border-strong: rgba(8, 35, 58, 0.28);
+  --accent: #00bb78;
+  --accent-strong: #009b64;
   --accent-contrast: #ffffff;
-  --success: #087b4b;
+  --success: #00a96b;
   --warning: #8a5d0a;
-  --charcoal: #173f36;
-  --ink-soft: #2d4b41;
-  --grid-line: rgba(28, 53, 45, 0.035);
+  --charcoal: #071f33;
+  --ink-soft: #173a55;
+  --grid-line: rgba(8, 35, 58, 0.035);
 }
 
 html {
