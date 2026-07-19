@@ -38,6 +38,12 @@ const services = [
   'Wills',
 ]
 
+const sampleReviews = [
+  ['“Clear guidance when our family needed it most.”', 'Sample client review · Chicago, Illinois'],
+  ['“The process felt organized, thoughtful, and easy to understand.”', 'Sample client review · Illinois'],
+  ['“A responsive approach that made difficult planning conversations more manageable.”', 'Sample client review · Chicago area'],
+]
+
 export default function FeaturedAttorneySamplePage() {
   return (
     <div className="space-y-12 pb-8 md:space-y-16">
@@ -86,6 +92,18 @@ export default function FeaturedAttorneySamplePage() {
       <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white lg:grid lg:grid-cols-2">
         <div className="relative min-h-[24rem]"><Image src="/images/featured-attorneys/fba-corporate-leadership.png" alt="Sample corporate leadership team at Freidman, Berenstein and Anderson Law Group" fill className="object-cover object-center" sizes="(min-width: 1024px) 50vw, 100vw" /></div>
         <div className="p-7 md:p-10 lg:flex lg:flex-col lg:justify-center"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Corporate leadership</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">A team built around responsive counsel.</h2><p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">This sample section shows how a featured office can introduce its leadership team and give prospective clients a more personal view of the people behind the practice.</p></div>
+      </section>
+
+      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
+        <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Sample client reviews</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">A five-star experience, illustrated.</h2><p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">These fictional testimonials demonstrate how a featured office could present verified client feedback.</p></div>
+          <div className="rounded-xl bg-[#071f33] px-6 py-5 text-white"><div className="text-3xl leading-none text-[color:var(--accent)]" aria-label="Five out of five stars">★★★★★</div><div className="mt-2 text-sm font-semibold">5.0 out of 5 stars</div><div className="mt-1 text-xs text-white/65">Sample rating format</div></div>
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {sampleReviews.map(([quote, attribution]) => (
+            <figure key={quote} className="rounded-2xl border border-[#d6e2e8] bg-white p-6"><div className="text-xl leading-none text-[color:var(--accent)]" aria-hidden="true">★★★★★</div><blockquote className="mt-5 font-serif text-2xl leading-8 tracking-[-0.02em] text-[color:var(--fg)]">{quote}</blockquote><figcaption className="mt-5 text-sm leading-6 text-[color:var(--muted)]">{attribution}</figcaption></figure>
+          ))}
+        </div>
       </section>
 
       <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
