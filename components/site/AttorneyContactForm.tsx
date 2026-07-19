@@ -46,7 +46,7 @@ export function AttorneyContactForm() {
       values.message.trim(),
     ].join('\n')
 
-    window.location.href = `mailto:partnerships@wills.com?subject=${encodeURIComponent(`Wills.com attorney inquiry — ${values.firmName.trim()}`)}&body=${encodeURIComponent(body)}`
+    window.location.href = `mailto:gbruck@bruckcpa.com?subject=${encodeURIComponent(`Wills.com attorney inquiry — ${values.firmName.trim()}`)}&body=${encodeURIComponent(body)}`
     setSubmitted(true)
   }
 
@@ -65,7 +65,7 @@ export function AttorneyContactForm() {
       </div>
       <div>
         <button type="submit" className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-strong)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]">Submit inquiry</button>
-        {submitted ? <p role="status" className="mt-3 text-sm leading-6 text-[color:var(--muted)]">Your email application should now be open with your inquiry addressed to partnerships@wills.com.</p> : null}
+        {submitted ? <p role="status" className="mt-3 text-sm leading-6 text-[color:var(--muted)]">Your email application should now be open with your inquiry addressed to gbruck@bruckcpa.com.</p> : null}
       </div>
     </form>
   )
