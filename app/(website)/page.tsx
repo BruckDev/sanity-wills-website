@@ -31,7 +31,7 @@ export default function HomePage() {
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-white/80 md:text-xl">
               Wills.com is a practical starting point for understanding wills, trusts, and the decisions that help protect the people and work that matter to you.
             </p>
-            <div className="relative mx-auto mt-8 aspect-[16/7] max-w-4xl overflow-hidden rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)]">
+            <div className="relative mx-auto mt-8 aspect-[16/8] max-w-4xl overflow-hidden rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)]">
               <Image src="/images/estate-planning/family-hero.png" alt="A family spending time together outdoors" fill priority className="object-cover" sizes="(min-width: 1280px) 58rem, (min-width: 768px) 78vw, 100vw" />
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -42,7 +42,7 @@ export default function HomePage() {
           </div>
           <aside className="mt-8">
             <div><div className="text-center text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Start with these questions</div>
-              <ul className="mt-4 grid gap-3 text-left text-sm leading-6 text-white/85 md:grid-cols-3 md:gap-4 [&_li]:!rounded-2xl [&_li]:!border [&_li]:!border-white/15 [&_li]:!bg-white/[0.07] [&_li]:!p-4">
+              <ul className="mt-4 grid gap-3 text-left text-sm leading-6 text-white/85 md:grid-cols-3 md:gap-4 [&_li]:!rounded-2xl [&_li]:!border [&_li]:!border-white/15 [&_li]:!bg-white/[0.07] [&_li]:!p-4 md:[&_li]:!min-h-40">
                 <li className="border-t border-white/15 pt-5 first:border-0 first:pt-0">Who should receive your property—and who should receive it if they cannot?</li>
                 <li className="border-t border-white/15 pt-5">Who do you trust to handle money, paperwork, and decisions?</li>
                 <li className="border-t border-white/15 pt-5">What needs special care: children, a home, a business, pets, or a loved one with disabilities?</li>
