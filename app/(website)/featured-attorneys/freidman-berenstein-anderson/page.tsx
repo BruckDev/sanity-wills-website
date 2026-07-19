@@ -56,12 +56,12 @@ export default function FeaturedAttorneySamplePage() {
           </div>
           <p className="mt-5 text-sm font-semibold text-[color:var(--accent)]">Free consultations available</p>
         </div>
-        <div className="relative min-h-[28rem] border-t border-white/15 lg:border-l lg:border-t-0"><Image src="/images/featured-attorneys/christopher-freidman.png" alt="Christopher Freidman, sample featured attorney" fill priority className="object-cover object-top" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
+        <div className="relative min-h-[28rem] border-t border-white/15 bg-white p-8 lg:border-l lg:border-t-0 md:p-12"><Image src="/images/featured-attorneys/freidman-berenstein-anderson-logo.png" alt="Freidman, Berenstein and Anderson Attorneys at Law" fill priority className="object-contain p-8 md:p-12" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
       </section>
 
       <section className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)] lg:items-start">
         <div className="rounded-[2rem] border border-[color:var(--border)] bg-white p-7 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:p-10">
-          <div className="relative aspect-[3/2] max-w-md overflow-hidden"><Image src="/images/featured-attorneys/freidman-berenstein-anderson-logo.png" alt="Freidman, Berenstein and Anderson Attorneys at Law" fill className="object-contain" sizes="(min-width: 768px) 28rem, 100vw" /></div>
+          <div className="relative aspect-[4/5] max-w-sm overflow-hidden rounded-2xl"><Image src="/images/featured-attorneys/christopher-freidman.png" alt="Christopher Freidman, sample featured attorney" fill className="object-cover object-top" sizes="(min-width: 768px) 24rem, 100vw" /></div>
           <div className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Meet the attorney</div>
           <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">Christopher Freidman</h2>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-[color:var(--muted)]">For people planning for the future, the right attorney relationship can make complex decisions easier to approach. This sample profile highlights the kind of clear, human-focused information an office could share with Wills.com readers.</p>
