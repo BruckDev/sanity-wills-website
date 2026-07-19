@@ -4,62 +4,26 @@ import {SiteHeader} from '@/components/site/SiteHeader'
 import {
   getDynamicFetchOptions,
   sanityFetch,
-  sanityFetchMetadata,
   SanityLive,
   type DynamicFetchOptions,
 } from '@/sanity/lib/live'
 import {fallbackSettings} from '@/sanity/lib/siteFallbacks'
 import {settingsQuery} from '@/sanity/lib/siteQueries'
-import {urlForOpenGraphImage} from '@/sanity/lib/utils'
 import {SpeedInsights} from '@vercel/speed-insights/next'
 import type {Metadata, Viewport} from 'next'
-import {defineQuery} from 'next-sanity'
 import {VisualEditing} from 'next-sanity/visual-editing'
 import {draftMode} from 'next/headers'
 import {Suspense} from 'react'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const layoutMetadataQuery = defineQuery(`{
-    "settings": *[_type == "settings"][0]{
-      ogImage,
-      seo,
-      siteTitle
-    },
-    "home": *[_type == "home"][0]{
-      title,
-      seo,
-      "overview": pt::text(overview)
-    }
-  }`)
-  const metadataData = (
-    await sanityFetchMetadata({
-      query: layoutMetadataQuery,
-      perspective: 'published',
-    })
-  ).data as any
-  const settings = metadataData?.settings || {}
-  const home = metadataData?.home || {}
-  const ogImage = urlForOpenGraphImage(settings?.ogImage)
-  const title =
-    home?.seo?.title || settings?.seo?.title || home?.title || fallbackSettings.seo.title
-  const description =
-    home?.seo?.description ||
-    settings?.seo?.description ||
-    home?.overview ||
-    fallbackSettings.seo.description
-
   return {
-    title: {template: `%s | ${settings?.siteTitle || fallbackSettings.siteTitle}`, default: title},
-    description,
-    openGraph: {
-      title,
-      description,
-      images: ogImage ? [ogImage] : [],
-    },
+    title: {template: '%s | Wills.com', default: 'Wills.com | Estate planning guidance'},
+    description: 'Clear educational guidance about wills, trusts, and estate planning.',
+    openGraph: {title: 'Wills.com | Estate planning guidance', description: 'Clear educational guidance about wills, trusts, and estate planning.'},
   }
 }
 
-export const viewport: Viewport = {themeColor: '#111111'}
+export const viewport: Viewport = {themeColor: '#173f36'}
 
 export default async function WebsiteLayout({children}: LayoutProps<'/'>) {
   const {isEnabled: isDraftMode} = await draftMode()
@@ -125,23 +89,17 @@ async function fetchSettings(fetchOptions: DynamicFetchOptions) {
 function WebsiteHeader({data}: {data: any}) {
   return (
     <SiteHeader
-      brandEyebrow={data?.brandEyebrow || fallbackSettings.brandEyebrow}
-      siteTitle={data?.siteTitle || fallbackSettings.siteTitle}
-      navigation={data?.headerNavigation || fallbackSettings.headerNavigation}
-      uiText={data?.uiText}
+      navigation={[
+        {label: 'Wills', href: '/wills'},
+        {label: 'Trusts', href: '/trusts'},
+        {label: 'Estate planning', href: '/estate-planning'},
+        {label: 'Articles', href: '/insights'},
+        {label: 'For attorneys', href: '/contact'},
+      ]}
     />
   )
 }
 
 function WebsiteFooter({data}: {data: any}) {
-  return (
-    <SiteFooter
-      siteTitle={data?.siteTitle || fallbackSettings.siteTitle}
-      contactMethods={data?.contactMethods || fallbackSettings.contactMethods}
-      footerColumns={data?.footerColumns || fallbackSettings.footerColumns}
-      footerNote={data?.footerNote || fallbackSettings.footerNote}
-      linkedin={data?.linkedin}
-      uiText={data?.uiText}
-    />
-  )
+  return <SiteFooter />
 }
