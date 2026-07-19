@@ -83,21 +83,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-6 md:p-10 lg:p-12">
-        <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Why planning matters</div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">When there is no plan, there is still a process.</h2>
-          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">The difference is that more of the important choices may be made by default rules, a court, or the practical limits facing the people left behind.</p>
-        </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {consequences.map(([title, text]) => (
-            <article key={title} className="rounded-xl border border-[#cfd4c4] bg-[#f9faf6] p-6">
-              <h3 className="font-serif text-2xl text-[color:var(--fg)]">{title}</h3>
-              <p className="mt-3 leading-7 text-[color:var(--muted)]">{text}</p>
-            </article>
-          ))}
-        </div>
-        <p className="mt-7 text-sm leading-6 text-[color:var(--muted)]">Inheritance, probate, guardianship, creditor, tax, and trust rules differ by state and circumstances. A qualified attorney can explain how the rules apply to you.</p>
+      <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white md:grid md:grid-cols-2">
+        <div className="relative min-h-72"><Image src="/images/estate-planning/tax-planning.png" alt="Tax and estate-planning paperwork with a calculator" fill className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" /></div>
+        <div className="p-7 md:p-10"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">A coordinated conversation</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">Bring the right advisers into the room.</h2><p className="mt-5 leading-8 text-[color:var(--muted)]">Legal, tax, insurance, and financial considerations can overlap. A qualified attorney can help determine when other professionals should be part of the planning process.</p></div>
       </section>
 
       <section className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -121,11 +109,6 @@ export default function HomePage() {
         </ol>
       </section>
 
-      <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white md:grid md:grid-cols-2">
-        <div className="relative min-h-72"><Image src="/images/estate-planning/tax-planning.png" alt="Tax and estate-planning paperwork with a calculator" fill className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" /></div>
-        <div className="p-7 md:p-10"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">A coordinated conversation</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">Bring the right advisers into the room.</h2><p className="mt-5 leading-8 text-[color:var(--muted)]">Legal, tax, insurance, and financial considerations can overlap. A qualified attorney can help determine when other professionals should be part of the planning process.</p></div>
-      </section>
-
       <section className="grid gap-8 rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-10 md:py-14 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
         <div>
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">For attorneys and firms</div>
@@ -133,6 +116,23 @@ export default function HomePage() {
           <p className="mt-5 max-w-2xl text-lg leading-8 text-white/75">We are building an editorial home for attorney-reviewed articles and practical explanations. Help readers understand the questions to ask before they seek legal advice.</p>
         </div>
         <div className="lg:justify-self-end"><ButtonLink href="/contact" label="Contribute an article" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" /></div>
+      </section>
+
+      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-6 md:p-10 lg:p-12">
+        <div className="max-w-3xl">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Why planning matters</div>
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">When there is no plan, there is still a process.</h2>
+          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">The difference is that more of the important choices may be made by default rules, a court, or the practical limits facing the people left behind.</p>
+        </div>
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {consequences.map(([title, text]) => (
+            <article key={title} className="rounded-xl border border-[#cfd4c4] bg-[#f9faf6] p-6">
+              <h3 className="font-serif text-2xl text-[color:var(--fg)]">{title}</h3>
+              <p className="mt-3 leading-7 text-[color:var(--muted)]">{text}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mt-7 text-sm leading-6 text-[color:var(--muted)]">Inheritance, probate, guardianship, creditor, tax, and trust rules differ by state and circumstances. A qualified attorney can explain how the rules apply to you.</p>
       </section>
 
       <section className="border-t border-[color:var(--border)] pt-8 text-sm leading-6 text-[color:var(--muted)]">
