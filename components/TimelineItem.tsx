@@ -23,13 +23,13 @@ export function TimelineItem({milestone}: {milestone: Milestone}) {
           />
         </div>
         {/* Vertical line */}
-        <div className="mt-2 w-px grow self-center bg-gray-200 group-last:hidden" />
+        <div className="mt-2 w-px grow self-center bg-[color:var(--border)] group-last:hidden" />
       </div>
       <div className="flex-initial pl-4">
         {/* Title */}
-        <div className="font-bold text-black">{title}</div>
+        <div className="font-bold text-[color:var(--fg)]">{title}</div>
         {/* Tags */}
-        <div className="text-sm text-gray-600">
+        <div className="text-sm text-[color:var(--muted)]">
           {tags?.map((tag, key) => (
             <span key={key}>
               {tag}
@@ -39,7 +39,7 @@ export function TimelineItem({milestone}: {milestone: Milestone}) {
           {startYear} - {endYear}
         </div>
         {/* Description */}
-        <div className="pb-5 pt-3 font-serif text-gray-600">{description}</div>
+        <div className="pb-5 pt-3 leading-7 text-[color:var(--muted)]">{description}</div>
       </div>
     </div>
   )
