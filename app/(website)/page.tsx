@@ -49,13 +49,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid gap-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:items-start">
-        <div>
+      <section className="space-y-10 md:space-y-12">
+        <div className="mx-auto max-w-3xl text-center">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">The foundation</div>
           <h2 className="mt-4 font-serif text-4xl leading-tight tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">A will and a trust solve different problems.</h2>
           <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">For many plans, the question is not “will or trust?” A well-considered plan can use a will as a safety net and a trust where ongoing management, privacy, or a more tailored distribution plan is useful.</p>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="mx-auto grid w-full max-w-5xl gap-5 md:grid-cols-2">
           <Link href="/wills" className="group rounded-2xl border border-[color:var(--border)] bg-white p-7 shadow-[0_18px_45px_rgba(8,35,58,0.06)] transition hover:-translate-y-1 hover:border-[color:var(--accent)]">
             <div className="relative -mx-2 -mt-2 mb-6 aspect-[16/9] overflow-hidden rounded-xl"><Image src="/images/estate-planning/will-document.png" alt="Will and testament document with a pen" fill className="object-cover" sizes="(min-width: 640px) 24rem, 100vw" /></div>
             <div className="text-sm font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Wills</div>
