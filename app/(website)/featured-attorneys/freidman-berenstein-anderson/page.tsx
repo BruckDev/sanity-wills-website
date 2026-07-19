@@ -89,6 +89,7 @@ export default function FeaturedAttorneySamplePage() {
               <div><dt className="font-semibold text-[color:var(--fg)]">Email</dt><dd className="mt-1 break-all"><a className="text-[color:var(--accent-strong)] hover:underline" href="mailto:freidman@fbalaw.com">freidman@fbalaw.com</a></dd></div>
               <div><dt className="font-semibold text-[color:var(--fg)]">Website</dt><dd className="mt-1 break-all"><a className="text-[color:var(--accent-strong)] hover:underline" href="https://www.fdalaw.com">www.fdalaw.com</a></dd></div>
             </dl>
+            <div className="mt-7 flex items-center gap-4 rounded-xl border border-[#cbdce3] bg-white p-4"><div className="relative h-20 w-16 shrink-0"><Image src="/images/featured-attorneys/best-law-firms-badge.png" alt="Best Law Firms badge, shown as a sample recognition placement" fill className="object-contain" sizes="4rem" /></div><p className="text-xs leading-5 text-[color:var(--muted)]"><span className="block font-semibold text-[color:var(--fg)]">Sample recognition placement</span>Best Law Firms badge shown for marketing-layout demonstration only.</p></div>
           </div>
         </aside>
       </section>
