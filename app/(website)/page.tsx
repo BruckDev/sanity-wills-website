@@ -36,7 +36,8 @@ export default function HomePage() {
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <ButtonLink href="/wills" label="Learn about wills" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" />
-              <ButtonLink href="/trusts" label="Explore trusts" style="secondary" className="border-white/30 bg-transparent !text-white hover:border-white hover:bg-white/10" />
+              <ButtonLink href="/trusts" label="Explore trusts" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" />
+              <ButtonLink href="/contact" label="Find professionals near me" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" />
             </div>
           </div>
           <aside className="mt-8">
