@@ -54,6 +54,7 @@ export default function FeaturedAttorneySamplePage() {
             <a href="tel:+16306257571" className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-strong)] hover:text-white">Call +1-630-625-7571</a>
             <a href="mailto:freidman@fbalaw.com" className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">Email the office</a>
           </div>
+          <p className="mt-5 text-sm font-semibold text-[color:var(--accent)]">Free consultations available</p>
         </div>
         <div className="relative min-h-[28rem] border-t border-white/15 lg:border-l lg:border-t-0"><Image src="/images/featured-attorneys/christopher-freidman.png" alt="Christopher Freidman, sample featured attorney" fill priority className="object-cover object-top" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
       </section>
