@@ -18,8 +18,8 @@ export default function ContactPage() {
         <article className="rounded-2xl border border-[color:var(--border)] bg-white p-7"><h2 className="font-serif text-3xl text-[color:var(--fg)]">Build public trust</h2><p className="mt-4 leading-7 text-[color:var(--muted)]">Help readers understand the issues that make a professional conversation worthwhile, without promising outcomes or offering individualized advice online.</p></article>
         <article className="rounded-2xl border border-[color:var(--border)] bg-white p-7"><h2 className="font-serif text-3xl text-[color:var(--fg)]">Future advertising</h2><p className="mt-4 leading-7 text-[color:var(--muted)]">As the audience grows, Wills.com expects to offer clearly labeled sponsorship and advertising opportunities designed to preserve editorial clarity.</p></article>
       </section>
-      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
-        <div className="max-w-3xl"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Start a conversation</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">Tell us about your firm.</h2><p className="mt-4 leading-7 text-[color:var(--muted)]">Share your contact information, the work your firm does, and how you would like to participate in Wills.com.</p></div>
+      <section className="rounded-[2rem] border border-[#071f33] bg-[#071f33] p-7 text-white md:p-10">
+        <div className="max-w-3xl"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Start a conversation</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em]">Tell us about your firm.</h2><p className="mt-4 leading-7 text-white/78">Share your contact information, the work your firm does, and how you would like to participate in Wills.com.</p></div>
         <div className="mt-8"><AttorneyContactForm /></div>
       </section>
       <p className="text-sm leading-6 text-[color:var(--muted)]">Wills.com is an informational publisher and is not a law firm, referral service, or substitute for professional advice.</p>
