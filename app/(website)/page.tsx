@@ -1,5 +1,6 @@
 import {ButtonLink} from '@/components/site/ButtonLink'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const planningSteps = [
   ['01', 'Take stock', 'List what you own, what you owe, the people who depend on you, and the accounts that already have beneficiary designations.'],
@@ -35,13 +36,15 @@ export default function HomePage() {
               <ButtonLink href="/trusts" label="Explore trusts" style="secondary" className="border-white/30 bg-transparent !text-white hover:border-white hover:bg-white/10" />
             </div>
           </div>
-          <aside className="rounded-2xl border border-white/15 bg-white/[0.08] p-6 backdrop-blur-sm md:p-8">
-            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#e5ca8c]">Start with these questions</div>
-            <ul className="mt-6 space-y-5 text-base leading-7 text-white/85">
-              <li className="border-t border-white/15 pt-5 first:border-0 first:pt-0">Who should receive your property—and who should receive it if they cannot?</li>
-              <li className="border-t border-white/15 pt-5">Who do you trust to handle money, paperwork, and decisions?</li>
-              <li className="border-t border-white/15 pt-5">What needs special care: children, a home, a business, pets, or a loved one with disabilities?</li>
-            </ul>
+          <aside className="overflow-hidden rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur-sm">
+            <div className="relative aspect-[4/3]"><Image src="/images/estate-planning/advisor-consultation.png" alt="An estate-planning professional meeting with an older couple" fill priority className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
+            <div className="p-6 md:p-8"><div className="text-xs font-bold uppercase tracking-[0.18em] text-[#e5ca8c]">Start with these questions</div>
+              <ul className="mt-6 space-y-5 text-base leading-7 text-white/85">
+                <li className="border-t border-white/15 pt-5 first:border-0 first:pt-0">Who should receive your property—and who should receive it if they cannot?</li>
+                <li className="border-t border-white/15 pt-5">Who do you trust to handle money, paperwork, and decisions?</li>
+                <li className="border-t border-white/15 pt-5">What needs special care: children, a home, a business, pets, or a loved one with disabilities?</li>
+              </ul>
+            </div>
           </aside>
         </div>
       </section>
@@ -54,12 +57,14 @@ export default function HomePage() {
         </div>
         <div className="grid gap-5 sm:grid-cols-2">
           <Link href="/wills" className="group rounded-2xl border border-[color:var(--border)] bg-white p-7 shadow-[0_18px_45px_rgba(29,46,41,0.06)] transition hover:-translate-y-1 hover:border-[#6a927a]">
+            <div className="relative -mx-2 -mt-2 mb-6 aspect-[16/9] overflow-hidden rounded-xl"><Image src="/images/estate-planning/will-document.png" alt="Will and testament document with a pen" fill className="object-cover" sizes="(min-width: 640px) 24rem, 100vw" /></div>
             <div className="text-sm font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Wills</div>
             <h3 className="mt-5 font-serif text-3xl tracking-[-0.03em] text-[color:var(--fg)]">Give clear directions.</h3>
             <p className="mt-4 leading-7 text-[color:var(--muted)]">Name an executor, nominate guardians for minor children, and direct probate assets to the people or causes you choose.</p>
             <span className="mt-6 inline-flex text-sm font-semibold text-[color:var(--accent)] group-hover:underline">Read the will guide →</span>
           </Link>
           <Link href="/trusts" className="group rounded-2xl border border-[color:var(--border)] bg-[#f2f3eb] p-7 shadow-[0_18px_45px_rgba(29,46,41,0.06)] transition hover:-translate-y-1 hover:border-[#6a927a]">
+            <div className="relative -mx-2 -mt-2 mb-6 aspect-[16/9] overflow-hidden rounded-xl"><Image src="/images/estate-planning/family-protection.png" alt="A family, home, and savings protected beneath an umbrella" fill className="object-cover" sizes="(min-width: 640px) 24rem, 100vw" /></div>
             <div className="text-sm font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Trusts</div>
             <h3 className="mt-5 font-serif text-3xl tracking-[-0.03em] text-[color:var(--fg)]">Set terms for stewardship.</h3>
             <p className="mt-4 leading-7 text-[color:var(--muted)]">A trust can hold property for beneficiaries and spell out how a trustee manages or distributes it under the terms you establish.</p>
@@ -85,6 +90,11 @@ export default function HomePage() {
         <p className="mt-7 text-sm leading-6 text-[color:var(--muted)]">Inheritance, probate, guardianship, creditor, tax, and trust rules differ by state and circumstances. A qualified attorney can explain how the rules apply to you.</p>
       </section>
 
+      <section className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem]"><Image src="/images/estate-planning/family-legacy.png" alt="A multigenerational family spending time together outdoors" fill className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
+        <div><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Planning for people</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">Your estate plan is about the people who count on you.</h2><p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">A thoughtful plan can help you name the people you trust, care for different generations, and leave clearer instructions during an already difficult time.</p><div className="mt-7"><ButtonLink href="/estate-planning" label="See the planning checklist" /></div></div>
+      </section>
+
       <section>
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">A practical path</div>
@@ -99,6 +109,11 @@ export default function HomePage() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white md:grid md:grid-cols-2">
+        <div className="relative min-h-72"><Image src="/images/estate-planning/tax-planning.png" alt="Tax and estate-planning paperwork with a calculator" fill className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" /></div>
+        <div className="p-7 md:p-10"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">A coordinated conversation</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">Bring the right advisers into the room.</h2><p className="mt-5 leading-8 text-[color:var(--muted)]">Legal, tax, insurance, and financial considerations can overlap. A qualified attorney can help determine when other professionals should be part of the planning process.</p></div>
       </section>
 
       <section className="grid gap-8 rounded-[2rem] bg-[#173f36] px-6 py-12 text-white md:px-10 md:py-14 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
