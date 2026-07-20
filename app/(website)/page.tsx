@@ -61,7 +61,10 @@ export default function HomePage() {
           <Link href="/find-an-attorney" className="mt-6 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] underline decoration-[color:var(--accent)] underline-offset-4 hover:text-[color:var(--fg)]">How the directory works →</Link>
         </div>
         <div className="rounded-2xl bg-[#071f33] p-6 text-white md:p-8">
-          <div className="text-sm font-semibold text-white">Search by ZIP code</div>
+          <div className="relative aspect-[16/7] overflow-hidden rounded-xl border border-white/15">
+            <Image src="/images/estate-planning/attorney-directory-team.png" alt="Estate-planning attorneys" fill className="object-cover object-top" sizes="(min-width: 1024px) 48vw, 100vw" />
+          </div>
+          <div className="mt-8 text-sm font-semibold text-white">Search by ZIP code</div>
           <AttorneyZipSearch />
         </div>
       </section>

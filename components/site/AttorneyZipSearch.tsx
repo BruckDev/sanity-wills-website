@@ -35,7 +35,7 @@ export function AttorneyZipSearch() {
           className="min-h-14 flex-1 rounded-lg border border-white/25 bg-white px-5 text-base font-medium text-[#071f33] placeholder:text-[#5d7080] outline-none transition focus:border-[color:var(--accent)] focus:ring-2 focus:ring-[color:var(--accent)]"
           aria-describedby={error ? 'attorney-zip-error' : undefined}
         />
-        <button type="submit" className="min-h-14 rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-sm font-semibold text-[#061e31] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-strong)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]">Search near me</button>
+        <button type="submit" className="min-h-14 shrink-0 whitespace-nowrap rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-sm font-semibold text-[#061e31] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-strong)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]">Search near me</button>
       </form>
       {error ? <p id="attorney-zip-error" role="alert" className="mt-3 text-sm font-medium text-[#ffcfb4]">{error}</p> : null}
       {submittedZip ? (
