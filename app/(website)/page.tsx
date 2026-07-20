@@ -63,26 +63,6 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#071f33] bg-[#071f33] px-5 py-7 text-white shadow-[0_28px_70px_rgba(7,31,51,0.24)] sm:px-8 md:px-12 md:py-12 lg:px-14 lg:py-14">
         <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#00bb78]/25" />
         <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,187,120,0.22),transparent_64%)]" />
-        <div className="absolute left-0 top-28 hidden h-72 w-40 overflow-hidden rounded-r-2xl border-y border-r border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)] lg:block xl:w-48">
-          <Image
-            src="/images/estate-planning/hero-family-couple.png"
-            alt="A couple enjoying time together outdoors"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="12rem"
-          />
-        </div>
-        <div className="absolute right-0 top-16 hidden h-80 w-44 overflow-hidden rounded-l-2xl border-y border-l border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)] lg:block xl:w-52">
-          <Image
-            src="/images/estate-planning/hero-family-grandparent.png"
-            alt="A multigenerational family spending time together"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="13rem"
-          />
-        </div>
         <div className="relative mx-auto max-w-3xl text-center">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             Estate planning, made clearer
@@ -124,6 +104,38 @@ export default function HomePage() {
               </span>
             </Link>
           ))}
+        </div>
+        <div className="relative mx-auto mt-3 grid max-w-6xl grid-cols-3 gap-3">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15">
+            <Image
+              src="/images/estate-planning/hero-family-couple.png"
+              alt="A couple enjoying time together outdoors"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="(min-width: 1024px) 22rem, 30vw"
+            />
+          </div>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15">
+            <Image
+              src="/images/estate-planning/hero-family-young.png"
+              alt="A young family spending time together outdoors"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="(min-width: 1024px) 22rem, 30vw"
+            />
+          </div>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15">
+            <Image
+              src="/images/estate-planning/hero-family-grandparent.png"
+              alt="A multigenerational family spending time together"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="(min-width: 1024px) 22rem, 30vw"
+            />
+          </div>
         </div>
       </section>
 
