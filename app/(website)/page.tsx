@@ -42,16 +42,20 @@ const consequences = [
 ]
 
 const heroPaths = [
-  {label: 'Wills', detail: 'Give clear directions.', href: '/wills'},
-  {label: 'Trusts', detail: 'Set terms for stewardship.', href: '/trusts'},
   {
-    label: 'Estate planning',
-    detail: 'See the whole picture.',
+    label: 'Protect your children',
+    detail: 'Choose who would care for them.',
+    href: '/life-events/new-parents',
+  },
+  {label: 'Protect your home', detail: 'Clarify where it should go.', href: '/trusts'},
+  {
+    label: 'Avoid family conflict',
+    detail: 'Leave clear directions behind.',
     href: '/estate-planning',
   },
   {
-    label: 'Find an attorney',
-    detail: 'Get guidance near you.',
+    label: 'Protect your wishes',
+    detail: 'Choose trusted decision makers.',
     href: '/find-an-attorney',
   },
 ]
@@ -67,29 +71,23 @@ export default function HomePage() {
             Estate planning, made clearer
           </div>
           <h1 className="mt-4 font-serif text-4xl leading-[0.98] tracking-[-0.045em] md:text-6xl xl:text-7xl">
-            Protect the people who matter most.
+            If something happened tomorrow would your family know what to do?
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
-            Estate planning doesn&apos;t have to be complicated. The people you love should not have
-            to guess what you wanted if life changes unexpectedly. Start with a few simple steps.
+            Create a will protect your children and make your wishes clear. Start your estate plan
+            in minutes or connect with an estate-planning attorney near you.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <ButtonLink
-              href="/find-an-attorney"
-              label="Find an attorney"
+              href="/create-a-will"
+              label="Create my will"
               className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white"
             />
             <ButtonLink
-              href="/estate-planning"
-              label="Explore estate planning"
+              href="/find-an-attorney"
+              label="Find an estate-planning attorney"
               style="secondary"
               className="!border-white/35 !bg-white !text-[#071f33] hover:!border-white hover:!bg-white/90"
-            />
-            <ButtonLink
-              href="/create-a-will"
-              label="Create a will"
-              style="secondary"
-              className="!border-white/35 !bg-transparent !text-white hover:!border-[color:var(--accent)] hover:!bg-white/10"
             />
           </div>
         </div>
@@ -267,6 +265,41 @@ export default function HomePage() {
           </div>
           <div className="mt-5 text-sm font-semibold text-white">Search by ZIP code</div>
           <AttorneyZipSearch />
+        </div>
+      </section>
+
+      <section className="grid gap-7 overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div>
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+            A common planning question
+          </div>
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+            Avoid probate when possible.
+          </h2>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--muted)]">
+            Probate can add time cost and public records to a difficult moment. Learn when a living
+            trust or other planning choices may help your loved ones reduce delays and keep more of
+            your affairs private.
+          </p>
+          <div className="mt-7">
+            <ButtonLink href="/trusts" label="Learn about trusts and probate" />
+          </div>
+        </div>
+        <div className="rounded-2xl border border-[#cbdce3] bg-white p-6 md:p-7">
+          <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
+            Start with the right questions
+          </div>
+          <ul className="mt-5 space-y-4 text-sm leading-6 text-[color:var(--fg)]">
+            <li className="border-t border-[#d6e2e8] pt-4">
+              What property may need a different ownership or beneficiary arrangement?
+            </li>
+            <li className="border-t border-[#d6e2e8] pt-4">
+              Who should manage property for the people you love?
+            </li>
+            <li className="border-t border-[#d6e2e8] pt-4">
+              Which choices need state-specific legal advice?
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -549,28 +582,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-6 md:p-10 lg:p-12">
+      <section className="rounded-[2rem] border border-[#071f33] bg-[#071f33] p-6 text-white md:p-10 lg:p-12">
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Why planning matters
+            Do not leave it to chance
           </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-            When there is no plan there is still a process.
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] md:text-5xl">
+            What can happen without a will?
           </h2>
-          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
+          <p className="mt-5 text-lg leading-8 text-white/75">
             The difference is that more of the important choices may be made by default rules, a
             court, or the practical limits facing the people left behind.
           </p>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {consequences.map(([title, text]) => (
-            <article key={title} className="rounded-xl border border-[#cfd4c4] bg-[#f9faf6] p-6">
-              <h3 className="font-serif text-2xl text-[color:var(--fg)]">{title}</h3>
-              <p className="mt-3 leading-7 text-[color:var(--muted)]">{text}</p>
+            <article key={title} className="rounded-xl border border-white/15 bg-white/[0.06] p-6">
+              <h3 className="font-serif text-2xl">{title}</h3>
+              <p className="mt-3 leading-7 text-white/75">{text}</p>
             </article>
           ))}
         </div>
-        <p className="mt-7 text-sm leading-6 text-[color:var(--muted)]">
+        <div className="mt-8 flex flex-wrap items-center gap-5">
+          <ButtonLink
+            href="/create-a-will"
+            label="Create my estate plan"
+            className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white"
+          />
+          <ButtonLink
+            href="/trusts"
+            label="Learn about trusts and probate"
+            style="secondary"
+            className="!border-white/30 !bg-transparent !text-white hover:!bg-white/10"
+          />
+        </div>
+        <p className="mt-7 text-sm leading-6 text-white/60">
           Inheritance, probate, guardianship, creditor, tax, and trust rules differ by state and
           circumstances. A qualified attorney can explain how the rules apply to you.
         </p>
