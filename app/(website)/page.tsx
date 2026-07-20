@@ -66,11 +66,11 @@ export default function HomePage() {
             Estate planning, made clearer
           </div>
           <h1 className="mt-4 font-serif text-4xl leading-[0.98] tracking-[-0.045em] md:text-6xl xl:text-7xl">
-            A clearer way to begin planning for the people you love
+            Protect the people who matter most.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
-            Learn the essentials, understand the questions worth asking, and connect with an
-            estate-planning professional when you are ready.
+            Estate planning doesn&apos;t have to be complicated. Start with a few simple steps,
+            learn your options, and create a plan that gives you peace of mind.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <ButtonLink
