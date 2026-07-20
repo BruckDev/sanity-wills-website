@@ -80,7 +80,7 @@ export default function FeaturedAttorneySamplePage() {
           </ul>
         </div>
 
-        <aside className="overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6]">
+        <aside className="overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] lg:sticky lg:top-24">
           <div className="relative aspect-[16/10]"><Image src="/images/featured-attorneys/chicago-office-building.jpg" alt="Chicago office building near the sample firm location" fill className="object-cover object-center" sizes="(min-width: 1024px) 32vw, 100vw" /></div>
           <div className="p-7 md:p-8">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Office details</div>

@@ -1,12 +1,12 @@
 import {ButtonLink} from '@/components/site/ButtonLink'
+import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
 import Link from 'next/link'
 import Image from 'next/image'
 
 const planningSteps = [
-  ['01', 'Take stock', 'List what you own, what you owe, the people who depend on you, and the accounts that already have beneficiary designations.'],
-  ['02', 'Choose people carefully', 'Think through executors, trustees, guardians, health-care decision-makers, and backups. Talk with them before naming them.'],
-  ['03', 'Create documents that work together', 'A will, trust, powers of attorney, health-care documents, beneficiary designations, and asset titles can each play a different role.'],
-  ['04', 'Keep it current', 'Review after a marriage, divorce, birth, death, move, major purchase, business change, or a meaningful change in the law.'],
+  ['01', 'Learn the essentials', 'Start with plain-language guides to the documents and decisions that may be relevant to you.'],
+  ['02', 'Find the right conversation', 'Search for an estate-planning attorney near you when you are ready for guidance about your circumstances.'],
+  ['03', 'Prepare with confidence', 'Gather questions, people, and information so you can make the most of your next planning conversation.'],
 ]
 
 const consequences = [
@@ -19,27 +19,26 @@ const consequences = [
 export default function HomePage() {
   return (
     <div className="space-y-20 pb-8 md:space-y-28">
-      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#071f33] bg-[#071f33] px-6 py-10 text-white shadow-[0_28px_70px_rgba(7,31,51,0.24)] md:px-12 md:py-12 lg:px-16">
+      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#071f33] bg-[#071f33] px-6 py-10 text-white shadow-[0_28px_70px_rgba(7,31,51,0.24)] md:px-12 md:py-14 lg:px-16">
         <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#00bb78]/25" />
         <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,187,120,0.22),transparent_64%)]" />
         <div className="relative">
-          <div className="mx-auto max-w-4xl translate-y-3 text-center">
+          <div className="mx-auto max-w-4xl text-center">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Estate planning, made clearer</div>
             <h1 className="mt-4 font-serif text-4xl leading-[0.97] tracking-[-0.045em] md:text-6xl xl:text-7xl">
-              Make your wishes easier to carry out
+              A clearer way to begin planning for the people you love
             </h1>
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-white/80 md:text-xl">
-              Wills.com is a practical starting point for understanding wills, trusts, and the decisions that help protect the people and work that matter to you.
+              Learn the essentials, understand the questions worth asking, and connect with an estate-planning professional when you are ready.
             </p>
-            <div className="mx-auto mt-8 grid max-w-4xl grid-cols-3 gap-3">
+            <div className="mx-auto mt-8 grid max-w-4xl gap-3 md:grid-cols-3">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)]"><Image src="/images/estate-planning/hero-family-young.png" alt="A young family spending time together outdoors" fill priority className="object-cover" sizes="(min-width: 1280px) 18rem, (min-width: 768px) 25vw, 30vw" /></div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)]"><Image src="/images/estate-planning/hero-family-couple.png" alt="A couple enjoying time together outdoors" fill priority className="object-cover" sizes="(min-width: 1280px) 18rem, (min-width: 768px) 25vw, 30vw" /></div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.22)]"><Image src="/images/estate-planning/hero-family-grandparent.png" alt="A multigenerational family spending time together" fill priority className="object-cover" sizes="(min-width: 1280px) 18rem, (min-width: 768px) 25vw, 30vw" /></div>
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <ButtonLink href="/wills" label="Learn about wills" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" />
-              <ButtonLink href="/trusts" label="Explore trusts" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" />
-              <ButtonLink href="/find-an-attorney" label="Find professionals near me" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" />
+              <ButtonLink href="/find-an-attorney" label="Find an attorney" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" />
+              <ButtonLink href="/estate-planning" label="Explore estate planning" style="secondary" className="!border-white/35 !bg-white !text-[#071f33] hover:!border-white hover:!bg-white/90" />
             </div>
           </div>
           <aside className="mt-8 -translate-y-3">
@@ -51,6 +50,19 @@ export default function HomePage() {
               </ul>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section className="grid gap-8 rounded-[2rem] border border-[color:var(--border)] bg-white p-7 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div>
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Attorney directory</div>
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">Find estate-planning guidance near you.</h2>
+          <p className="mt-5 max-w-xl text-lg leading-8 text-[color:var(--muted)]">Search by ZIP code to see attorney profiles as firms join the Wills.com directory.</p>
+          <Link href="/find-an-attorney" className="mt-6 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] underline decoration-[color:var(--accent)] underline-offset-4 hover:text-[color:var(--fg)]">How the directory works →</Link>
+        </div>
+        <div className="rounded-2xl bg-[#071f33] p-6 text-white md:p-8">
+          <div className="text-sm font-semibold text-white">Search by ZIP code</div>
+          <AttorneyZipSearch />
         </div>
       </section>
 
@@ -97,10 +109,10 @@ export default function HomePage() {
 
       <section>
         <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">A practical path</div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">Planning is a series of decisions, not a single document.</h2>
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">How Wills.com helps</div>
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">A better planning conversation starts here.</h2>
         </div>
-        <ol className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-10 grid gap-5 md:grid-cols-3">
           {planningSteps.map(([number, title, text]) => (
             <li key={number} className="border-t-2 border-[#b8cdb6] pt-5">
               <div className="text-sm font-bold tracking-[0.15em] text-[color:var(--accent)]">{number}</div>
@@ -109,6 +121,18 @@ export default function HomePage() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Wills.com journal</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">Helpful guides for the questions ahead.</h2><p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">Explore practical, attorney-informed topics designed to make your next step easier to understand.</p></div>
+          <ButtonLink href="/insights" label="Browse articles" />
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <Link href="/insights" className="group rounded-2xl border border-[#d6e2e8] bg-white p-6 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"><div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Guide</div><h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">How a will fits into a plan</h3><p className="mt-3 leading-7 text-[color:var(--muted)]">Start with the role a will can play when documenting directions and naming key people.</p><span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">Explore the topic →</span></Link>
+          <Link href="/insights" className="group rounded-2xl border border-[#d6e2e8] bg-white p-6 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"><div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Guide</div><h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">Questions to ask about trusts</h3><p className="mt-3 leading-7 text-[color:var(--muted)]">Understand the decisions that may matter when property needs stewardship over time.</p><span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">Explore the topic →</span></Link>
+          <Link href="/insights" className="group rounded-2xl border border-[#d6e2e8] bg-white p-6 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"><div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Guide</div><h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">Preparing for an attorney meeting</h3><p className="mt-3 leading-7 text-[color:var(--muted)]">Bring the right people, documents, and questions into the conversation.</p><span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">Explore the topic →</span></Link>
+        </div>
       </section>
 
       <section className="grid gap-8 rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-10 md:py-14 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">

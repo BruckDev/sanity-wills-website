@@ -23,13 +23,13 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
         </Link>
         <nav aria-label="Main navigation" className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => <Link key={item.href} href={item.href || '/'} className="text-sm font-semibold text-[#173a55] hover:text-[color:var(--accent-strong)]">{item.label}</Link>)}
-          <Link href="/estate-planning" className="rounded-lg bg-[color:var(--accent)] px-4 py-2.5 text-sm font-semibold text-[#061e31] hover:bg-[color:var(--accent-strong)] hover:text-white">Start planning</Link>
+          <Link href="/find-an-attorney" className="rounded-lg bg-[color:var(--accent)] px-4 py-2.5 text-sm font-semibold text-[#061e31] hover:bg-[color:var(--accent-strong)] hover:text-white">Find an attorney</Link>
         </nav>
         <button type="button" className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[#cbdbe4] text-[#071f33] lg:hidden" aria-expanded={open} aria-label="Toggle menu" onClick={() => setOpen((value) => !value)}>
           <span className="text-xl" aria-hidden="true">{open ? '×' : '☰'}</span>
         </button>
       </div>
-      {open ? <nav aria-label="Mobile navigation" className="border-t border-[#dce6ec] bg-white px-4 py-5 lg:hidden"><div className="mx-auto grid max-w-7xl gap-4"><>{navItems.map((item) => <Link key={item.href} href={item.href || '/'} className="text-base font-semibold text-[#173a55]" onClick={() => setOpen(false)}>{item.label}</Link>)}</><Link href="/estate-planning" className="mt-2 rounded-lg bg-[color:var(--accent)] px-4 py-3 text-center text-sm font-semibold text-[#061e31]" onClick={() => setOpen(false)}>Start planning</Link></div></nav> : null}
+      {open ? <nav aria-label="Mobile navigation" className="border-t border-[#dce6ec] bg-white px-4 py-5 lg:hidden"><div className="mx-auto grid max-w-7xl gap-4"><>{navItems.map((item) => <Link key={item.href} href={item.href || '/'} className="text-base font-semibold text-[#173a55]" onClick={() => setOpen(false)}>{item.label}</Link>)}</><Link href="/find-an-attorney" className="mt-2 rounded-lg bg-[color:var(--accent)] px-4 py-3 text-center text-sm font-semibold text-[#061e31]" onClick={() => setOpen(false)}>Find an attorney</Link></div></nav> : null}
     </header>
   )
 }
