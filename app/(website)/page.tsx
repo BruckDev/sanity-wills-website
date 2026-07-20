@@ -19,11 +19,11 @@ const consequences = [
 export default function HomePage() {
   return (
     <div className="space-y-20 pb-8 md:space-y-28">
-      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#071f33] bg-[#071f33] p-0 text-white shadow-[0_28px_70px_rgba(7,31,51,0.24)]">
+      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#071f33] bg-[#071f33] px-6 py-10 text-white shadow-[0_28px_70px_rgba(7,31,51,0.24)] md:px-12 md:py-12 lg:px-16">
         <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#00bb78]/25" />
         <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,187,120,0.22),transparent_64%)]" />
         <div className="relative">
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="mx-auto max-w-4xl translate-y-3 text-center">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Estate planning, made clearer</div>
             <h1 className="mt-4 font-serif text-4xl leading-[0.97] tracking-[-0.045em] md:text-6xl xl:text-7xl">
               Make your wishes easier to carry out
@@ -42,7 +42,7 @@ export default function HomePage() {
               <ButtonLink href="/find-an-attorney" label="Find professionals near me" className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white" />
             </div>
           </div>
-          <aside className="mt-8">
+          <aside className="mt-8 -translate-y-3">
             <div><div className="text-center text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">Start with these questions</div>
               <ul className="mt-4 grid gap-3 text-left text-sm leading-6 text-white/85 md:grid-cols-3 md:gap-4 [&_li]:!rounded-2xl [&_li]:!border [&_li]:!border-white/15 [&_li]:!bg-white/[0.07] [&_li]:!p-4 md:[&_li]:!min-h-40">
                 <li className="border-t border-white/15 pt-5 first:border-0 first:pt-0">Who should receive your property—and who should receive it if they cannot?</li>
