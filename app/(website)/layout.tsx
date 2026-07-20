@@ -19,7 +19,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: {template: '%s | Wills.com', default: 'Wills.com | Estate planning guidance'},
     description: 'Clear educational guidance about wills, trusts, and estate planning.',
-    openGraph: {title: 'Wills.com | Estate planning guidance', description: 'Clear educational guidance about wills, trusts, and estate planning.'},
+    openGraph: {
+      title: 'Wills.com | Estate planning guidance',
+      description: 'Clear educational guidance about wills, trusts, and estate planning.',
+    },
   }
 }
 
@@ -93,6 +96,8 @@ function WebsiteHeader({data}: {data: any}) {
         {label: 'Wills', href: '/wills'},
         {label: 'Trusts', href: '/trusts'},
         {label: 'Estate planning', href: '/estate-planning'},
+        {label: 'Life events', href: '/life-events'},
+        {label: 'Free tools', href: '/tools'},
         {label: 'Find an attorney', href: '/find-an-attorney'},
         {label: 'Articles', href: '/insights'},
         {label: 'For attorneys', href: '/contact'},

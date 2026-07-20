@@ -1,5 +1,6 @@
 import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
+import {lifeEvents, planningTools} from '@/sanity/lib/estatePlanningContent'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -69,8 +70,8 @@ export default function HomePage() {
             Protect the people who matter most.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
-            Estate planning doesn&apos;t have to be complicated. Start with a few simple steps,
-            learn your options, and create a plan that gives you peace of mind.
+            Estate planning doesn&apos;t have to be complicated. The people you love should not have
+            to guess what you wanted if life changes unexpectedly. Start with a few simple steps.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <ButtonLink
@@ -156,6 +157,84 @@ export default function HomePage() {
             disabilities?
           </li>
         </ul>
+      </section>
+
+      <section className="rounded-[2rem] border border-[#b8cdb6] bg-[#eef5f0] p-7 md:p-10">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+              When life changes
+            </div>
+            <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+              A new chapter is a reason to check your plan.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
+              A new child home marriage business retirement or health change can alter the people
+              and decisions your plan should protect.
+            </p>
+          </div>
+          <ButtonLink href="/life-events" label="Explore life events" />
+        </div>
+        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {lifeEvents.slice(0, 4).map((event) => (
+            <Link
+              key={event.slug}
+              href={`/life-events/${event.slug}`}
+              className="group rounded-xl border border-[#cbdce3] bg-white p-5 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
+            >
+              <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
+                {event.eyebrow}
+              </div>
+              <h3 className="mt-3 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
+                {event.title}
+              </h3>
+              <span className="mt-4 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
+                Find your next step →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+              Free planning tools
+            </div>
+            <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+              A private place to get clarity before you decide.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
+              Use free interactive quizzes calculators and guides to organize your thoughts. No
+              sign-in required.
+            </p>
+          </div>
+          <ButtonLink href="/tools" label="Browse free tools" />
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {planningTools.slice(0, 3).map((tool) => (
+            <Link
+              key={tool.slug}
+              href={`/tools/${tool.slug}`}
+              className="group rounded-2xl border border-[color:var(--border)] bg-white p-6 shadow-[0_14px_35px_rgba(8,35,58,0.05)] transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
+                  {tool.eyebrow}
+                </div>
+                <span className="text-xs font-semibold text-[color:var(--muted)]">{tool.time}</span>
+              </div>
+              <h3 className="mt-4 font-serif text-3xl tracking-[-0.03em] text-[color:var(--fg)]">
+                {tool.title}
+              </h3>
+              <p className="mt-3 leading-7 text-[color:var(--muted)]">{tool.summary}</p>
+              <span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
+                Use the free tool →
+              </span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="grid gap-6 rounded-[2rem] border border-[color:var(--border)] bg-white p-6 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">

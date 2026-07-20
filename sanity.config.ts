@@ -6,11 +6,14 @@
 import {apiVersion, dataset, projectId, studioUrl} from '@/sanity/lib/api'
 import * as resolve from '@/sanity/plugins/resolve'
 import {pageStructure, singletonPlugin} from '@/sanity/plugins/settings'
+import attorneyProfile from '@/sanity/schemas/documents/attorneyProfile'
 import caseStudy from '@/sanity/schemas/documents/caseStudy'
 import industry from '@/sanity/schemas/documents/industry'
 import insight from '@/sanity/schemas/documents/insight'
 import leader from '@/sanity/schemas/documents/leader'
+import lifeEvent from '@/sanity/schemas/documents/lifeEvent'
 import page from '@/sanity/schemas/documents/page'
+import planningTool from '@/sanity/schemas/documents/planningTool'
 import project from '@/sanity/schemas/documents/project'
 import service from '@/sanity/schemas/documents/service'
 import contactMethod from '@/sanity/schemas/objects/contactMethod'
@@ -67,6 +70,9 @@ export default defineConfig({
       insight,
       caseStudy,
       leader,
+      attorneyProfile,
+      lifeEvent,
+      planningTool,
       // Objects
       duration,
       link,
