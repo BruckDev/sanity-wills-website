@@ -53,18 +53,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid gap-8 rounded-[2rem] border border-[color:var(--border)] bg-white p-7 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <section className="grid gap-6 rounded-[2rem] border border-[color:var(--border)] bg-white p-6 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Attorney directory</div>
           <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">Find estate-planning guidance near you.</h2>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-[color:var(--muted)]">Search by ZIP code to see attorney profiles as firms join the Wills.com directory.</p>
-          <Link href="/find-an-attorney" className="mt-6 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] underline decoration-[color:var(--accent)] underline-offset-4 hover:text-[color:var(--fg)]">How the directory works →</Link>
+          <p className="mt-4 max-w-xl leading-7 text-[color:var(--muted)]">Search by ZIP code to see attorney profiles as firms join the Wills.com directory.</p>
+          <Link href="/find-an-attorney" className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] underline decoration-[color:var(--accent)] underline-offset-4 hover:text-[color:var(--fg)]">How the directory works →</Link>
         </div>
-        <div className="rounded-2xl bg-[#071f33] p-6 text-white md:p-8">
-          <div className="relative aspect-[16/7] overflow-hidden rounded-xl border border-white/15">
+        <div className="rounded-2xl bg-[#071f33] p-5 text-white md:p-6">
+          <div className="relative aspect-[16/6] overflow-hidden rounded-xl border border-white/15">
             <Image src="/images/estate-planning/attorney-directory-team.png" alt="Estate-planning attorneys" fill className="object-cover object-top" sizes="(min-width: 1024px) 48vw, 100vw" />
           </div>
-          <div className="mt-8 text-sm font-semibold text-white">Search by ZIP code</div>
+          <div className="mt-5 text-sm font-semibold text-white">Search by ZIP code</div>
           <AttorneyZipSearch />
         </div>
       </section>

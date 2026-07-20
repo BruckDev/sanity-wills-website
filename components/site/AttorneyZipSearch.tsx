@@ -23,7 +23,7 @@ export function AttorneyZipSearch() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="mt-8 flex max-w-2xl flex-col gap-3 sm:flex-row" noValidate>
+      <form onSubmit={handleSubmit} className="mt-5 flex max-w-2xl flex-col gap-3 sm:flex-row" noValidate>
         <label className="sr-only" htmlFor="attorney-zip">ZIP code</label>
         <input
           id="attorney-zip"
