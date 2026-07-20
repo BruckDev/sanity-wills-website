@@ -439,7 +439,7 @@ export const fallbackLeaders = [
 ]
 
 export const fallbackHome = {
-  title: 'Strategy, technology and execution-working as one.',
+  title: 'Strategy technology and execution working as one.',
   overview: toBlocks([
     'Wills helps public- and private-sector organizations modernize operations, build effective technology solutions and turn complex challenges into measurable results.',
   ]),

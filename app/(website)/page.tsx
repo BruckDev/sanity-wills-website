@@ -476,7 +476,7 @@ export default function HomePage() {
             Why planning matters
           </div>
           <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-            When there is no plan, there is still a process.
+            When there is no plan there is still a process.
           </h2>
           <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
             The difference is that more of the important choices may be made by default rules, a

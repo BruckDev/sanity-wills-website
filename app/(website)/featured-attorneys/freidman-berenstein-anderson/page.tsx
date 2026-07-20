@@ -56,7 +56,7 @@ export default function FeaturedAttorneySamplePage() {
       <section className="overflow-hidden rounded-[2rem] bg-[#071f33] text-white lg:grid lg:grid-cols-[1.1fr_0.9fr]">
         <div className="px-7 py-10 md:px-12 md:py-14">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Featured attorney office</div>
-          <h1 className="mt-5 max-w-3xl font-serif text-4xl leading-[0.98] tracking-[-0.045em] md:text-6xl">Freidman, Berenstein and Anderson Law Group</h1>
+          <h1 className="mt-5 max-w-3xl font-serif text-4xl leading-[0.98] tracking-[-0.045em] md:text-6xl">Freidman Berenstein and Anderson Law Group</h1>
           <p className="mt-6 text-lg leading-8 text-white/80">Practical estate-planning guidance from a Chicago law office focused on responsive counsel, clear communication, and long-term planning.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="tel:+16306257571" className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-strong)] hover:text-white">Call +1-630-625-7571</a>
@@ -84,7 +84,7 @@ export default function FeaturedAttorneySamplePage() {
           <div className="relative aspect-[16/10]"><Image src="/images/featured-attorneys/chicago-office-building.jpg" alt="Chicago office building near the sample firm location" fill className="object-cover object-center" sizes="(min-width: 1024px) 32vw, 100vw" /></div>
           <div className="p-7 md:p-8">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Office details</div>
-            <h2 className="mt-4 font-serif text-3xl tracking-[-0.035em] text-[color:var(--fg)]">Chicago, Illinois</h2>
+            <h2 className="mt-4 font-serif text-3xl tracking-[-0.035em] text-[color:var(--fg)]">Chicago Illinois</h2>
             <address className="mt-5 not-italic leading-7 text-[color:var(--muted)]">411 A Wacker Dr<br />Suite 7007<br />Chicago, IL 60606</address>
             <dl className="mt-7 space-y-5 border-t border-[#cbdce3] pt-6 text-sm">
               <div><dt className="font-semibold text-[color:var(--fg)]">Phone</dt><dd className="mt-1"><a className="text-[color:var(--accent-strong)] hover:underline" href="tel:+16306257571">+1-630-625-7571</a></dd></div>
@@ -115,7 +115,7 @@ export default function FeaturedAttorneySamplePage() {
 
       <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Sample client reviews</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">A five-star experience, illustrated.</h2><p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">These fictional testimonials demonstrate how a featured office could present verified client feedback.</p></div>
+          <div className="max-w-3xl"><div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">Sample client reviews</div><h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">A five-star experience illustrated.</h2><p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">These fictional testimonials demonstrate how a featured office could present verified client feedback.</p></div>
           <div className="rounded-xl bg-[#071f33] px-6 py-5 text-white"><div className="text-3xl leading-none text-[color:var(--accent)]" aria-label="Five out of five stars">★★★★★</div><div className="mt-2 text-sm font-semibold">5.0 out of 5 stars</div><div className="mt-1 text-xs text-white/65">Sample rating format</div></div>
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-3">
