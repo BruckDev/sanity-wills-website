@@ -41,19 +41,17 @@ const consequences = [
 ]
 
 const heroPaths = [
-  {label: 'Wills', detail: 'Give clear directions.', href: '/wills', number: '01'},
-  {label: 'Trusts', detail: 'Set terms for stewardship.', href: '/trusts', number: '02'},
+  {label: 'Wills', detail: 'Give clear directions.', href: '/wills'},
+  {label: 'Trusts', detail: 'Set terms for stewardship.', href: '/trusts'},
   {
     label: 'Estate planning',
     detail: 'See the whole picture.',
     href: '/estate-planning',
-    number: '03',
   },
   {
     label: 'Find an attorney',
     detail: 'Get guidance near you.',
     href: '/find-an-attorney',
-    number: '04',
   },
 ]
 
@@ -86,6 +84,12 @@ export default function HomePage() {
               style="secondary"
               className="!border-white/35 !bg-white !text-[#071f33] hover:!border-white hover:!bg-white/90"
             />
+            <ButtonLink
+              href="/create-a-will"
+              label="Create a will"
+              style="secondary"
+              className="!border-white/35 !bg-transparent !text-white hover:!border-[color:var(--accent)] hover:!bg-white/10"
+            />
           </div>
         </div>
         <div className="relative mx-auto mt-10 grid max-w-6xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -95,9 +99,6 @@ export default function HomePage() {
               href={path.href}
               className="group flex min-h-32 flex-col justify-between rounded-2xl border border-white/15 bg-white/[0.06] p-4 text-left transition hover:-translate-y-1 hover:border-[color:var(--accent)] hover:bg-white/[0.1]"
             >
-              <span className="text-xs font-bold tracking-[0.18em] text-[color:var(--accent)]">
-                {path.number}
-              </span>
               <span>
                 <span className="block text-lg font-semibold tracking-[-0.02em]">{path.label}</span>
                 <span className="mt-1 block text-sm text-white/70">{path.detail}</span>
