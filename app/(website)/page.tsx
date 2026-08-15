@@ -71,7 +71,7 @@ export default function HomePage() {
             Estate planning, made clearer
           </div>
           <h1 className="mt-4 font-serif text-4xl leading-[0.98] tracking-[-0.045em] md:text-6xl xl:text-7xl">
-            If something happened tomorrow would your family know what to do?
+            Protect What Matters Most
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
             Create a will protect your children and make your wishes clear. Start your estate plan
