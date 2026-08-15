@@ -74,7 +74,7 @@ export default function HomePage() {
             Protect What Matters Most
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
-            Create a will protect your children and make your wishes clear. Start your estate plan
+            Create a will, protect your children and make your wishes clear. Start your estate plan
             in minutes or connect with an estate-planning attorney near you.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
