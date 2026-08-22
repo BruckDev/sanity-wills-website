@@ -69,6 +69,12 @@ export default defineType({
                   type: 'array',
                   of: [defineArrayMember({type: 'string'})],
                 }),
+                defineField({
+                  name: 'afterChecklist',
+                  title: 'Paragraphs after checklist',
+                  type: 'array',
+                  of: [defineArrayMember({type: 'text', rows: 3})],
+                }),
               ],
             }),
           ],

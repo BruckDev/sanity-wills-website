@@ -11,6 +11,7 @@ export type LifeEventArticleSection = {
   afterQuestions?: string[]
   items?: LifeEventArticleItem[]
   checklist?: string[]
+  afterChecklist?: string[]
 }
 
 export type LifeEventArticle = {
@@ -204,6 +205,101 @@ export const lifeEvents: LifeEvent[] = [
           'Deed changes can have legal and tax consequences. Speak with a qualified professional before making one.',
       },
     ],
+    article: {
+      title: 'Buying a New Home? Estate-Planning Steps Every Homeowner Should Consider',
+      intro: [
+        'A new home is often one of the largest assets a family owns. It is also a major reason to review your estate plan.',
+        'The question is not simply, “Who gets the house?” It is: Who can manage it if you are sick, who can sell or maintain it after a death, and how can you make the transfer as clear and efficient as possible for the people you love?',
+      ],
+      sections: [
+        {
+          heading: 'Should you buy the home in a trust?',
+          paragraphs: [
+            'For many families, a revocable living trust is the trust most commonly considered for a primary residence.',
+            'You can buy the home directly in the trust’s name at closing, or buy it in your individual names and later transfer it to the trust with a new deed. Neither timing is automatically better. Buying in the trust from the start can avoid a later transfer. Buying personally first may be simpler if your lender, title company, or closing process is not prepared to title the property in the trust.',
+            'The important point is coordination: if you create a trust, the home must actually be transferred into it for the trust to control that property.',
+          ],
+        },
+        {
+          heading: 'What kind of trust is usually used?',
+          paragraphs: [
+            'A revocable living trust is often appropriate when a couple wants to retain full control during life. You can usually serve as your own trustees, change the trust, refinance or sell the home, and name a successor trustee to step in if you become incapacitated or die.',
+            'An irrevocable trust is a very different tool. It may be used for more specialized goals, such as advanced asset-protection, tax, Medicaid, or long-term-care planning. But it can mean giving up flexibility and control. It is not usually the default choice for a typical couple buying a primary home.',
+            'If one spouse has children from a prior relationship, substantial separate assets, a family business, or concerns about long-term support for a child with disabilities, an attorney may recommend more tailored trust provisions.',
+          ],
+        },
+        {
+          heading: 'Pros of placing a home in a revocable living trust',
+          items: [
+            {
+              title: 'Continuity during incapacity.',
+              description:
+                'If one or both owners cannot manage the home, the successor trustee may have authority to handle trust-owned property without first asking a court to appoint someone.',
+            },
+            {
+              title: 'Potentially easier transfer after death.',
+              description:
+                'Property properly held in the trust may avoid probate in the state where the property is located. This can reduce delays, paperwork, and public court involvement.',
+            },
+            {
+              title: 'More control.',
+              description:
+                'A trust can state whether the surviving spouse may remain in the home, whether it should be sold, and how proceeds should ultimately pass to children or other beneficiaries.',
+            },
+            {
+              title: 'Useful for multiple properties.',
+              description:
+                'A trust can be especially helpful if you own a vacation home, rental property, or real estate in more than one state.',
+            },
+          ],
+        },
+        {
+          heading: 'Cons and tradeoffs',
+          items: [
+            {
+              title: 'More upfront work and cost.',
+              description:
+                'A trust must be drafted correctly, and the deed must be prepared and recorded correctly.',
+            },
+            {
+              title: 'It must be maintained.',
+              description:
+                'Buying the trust document is not enough. You need to keep title, insurance, beneficiary designations, and successor-trustee information coordinated.',
+            },
+            {
+              title: 'A trust does not solve every problem.',
+              description:
+                'It does not eliminate a mortgage, property taxes, insurance costs, creditor issues, or the need for a will and incapacity documents.',
+            },
+            {
+              title: 'Lender and title-company coordination matters.',
+              description:
+                'Before closing or transferring an existing mortgaged home, ask your lender, closing attorney, title company, and estate-planning attorney about their requirements. Never assume a deed transfer will have no loan or insurance implications.',
+            },
+          ],
+        },
+        {
+          heading: 'What filing or paperwork is required?',
+          paragraphs: [
+            'Requirements vary by state and county, but a typical transfer after purchase may involve:',
+          ],
+          checklist: [
+            'Creating and signing the trust.',
+            'Preparing a deed that transfers title from the owners to the trustees of the trust.',
+            'Signing and notarizing the deed as required by state law.',
+            'Recording the deed with the county recorder where the home is located.',
+            'Updating homeowner’s insurance, title records, and any relevant lender or association records.',
+            'Keeping a certification of trust available for a title company, bank, or other third party.',
+          ],
+          afterChecklist: [
+            'In Illinois, transferring real property to a trust requires a written instrument conveying legal title to the trustee. Illinois law also allows third parties to request a certification of trust rather than the full trust document.',
+            'For federal income-tax purposes, a revocable living trust is commonly treated as a grantor trust during the creator’s lifetime, meaning income and deductions are generally reported under the owner’s tax identity. However, tax reporting can change after death, incapacity, or if the trust becomes irrevocable.',
+          ],
+        },
+      ],
+      conclusion:
+        'Before closing, ask your estate-planning attorney and title company whether the home should be titled in your individual names or in your revocable trust. If you already closed, do not assume you missed your opportunity; a properly prepared and recorded deed may still transfer the property afterward. Then make sure the rest of your plan matches: update your will, powers of attorney, health care documents, life insurance, and beneficiary designations. A home is not just an asset—it is the place your family depends on. Your estate plan should make clear who can protect it.',
+    },
   },
   {
     slug: 'starting-a-business',
@@ -388,7 +484,7 @@ export const planningTools: PlanningTool[] = [
 ]
 
 export const lifeEventQuery = defineQuery(
-  `*[_type == "lifeEvent" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, urgency, checklist, faqs, article{title, intro, sections[]{heading, paragraphs, questions, afterQuestions, items[]{title, description}, checklist}, conclusion}}`,
+  `*[_type == "lifeEvent" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, urgency, checklist, faqs, article{title, intro, sections[]{heading, paragraphs, questions, afterQuestions, items[]{title, description}, checklist, afterChecklist}, conclusion}}`,
 )
 export const planningToolQuery = defineQuery(
   `*[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time}`,

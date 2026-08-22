@@ -186,6 +186,13 @@ function LifeEventView({event}: {event: LifeEvent}) {
                     ))}
                   </ol>
                 )}
+                {section.afterChecklist && (
+                  <div className="mt-5 space-y-5 leading-7 text-[color:var(--muted)]">
+                    {section.afterChecklist.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                )}
               </section>
             ))}
           </div>

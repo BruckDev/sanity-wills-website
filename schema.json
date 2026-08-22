@@ -981,6 +981,16 @@
                         }
                       },
                       "optional": true
+                    },
+                    "afterChecklist": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "array",
+                        "of": {
+                          "type": "string"
+                        }
+                      },
+                      "optional": true
                     }
                   },
                   "rest": {
