@@ -127,6 +127,75 @@ function LifeEventView({event}: {event: LifeEvent}) {
           </ul>
         </div>
       </section>
+      {event.article && (
+        <article className="mx-auto max-w-4xl border-t border-[#d6e2e8] pt-10 md:pt-14">
+          <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
+            Planning together
+          </div>
+          <h2 className="mt-4 font-serif text-4xl leading-[1.12] tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+            {event.article.title}
+          </h2>
+          <div className="mt-6 space-y-5 text-lg leading-8 text-[color:var(--muted)]">
+            {event.article.intro.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <div className="mt-10 space-y-10">
+            {event.article.sections.map((section) => (
+              <section key={section.heading}>
+                <h3 className="font-serif text-3xl leading-tight tracking-[-0.025em] text-[color:var(--fg)] md:text-4xl">
+                  {section.heading}
+                </h3>
+                {section.paragraphs && (
+                  <div className="mt-5 space-y-5 leading-7 text-[color:var(--muted)]">
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                )}
+                {section.questions && (
+                  <ul className="mt-5 list-disc space-y-3 pl-6 leading-7 text-[color:var(--muted)] marker:text-[color:var(--accent-strong)]">
+                    {section.questions.map((question) => (
+                      <li key={question}>{question}</li>
+                    ))}
+                  </ul>
+                )}
+                {section.afterQuestions && (
+                  <div className="mt-5 space-y-5 leading-7 text-[color:var(--muted)]">
+                    {section.afterQuestions.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                )}
+                {section.items && (
+                  <dl className="mt-5 space-y-5">
+                    {section.items.map((item) => (
+                      <div key={item.title}>
+                        <dt className="font-semibold text-[color:var(--fg)]">{item.title}</dt>
+                        <dd className="mt-1 leading-7 text-[color:var(--muted)]">
+                          {item.description}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+                {section.checklist && (
+                  <ol className="mt-5 list-decimal space-y-3 pl-6 leading-7 text-[color:var(--muted)] marker:font-semibold marker:text-[color:var(--accent-strong)]">
+                    {section.checklist.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ol>
+                )}
+              </section>
+            ))}
+          </div>
+          {event.article.conclusion && (
+            <p className="mt-10 rounded-[18px] border border-[#b8cdb6] bg-[#eef5f0] p-6 text-lg leading-8 text-[color:var(--fg)] md:p-8">
+              {event.article.conclusion}
+            </p>
+          )}
+        </article>
+      )}
       <section>
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
