@@ -158,10 +158,10 @@ export default function HomePage() {
           <li className="border-t-2 border-[#b8cdb6] pt-4">
             <p>Who do you trust to handle money, paperwork, and decisions?</p>
             <Image
-              src="/images/home/starting-questions/decisions.svg"
-              alt="A welcoming family business"
-              width={800}
-              height={640}
+              src="/images/home/starting-questions/special-care.png"
+              alt="An estate-planning professional with a checklist and protective shield"
+              width={1254}
+              height={1254}
               sizes="(min-width: 768px) 30vw, 100vw"
               className="mt-5 aspect-[5/4] w-full rounded-2xl bg-[#f6faf9] object-contain p-2"
             />
@@ -172,10 +172,10 @@ export default function HomePage() {
               disabilities?
             </p>
             <Image
-              src="/images/home/starting-questions/special-care.png"
-              alt="An estate-planning professional with a checklist and protective shield"
-              width={1254}
-              height={1254}
+              src="/images/home/starting-questions/decisions.svg"
+              alt="A welcoming family business"
+              width={800}
+              height={640}
               sizes="(min-width: 768px) 30vw, 100vw"
               className="mt-5 aspect-[5/4] w-full rounded-2xl bg-[#f6faf9] object-contain p-2"
             />
