@@ -25,8 +25,17 @@ export async function POST(request: Request) {
   const phone = text(payload.phone)
   const message = text(payload.message)
 
-  if (!firmName || !contactName || !phone || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return NextResponse.json({message: 'Please provide valid contact details and a message.'}, {status: 400})
+  if (
+    !firmName ||
+    !contactName ||
+    !phone ||
+    !message ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  ) {
+    return NextResponse.json(
+      {message: 'Please provide valid contact details and a message.'},
+      {status: 400},
+    )
   }
 
   const apiKey = process.env.RESEND_API_KEY
@@ -34,12 +43,15 @@ export async function POST(request: Request) {
   const to = process.env.CONTACT_FORM_RECIPIENT || 'gbruck@bruckcpa.com'
 
   if (!apiKey || !from) {
-    return NextResponse.json({message: 'Direct form delivery is not configured yet.'}, {status: 503})
+    return NextResponse.json(
+      {message: 'Direct form delivery is not configured yet.'},
+      {status: 503},
+    )
   }
 
   const emailResponse = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: {Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json'},
+    headers: {'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json'},
     body: JSON.stringify({
       from,
       to: [to],

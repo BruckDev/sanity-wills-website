@@ -707,8 +707,7 @@ export const fallbackInsightsLanding = {
   caseStudiesCta: {label: 'Discuss an Initiative', href: '/contact', style: 'secondary'},
   seo: {
     title: 'Insights | Wills',
-    description:
-      'Editorial insights, perspectives, reports, and future case studies from Wills.',
+    description: 'Editorial insights, perspectives, reports, and future case studies from Wills.',
   },
 }
 

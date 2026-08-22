@@ -6,7 +6,11 @@ export default function RootLayout({children}: LayoutProps<'/'>) {
     <html lang="en">
       <body>
         {children}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LE0CWC41BG" strategy="afterInteractive" />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-LE0CWC41BG"
+          strategy="afterInteractive"
+        />
         <Script id="google-analytics" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}

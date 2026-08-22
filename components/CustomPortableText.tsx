@@ -22,9 +22,7 @@ function linkifyTextNode(text: string, keyPrefix: string): React.ReactNode {
 
     if (urlCandidatePattern.test(part)) {
       const trailingPunctuation = part.match(trailingPunctuationPattern)?.[0] ?? ''
-      const href = trailingPunctuation
-        ? part.slice(0, -trailingPunctuation.length)
-        : part
+      const href = trailingPunctuation ? part.slice(0, -trailingPunctuation.length) : part
 
       return (
         <Fragment key={`${keyPrefix}-url-${index}`}>

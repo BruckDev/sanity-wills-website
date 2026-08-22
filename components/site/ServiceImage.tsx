@@ -31,7 +31,14 @@ export function ServiceImage({
   sizes?: string
 }) {
   if (image) {
-    return <ImageBox image={image} alt={alt || image.alt || 'Service image'} classesWrapper={className} size={sizes} />
+    return (
+      <ImageBox
+        image={image}
+        alt={alt || image.alt || 'Service image'}
+        classesWrapper={className}
+        size={sizes}
+      />
+    )
   }
 
   const fallback = slug ? serviceImageFallbacks[slug as keyof typeof serviceImageFallbacks] : null
@@ -41,7 +48,9 @@ export function ServiceImage({
   }
 
   return (
-    <div className={`w-full overflow-hidden rounded-lg border border-[var(--border)] bg-[color:var(--bg-strong)] shadow-sm ${className}`}>
+    <div
+      className={`w-full overflow-hidden rounded-lg border border-[var(--border)] bg-[color:var(--bg-strong)] shadow-sm ${className}`}
+    >
       <Image
         alt={fallback.alt}
         className="absolute h-full w-full object-cover"
