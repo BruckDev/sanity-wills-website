@@ -41,21 +41,36 @@ const consequences = [
   ],
 ]
 
-const heroPaths = [
+type HeroBenefitIcon = 'children' | 'home' | 'guidance' | 'wishes'
+
+const heroPaths: Array<{
+  icon: HeroBenefitIcon
+  label: string
+  detail: string
+  href: string
+}> = [
   {
+    icon: 'children',
     label: 'Protect your children',
-    detail: 'Choose who would care for them.',
+    detail: 'Choose the people who will care for them.',
     href: '/life-events/new-parents',
   },
-  {label: 'Protect your home', detail: 'Clarify where it should go.', href: '/trusts'},
   {
-    label: 'Avoid family conflict',
-    detail: 'Leave clear directions behind.',
+    icon: 'home',
+    label: 'Protect your home',
+    detail: 'Decide who receives your property.',
+    href: '/trusts',
+  },
+  {
+    icon: 'guidance',
+    label: 'Reduce family conflict',
+    detail: 'Leave clear guidance behind.',
     href: '/estate-planning',
   },
   {
-    label: 'Protect your wishes',
-    detail: 'Choose trusted decision makers.',
+    icon: 'wishes',
+    label: 'Make your wishes known',
+    detail: 'Choose trusted decision-makers.',
     href: '/find-an-attorney',
   },
 ]
@@ -79,6 +94,73 @@ const lifeEventImages: Record<string, {src: string; alt: string}> = {
   },
 }
 
+function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
+  const className = 'h-5 w-5'
+
+  if (icon === 'children') {
+    return (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        className={className}
+      >
+        <path
+          d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 5.65-7 10-7 10Z"
+          strokeWidth="1.8"
+        />
+      </svg>
+    )
+  }
+
+  if (icon === 'home') {
+    return (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        className={className}
+      >
+        <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z" strokeWidth="1.8" />
+        <path d="M9 21v-6h6v6" strokeWidth="1.8" />
+      </svg>
+    )
+  }
+
+  if (icon === 'guidance') {
+    return (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        className={className}
+      >
+        <path
+          d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+          strokeWidth="1.8"
+        />
+        <path d="m8.5 12 2.2 2.2 4.8-4.8M9 7h6" strokeWidth="1.8" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      className={className}
+    >
+      <circle cx="12" cy="12" r="8.5" strokeWidth="1.8" />
+      <path d="m8.5 12 2.2 2.2 4.8-4.8" strokeWidth="1.8" />
+    </svg>
+  )
+}
+
 export default function HomePage() {
   return (
     <div className="space-y-20 pb-8 md:space-y-28">
@@ -92,20 +174,20 @@ export default function HomePage() {
             </div>
             <h1 className="hero-title mt-4 font-serif">Protect What Matters Most</h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-white/80 md:text-xl">
-              Create a will, protect your children and make your wishes clear. Start your estate
-              plan in minutes or connect with an estate-planning attorney near you.
+              Create a will, protect your family, and make your wishes clear—with guidance that
+              meets you where you are.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <ButtonLink
                 href="/create-a-will"
-                label="Create my will"
-                className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !px-4 !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white"
+                label="Start my will"
+                className="hero-button-primary"
               />
               <ButtonLink
                 href="/find-an-attorney"
                 label="Find an estate-planning attorney"
                 style="secondary"
-                className="!border-white/35 !bg-white !px-4 !text-[#071f33] hover:!border-white hover:!bg-white/90"
+                className="hero-button-secondary"
               />
             </div>
           </div>
@@ -120,16 +202,21 @@ export default function HomePage() {
             />
           </div>
         </div>
-        <div className="relative mx-auto mt-5 grid max-w-6xl gap-px overflow-hidden rounded-[18px] border border-white/15 bg-white/15 sm:grid-cols-2 lg:grid-cols-4">
-          {heroPaths.map((path) => (
+        <div className="relative mx-auto mt-5 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+          {heroPaths.map((path, index) => (
             <Link
               key={path.href}
               href={path.href}
-              className="group flex min-h-28 flex-col justify-center bg-[#0a2840]/75 p-4 text-left transition hover:bg-white/[0.12]"
+              className={`group flex items-start gap-3 text-left transition hover:text-[color:var(--accent)] lg:px-5 ${index > 0 ? 'lg:border-l lg:border-white/20' : 'lg:pl-0'}`}
             >
+              <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#14a86f]/20 text-[#8de0bb]">
+                <HeroBenefitIcon icon={path.icon} />
+              </span>
               <span>
                 <span className="block text-base font-semibold tracking-normal">{path.label}</span>
-                <span className="mt-1 block text-sm text-white/70">{path.detail}</span>
+                <span className="mt-1 block text-sm leading-6 text-white/70 group-hover:text-white/85">
+                  {path.detail}
+                </span>
               </span>
             </Link>
           ))}
