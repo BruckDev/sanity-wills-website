@@ -60,6 +60,25 @@ const heroPaths = [
   },
 ]
 
+const lifeEventImages: Record<string, {src: string; alt: string}> = {
+  'new-parents': {
+    src: '/images/home/life-events/new-parents.jpg',
+    alt: 'Parents holding their newborn child',
+  },
+  'getting-married': {
+    src: '/images/home/life-events/getting-married.jpg',
+    alt: 'A newly married couple on their wedding day',
+  },
+  'new-homeowners': {
+    src: '/images/home/life-events/new-homeowners.jpg',
+    alt: 'A family standing in front of their new home',
+  },
+  'starting-a-business': {
+    src: '/images/home/life-events/business-owners.jpg',
+    alt: 'A small business owner at work in her crepe shop',
+  },
+}
+
 export default function HomePage() {
   return (
     <div className="space-y-20 pb-8 md:space-y-28">
@@ -200,23 +219,35 @@ export default function HomePage() {
           <ButtonLink href="/life-events" label="Explore life events" />
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {lifeEvents.slice(0, 4).map((event) => (
-            <Link
-              key={event.slug}
-              href={`/life-events/${event.slug}`}
-              className="group rounded-xl border border-[#cbdce3] bg-white p-5 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
-            >
-              <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
-                {event.eyebrow}
-              </div>
-              <h3 className="mt-3 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
-                {event.title}
-              </h3>
-              <span className="mt-4 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
-                Find your next step →
-              </span>
-            </Link>
-          ))}
+          {lifeEvents.slice(0, 4).map((event) => {
+            const image = lifeEventImages[event.slug]
+
+            return (
+              <Link
+                key={event.slug}
+                href={`/life-events/${event.slug}`}
+                className="group rounded-xl border border-[#cbdce3] bg-white p-5 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
+              >
+                <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
+                  {event.eyebrow}
+                </div>
+                <h3 className="mt-3 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
+                  {event.title}
+                </h3>
+                <span className="mt-4 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
+                  Find your next step →
+                </span>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={754}
+                  height={673}
+                  sizes="(min-width: 1280px) 18vw, (min-width: 768px) 40vw, 100vw"
+                  className="mt-5 aspect-[4/3] w-full rounded-lg object-cover"
+                />
+              </Link>
+            )
+          })}
         </div>
       </section>
 
