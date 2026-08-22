@@ -145,14 +145,40 @@ export default function HomePage() {
         </div>
         <ul className="mt-5 grid gap-4 text-left text-base leading-7 text-[color:var(--muted)] md:grid-cols-3 md:text-lg">
           <li className="border-t-2 border-[#b8cdb6] pt-4">
-            Who should receive your property—and who should receive it if they cannot?
+            <p>Who should receive your property—and who should receive it if they cannot?</p>
+            <Image
+              src="/images/home/starting-questions/property.svg"
+              alt="A welcoming family home"
+              width={800}
+              height={640}
+              sizes="(min-width: 768px) 30vw, 100vw"
+              className="mt-5 aspect-[5/4] w-full rounded-2xl bg-[#f6faf9] object-contain p-2"
+            />
           </li>
           <li className="border-t-2 border-[#b8cdb6] pt-4">
-            Who do you trust to handle money, paperwork, and decisions?
+            <p>Who do you trust to handle money, paperwork, and decisions?</p>
+            <Image
+              src="/images/home/starting-questions/decisions.svg"
+              alt="A welcoming family business"
+              width={800}
+              height={640}
+              sizes="(min-width: 768px) 30vw, 100vw"
+              className="mt-5 aspect-[5/4] w-full rounded-2xl bg-[#f6faf9] object-contain p-2"
+            />
           </li>
           <li className="border-t-2 border-[#b8cdb6] pt-4">
-            What needs special care: children, a home, a business, pets, or a loved one with
-            disabilities?
+            <p>
+              What needs special care: children, a home, a business, pets, or a loved one with
+              disabilities?
+            </p>
+            <Image
+              src="/images/home/starting-questions/special-care.png"
+              alt="An estate-planning professional with a checklist and protective shield"
+              width={1254}
+              height={1254}
+              sizes="(min-width: 768px) 30vw, 100vw"
+              className="mt-5 aspect-[5/4] w-full rounded-2xl bg-[#f6faf9] object-contain p-2"
+            />
           </li>
         </ul>
       </section>
@@ -167,8 +193,8 @@ export default function HomePage() {
               A new chapter is a reason to check your plan.
             </h2>
             <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-              A new child, home, marriage, business, retirement, or health change can alter the people
-              and decisions your plan should protect.
+              A new child, home, marriage, business, retirement, or health change can alter the
+              people and decisions your plan should protect.
             </p>
           </div>
           <ButtonLink href="/life-events" label="Explore life events" />
