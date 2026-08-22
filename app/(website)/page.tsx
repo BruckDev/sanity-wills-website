@@ -140,10 +140,10 @@ export default function HomePage() {
       </section>
 
       <section className="rounded-[2rem] border border-[color:var(--border)] bg-white px-6 py-7 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:px-8 md:py-8">
-        <div className="text-center text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
+        <div className="text-center text-sm font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)] md:text-base">
           Start with these questions
         </div>
-        <ul className="mt-5 grid gap-4 text-left text-sm leading-6 text-[color:var(--muted)] md:grid-cols-3">
+        <ul className="mt-5 grid gap-4 text-left text-base leading-7 text-[color:var(--muted)] md:grid-cols-3 md:text-lg">
           <li className="border-t-2 border-[#b8cdb6] pt-4">
             Who should receive your property—and who should receive it if they cannot?
           </li>
@@ -167,7 +167,7 @@ export default function HomePage() {
               A new chapter is a reason to check your plan.
             </h2>
             <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-              A new child home marriage business retirement or health change can alter the people
+              A new child, home, marriage, business, retirement, or health change can alter the people
               and decisions your plan should protect.
             </p>
           </div>
