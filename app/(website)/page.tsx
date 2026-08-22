@@ -164,16 +164,16 @@ function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
 export default function HomePage() {
   return (
     <div className="space-y-20 pb-8 md:space-y-28">
-      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#071f33] bg-[#071f33] px-5 py-7 text-white shadow-[0_28px_70px_rgba(7,31,51,0.24)] sm:px-8 md:px-12 md:py-12 lg:px-14 lg:py-14">
-        <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#00bb78]/25" />
-        <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,187,120,0.22),transparent_64%)]" />
+      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#102536] bg-[#102536] px-5 py-7 text-[#faf8f5] shadow-[0_28px_70px_rgba(16,37,54,0.24)] sm:px-8 md:px-12 md:py-12 lg:px-14 lg:py-14">
+        <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#14a86f]/25" />
+        <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(20,168,111,0.22),transparent_64%)]" />
         <div className="relative mx-auto grid max-w-6xl gap-8 lg:grid-cols-2 lg:items-center">
           <div className="text-left">
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#14a86f]">
               Estate planning, made clearer
             </div>
             <h1 className="hero-title mt-4 font-serif">Protect What Matters Most</h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-white/80 md:text-xl">
+            <p className="mt-5 max-w-xl text-lg leading-8 text-[#bac7cf] md:text-xl">
               Create a will, protect your family, and make your wishes clear—with guidance that
               meets you where you are.
             </p>
@@ -191,30 +191,33 @@ export default function HomePage() {
               />
             </div>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-white/15 bg-[#d7ebe5] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-[#faf8f5]/25 bg-[#eaf2ed] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
             <Image
               src="/images/estate-planning/hero-protect-what-matters.png"
               alt="A multigenerational family spending time together at home"
               fill
               priority
-              className="object-cover object-center"
+              className="object-cover object-center opacity-95"
               sizes="(min-width: 1024px) 38rem, 100vw"
             />
+            <div className="pointer-events-none absolute inset-0 bg-[#eaf2ed]/10" />
           </div>
         </div>
-        <div className="relative mx-auto mt-5 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+        <div className="relative mx-auto mt-5 grid max-w-6xl gap-1 overflow-hidden rounded-[18px] border border-[#d6e2db] bg-[#eaf2ed] sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
           {heroPaths.map((path, index) => (
             <Link
               key={path.href}
               href={path.href}
-              className={`group flex items-start gap-3 text-left transition hover:text-[color:var(--accent)] lg:px-5 ${index > 0 ? 'lg:border-l lg:border-white/20' : 'lg:pl-0'}`}
+              className={`group flex items-start gap-3 bg-[#eaf2ed] p-4 text-left transition hover:bg-[#f2e5e3] lg:px-5 ${index > 0 ? 'lg:border-l lg:border-[#cddbd3]' : ''}`}
             >
-              <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#14a86f]/20 text-[#8de0bb]">
+              <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f2e5e3] text-[#14a86f]">
                 <HeroBenefitIcon icon={path.icon} />
               </span>
               <span>
-                <span className="block text-base font-semibold tracking-normal">{path.label}</span>
-                <span className="mt-1 block text-sm leading-6 text-white/70 group-hover:text-white/85">
+                <span className="block text-base font-semibold tracking-normal text-[#102536]">
+                  {path.label}
+                </span>
+                <span className="mt-1 block text-sm leading-6 text-[#5a707a] group-hover:text-[#102536]">
                   {path.detail}
                 </span>
               </span>
