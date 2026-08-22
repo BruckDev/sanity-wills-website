@@ -208,7 +208,7 @@ export default function HomePage() {
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
               When life changes
             </div>
-            <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+            <h2 className="mt-4 font-serif text-4xl leading-[1.12] tracking-normal text-[color:var(--fg)] md:text-5xl">
               A new chapter is a reason to check your plan.
             </h2>
             <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
@@ -218,7 +218,7 @@ export default function HomePage() {
           </div>
           <ButtonLink href="/life-events" label="Explore life events" />
         </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {lifeEvents.slice(0, 4).map((event) => {
             const image = lifeEventImages[event.slug]
 
