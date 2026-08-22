@@ -98,7 +98,6 @@ function WebsiteHeader({data}: {data: any}) {
         {label: 'Estate planning', href: '/estate-planning'},
         {label: 'Life events', href: '/life-events'},
         {label: 'Free tools', href: '/tools'},
-        {label: 'Find an attorney', href: '/find-an-attorney'},
         {label: 'Articles', href: '/insights'},
         {label: 'For attorneys', href: '/contact'},
       ]}
