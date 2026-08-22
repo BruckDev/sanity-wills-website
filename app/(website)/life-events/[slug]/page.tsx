@@ -98,35 +98,37 @@ function LifeEventView({event}: {event: LifeEvent}) {
           )}
         </div>
       </section>
-      <section className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-        <aside className="rounded-2xl border border-[#b8cdb6] bg-[#eef5f0] p-7">
-          <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
-            Why now matters
+      {event.slug !== 'getting-married' && (
+        <section className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+          <aside className="rounded-2xl border border-[#b8cdb6] bg-[#eef5f0] p-7">
+            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
+              Why now matters
+            </div>
+            <p className="mt-4 font-serif text-3xl leading-tight tracking-[-0.03em] text-[color:var(--fg)]">
+              {event.urgency}
+            </p>
+          </aside>
+          <div className="rounded-2xl border border-[color:var(--border)] bg-white p-7 md:p-9">
+            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
+              A practical starting list
+            </div>
+            <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">
+              Take the next right step.
+            </h2>
+            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+              {event.checklist.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-xl border border-[#d6e2e8] bg-[#f7fafc] p-4 text-sm leading-6 text-[color:var(--fg)]"
+                >
+                  <span className="mr-2 font-bold text-[color:var(--accent-strong)]">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-          <p className="mt-4 font-serif text-3xl leading-tight tracking-[-0.03em] text-[color:var(--fg)]">
-            {event.urgency}
-          </p>
-        </aside>
-        <div className="rounded-2xl border border-[color:var(--border)] bg-white p-7 md:p-9">
-          <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
-            A practical starting list
-          </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">
-            Take the next right step.
-          </h2>
-          <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-            {event.checklist.map((item) => (
-              <li
-                key={item}
-                className="rounded-xl border border-[#d6e2e8] bg-[#f7fafc] p-4 text-sm leading-6 text-[color:var(--fg)]"
-              >
-                <span className="mr-2 font-bold text-[color:var(--accent-strong)]">✓</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+        </section>
+      )}
       {event.article && (
         <article className="mx-auto max-w-4xl border-t border-[#d6e2e8] pt-10 md:pt-14">
           <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
