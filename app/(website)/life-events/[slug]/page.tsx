@@ -1,6 +1,7 @@
 import {ButtonLink} from '@/components/site/ButtonLink'
 import {
   getLifeEvent,
+  lifeEventImages,
   lifeEventQuery,
   lifeEvents,
   mergeLifeEvent,
@@ -9,6 +10,7 @@ import {
 import {getDynamicFetchOptions, sanityFetch, type DynamicFetchOptions} from '@/sanity/lib/live'
 import type {Metadata} from 'next'
 import {draftMode} from 'next/headers'
+import Image from 'next/image'
 import {notFound} from 'next/navigation'
 import {Suspense} from 'react'
 
@@ -54,30 +56,46 @@ async function CachedLifeEventPage({
 }
 
 function LifeEventView({event}: {event: LifeEvent}) {
+  const image = lifeEventImages[event.slug]
+
   return (
     <div className="space-y-14 pb-8 md:space-y-20">
       <section className="rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-10 md:py-16">
-        <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            {event.eyebrow}
+        <div className={image ? 'grid gap-8 lg:grid-cols-2 lg:items-center' : 'max-w-3xl'}>
+          <div>
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+              {event.eyebrow}
+            </div>
+            <h1 className="mt-4 font-serif text-4xl tracking-[-0.045em] md:text-6xl">
+              Estate planning for {event.title.toLowerCase()}.
+            </h1>
+            <p className="mt-5 text-lg leading-8 text-white/80">{event.summary}</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <ButtonLink
+                href="/create-a-will"
+                label="Create a will"
+                className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31]"
+              />
+              <ButtonLink
+                href="/find-an-attorney"
+                label="Find an attorney"
+                style="secondary"
+                className="!border-white/30 !bg-transparent !text-white hover:!bg-white/10"
+              />
+            </div>
           </div>
-          <h1 className="mt-4 font-serif text-4xl tracking-[-0.045em] md:text-6xl">
-            Estate planning for {event.title.toLowerCase()}.
-          </h1>
-          <p className="mt-5 text-lg leading-8 text-white/80">{event.summary}</p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <ButtonLink
-              href="/create-a-will"
-              label="Create a will"
-              className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31]"
-            />
-            <ButtonLink
-              href="/find-an-attorney"
-              label="Find an attorney"
-              style="secondary"
-              className="!border-white/30 !bg-transparent !text-white hover:!bg-white/10"
-            />
-          </div>
+          {image && (
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-white/15 bg-[#eef5f0] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                priority
+                className="object-cover"
+                sizes="(min-width: 1024px) 36rem, 100vw"
+              />
+            </div>
+          )}
         </div>
       </section>
       <section className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">

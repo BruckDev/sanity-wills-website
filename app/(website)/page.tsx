@@ -1,6 +1,6 @@
 import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
-import {lifeEvents, planningTools} from '@/sanity/lib/estatePlanningContent'
+import {lifeEventImages, lifeEvents, planningTools} from '@/sanity/lib/estatePlanningContent'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -74,25 +74,6 @@ const heroPaths: Array<{
     href: '/find-an-attorney',
   },
 ]
-
-const lifeEventImages: Record<string, {src: string; alt: string}> = {
-  'new-parents': {
-    src: '/images/home/life-events/new-parents.jpg',
-    alt: 'Parents holding their newborn child',
-  },
-  'getting-married': {
-    src: '/images/home/life-events/getting-married.jpg',
-    alt: 'A newly married couple on their wedding day',
-  },
-  'new-homeowners': {
-    src: '/images/home/life-events/new-homeowners.jpg',
-    alt: 'A family standing in front of their new home',
-  },
-  'starting-a-business': {
-    src: '/images/home/life-events/business-owners.jpg',
-    alt: 'A small business owner at work in her crepe shop',
-  },
-}
 
 function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
   const className = 'h-5 w-5'
