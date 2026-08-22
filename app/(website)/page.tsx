@@ -85,54 +85,56 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#071f33] bg-[#071f33] px-5 py-7 text-white shadow-[0_28px_70px_rgba(7,31,51,0.24)] sm:px-8 md:px-12 md:py-12 lg:px-14 lg:py-14">
         <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#00bb78]/25" />
         <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,187,120,0.22),transparent_64%)]" />
-        <div className="relative mx-auto max-w-3xl text-center">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Estate planning, made clearer
+        <div className="relative mx-auto grid max-w-6xl gap-8 lg:grid-cols-2 lg:items-center">
+          <div className="text-left">
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+              Estate planning, made clearer
+            </div>
+            <h1 className="mt-4 font-serif text-4xl leading-[1.04] tracking-normal md:text-5xl xl:text-6xl">
+              Protect What Matters Most
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-white/80 md:text-xl">
+              Create a will, protect your children and make your wishes clear. Start your estate
+              plan in minutes or connect with an estate-planning attorney near you.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <ButtonLink
+                href="/create-a-will"
+                label="Create my will"
+                className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !px-4 !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white"
+              />
+              <ButtonLink
+                href="/find-an-attorney"
+                label="Find an estate-planning attorney"
+                style="secondary"
+                className="!border-white/35 !bg-white !px-4 !text-[#071f33] hover:!border-white hover:!bg-white/90"
+              />
+            </div>
           </div>
-          <h1 className="mt-4 font-serif text-4xl leading-[0.98] tracking-[-0.045em] md:text-6xl xl:text-7xl">
-            Protect What Matters Most
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
-            Create a will, protect your children and make your wishes clear. Start your estate plan
-            in minutes or connect with an estate-planning attorney near you.
-          </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <ButtonLink
-              href="/create-a-will"
-              label="Create my will"
-              className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white"
-            />
-            <ButtonLink
-              href="/find-an-attorney"
-              label="Find an estate-planning attorney"
-              style="secondary"
-              className="!border-white/35 !bg-white !text-[#071f33] hover:!border-white hover:!bg-white/90"
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-white/15 bg-[#d7ebe5] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
+            <Image
+              src="/images/estate-planning/hero-protect-what-matters.png"
+              alt="A multigenerational family spending time together at home"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="(min-width: 1024px) 38rem, 100vw"
             />
           </div>
         </div>
-        <div className="relative mx-auto mt-10 grid max-w-6xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative mx-auto mt-5 grid max-w-6xl gap-px overflow-hidden rounded-[18px] border border-white/15 bg-white/15 sm:grid-cols-2 lg:grid-cols-4">
           {heroPaths.map((path) => (
             <Link
               key={path.href}
               href={path.href}
-              className="group flex min-h-32 flex-col justify-between rounded-2xl border border-white/15 bg-white/[0.06] p-4 text-left transition hover:-translate-y-1 hover:border-[color:var(--accent)] hover:bg-white/[0.1]"
+              className="group flex min-h-28 flex-col justify-center bg-[#0a2840]/75 p-4 text-left transition hover:bg-white/[0.12]"
             >
               <span>
-                <span className="block text-lg font-semibold tracking-[-0.02em]">{path.label}</span>
+                <span className="block text-base font-semibold tracking-normal">{path.label}</span>
                 <span className="mt-1 block text-sm text-white/70">{path.detail}</span>
               </span>
             </Link>
           ))}
-        </div>
-        <div className="relative mx-auto mt-3 aspect-[16/7] max-w-6xl overflow-hidden rounded-[18px] border border-white/15">
-          <Image
-            src="/images/estate-planning/hero-protect-what-matters.png"
-            alt="A multigenerational family spending time together at home"
-            fill
-            priority
-            className="object-cover object-[center_42%]"
-            sizes="(min-width: 1024px) 72rem, 100vw"
-          />
         </div>
       </section>
 
