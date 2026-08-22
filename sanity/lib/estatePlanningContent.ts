@@ -70,6 +70,29 @@ export const lifeEvents: LifeEvent[] = [
           'Review it after a birth or adoption and again whenever your family or financial circumstances change.',
       },
     ],
+    article: {
+      title: 'Estate Planning for New Parents: A Quick Summary',
+      intro: [
+        'Having a child is a good reason to create or update an estate plan. The most important decision is naming a guardian—someone you trust to care for your child if both parents die or cannot care for them. Name both a first choice and a backup, and discuss the responsibility with them first.',
+        'You should also decide who would manage money for your child. This may be the same person as the guardian, but it does not have to be. A will can name a guardian and direct how assets should be handled. Many families also consider a revocable living trust to hold assets for children, appoint a trustee, and set rules for when and how funds may be used.',
+        'Update beneficiary designations on life insurance, retirement accounts, and financial accounts. These designations can control who receives the money, even if your will says something different. Avoid naming a young child directly without legal guidance, since a court process may be needed to manage the funds.',
+        'Finally, create durable powers of attorney and health-care documents so trusted people can handle financial and medical decisions if you are alive but unable to act. Review your plan after major changes, such as another child, a move, a divorce, or a change in the people you trust.',
+      ],
+      sections: [
+        {
+          heading: 'Essential Checklist',
+          checklist: [
+            'Name a guardian and backup guardian for your children.',
+            'Name someone to manage money left for them.',
+            'Create or update your will—and consider a trust if appropriate.',
+            'Review beneficiaries on life insurance and retirement accounts.',
+            'Complete financial and health-care powers of attorney.',
+          ],
+        },
+      ],
+      disclaimer:
+        'This is general information, not legal advice. An estate-planning attorney can tailor these documents to your family and state law.',
+    },
   },
   {
     slug: 'getting-married',
