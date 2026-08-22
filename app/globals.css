@@ -102,6 +102,14 @@ main {
   box-shadow: 0 24px 54px rgba(7, 26, 43, 0.12);
 }
 
+.hero-title {
+  max-width: 580px;
+  color: #ffffff;
+  font-size: clamp(44px, 6vw, 76px);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
 .animate-rise {
   animation: rise 700ms ease both;
 }

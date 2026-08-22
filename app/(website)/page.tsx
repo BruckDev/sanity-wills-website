@@ -90,9 +90,7 @@ export default function HomePage() {
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
               Estate planning, made clearer
             </div>
-            <h1 className="mt-4 font-serif text-4xl leading-[1.04] tracking-normal md:text-5xl xl:text-6xl">
-              Protect What Matters Most
-            </h1>
+            <h1 className="hero-title mt-4 font-serif">Protect What Matters Most</h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-white/80 md:text-xl">
               Create a will, protect your children and make your wishes clear. Start your estate
               plan in minutes or connect with an estate-planning attorney near you.
