@@ -98,7 +98,9 @@ function LifeEventView({event}: {event: LifeEvent}) {
           )}
         </div>
       </section>
-      {!['getting-married', 'new-homeowners', 'starting-a-business'].includes(event.slug) && (
+      {!['getting-married', 'new-homeowners', 'starting-a-business', 'new-parents'].includes(
+        event.slug,
+      ) && (
         <section className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <aside className="rounded-2xl border border-[#b8cdb6] bg-[#eef5f0] p-7">
             <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
