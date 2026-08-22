@@ -75,11 +75,26 @@ export default defineType({
                   type: 'array',
                   of: [defineArrayMember({type: 'text', rows: 3})],
                 }),
+                defineField({
+                  name: 'resources',
+                  title: 'Resources',
+                  type: 'array',
+                  of: [
+                    defineArrayMember({
+                      type: 'object',
+                      fields: [
+                        defineField({name: 'label', type: 'string'}),
+                        defineField({name: 'href', title: 'URL', type: 'url'}),
+                      ],
+                    }),
+                  ],
+                }),
               ],
             }),
           ],
         }),
         defineField({name: 'conclusion', type: 'text', rows: 3}),
+        defineField({name: 'disclaimer', type: 'text', rows: 3}),
       ],
     }),
     defineField({

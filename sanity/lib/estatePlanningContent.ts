@@ -4,6 +4,8 @@ export type PlanningFaq = {question: string; answer: string}
 
 export type LifeEventArticleItem = {title: string; description: string}
 
+export type LifeEventArticleResource = {label: string; href: string}
+
 export type LifeEventArticleSection = {
   heading: string
   paragraphs?: string[]
@@ -12,6 +14,7 @@ export type LifeEventArticleSection = {
   items?: LifeEventArticleItem[]
   checklist?: string[]
   afterChecklist?: string[]
+  resources?: LifeEventArticleResource[]
 }
 
 export type LifeEventArticle = {
@@ -19,6 +22,7 @@ export type LifeEventArticle = {
   intro: string[]
   sections: LifeEventArticleSection[]
   conclusion?: string
+  disclaimer?: string
 }
 
 export type LifeEvent = {
@@ -327,6 +331,39 @@ export const lifeEvents: LifeEvent[] = [
           'Authority depends on the account agreements and governing documents. Record keeping and a continuity plan can reduce delays.',
       },
     ],
+    article: {
+      title: 'Estate Planning for Business Owners',
+      intro: [
+        'A business can be one of the most important assets a person owns—and one of the easiest to disrupt when the owner becomes ill, incapacitated, or dies. Estate planning for a business owner is not only about who inherits the company. It is also about making sure the right people can keep payroll moving, communicate with customers, access accounts, and make decisions when you cannot.',
+      ],
+      sections: [
+        {
+          heading:
+            'Plan for the people who would need authority and information if you are suddenly unavailable.',
+          paragraphs: [
+            'Start by identifying the people who would need to step in. This may include a spouse, co-owner, key employee, accountant, attorney, bookkeeper, or trusted family member. Be specific about their roles. Who can sign checks? Who can approve payroll? Who can speak with the bank, insurer, landlord, vendors, or clients? Who has the authority to run the company temporarily—and who should ultimately own it?',
+            'Your core estate plan should usually coordinate a will or revocable living trust with durable powers of attorney, health-care documents, and your business’s governing records. For an LLC, corporation, or partnership, review the operating agreement, bylaws, shareholder agreement, or partnership agreement. These documents may control who can vote, manage, buy, sell, or inherit an ownership interest. They should work with—not conflict with—your personal estate plan.',
+            'A succession plan is especially important if there are co-owners. Consider a buy-sell agreement that explains what happens if an owner dies, becomes disabled, retires, or wants to leave. It can set a valuation method, identify who may buy the interest, and provide a path for funding the purchase, often through insurance or a planned payment arrangement.',
+            'Just as important: create a secure, organized business-information file. Include entity documents, EIN and tax records, banking contacts, insurance policies, payroll and accounting access instructions, key contracts, vendor and client lists, licenses, passwords stored through a secure password manager, and a brief “how the business runs” guide. Keep it current and tell the right people where to find it. A continuity plan should identify critical functions, a team, and recovery steps—an approach also recommended by the U.S. Small Business Administration.',
+            'Do not assume a personal power of attorney automatically lets someone handle every business or tax matter. Authority can depend on your entity documents, state law, bank policies, and the specific agency involved. For example, IRS representation commonly requires a separate Form 2848 authorization.',
+          ],
+          resources: [
+            {
+              label: 'U.S. Small Business Administration: Managing your business',
+              href: 'https://www.sba.gov/counseling/manage-your-business/',
+            },
+            {
+              label: 'IRS Form 2848 authorization guidance',
+              href: 'https://www.taxpayeradvocate.irs.gov/news/nta-blog/nta-blog-when-to-use-a-durable-power-of-attorney-to-authorize-representation-before-the-irs/2022/10/',
+            },
+          ],
+        },
+      ],
+      conclusion:
+        'A practical starting point is to meet with an estate-planning attorney and your tax or business adviser, then ask: If I could not respond tomorrow, who would know what to do—and would they have the legal authority and information to do it?',
+      disclaimer:
+        'This article is general information, not legal or tax advice. Business succession and estate-planning rules vary by state and by entity type.',
+    },
   },
   {
     slug: 'caring-for-an-aging-parent',
@@ -484,7 +521,7 @@ export const planningTools: PlanningTool[] = [
 ]
 
 export const lifeEventQuery = defineQuery(
-  `*[_type == "lifeEvent" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, urgency, checklist, faqs, article{title, intro, sections[]{heading, paragraphs, questions, afterQuestions, items[]{title, description}, checklist, afterChecklist}, conclusion}}`,
+  `*[_type == "lifeEvent" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, urgency, checklist, faqs, article{title, intro, sections[]{heading, paragraphs, questions, afterQuestions, items[]{title, description}, checklist, afterChecklist, resources[]{label, href}}, conclusion, disclaimer}}`,
 )
 export const planningToolQuery = defineQuery(
   `*[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time}`,

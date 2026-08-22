@@ -195,12 +195,33 @@ function LifeEventView({event}: {event: LifeEvent}) {
                     ))}
                   </div>
                 )}
+                {section.resources && (
+                  <ul className="mt-5 space-y-2 text-sm leading-6">
+                    {section.resources.map((resource) => (
+                      <li key={resource.href}>
+                        <a
+                          href={resource.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="font-semibold text-[color:var(--accent-strong)] underline decoration-current/40 underline-offset-4 hover:decoration-current"
+                        >
+                          {resource.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </section>
             ))}
           </div>
           {event.article.conclusion && (
             <p className="mt-10 rounded-[18px] border border-[#b8cdb6] bg-[#eef5f0] p-6 text-lg leading-8 text-[color:var(--fg)] md:p-8">
               {event.article.conclusion}
+            </p>
+          )}
+          {event.article.disclaimer && (
+            <p className="mt-5 text-sm italic leading-6 text-[color:var(--muted)]">
+              {event.article.disclaimer}
             </p>
           )}
         </article>
