@@ -203,20 +203,18 @@ export default function HomePage() {
       </section>
 
       <section className="rounded-[2rem] border border-[#b8cdb6] bg-[#eef5f0] p-7 md:p-10">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl">
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
-              When life changes
-            </div>
-            <h2 className="mt-4 font-serif text-4xl leading-[1.12] tracking-normal text-[color:var(--fg)] md:text-5xl">
-              A new chapter is a reason to check your plan.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-              A new child, home, marriage, business, retirement, or health change can alter the
-              people and decisions your plan should protect.
-            </p>
+        <div className="max-w-3xl">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+            When life changes
           </div>
-          <ButtonLink href="/life-events" label="Explore life events" />
+          <h2 className="mt-4 font-serif text-4xl leading-[1.12] tracking-normal text-[color:var(--fg)] md:text-5xl">
+            A new chapter is a reason to check your plan.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
+            A new child, home, marriage, business, retirement, or health change can alter the people
+            and decisions your plan should protect.
+          </p>
+          <ButtonLink href="/life-events" label="See what to update" className="mt-5" />
         </div>
         <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {lifeEvents.slice(0, 4).map((event) => {
@@ -226,7 +224,7 @@ export default function HomePage() {
               <Link
                 key={event.slug}
                 href={`/life-events/${event.slug}`}
-                className="group rounded-xl border border-[#cbdce3] bg-white p-5 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
+                className="group flex flex-col rounded-[18px] border border-[#dce7e6] bg-white p-5 shadow-[0_6px_20px_rgba(7,31,51,0.05)] transition duration-200 hover:-translate-y-0.5 hover:border-[#b8cdb6] hover:shadow-[0_14px_28px_rgba(7,31,51,0.1)]"
               >
                 <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
                   {event.eyebrow}
@@ -243,7 +241,7 @@ export default function HomePage() {
                   width={754}
                   height={673}
                   sizes="(min-width: 1280px) 18vw, (min-width: 768px) 40vw, 100vw"
-                  className="mt-5 aspect-[4/3] w-full rounded-lg object-cover"
+                  className="mt-5 aspect-[4/3] w-full rounded-[12px] object-cover"
                 />
               </Link>
             )
