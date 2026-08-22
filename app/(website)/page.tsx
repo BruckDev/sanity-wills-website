@@ -124,37 +124,15 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
-        <div className="relative mx-auto mt-3 grid max-w-6xl grid-cols-3 gap-3">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15">
-            <Image
-              src="/images/estate-planning/hero-family-couple.png"
-              alt="A couple enjoying time together outdoors"
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="(min-width: 1024px) 22rem, 30vw"
-            />
-          </div>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15">
-            <Image
-              src="/images/estate-planning/hero-family-young.png"
-              alt="A young family spending time together outdoors"
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="(min-width: 1024px) 22rem, 30vw"
-            />
-          </div>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/15">
-            <Image
-              src="/images/estate-planning/hero-family-grandparent.png"
-              alt="A multigenerational family spending time together"
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="(min-width: 1024px) 22rem, 30vw"
-            />
-          </div>
+        <div className="relative mx-auto mt-3 aspect-[16/7] max-w-6xl overflow-hidden rounded-[18px] border border-white/15">
+          <Image
+            src="/images/estate-planning/hero-protect-what-matters.png"
+            alt="A multigenerational family spending time together at home"
+            fill
+            priority
+            className="object-cover object-[center_42%]"
+            sizes="(min-width: 1024px) 72rem, 100vw"
+          />
         </div>
       </section>
 
