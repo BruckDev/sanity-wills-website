@@ -152,7 +152,7 @@ export function WillDraftBuilder() {
               <button
                 type="button"
                 onClick={() => window.print()}
-                className="min-h-12 rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-white"
+                className="min-h-12 rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31]"
               >
                 Print this outline
               </button>
@@ -312,7 +312,7 @@ export function WillDraftBuilder() {
             <button
               type="button"
               onClick={searchNotaries}
-              className="min-h-12 shrink-0 whitespace-nowrap rounded-lg bg-[color:var(--accent)] px-5 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-white"
+              className="min-h-12 shrink-0 whitespace-nowrap rounded-lg bg-[color:var(--accent)] px-5 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-[#061e31]"
             >
               Search notaries
             </button>
@@ -480,7 +480,7 @@ export function WillDraftBuilder() {
             type="button"
             onClick={nextStep}
             disabled={!canContinue}
-            className="min-h-12 rounded-lg bg-[color:var(--accent)] px-5 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="min-h-12 rounded-lg bg-[color:var(--accent)] px-5 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {step === totalSteps - 1 ? 'Create my draft outline' : 'Continue'}
           </button>

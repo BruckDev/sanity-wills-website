@@ -144,11 +144,11 @@ function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
 
 export default function HomePage() {
   return (
-    <div className="space-y-20 pb-8 md:space-y-28">
-      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#102536] bg-[#102536] px-5 py-7 text-[#faf8f5] shadow-[0_28px_70px_rgba(16,37,54,0.24)] sm:px-8 md:px-12 md:py-12 lg:px-14 lg:py-14">
+    <div className="space-y-16 md:space-y-20">
+      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#102536] bg-[#102536] px-5 py-7 text-[#faf8f5] shadow-[0_28px_70px_rgba(16,37,54,0.24)] sm:px-8 md:px-10 md:py-9 xl:px-14 xl:py-12">
         <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#14a86f]/25" />
         <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(20,168,111,0.22),transparent_64%)]" />
-        <div className="relative mx-auto grid max-w-6xl gap-8 lg:grid-cols-2 lg:items-center">
+        <div className="relative mx-auto grid max-w-none gap-7 md:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] md:items-center lg:gap-10">
           <div className="text-left">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#14a86f]">
               Estate planning, made clearer
@@ -158,18 +158,18 @@ export default function HomePage() {
               Create a will, protect your family, and make your wishes clear—with guidance that
               meets you where you are.
             </p>
-            <div className="mt-5 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               <ButtonLink
                 href="/create-a-will"
                 label="Start my will"
                 className="hero-button-primary"
               />
-              <ButtonLink
-                href="/find-an-attorney"
-                label="Find an estate-planning attorney"
-                style="secondary"
-                className="hero-button-secondary"
-              />
+            </div>
+            <div className="mt-5 max-w-xl border-t border-white/15 pt-4">
+              <div className="text-sm font-semibold text-white">
+                Find an estate-planning attorney
+              </div>
+              <AttorneyZipSearch compact redirectOnSubmit />
             </div>
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-[#faf8f5]/25 bg-[#eaf2ed] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
@@ -179,17 +179,17 @@ export default function HomePage() {
               fill
               priority
               className="object-cover object-center opacity-95"
-              sizes="(min-width: 1024px) 38rem, 100vw"
+              sizes="(min-width: 768px) 45vw, 100vw"
             />
             <div className="pointer-events-none absolute inset-0 bg-[#eaf2ed]/10" />
           </div>
         </div>
-        <div className="relative mx-auto mt-5 grid max-w-6xl gap-1 overflow-hidden rounded-[18px] border border-[#d6e2db] bg-[#eaf2ed] sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+        <div className="relative mx-auto mt-5 grid max-w-none gap-1 overflow-hidden rounded-[18px] border border-[#d6e2db] bg-[#eaf2ed] sm:grid-cols-2 md:grid-cols-4 md:gap-0">
           {heroPaths.map((path, index) => (
             <Link
               key={path.href}
               href={path.href}
-              className={`group flex items-start gap-3 bg-[#eaf2ed] p-4 text-left transition hover:bg-[#f2e5e3] lg:px-5 ${index > 0 ? 'lg:border-l lg:border-[#cddbd3]' : ''}`}
+              className={`group flex items-start gap-3 bg-[#eaf2ed] p-4 text-left transition hover:bg-[#f2e5e3] lg:px-5 ${index > 0 ? 'md:border-l md:border-[#cddbd3]' : ''}`}
             >
               <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f2e5e3] text-[#14a86f]">
                 <HeroBenefitIcon icon={path.icon} />
@@ -367,8 +367,13 @@ export default function HomePage() {
               sizes="(min-width: 1024px) 48vw, 100vw"
             />
           </div>
-          <div className="mt-5 text-sm font-semibold text-white">Search by ZIP code</div>
-          <AttorneyZipSearch />
+          <div className="mt-5">
+            <ButtonLink
+              href="/find-an-attorney"
+              label="Open the attorney directory"
+              className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!border-[color:var(--accent-strong)] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
+            />
+          </div>
         </div>
       </section>
 
@@ -537,7 +542,7 @@ export default function HomePage() {
             <ButtonLink
               href="/find-an-attorney"
               label="Find an adviser near you"
-              className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white"
+              className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
             />
           </div>
         </div>
@@ -681,7 +686,7 @@ export default function HomePage() {
           <ButtonLink
             href="/contact"
             label="Contribute an article"
-            className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white"
+            className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
           />
         </div>
       </section>
@@ -711,7 +716,7 @@ export default function HomePage() {
           <ButtonLink
             href="/create-a-will"
             label="Create my estate plan"
-            className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-white"
+            className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
           />
           <ButtonLink
             href="/trusts"
@@ -726,7 +731,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="border-t border-[color:var(--border)] pt-8 text-sm leading-6 text-[color:var(--muted)]">
+      <section className="!mt-10 border-t border-[color:var(--border)] pt-5 text-sm leading-6 text-[color:var(--muted)] md:!mt-12">
         <strong className="font-semibold text-[color:var(--fg)]">Important:</strong> Wills.com
         provides general educational information, not legal, tax, or financial advice. Reading this
         site does not create an attorney-client relationship. Consult a licensed professional in

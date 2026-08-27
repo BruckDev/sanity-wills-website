@@ -1,10 +1,29 @@
 'use client'
 
+import {useRouter, useSearchParams} from 'next/navigation'
 import {useState, type FormEvent} from 'react'
 
-export function AttorneyZipSearch() {
-  const [zip, setZip] = useState('')
-  const [submittedZip, setSubmittedZip] = useState<string | null>(null)
+type AttorneyZipSearchProps = {
+  initialZip?: string
+  redirectOnSubmit?: boolean
+  compact?: boolean
+}
+
+export function AttorneyZipSearchFromUrl() {
+  const searchParams = useSearchParams()
+
+  return <AttorneyZipSearch initialZip={searchParams.get('zip') || ''} />
+}
+
+export function AttorneyZipSearch({
+  initialZip = '',
+  redirectOnSubmit = false,
+  compact = false,
+}: AttorneyZipSearchProps) {
+  const router = useRouter()
+  const validInitialZip = /^\d{5}$/.test(initialZip) ? initialZip : ''
+  const [zip, setZip] = useState(validInitialZip)
+  const [submittedZip, setSubmittedZip] = useState<string | null>(validInitialZip || null)
   const [error, setError] = useState('')
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -18,6 +37,11 @@ export function AttorneyZipSearch() {
     }
 
     setError('')
+    if (redirectOnSubmit) {
+      router.push(`/find-an-attorney?zip=${encodeURIComponent(normalizedZip)}`)
+      return
+    }
+
     setSubmittedZip(normalizedZip)
   }
 
@@ -25,7 +49,7 @@ export function AttorneyZipSearch() {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="mt-5 flex max-w-2xl flex-col gap-3 sm:flex-row"
+        className={`${compact ? 'mt-3' : 'mt-5'} flex max-w-2xl flex-col gap-3 sm:flex-row`}
         noValidate
       >
         <label className="sr-only" htmlFor="attorney-zip">
@@ -38,12 +62,12 @@ export function AttorneyZipSearch() {
           inputMode="numeric"
           autoComplete="postal-code"
           placeholder="Enter your ZIP code"
-          className="min-h-14 flex-1 rounded-lg border border-white/25 bg-white px-5 text-base font-medium text-[#071f33] placeholder:text-[#5d7080] outline-none transition focus:border-[color:var(--accent)] focus:ring-2 focus:ring-[color:var(--accent)]"
+          className={`${compact ? 'min-h-12 px-4' : 'min-h-14 px-5'} min-w-0 flex-1 rounded-lg border border-white/35 bg-white text-base font-medium text-[#071f33] placeholder:text-[#5d7080] outline-none transition focus:border-[color:var(--accent)] focus:ring-2 focus:ring-[color:var(--accent)]`}
           aria-describedby={error ? 'attorney-zip-error' : undefined}
         />
         <button
           type="submit"
-          className="min-h-14 shrink-0 whitespace-nowrap rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-sm font-semibold text-[#061e31] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-strong)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
+          className={`${compact ? 'min-h-12 px-5' : 'min-h-14 px-6'} shrink-0 cursor-pointer whitespace-nowrap rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] text-sm font-semibold text-[#061e31] transition hover:-translate-y-0.5 hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]`}
         >
           Search near me
         </button>

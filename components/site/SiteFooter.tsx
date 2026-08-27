@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 export function SiteFooter() {
   return (
-    <footer className="mt-12 bg-[#071f33] text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:px-8 lg:px-12">
+    <footer className="mt-6 bg-[#071f33] text-white md:mt-8">
+      <div className="mx-auto grid max-w-[80rem] gap-10 px-4 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:px-8 lg:px-12">
         <div>
           <div className="font-serif text-4xl tracking-[-0.06em]">
             Wills<span className="text-[color:var(--accent)]">.com</span>
@@ -56,7 +56,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 py-5 text-xs leading-6 text-white/55 md:px-8 lg:px-12">
+        <div className="mx-auto max-w-[80rem] px-4 py-5 text-xs leading-6 text-white/55 md:px-8 lg:px-12">
           © {new Date().getFullYear()} Wills.com. General information only; not legal, tax, or
           financial advice. Laws and outcomes vary by jurisdiction and individual circumstances.
         </div>

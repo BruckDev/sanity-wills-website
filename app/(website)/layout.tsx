@@ -41,8 +41,8 @@ export default async function WebsiteLayout({children}: LayoutProps<'/'>) {
         ) : (
           <CachedWebsiteHeader perspective="published" stega={false} />
         )}
-        <main className="flex-grow px-4 py-8 md:px-8 md:py-12 lg:px-12 lg:py-14">
-          <div className="mx-auto w-full max-w-7xl">{children}</div>
+        <main className="flex-grow px-4 pb-4 pt-8 md:px-8 md:pb-6 md:pt-12 lg:px-12 lg:pt-14">
+          <div className="mx-auto w-full max-w-[80rem]">{children}</div>
         </main>
         {isDraftMode ? (
           <Suspense fallback={<WebsiteFooter data={fallbackSettings} />}>

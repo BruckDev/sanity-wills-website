@@ -18,19 +18,23 @@ export const metadata: Metadata = {
 export default function EstatePlanningPage() {
   return (
     <div className="space-y-16 md:space-y-20">
-      <section className="rounded-[2rem] bg-[#173f36] px-6 py-12 text-white md:px-12 md:py-16">
+      <section className="overflow-hidden rounded-[2rem] border border-[#d5d7cb] bg-[#eef1e8] px-6 py-12 md:px-12 md:py-16">
         <div className="max-w-4xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e5ca8c]">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             Estate-planning checklist
           </div>
-          <h1 className="mt-5 font-serif text-5xl leading-[0.98] tracking-[-0.045em] md:text-7xl">
+          <h1 className="mt-5 font-serif text-5xl leading-[0.98] tracking-[-0.045em] text-[color:var(--fg)] md:text-7xl">
             Arrive prepared. Leave with better questions.
           </h1>
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-white/78 md:text-xl">
+          <p className="mt-7 max-w-3xl text-lg leading-8 text-[color:var(--muted)] md:text-xl">
             Preparation can make a conversation with an estate-planning attorney more focused. This
             checklist is a starting point—not a substitute for legal advice or a complete list for
             every family.
           </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <ButtonLink href="/create-a-will" label="Start a will outline" />
+            <ButtonLink href="/find-an-attorney" label="Find an attorney" style="secondary" />
+          </div>
         </div>
       </section>
       <section className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">

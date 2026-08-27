@@ -1,8 +1,9 @@
-import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
+import {AttorneyZipSearch, AttorneyZipSearchFromUrl} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
 import {directoryLocations} from '@/sanity/lib/attorneyDirectoryContent'
 import type {Metadata} from 'next'
 import Link from 'next/link'
+import {Suspense} from 'react'
 
 export const metadata: Metadata = {
   title: 'Find an estate planning attorney',
@@ -23,7 +24,9 @@ export default function FindAnAttorneyPage() {
           <p className="mt-5 max-w-2xl text-lg leading-8 text-white/80">
             Enter your ZIP code to search for estate-planning attorney profiles in your area.
           </p>
-          <AttorneyZipSearch />
+          <Suspense fallback={<AttorneyZipSearch />}>
+            <AttorneyZipSearchFromUrl />
+          </Suspense>
         </div>
       </section>
 
