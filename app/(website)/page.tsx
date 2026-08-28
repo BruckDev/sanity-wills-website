@@ -171,6 +171,24 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section>
+        <div
+          role="region"
+          aria-label="Scrollable will or trust comparison guide"
+          tabIndex={0}
+          className="overflow-x-auto rounded-[2rem] border border-[color:var(--border)] bg-white shadow-[0_22px_55px_rgba(8,35,58,0.08)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color:var(--accent)]"
+        >
+          <Image
+            src="/images/home/will-or-trust-simple-guide.png"
+            alt="A simple illustrated guide comparing what goes in a will with what a trust can do"
+            width={1536}
+            height={1024}
+            className="h-auto w-full min-w-[48rem] sm:min-w-0"
+            sizes="(min-width: 1280px) 72rem, calc(100vw - 2rem)"
+          />
+        </div>
+      </section>
+
       <PlanChooser />
 
       <section>
