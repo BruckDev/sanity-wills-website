@@ -87,6 +87,31 @@ export default function EstatePlanningPage() {
           ))}
         </ol>
       </section>
+
+      <section className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem]">
+          <Image
+            src="/images/estate-planning/family-legacy.png"
+            alt="A multigenerational family spending time together outdoors"
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 40vw, 100vw"
+          />
+        </div>
+        <div>
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+            Planning for people
+          </div>
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+            Your estate plan is about the people who count on you.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
+            A thoughtful plan can help you name the people you trust, care for different
+            generations, and leave clearer instructions during an already difficult time.
+          </p>
+        </div>
+      </section>
+
       <section className="rounded-2xl border border-[#d7d8ca] bg-[#f8f7f0] p-7 md:p-10">
         <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
           Questions to ask a professional
