@@ -3,45 +3,60 @@ import {ButtonLink} from '@/components/site/ButtonLink'
 const planOptions = [
   {
     title: 'Will plan',
-    subtitle: 'Cover the essentials',
+    subtitle: 'Put the essentials in place',
     description:
-      'Create a practical foundation for recording your wishes and naming the people you trust.',
+      'Create a straightforward plan that documents your wishes and identifies the people you want to rely on.',
     features: [
-      ['Nominate guardians', 'State who you would want to care for minor children.'],
-      ['Name who inherits', 'Direct property that is handled through your will.'],
-      ['Choose an executor', 'Name someone to carry out your instructions.'],
+      [
+        'Select guardians',
+        'Identify the people you would want to raise your children if you cannot.',
+      ],
+      [
+        'Decide who receives property',
+        'Provide instructions for assets that pass through your will.',
+      ],
+      ['Appoint an executor', 'Choose someone to handle your estate and follow your directions.'],
     ],
     href: '/create-a-will',
-    cta: 'Start my will',
+    cta: 'Create my will',
     tone: 'will',
   },
   {
     title: 'Trust plan',
-    subtitle: 'Add privacy and control',
+    subtitle: 'More flexibility for your future',
     description:
-      'Explore a more flexible way to manage property for yourself and the people you care about.',
+      'Learn how a trust can help you manage assets during your lifetime and provide direction for those you leave behind.',
     features: [
-      ['Plan for privacy', 'A funded trust can keep certain transfers outside public probate.'],
-      ['Set terms over time', 'Guide how and when property is managed or distributed.'],
-      ['Prepare for incapacity', 'Choose who can manage trust assets if needed.'],
+      [
+        'Help protect privacy',
+        'Properly funded trust assets may avoid the public probate process.',
+      ],
+      [
+        'Create lasting instructions',
+        'Set guidelines for how and when assets may be managed or shared.',
+      ],
+      [
+        'Plan for the unexpected',
+        'Name a trusted person to oversee trust assets if you become unable to do so.',
+      ],
     ],
     href: '/trusts',
-    cta: 'Explore trusts',
-    badge: 'Added privacy & control',
+    cta: 'Learn about trusts',
     tone: 'trust',
   },
   {
-    title: 'Not sure?',
-    subtitle: 'Find your starting point',
+    title: 'Still deciding?',
+    subtitle: 'Get guidance on where to begin',
     description:
-      'Answer a few simple questions about your family, property, and priorities. We will suggest educational topics to explore next.',
+      'Answer a few brief questions about your family, assets, and goals. We’ll point you toward helpful educational information to consider.',
     features: [
-      ['Takes about 3 minutes', 'Move through clear, plain-language questions.'],
-      ['Compare your options', 'See where a will, trust, or coordinated plan may fit.'],
-      ['No sign-in required', 'Use the free tool privately and at your own pace.'],
+      ['About 3 minutes', 'Complete simple questions written in everyday language.'],
+      [
+        'Understand the differences',
+        'See when a will, trust, or more coordinated approach could make sense.',
+      ],
+      ['Private and free to use', 'Explore your options without creating an account.'],
     ],
-    href: '/tools/will-or-trust',
-    cta: 'Take the free quiz',
     tone: 'quiz',
   },
 ] as const
@@ -69,17 +84,17 @@ export function PlanChooser() {
     >
       <div className="mx-auto max-w-3xl text-center">
         <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
-          Choose your starting point
+          Start with what fits today
         </div>
         <h2
           id="plan-chooser-title"
           className="mt-4 font-serif text-4xl leading-[1.08] tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl"
         >
-          Which plan do you need?
+          What kind of estate plan are you looking for?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-[color:var(--muted)] md:text-lg md:leading-8">
-          Start with the path that feels closest to your needs. You can always learn more before
-          making a decision.
+          Choose the option that best reflects where you are right now. You can review the details
+          and make an informed choice as you go.
         </p>
       </div>
 
@@ -95,12 +110,6 @@ export function PlanChooser() {
                   : 'border-[color:var(--border)]'
             }`}
           >
-            {'badge' in option ? (
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[#071f33] px-4 py-1.5 text-xs font-bold text-white shadow-sm">
-                {option.badge}
-              </div>
-            ) : null}
-
             <div className="border-b border-[#d6e2e8] pb-5 text-center">
               <h3 className="font-serif text-3xl tracking-[-0.035em] text-[color:var(--fg)]">
                 {option.title}
@@ -128,7 +137,9 @@ export function PlanChooser() {
               ))}
             </ul>
 
-            <ButtonLink href={option.href} label={`${option.cta} →`} className="mt-7 w-full" />
+            {'href' in option && 'cta' in option ? (
+              <ButtonLink href={option.href} label={`${option.cta} →`} className="mt-7 w-full" />
+            ) : null}
           </article>
         ))}
       </div>
