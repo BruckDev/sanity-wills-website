@@ -111,15 +111,16 @@ export default function ToolsPage() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-              Start anywhere
+              Free planning tools
             </div>
             <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-              Private tools that help you prepare.
+              A private place to get clarity before you decide.
             </h2>
+            <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
+              Use free interactive quizzes calculators and guides to organize your thoughts. No
+              sign-in required.
+            </p>
           </div>
-          <span className="text-sm font-semibold text-[color:var(--muted)]">
-            No sign-in required
-          </span>
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {planningTools.map((tool) => (
