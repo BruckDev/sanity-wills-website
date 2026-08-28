@@ -1,5 +1,6 @@
 import {ButtonLink} from '@/components/site/ButtonLink'
 import type {Metadata} from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Estate-planning articles',
@@ -13,7 +14,7 @@ export default function InsightsPage() {
       <section className="rounded-[2rem] border border-[#d5d7cb] bg-[#eef1e8] px-6 py-12 md:px-12 md:py-16">
         <div className="max-w-4xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Wills.com journal
+            Estate-planning articles
           </div>
           <h1 className="mt-5 font-serif text-5xl leading-[0.98] tracking-[-0.045em] text-[color:var(--fg)] md:text-7xl">
             Better questions make for better planning conversations.
@@ -59,7 +60,77 @@ export default function InsightsPage() {
           </ul>
         </div>
       </section>
-      <section className="grid gap-6 lg:grid-cols-3">
+      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+              Wills.com journal
+            </div>
+            <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+              Helpful guides for the questions ahead.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
+              Explore practical, attorney-informed topics designed to make your next step easier to
+              understand.
+            </p>
+          </div>
+          <ButtonLink href="#articles" label="Browse articles" />
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <Link
+            href="/wills"
+            className="group rounded-2xl border border-[#d6e2e8] bg-white p-6 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
+          >
+            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
+              Guide
+            </div>
+            <h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
+              How a will fits into a plan
+            </h3>
+            <p className="mt-3 leading-7 text-[color:var(--muted)]">
+              Start with the role a will can play when documenting directions and naming key people.
+            </p>
+            <span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
+              Explore the topic →
+            </span>
+          </Link>
+          <Link
+            href="/trusts"
+            className="group rounded-2xl border border-[#d6e2e8] bg-white p-6 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
+          >
+            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
+              Guide
+            </div>
+            <h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
+              Questions to ask about trusts
+            </h3>
+            <p className="mt-3 leading-7 text-[color:var(--muted)]">
+              Understand the decisions that may matter when property needs stewardship over time.
+            </p>
+            <span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
+              Explore the topic →
+            </span>
+          </Link>
+          <Link
+            href="/find-an-attorney"
+            className="group rounded-2xl border border-[#d6e2e8] bg-white p-6 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
+          >
+            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
+              Guide
+            </div>
+            <h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
+              Preparing for an attorney meeting
+            </h3>
+            <p className="mt-3 leading-7 text-[color:var(--muted)]">
+              Bring the right people, documents, and questions into the conversation.
+            </p>
+            <span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
+              Explore the topic →
+            </span>
+          </Link>
+        </div>
+      </section>
+      <section id="articles" className="scroll-mt-32 grid gap-6 lg:grid-cols-3">
         <article className="rounded-2xl border border-[color:var(--border)] bg-white p-7">
           <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
             Coming soon
