@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 export default function ToolsPage() {
   return (
     <div className="space-y-14 pb-8 md:space-y-20">
-      <section className="rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-10 md:py-16">
+      <section className="grid gap-8 rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-10 md:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:items-center">
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             Free estate planning tools
@@ -62,6 +62,17 @@ export default function ToolsPage() {
             Explore a growing library of free quizzes calculators and guides built to turn
             uncertainty into a clearer next step.
           </p>
+        </div>
+        <div className="w-full max-w-md justify-self-center overflow-hidden rounded-[1.5rem] border border-white/20 bg-[#dceef8] shadow-[0_20px_45px_rgba(0,0,0,0.22)] lg:justify-self-end">
+          <Image
+            src="/images/tools/free-estate-planning-tools.png"
+            alt="Illustrated estate-planning documents, a family, a home, and protective symbols"
+            width={1254}
+            height={1254}
+            priority
+            sizes="(min-width: 1024px) 28rem, (min-width: 640px) 28rem, calc(100vw - 3rem)"
+            className="h-auto w-full object-contain"
+          />
         </div>
       </section>
       <section className="rounded-[2rem] border border-[color:var(--border)] bg-white px-6 py-7 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:px-8 md:py-8">
