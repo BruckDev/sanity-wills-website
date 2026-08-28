@@ -82,7 +82,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-[#071f33] bg-[#071f33] p-7 text-white md:p-10">
+      <section
+        id="directory-listing"
+        className="scroll-mt-32 rounded-[2rem] border border-[#071f33] bg-[#071f33] p-7 text-white md:p-10"
+      >
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             Start a conversation

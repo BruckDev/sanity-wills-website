@@ -203,7 +203,7 @@ export default function FindAnAttorneyPage() {
             counsel. Tell us about your firm and the communities you serve.
           </p>
           <div className="mt-7">
-            <ButtonLink href="/contact" label="Request a directory listing" />
+            <ButtonLink href="/contact#directory-listing" label="Request a directory listing" />
           </div>
         </div>
       </section>

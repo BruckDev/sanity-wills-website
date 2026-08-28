@@ -93,7 +93,7 @@ export function AttorneyZipSearch({
             local attorney office to request a directory listing.
           </p>
           <a
-            href="/contact"
+            href="/contact#directory-listing"
             className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent)] underline underline-offset-4 hover:text-white"
           >
             Request a directory listing →
