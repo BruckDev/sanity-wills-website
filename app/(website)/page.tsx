@@ -5,43 +5,6 @@ import {planningTools} from '@/sanity/lib/estatePlanningContent'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const planningSteps = [
-  [
-    '01',
-    'Learn the essentials',
-    'Start with plain-language guides to the documents and decisions that may be relevant to you.',
-  ],
-  [
-    '02',
-    'Find the right conversation',
-    'Search for an estate-planning attorney near you when you are ready for guidance about your circumstances.',
-  ],
-  [
-    '03',
-    'Prepare with confidence',
-    'Gather questions, people, and information so you can make the most of your next planning conversation.',
-  ],
-]
-
-const consequences = [
-  [
-    'State law decides',
-    'Without a valid will, a state’s intestacy rules generally determine who inherits. Those rules may not match your relationships or intentions.',
-  ],
-  [
-    'No guardian nomination',
-    'A court may need to decide who will care for minor children if no legally effective nomination is in place.',
-  ],
-  [
-    'More pressure on loved ones',
-    'Family members may need to locate records, open an estate, satisfy creditors, and make difficult choices with less direction.',
-  ],
-  [
-    'Assets can pass differently',
-    'Joint ownership, beneficiary designations, and trust-owned property may pass outside a will—sometimes with results that surprise families.',
-  ],
-]
-
 type HeroBenefitIcon = 'children' | 'home' | 'guidance' | 'wishes'
 
 const heroPaths: Array<{
@@ -487,28 +450,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section>
-        <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            How Wills.com helps
-          </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-            A better planning conversation starts here.
-          </h2>
-        </div>
-        <ol className="mt-10 grid gap-5 md:grid-cols-3">
-          {planningSteps.map(([number, title, text]) => (
-            <li key={number} className="border-t-2 border-[#b8cdb6] pt-5">
-              <div className="text-sm font-bold tracking-[0.15em] text-[color:var(--accent)]">
-                {number}
-              </div>
-              <h3 className="mt-3 font-serif text-2xl text-[color:var(--fg)]">{title}</h3>
-              <p className="mt-3 leading-7 text-[color:var(--muted)]">{text}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
       <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
@@ -601,46 +542,6 @@ export default function HomePage() {
             className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
           />
         </div>
-      </section>
-
-      <section className="rounded-[2rem] border border-[#071f33] bg-[#071f33] p-6 text-white md:p-10 lg:p-12">
-        <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Do not leave it to chance
-          </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] md:text-5xl">
-            What can happen without a will?
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-white/75">
-            The difference is that more of the important choices may be made by default rules, a
-            court, or the practical limits facing the people left behind.
-          </p>
-        </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {consequences.map(([title, text]) => (
-            <article key={title} className="rounded-xl border border-white/15 bg-white/[0.06] p-6">
-              <h3 className="font-serif text-2xl">{title}</h3>
-              <p className="mt-3 leading-7 text-white/75">{text}</p>
-            </article>
-          ))}
-        </div>
-        <div className="mt-8 flex flex-wrap items-center gap-5">
-          <ButtonLink
-            href="/create-a-will"
-            label="Create my estate plan"
-            className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
-          />
-          <ButtonLink
-            href="/trusts"
-            label="Learn about trusts and probate"
-            style="secondary"
-            className="!border-white/30 !bg-transparent !text-white hover:!bg-white/10"
-          />
-        </div>
-        <p className="mt-7 text-sm leading-6 text-white/60">
-          Inheritance, probate, guardianship, creditor, tax, and trust rules differ by state and
-          circumstances. A qualified attorney can explain how the rules apply to you.
-        </p>
       </section>
 
       <section className="!mt-10 border-t border-[color:var(--border)] pt-5 text-sm leading-6 text-[color:var(--muted)] md:!mt-12">
