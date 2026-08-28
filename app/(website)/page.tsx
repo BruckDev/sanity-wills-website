@@ -228,41 +228,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid gap-7 overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <div>
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            A common planning question
-          </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-            Avoid probate when possible.
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--muted)]">
-            Probate can add time cost and public records to a difficult moment. Learn when a living
-            trust or other planning choices may help your loved ones reduce delays and keep more of
-            your affairs private.
-          </p>
-          <div className="mt-7">
-            <ButtonLink href="/trusts" label="Learn about trusts and probate" />
-          </div>
-        </div>
-        <div className="rounded-2xl border border-[#cbdce3] bg-white p-6 md:p-7">
-          <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
-            Start with the right questions
-          </div>
-          <ul className="mt-5 space-y-4 text-sm leading-6 text-[color:var(--fg)]">
-            <li className="border-t border-[#d6e2e8] pt-4">
-              What property may need a different ownership or beneficiary arrangement?
-            </li>
-            <li className="border-t border-[#d6e2e8] pt-4">
-              Who should manage property for the people you love?
-            </li>
-            <li className="border-t border-[#d6e2e8] pt-4">
-              Which choices need state-specific legal advice?
-            </li>
-          </ul>
-        </div>
-      </section>
-
       <section className="space-y-10 md:space-y-12">
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
