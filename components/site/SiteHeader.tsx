@@ -50,7 +50,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
             )
           })}
           <Link
-            href="/find-an-attorney"
+            href="/#attorney-search"
             aria-current={isCurrent('/find-an-attorney') ? 'page' : undefined}
             className={`w-56 cursor-pointer rounded-lg border-2 px-5 py-2.5 text-center text-base font-semibold leading-snug transition ${
               isCurrent('/find-an-attorney')
@@ -101,7 +101,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
               })}
             </>
             <Link
-              href="/find-an-attorney"
+              href="/#attorney-search"
               aria-current={isCurrent('/find-an-attorney') ? 'page' : undefined}
               className={`mt-2 cursor-pointer rounded-lg border-2 px-4 py-3.5 text-center text-lg font-semibold ${
                 isCurrent('/find-an-attorney')

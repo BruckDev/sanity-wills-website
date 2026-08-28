@@ -72,12 +72,12 @@ function LifeEventView({event}: {event: LifeEvent}) {
             <p className="mt-5 text-lg leading-8 text-white/80">{event.summary}</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <ButtonLink
-                href="/create-a-will"
+                href="/create-a-will#page-hero"
                 label="Create a will"
                 className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31]"
               />
               <ButtonLink
-                href="/find-an-attorney"
+                href="/#attorney-search"
                 label="Find an attorney"
                 style="secondary"
                 className="!border-white/30 !bg-transparent !text-white hover:!bg-white/10"

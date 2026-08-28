@@ -112,7 +112,7 @@ export default function InsightsPage() {
             </span>
           </Link>
           <Link
-            href="/find-an-attorney"
+            href="/#attorney-search"
             className="group rounded-2xl border border-[#d6e2e8] bg-white p-6 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
           >
             <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">

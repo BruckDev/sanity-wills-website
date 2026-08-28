@@ -3,7 +3,7 @@ import Script from 'next/script'
 
 export default function RootLayout({children}: LayoutProps<'/'>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
         {children}
         <Script

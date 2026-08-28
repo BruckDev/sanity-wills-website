@@ -10,7 +10,10 @@ export const metadata: Metadata = {
 export default function CreateAWillPage() {
   return (
     <div className="space-y-12 pb-8 md:space-y-16">
-      <section className="rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-12 md:py-16">
+      <section
+        id="page-hero"
+        className="scroll-mt-32 rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-12 md:py-16"
+      >
         <div className="max-w-4xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             Private planning tool

@@ -48,7 +48,7 @@ export default async function StateDirectoryPage({params}: PageProps<'/find-an-a
           {locations.map((location) => (
             <Link
               key={location.city}
-              href={`/find-an-attorney/${location.state}/${location.city}`}
+              href={`/find-an-attorney/${location.state}/${location.city}#page-hero`}
               className="group rounded-2xl border border-[color:var(--border)] bg-white p-7 shadow-[0_14px_35px_rgba(8,35,58,0.05)] transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
             >
               <h2 className="font-serif text-3xl tracking-[-0.03em] text-[color:var(--fg)]">

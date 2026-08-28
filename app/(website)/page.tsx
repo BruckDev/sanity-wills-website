@@ -34,7 +34,7 @@ const heroPaths: Array<{
     icon: 'wishes',
     label: 'Make your wishes known',
     detail: 'Choose trusted decision-makers.',
-    href: '/find-an-attorney',
+    href: '/#attorney-search',
   },
 ]
 
@@ -128,11 +128,14 @@ export default function HomePage() {
                 className="hero-button-primary"
               />
             </div>
-            <div className="mt-5 max-w-xl border-t border-white/15 pt-4">
+            <div
+              id="attorney-search"
+              className="mt-5 max-w-xl scroll-mt-32 border-t border-white/15 pt-4"
+            >
               <div className="text-sm font-semibold text-white">
                 Find an estate-planning attorney
               </div>
-              <AttorneyZipSearch compact redirectOnSubmit />
+              <AttorneyZipSearch compact />
             </div>
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-[#faf8f5]/25 bg-[#eaf2ed] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">

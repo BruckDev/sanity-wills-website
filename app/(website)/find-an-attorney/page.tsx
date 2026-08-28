@@ -87,7 +87,7 @@ export default function FindAnAttorneyPage() {
           {directoryLocations.map((location) => (
             <Link
               key={`${location.state}-${location.city}`}
-              href={`/find-an-attorney/${location.state}/${location.city}`}
+              href={`/find-an-attorney/${location.state}/${location.city}#page-hero`}
               className="group rounded-2xl border border-[color:var(--border)] bg-white p-5 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
             >
               <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">

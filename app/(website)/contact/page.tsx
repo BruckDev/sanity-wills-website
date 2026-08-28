@@ -74,7 +74,7 @@ export default function ContactPage() {
           </p>
           <div className="mt-7">
             <ButtonLink
-              href="/find-an-attorney"
+              href="/#attorney-search"
               label="Find an adviser near you"
               className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
             />

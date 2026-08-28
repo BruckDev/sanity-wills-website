@@ -28,7 +28,10 @@ export default async function CityDirectoryPage({
   if (!location) notFound()
   return (
     <div className="space-y-12 pb-8 md:space-y-16">
-      <section className="rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-10 md:py-16">
+      <section
+        id="page-hero"
+        className="scroll-mt-32 rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-10 md:py-16"
+      >
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             {location.stateName} attorney directory
@@ -42,12 +45,12 @@ export default async function CityDirectoryPage({
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <ButtonLink
-              href="/create-a-will"
+              href="/create-a-will#page-hero"
               label="Create a will"
               className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31]"
             />
             <ButtonLink
-              href="/find-an-attorney"
+              href="/#attorney-search"
               label="Search another location"
               style="secondary"
               className="!border-white/30 !bg-transparent !text-white hover:!bg-white/10"

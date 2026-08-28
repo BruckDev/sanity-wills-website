@@ -18,7 +18,10 @@ export function PlanningGuide({
 }) {
   return (
     <div className="space-y-16 md:space-y-20">
-      <section className="overflow-hidden rounded-[2rem] border border-[#d5d7cb] bg-[#eef1e8] px-6 py-12 md:px-12 md:py-16">
+      <section
+        id="page-hero"
+        className="scroll-mt-32 overflow-hidden rounded-[2rem] border border-[#d5d7cb] bg-[#eef1e8] px-6 py-12 md:px-12 md:py-16"
+      >
         <div className="max-w-4xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             {eyebrow}
@@ -30,8 +33,8 @@ export function PlanningGuide({
             {intro}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <ButtonLink href="/create-a-will" label="Start a will outline" />
-            <ButtonLink href="/find-an-attorney" label="Find an attorney" style="secondary" />
+            <ButtonLink href="/create-a-will#page-hero" label="Start a will outline" />
+            <ButtonLink href="/#attorney-search" label="Find an attorney" style="secondary" />
           </div>
         </div>
       </section>

@@ -1,11 +1,10 @@
 'use client'
 
-import {useRouter, useSearchParams} from 'next/navigation'
+import {useSearchParams} from 'next/navigation'
 import {useState, type FormEvent} from 'react'
 
 type AttorneyZipSearchProps = {
   initialZip?: string
-  redirectOnSubmit?: boolean
   compact?: boolean
 }
 
@@ -15,12 +14,7 @@ export function AttorneyZipSearchFromUrl() {
   return <AttorneyZipSearch initialZip={searchParams.get('zip') || ''} />
 }
 
-export function AttorneyZipSearch({
-  initialZip = '',
-  redirectOnSubmit = false,
-  compact = false,
-}: AttorneyZipSearchProps) {
-  const router = useRouter()
+export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZipSearchProps) {
   const validInitialZip = /^\d{5}$/.test(initialZip) ? initialZip : ''
   const [zip, setZip] = useState(validInitialZip)
   const [submittedZip, setSubmittedZip] = useState<string | null>(validInitialZip || null)
@@ -37,11 +31,6 @@ export function AttorneyZipSearch({
     }
 
     setError('')
-    if (redirectOnSubmit) {
-      router.push(`/find-an-attorney?zip=${encodeURIComponent(normalizedZip)}`)
-      return
-    }
-
     setSubmittedZip(normalizedZip)
   }
 

@@ -33,8 +33,8 @@ export default function EstatePlanningPage() {
             every family.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <ButtonLink href="/create-a-will" label="Start a will outline" />
-            <ButtonLink href="/find-an-attorney" label="Find an attorney" style="secondary" />
+            <ButtonLink href="/create-a-will#page-hero" label="Start a will outline" />
+            <ButtonLink href="/#attorney-search" label="Find an attorney" style="secondary" />
           </div>
         </div>
       </section>
