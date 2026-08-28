@@ -1,5 +1,6 @@
 import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
+import {PlanChooser} from '@/components/site/PlanChooser'
 import {lifeEventImages, lifeEvents, planningTools} from '@/sanity/lib/estatePlanningContent'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -206,6 +207,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <PlanChooser />
 
       <section className="rounded-[2rem] border border-[#b8cdb6] bg-[#eef5f0] p-7 md:p-10">
         <div className="max-w-3xl">
