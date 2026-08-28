@@ -170,7 +170,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section>
+      <section className="mx-auto w-full max-w-4xl">
         <div
           role="region"
           aria-label="Scrollable will or trust comparison guide"
@@ -182,8 +182,8 @@ export default function HomePage() {
             alt="A simple illustrated guide comparing what goes in a will with what a trust can do"
             width={1536}
             height={1024}
-            className="h-auto w-full min-w-[48rem] sm:min-w-0"
-            sizes="(min-width: 1280px) 72rem, calc(100vw - 2rem)"
+            className="h-auto w-full min-w-[40rem] sm:min-w-0"
+            sizes="(min-width: 1024px) 56rem, calc(100vw - 2rem)"
           />
         </div>
       </section>
