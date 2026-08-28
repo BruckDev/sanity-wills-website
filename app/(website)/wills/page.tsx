@@ -13,6 +13,10 @@ export default function WillsPage() {
       eyebrow="Wills 101"
       title="A will gives your family a map when they need one most."
       intro="A will is a legal document that can state who receives property that passes through your estate, name an executor to administer it, and nominate a guardian for minor children. Its effect and requirements depend on state law."
+      heroImage={{
+        src: '/images/wills/wills-101.png',
+        alt: 'Illustrated will surrounded by family, property, executor, and signing symbols',
+      }}
       callout={{
         title: 'A will is important—even if you also use a trust.',
         text: 'Many trust-based plans include a pour-over will. It can name guardians and direct certain probate assets into the trust at death. Whether that approach is appropriate depends on your plan and state law.',

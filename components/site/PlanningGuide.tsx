@@ -1,7 +1,9 @@
 import {ButtonLink} from '@/components/site/ButtonLink'
+import Image from 'next/image'
 import Link from 'next/link'
 
 type GuideSection = {title: string; text: string}
+type GuideHeroImage = {src: string; alt: string}
 
 export function PlanningGuide({
   eyebrow,
@@ -9,20 +11,26 @@ export function PlanningGuide({
   intro,
   sections,
   callout,
+  heroImage,
 }: {
   eyebrow: string
   title: string
   intro: string
   sections: GuideSection[]
   callout: {title: string; text: string}
+  heroImage?: GuideHeroImage
 }) {
   return (
     <div className="space-y-16 md:space-y-20">
       <section
         id="page-hero"
-        className="scroll-mt-32 overflow-hidden rounded-[2rem] border border-[#d5d7cb] bg-[#eef1e8] px-6 py-12 md:px-12 md:py-16"
+        className={`scroll-mt-32 overflow-hidden rounded-[2rem] border border-[#d5d7cb] bg-[#eef1e8] px-6 py-12 md:px-12 md:py-16 ${
+          heroImage
+            ? 'grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:items-center'
+            : ''
+        }`}
       >
-        <div className="max-w-4xl">
+        <div className={heroImage ? 'max-w-3xl' : 'max-w-4xl'}>
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             {eyebrow}
           </div>
@@ -37,6 +45,19 @@ export function PlanningGuide({
             <ButtonLink href="/#attorney-search" label="Find an attorney" style="secondary" />
           </div>
         </div>
+        {heroImage ? (
+          <div className="w-full max-w-md justify-self-center overflow-hidden rounded-[1.5rem] border border-[#c2d5df] bg-[#dceef8] shadow-[0_20px_45px_rgba(29,46,41,0.16)] lg:justify-self-end">
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              width={1254}
+              height={1254}
+              priority
+              sizes="(min-width: 1024px) 28rem, (min-width: 640px) 28rem, calc(100vw - 3rem)"
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        ) : null}
       </section>
       <section className="grid gap-5 md:grid-cols-2">
         {sections.map((section, index) => (
