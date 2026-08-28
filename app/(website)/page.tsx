@@ -207,50 +207,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-[color:var(--border)] bg-white px-6 py-7 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:px-8 md:py-8">
-        <div className="text-center text-sm font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)] md:text-base">
-          Start with these questions
-        </div>
-        <ul className="mt-5 grid gap-4 text-left text-base leading-7 text-[color:var(--muted)] md:grid-cols-3 md:text-lg">
-          <li className="border-t-2 border-[#b8cdb6] pt-4">
-            <p>Who should receive your property—and who should receive it if they cannot?</p>
-            <Image
-              src="/images/home/starting-questions/property.svg"
-              alt="A welcoming family home"
-              width={800}
-              height={640}
-              sizes="(min-width: 768px) 30vw, 100vw"
-              className="mt-5 aspect-[5/4] w-full rounded-2xl bg-[#f6faf9] object-contain p-2"
-            />
-          </li>
-          <li className="border-t-2 border-[#b8cdb6] pt-4">
-            <p>Who do you trust to handle money, paperwork, and decisions?</p>
-            <Image
-              src="/images/home/starting-questions/special-care.png"
-              alt="An estate-planning professional with a checklist and protective shield"
-              width={1254}
-              height={1254}
-              sizes="(min-width: 768px) 30vw, 100vw"
-              className="mt-5 aspect-[5/4] w-full rounded-2xl bg-[#f6faf9] object-contain p-2"
-            />
-          </li>
-          <li className="border-t-2 border-[#b8cdb6] pt-4">
-            <p>
-              What needs special care: children, a home, a business, pets, or a loved one with
-              disabilities?
-            </p>
-            <Image
-              src="/images/home/starting-questions/decisions.svg"
-              alt="A welcoming family business"
-              width={800}
-              height={640}
-              sizes="(min-width: 768px) 30vw, 100vw"
-              className="mt-5 aspect-[5/4] w-full rounded-2xl bg-[#f6faf9] object-contain p-2"
-            />
-          </li>
-        </ul>
-      </section>
-
       <section className="rounded-[2rem] border border-[#b8cdb6] bg-[#eef5f0] p-7 md:p-10">
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
