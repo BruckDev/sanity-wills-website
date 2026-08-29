@@ -34,6 +34,20 @@ export default defineType({
             'Abstract digital network background with glowing blue lines and hexagonal interface shapes.',
         }),
         defineField({
+          name: 'heroReassuranceHeading',
+          title: 'Hero reassurance heading',
+          type: 'string',
+          initialValue: 'Estate planning isn’t one-size-fits-all.',
+        }),
+        defineField({
+          name: 'heroReassuranceText',
+          title: 'Hero reassurance text',
+          type: 'text',
+          rows: 4,
+          initialValue:
+            'Different state laws can affect whether your documents work as intended. An online will can be a helpful starting point, but a licensed estate-planning professional in your state can help you make sure that all of your needs are met.',
+        }),
+        defineField({
           name: 'servicesEyebrow',
           title: 'Services eyebrow',
           type: 'string',

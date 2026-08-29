@@ -56,6 +56,8 @@ export const homeQuery = defineQuery(`
     display{
       heroEyebrow,
       heroBackgroundImageAlt,
+      heroReassuranceHeading,
+      heroReassuranceText,
       servicesEyebrow,
       serviceCardLinkLabel,
       allServicesLinkLabel,
@@ -134,6 +136,15 @@ export const homeQuery = defineQuery(`
     finalPrimaryCta{label, href, style},
     finalSecondaryCta{label, href, style},
     seo
+  }
+`)
+
+export const homeHeroReassuranceQuery = defineQuery(`
+  *[_type == "home"][0]{
+    display{
+      heroReassuranceHeading,
+      heroReassuranceText
+    }
   }
 `)
 

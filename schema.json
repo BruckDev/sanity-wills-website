@@ -9175,6 +9175,20 @@
               },
               "optional": true
             },
+            "heroReassuranceHeading": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "heroReassuranceText": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
             "servicesEyebrow": {
               "type": "objectAttribute",
               "value": {

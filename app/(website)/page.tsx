@@ -1,10 +1,44 @@
 import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
 import {PlanChooser} from '@/components/site/PlanChooser'
+import {getDynamicFetchOptions, sanityFetch, type DynamicFetchOptions} from '@/sanity/lib/live'
+import {homeHeroReassuranceQuery} from '@/sanity/lib/siteQueries'
+import {draftMode} from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
+import {Suspense} from 'react'
 
 type HeroBenefitIcon = 'children' | 'home' | 'guidance' | 'wishes'
+
+const fallbackHeroReassurance = {
+  heading: 'Estate planning isn’t one-size-fits-all.',
+  text: 'Different state laws can affect whether your documents work as intended. An online will can be a helpful starting point, but a licensed estate-planning professional in your state can help you make sure that all of your needs are met.',
+}
+
+function HeroReassuranceCard({heading, text}: typeof fallbackHeroReassurance) {
+  return (
+    <aside className="mt-4 max-w-xl rounded-xl border border-[#14a86f]/40 bg-[#0a2534]/80 px-4 py-3 text-[13px] leading-5 text-[#d6e2db] shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
+      <p>
+        <strong className="font-semibold text-[#faf8f5]">{heading}</strong> {text}
+      </p>
+    </aside>
+  )
+}
+
+async function CachedHeroReassuranceCard({perspective, stega}: DynamicFetchOptions) {
+  'use cache'
+
+  const {data} = await sanityFetch({query: homeHeroReassuranceQuery, perspective, stega})
+  const heading = data?.display?.heroReassuranceHeading || fallbackHeroReassurance.heading
+  const text = data?.display?.heroReassuranceText || fallbackHeroReassurance.text
+
+  return <HeroReassuranceCard heading={heading} text={text} />
+}
+
+async function DynamicHeroReassuranceCard() {
+  const fetchOptions = await getDynamicFetchOptions()
+  return <CachedHeroReassuranceCard {...fetchOptions} />
+}
 
 const heroPaths: Array<{
   icon: HeroBenefitIcon
@@ -105,7 +139,9 @@ function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
   )
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const {isEnabled: isDraftMode} = await draftMode()
+
   return (
     <div className="space-y-16 md:space-y-20">
       <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#102536] bg-[#102536] px-5 py-7 text-[#faf8f5] shadow-[0_28px_70px_rgba(16,37,54,0.24)] sm:px-8 md:px-10 md:py-9 xl:px-14 xl:py-12">
@@ -137,6 +173,20 @@ export default function HomePage() {
               </div>
               <AttorneyZipSearch compact />
             </div>
+            {isDraftMode ? (
+              <Suspense
+                fallback={
+                  <HeroReassuranceCard
+                    heading={fallbackHeroReassurance.heading}
+                    text={fallbackHeroReassurance.text}
+                  />
+                }
+              >
+                <DynamicHeroReassuranceCard />
+              </Suspense>
+            ) : (
+              <CachedHeroReassuranceCard perspective="published" stega={false} />
+            )}
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-[#faf8f5]/25 bg-[#eaf2ed] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
             <Image
