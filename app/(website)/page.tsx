@@ -17,7 +17,7 @@ const fallbackHeroReassurance = {
 
 function HeroReassuranceCard({heading, text}: typeof fallbackHeroReassurance) {
   return (
-    <aside className="mt-4 max-w-xl rounded-xl border border-[#14a86f]/40 bg-[#0a2534]/80 px-4 py-3 text-[13px] leading-5 text-[#d6e2db] shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
+    <aside className="relative mt-7 w-full rounded-[18px] border border-[#14a86f]/45 border-l-4 border-l-[#14a86f] bg-[#0a2534]/90 px-5 py-4 text-base leading-7 text-[#d6e2db] shadow-[0_12px_28px_rgba(0,0,0,0.12)] md:px-6 md:text-lg md:leading-8">
       <p>
         <strong className="font-semibold text-[#faf8f5]">{heading}</strong> {text}
       </p>
@@ -173,6 +173,19 @@ export default async function HomePage() {
               </div>
               <AttorneyZipSearch compact />
             </div>
+          </div>
+          <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-[24px] border border-[#faf8f5]/25 bg-[#eaf2ed] shadow-[0_18px_40px_rgba(0,0,0,0.2)] md:order-none">
+            <Image
+              src="/images/estate-planning/hero-protect-what-matters.png"
+              alt="A multigenerational family spending time together at home"
+              fill
+              priority
+              className="object-cover object-center opacity-95"
+              sizes="(min-width: 768px) 45vw, 100vw"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[#eaf2ed]/10" />
+          </div>
+          <div className="order-1 md:order-none md:col-span-2">
             {isDraftMode ? (
               <Suspense
                 fallback={
@@ -187,17 +200,6 @@ export default async function HomePage() {
             ) : (
               <CachedHeroReassuranceCard perspective="published" stega={false} />
             )}
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-[#faf8f5]/25 bg-[#eaf2ed] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
-            <Image
-              src="/images/estate-planning/hero-protect-what-matters.png"
-              alt="A multigenerational family spending time together at home"
-              fill
-              priority
-              className="object-cover object-center opacity-95"
-              sizes="(min-width: 768px) 45vw, 100vw"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-[#eaf2ed]/10" />
           </div>
         </div>
         <div className="relative mx-auto mt-5 grid max-w-none gap-1 overflow-hidden rounded-[18px] border border-[#d6e2db] bg-[#eaf2ed] sm:grid-cols-2 md:grid-cols-4 md:gap-0">
