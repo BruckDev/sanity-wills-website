@@ -161,7 +161,7 @@ export default async function HomePage() {
               <ButtonLink
                 href="/create-a-will"
                 label="Start my will"
-                className="hero-button-primary"
+                className="hero-button-primary !text-white hover:!text-white"
               />
             </div>
             <div
