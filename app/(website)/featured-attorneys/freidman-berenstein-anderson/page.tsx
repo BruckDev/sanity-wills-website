@@ -43,15 +43,15 @@ const services = [
 const sampleReviews = [
   [
     '“Christopher made our trust options clear and helped us choose a plan that felt right for our family.”',
-    'Sample client review · Chicago, Illinois',
+    'David M., customer',
   ],
   [
     '“We left every conversation with practical answers and more confidence about protecting the people we love.”',
-    'Sample client review · Illinois',
+    'Tammy A., customer',
   ],
   [
     '“His thoughtful trust advice made a complex process feel organized, personal, and manageable.”',
-    'Sample client review · Chicago area',
+    'Dorothy S., customer',
   ],
 ]
 
@@ -350,7 +350,11 @@ export default function FeaturedAttorneySamplePage() {
             <figure
               key={quote}
               className={`flex aspect-square w-full max-w-[22rem] flex-col items-center justify-center rounded-full px-8 py-9 text-center md:px-10 ${
-                index === 0 ? 'bg-[#74cbd0]' : index === 1 ? 'bg-[#f1a0a0]' : 'bg-[#f5d476]'
+                index === 0
+                  ? 'bg-[color:var(--accent)]'
+                  : index === 1
+                    ? 'bg-[#f1a0a0]'
+                    : 'bg-[#f2a15d]'
               }`}
             >
               <div className="font-serif text-6xl leading-none text-[#071f33]" aria-hidden="true">
