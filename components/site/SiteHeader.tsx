@@ -58,7 +58,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
                 : 'border-[color:var(--accent)] bg-[color:var(--accent)] text-[#061e31] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31]'
             }`}
           >
-            Find an estate planning professional
+            Find an estate<br />planning professional
           </Link>
         </nav>
         <button
