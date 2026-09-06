@@ -19,9 +19,22 @@ export default function ContactPage() {
             Help people take the next right step.
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-white/78 md:text-xl">
-            Wills.com is creating an editorial destination for understandable, trustworthy
-            estate-planning education. We welcome conversations with attorney offices that want to
-            publish useful, public-facing guidance.
+            Our valuable domain, Wills.com, has attracted significant attention and growing traffic
+            from consumers and professionals seeking reliable estate-planning information. As we
+            continue expanding our resources, reach, and expert partnerships, we anticipate even
+            greater interest in the months ahead.
+          </p>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-white/78 md:text-xl">
+            We welcome article submissions from esteemed estate-planning, legal, financial, and
+            related industry professionals who would like to be featured on Wills.com. To submit an
+            article or ask a question, please contact us at{' '}
+            <a
+              href="mailto:partnerships@wills.com"
+              className="font-semibold text-[color:var(--accent)] underline"
+            >
+              partnerships@wills.com
+            </a>
+            .
           </p>
         </div>
       </section>
