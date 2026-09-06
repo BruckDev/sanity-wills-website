@@ -1,5 +1,6 @@
 import {AttorneyContactForm} from '@/components/site/AttorneyContactForm'
 import type {Metadata} from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Estate planning professionals',
@@ -37,6 +38,16 @@ export default function ContactPage() {
             .
           </p>
         </div>
+      </section>
+      <section className="overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-white">
+        <Image
+          src="/images/contact/estate-planning-professionals-conference.png"
+          alt="Estate-planning professionals attending a conference presentation"
+          width={1746}
+          height={901}
+          sizes="(min-width: 1280px) 80rem, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
+          className="h-auto w-full object-cover"
+        />
       </section>
       <section className="grid gap-6 md:grid-cols-3">
         <article className="rounded-2xl border border-[color:var(--border)] bg-white p-7">
