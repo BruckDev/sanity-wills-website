@@ -27,6 +27,36 @@ export default function InsightsPage() {
           </p>
         </div>
       </section>
+      <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white md:grid md:grid-cols-2">
+        <div className="relative min-h-72">
+          <Image
+            src="/images/estate-planning/tax-planning.png"
+            alt="Tax and estate-planning paperwork with a calculator"
+            fill
+            className="object-cover"
+            sizes="(min-width: 768px) 50vw, 100vw"
+          />
+        </div>
+        <div className="p-7 md:p-10">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+            A coordinated conversation
+          </div>
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">
+            Bring the right advisers into the room.
+          </h2>
+          <p className="mt-5 leading-8 text-[color:var(--muted)]">
+            Legal, tax, insurance, and financial considerations can overlap. A qualified attorney
+            can help determine when other professionals should be part of the planning process.
+          </p>
+          <div className="mt-7">
+            <ButtonLink
+              href="/#attorney-search"
+              label="Find an adviser near you"
+              className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
+            />
+          </div>
+        </div>
+      </section>
       <section className="grid gap-7 overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
@@ -167,36 +197,7 @@ export default function InsightsPage() {
           </p>
         </article>
       </section>
-      <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white md:grid md:grid-cols-2">
-        <div className="relative min-h-72">
-          <Image
-            src="/images/estate-planning/tax-planning.png"
-            alt="Tax and estate-planning paperwork with a calculator"
-            fill
-            className="object-cover"
-            sizes="(min-width: 768px) 50vw, 100vw"
-          />
-        </div>
-        <div className="p-7 md:p-10">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            A coordinated conversation
-          </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">
-            Bring the right advisers into the room.
-          </h2>
-          <p className="mt-5 leading-8 text-[color:var(--muted)]">
-            Legal, tax, insurance, and financial considerations can overlap. A qualified attorney
-            can help determine when other professionals should be part of the planning process.
-          </p>
-          <div className="mt-7">
-            <ButtonLink
-              href="/#attorney-search"
-              label="Find an adviser near you"
-              className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
-            />
-          </div>
-        </div>
-      </section>
+
       <section className="rounded-2xl bg-[#173f36] px-7 py-10 text-white md:px-10">
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e5ca8c]">
