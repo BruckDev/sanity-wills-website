@@ -149,68 +149,72 @@ function LocationIcon() {
 export default function HomePage() {
   return (
     <div className="space-y-12 md:space-y-16">
-      <section className="overflow-hidden rounded-[2rem] border border-[#e5ece7] bg-[radial-gradient(circle_at_84%_22%,#e2f4ec_0,transparent_26rem),linear-gradient(110deg,#fffcf7_0%,#f8f4ec_54%,#f0faf6_100%)] px-6 py-9 md:px-10 md:py-12 lg:px-14">
-        <div className="grid gap-9 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12">
-          <div className="max-w-xl">
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#597385]">
-              Estate planning, made clearer
+      <div className="-mt-8 space-y-0 md:-mt-12 lg:-mt-14">
+        <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-[#e5ece7] bg-[radial-gradient(circle_at_84%_22%,#e2f4ec_0,transparent_26rem),linear-gradient(110deg,#fffcf7_0%,#f8f4ec_54%,#f0faf6_100%)]">
+          <div className="mx-auto grid w-full max-w-[88rem] gap-9 px-6 py-9 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12 lg:px-12 xl:px-16 xl:py-12">
+            <div className="max-w-xl">
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#597385]">
+                Estate planning, made clearer
+              </div>
+              <h1 className="mt-4 font-serif text-5xl leading-[0.98] tracking-[-0.055em] text-[#062842] sm:text-6xl md:text-7xl">
+                Protect What Matters Most
+              </h1>
+              <p className="mt-5 max-w-lg text-lg leading-8 text-[#3b596b] md:text-xl">
+                Create a will, protect your family, and make your wishes clear—with guidance that
+                meets you where you are.
+              </p>
+              <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <ButtonLink
+                  href="/create-a-will"
+                  label="Start my will  →"
+                  className="rounded-full px-7"
+                />
+                <Link
+                  href="/find-an-attorney"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#07304d] underline decoration-[#10a88a] decoration-2 underline-offset-4 hover:text-[#0c8b78]"
+                >
+                  Find an attorney <span aria-hidden="true">→</span>
+                </Link>
+              </div>
             </div>
-            <h1 className="mt-4 font-serif text-5xl leading-[0.98] tracking-[-0.055em] text-[#062842] sm:text-6xl md:text-7xl">
-              Protect What Matters Most
-            </h1>
-            <p className="mt-5 max-w-lg text-lg leading-8 text-[#3b596b] md:text-xl">
-              Create a will, protect your family, and make your wishes clear—with guidance that
-              meets you where you are.
-            </p>
-            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
-              <ButtonLink
-                href="/create-a-will"
-                label="Start my will  →"
-                className="rounded-full px-7"
-              />
-              <Link
-                href="/find-an-attorney"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#07304d] underline decoration-[#10a88a] decoration-2 underline-offset-4 hover:text-[#0c8b78]"
-              >
-                Find an attorney <span aria-hidden="true">→</span>
-              </Link>
+            <div className="relative mx-auto w-full max-w-[42rem]">
+              <div className="absolute -left-5 bottom-2 h-40 w-40 rounded-full bg-[#dff2e9] blur-2xl" />
+              <div className="relative aspect-[1.13] overflow-hidden rounded-[42%_4%_37%_4%] shadow-[0_24px_60px_rgba(22,56,72,0.18)]">
+                <Image
+                  src="/images/estate-planning/hero-protect-what-matters.png"
+                  alt="A multigenerational family spending time together at home"
+                  fill
+                  priority
+                  className="object-cover object-center"
+                  sizes="(min-width: 1024px) 52vw, 100vw"
+                />
+              </div>
+              <div className="absolute -bottom-6 right-0 hidden max-w-44 -rotate-6 rounded-[1.5rem] bg-[#e7f6f0] px-5 py-4 font-serif text-lg leading-6 text-[#0c4462] shadow-[0_12px_24px_rgba(25,79,91,0.12)] sm:block">
+                A brighter tomorrow, together
+              </div>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-[42rem]">
-            <div className="absolute -left-5 bottom-2 h-40 w-40 rounded-full bg-[#dff2e9] blur-2xl" />
-            <div className="relative aspect-[1.13] overflow-hidden rounded-[42%_4%_37%_4%] shadow-[0_24px_60px_rgba(22,56,72,0.18)]">
-              <Image
-                src="/images/estate-planning/hero-protect-what-matters.png"
-                alt="A multigenerational family spending time together at home"
-                fill
-                priority
-                className="object-cover object-center"
-                sizes="(min-width: 1024px) 52vw, 100vw"
-              />
-            </div>
-            <div className="absolute -bottom-6 right-0 hidden max-w-44 -rotate-6 rounded-[1.5rem] bg-[#e7f6f0] px-5 py-4 font-serif text-lg leading-6 text-[#0c4462] shadow-[0_12px_24px_rgba(25,79,91,0.12)] sm:block">
-              A brighter tomorrow, together
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="grid overflow-hidden rounded-[1.6rem] border border-[#dbe9e3] bg-[#eff9f5] sm:grid-cols-2 lg:grid-cols-4">
-        {heroPaths.map((path, index) => (
-          <Link
-            key={path.href}
-            href={path.href}
-            data-guide-attorney-zip={path.href === '/#attorney-search' || undefined}
-            className={`group px-6 py-6 text-center transition hover:bg-white/55 ${index > 0 ? 'border-t border-[#dbe9e3] sm:border-t-0 lg:border-l' : ''}`}
-          >
-            <span className="mx-auto flex h-11 w-11 items-center justify-center text-[#083f63]">
-              <HeroBenefitIcon icon={path.icon} />
-            </span>
-            <span className="mt-3 block font-serif text-xl text-[#062842]">{path.label}</span>
-            <span className="mt-1 block text-sm leading-5 text-[#547080]">{path.detail}</span>
-          </Link>
-        ))}
-      </section>
+        <section className="relative left-1/2 w-screen -translate-x-1/2 border-b border-[#dbe9e3] bg-[#eff9f5]">
+          <div className="mx-auto grid w-full max-w-[88rem] sm:grid-cols-2 lg:grid-cols-4">
+            {heroPaths.map((path, index) => (
+              <Link
+                key={path.href}
+                href={path.href}
+                data-guide-attorney-zip={path.href === '/#attorney-search' || undefined}
+                className={`group px-6 py-6 text-center transition hover:bg-white/55 ${index > 0 ? 'border-t border-[#dbe9e3] sm:border-t-0 lg:border-l' : ''}`}
+              >
+                <span className="mx-auto flex h-11 w-11 items-center justify-center text-[#083f63]">
+                  <HeroBenefitIcon icon={path.icon} />
+                </span>
+                <span className="mt-3 block font-serif text-xl text-[#062842]">{path.label}</span>
+                <span className="mt-1 block text-sm leading-5 text-[#547080]">{path.detail}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
 
       <PlanChooser />
 
