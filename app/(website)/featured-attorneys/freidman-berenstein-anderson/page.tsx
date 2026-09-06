@@ -131,12 +131,12 @@ export default function FeaturedAttorneySamplePage() {
       </section>
 
       <section className="grid overflow-hidden rounded-xl border border-[color:var(--border)] bg-[#f2f6f7] md:grid-cols-[1.05fr_0.6fr_0.95fr] md:items-center">
-        <div className="relative min-h-[12rem] border-b border-[color:var(--border)] bg-white md:border-b-0 md:border-r">
+        <div className="relative min-h-[12rem] overflow-hidden border-b border-[color:var(--border)] bg-white md:border-b-0 md:border-r">
           <Image
             src="/images/featured-attorneys/freidman-berenstein-anderson-logo.png"
             alt="Freidman, Berenstein and Anderson Attorneys at Law"
             fill
-            className="object-contain p-7 md:p-9"
+            className="object-contain scale-150"
             sizes="(min-width: 768px) 34vw, 100vw"
           />
         </div>
