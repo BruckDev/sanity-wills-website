@@ -9,7 +9,7 @@ export type SampleAttorneyArticle = {
 export const sampleAttorneyArticles: SampleAttorneyArticle[] = [
   {
     slug: 'when-to-update-an-estate-plan',
-    title: 'When should you update an estate plan?',
+    title: 'When should you update an estate plan in Illinois?',
     summary:
       'Life changes, beneficiary designations, and state-law differences can all make a review worthwhile.',
     readingTime: '4 min read',
