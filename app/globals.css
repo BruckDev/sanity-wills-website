@@ -123,6 +123,20 @@ main {
   color: #ffffff;
 }
 
+@keyframes attorney-zip-guidance {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(20, 168, 111, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(20, 168, 111, 0.85);
+  }
+}
+
+.attorney-zip-guidance {
+  animation: attorney-zip-guidance 0.8s ease-in-out 3;
+}
+
 .hero-button-secondary {
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 10px;

@@ -1,7 +1,7 @@
 'use client'
 
 import {useSearchParams} from 'next/navigation'
-import {useState, type FormEvent} from 'react'
+import {useEffect, useRef, useState, type FormEvent} from 'react'
 
 type AttorneyZipSearchProps = {
   initialZip?: string
@@ -19,6 +19,42 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
   const [zip, setZip] = useState(validInitialZip)
   const [submittedZip, setSubmittedZip] = useState<string | null>(validInitialZip || null)
   const [error, setError] = useState('')
+  const [isGuided, setIsGuided] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout> | undefined
+
+    function guideToZipCode() {
+      inputRef.current?.focus({preventScroll: true})
+      setIsGuided(true)
+      timeoutId = setTimeout(() => setIsGuided(false), 2400)
+    }
+
+    function guideFromHash() {
+      if (window.location.hash === '#attorney-search') {
+        guideToZipCode()
+      }
+    }
+
+    function guideFromCardClick(event: MouseEvent) {
+      const target = event.target as Element | null
+
+      if (target?.closest('[data-guide-attorney-zip]')) {
+        setTimeout(guideToZipCode, 0)
+      }
+    }
+
+    guideFromHash()
+    window.addEventListener('hashchange', guideFromHash)
+    document.addEventListener('click', guideFromCardClick)
+
+    return () => {
+      window.removeEventListener('hashchange', guideFromHash)
+      document.removeEventListener('click', guideFromCardClick)
+      clearTimeout(timeoutId)
+    }
+  }, [])
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -46,12 +82,13 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
         </label>
         <input
           id="attorney-zip"
+          ref={inputRef}
           value={zip}
           onChange={(event) => setZip(event.target.value.replace(/\D/g, '').slice(0, 5))}
           inputMode="numeric"
           autoComplete="postal-code"
           placeholder="Enter your ZIP code"
-          className={`${compact ? 'min-h-12 px-4' : 'min-h-14 px-5'} min-w-0 flex-1 rounded-lg border border-white/35 bg-white text-base font-medium text-[#071f33] placeholder:text-[#5d7080] outline-none transition focus:border-[color:var(--accent)] focus:ring-2 focus:ring-[color:var(--accent)]`}
+          className={`${compact ? 'min-h-12 px-4' : 'min-h-14 px-5'} min-w-0 flex-1 rounded-lg border border-white/35 bg-white text-base font-medium text-[#071f33] placeholder:text-[#5d7080] outline-none transition focus:border-[color:var(--accent)] focus:ring-2 focus:ring-[color:var(--accent)] ${isGuided ? 'attorney-zip-guidance' : ''}`}
           aria-describedby={error ? 'attorney-zip-error' : undefined}
         />
         <button

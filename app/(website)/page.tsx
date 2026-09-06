@@ -207,6 +207,7 @@ export default async function HomePage() {
             <Link
               key={path.href}
               href={path.href}
+              data-guide-attorney-zip={path.href === '/#attorney-search' || undefined}
               className={`group flex items-start gap-3 bg-[#eaf2ed] p-4 text-left transition hover:bg-[#f2e5e3] lg:px-5 ${index > 0 ? 'md:border-l md:border-[#cddbd3]' : ''}`}
             >
               <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f2e5e3] text-[#14a86f]">
