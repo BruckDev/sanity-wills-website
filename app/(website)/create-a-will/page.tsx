@@ -13,6 +13,7 @@ export default function CreateAWillPage() {
       <section
         id="page-hero"
         className="scroll-mt-32 rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-12 md:py-16"
+        data-print-hidden
       >
         <div className="max-w-4xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
@@ -27,7 +28,10 @@ export default function CreateAWillPage() {
           </p>
         </div>
       </section>
-      <div className="rounded-xl border border-[#d7d8ca] bg-[#f8f7f0] px-5 py-4 text-sm leading-6 text-[color:var(--fg)]">
+      <div
+        className="rounded-xl border border-[#d7d8ca] bg-[#f8f7f0] px-5 py-4 text-sm leading-6 text-[color:var(--fg)]"
+        data-print-hidden
+      >
         <strong>Important:</strong> Wills.com does not create legal documents or give legal advice.
         Laws, signing requirements, and notarization rules vary by state and personal circumstances.
         A qualified attorney must review any document you intend to use.

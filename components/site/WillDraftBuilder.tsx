@@ -148,11 +148,11 @@ export function WillDraftBuilder() {
               Use this summary to organize a conversation with a qualified attorney. It is not a
               will, cannot be signed as a will, and has no legal effect.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap gap-3" data-print-hidden>
               <button
                 type="button"
                 onClick={() => window.print()}
-                className="min-h-12 rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31]"
+                className="button-lift min-h-12 rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31]"
               >
                 Print this outline
               </button>
@@ -162,7 +162,7 @@ export function WillDraftBuilder() {
                   setShowResult(false)
                   setStep(0)
                 }}
-                className="min-h-12 rounded-lg border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
+                className="button-lift min-h-12 rounded-lg border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
               >
                 Edit answers
               </button>
@@ -282,7 +282,10 @@ export function WillDraftBuilder() {
           </div>
         </section>
 
-        <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
+        <section
+          className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10"
+          data-print-hidden
+        >
           <div className="max-w-3xl">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
               Nearby notary search
@@ -312,7 +315,7 @@ export function WillDraftBuilder() {
             <button
               type="button"
               onClick={searchNotaries}
-              className="min-h-12 shrink-0 whitespace-nowrap rounded-lg bg-[color:var(--accent)] px-5 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-[#061e31]"
+              className="button-lift min-h-12 shrink-0 whitespace-nowrap rounded-lg bg-[color:var(--accent)] px-5 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-[#061e31]"
             >
               Search notaries
             </button>
@@ -327,14 +330,14 @@ export function WillDraftBuilder() {
               href={mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-flex min-h-12 items-center rounded-lg border border-[#071f33] bg-[#071f33] px-5 text-sm font-semibold text-white transition hover:bg-[#173a55]"
+              className="button-lift mt-5 inline-flex min-h-12 items-center rounded-lg border border-[#071f33] bg-[#071f33] px-5 text-sm font-semibold text-white transition hover:bg-[#173a55]"
             >
               View notaries near {notarySearch}
             </a>
           ) : null}
         </section>
 
-        <p className="text-sm leading-6 text-[color:var(--muted)]">
+        <p className="text-sm leading-6 text-[color:var(--muted)]" data-print-hidden>
           For privacy, answers remain in this browser unless you choose to print them. Wills.com
           does not receive or store this information. This tool is educational only and does not
           create a will, attorney-client relationship, or legal advice.
@@ -472,7 +475,7 @@ export function WillDraftBuilder() {
             type="button"
             onClick={() => setStep((current) => Math.max(0, current - 1))}
             disabled={step === 0}
-            className="min-h-12 rounded-lg border border-[color:var(--border-strong)] px-5 text-sm font-semibold text-[color:var(--fg)] transition hover:border-[color:var(--accent)] disabled:cursor-not-allowed disabled:opacity-40"
+            className="button-lift min-h-12 rounded-lg border border-[color:var(--border-strong)] px-5 text-sm font-semibold text-[color:var(--fg)] transition hover:border-[color:var(--accent)] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Back
           </button>
@@ -480,7 +483,7 @@ export function WillDraftBuilder() {
             type="button"
             onClick={nextStep}
             disabled={!canContinue}
-            className="min-h-12 rounded-lg bg-[color:var(--accent)] px-5 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] disabled:cursor-not-allowed disabled:opacity-40"
+            className="button-lift min-h-12 rounded-lg bg-[color:var(--accent)] px-5 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {step === totalSteps - 1 ? 'Create my draft outline' : 'Continue'}
           </button>

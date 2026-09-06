@@ -133,6 +133,38 @@ main {
   top: -2px;
 }
 
+.button-lift:disabled,
+.button-lift:disabled:hover {
+  top: 0;
+}
+
+@media print {
+  header,
+  [data-print-hidden] {
+    display: none !important;
+  }
+
+  footer {
+    break-inside: avoid;
+    margin-top: 1.5rem !important;
+    border-top: 1px solid #071f33;
+    background: transparent !important;
+    color: #071f33 !important;
+  }
+
+  footer > div {
+    padding: 1rem 0 !important;
+  }
+
+  footer > div:first-child {
+    gap: 1.5rem !important;
+  }
+
+  footer * {
+    color: inherit !important;
+  }
+}
+
 @keyframes attorney-zip-guidance {
   0%,
   100% {
