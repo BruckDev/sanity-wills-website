@@ -139,6 +139,52 @@ main {
 }
 
 @media print {
+  body:has(.worksheet-page) footer,
+  .worksheet-page > p,
+  .worksheet-summary ul,
+  .worksheet-summary progress {
+    display: none !important;
+  }
+
+  body:has(.worksheet-page),
+  body:has(.worksheet-page) .site-shell,
+  .worksheet-page * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+
+  body:has(.worksheet-page) main {
+    padding: 0 !important;
+  }
+
+  .worksheet-page h1 {
+    font-size: 26pt;
+  }
+
+  .worksheet-page > *,
+  .planning-worksheet > * {
+    margin-top: 1rem !important;
+  }
+
+  .planning-worksheet > .grid {
+    display: block;
+  }
+
+  .worksheet-summary {
+    position: static;
+    padding: 0;
+    border: 0;
+  }
+
+  .worksheet-print-answers {
+    display: block;
+  }
+
+  .worksheet-print-answers section {
+    break-inside: avoid;
+  }
+
   header,
   [data-print-hidden] {
     display: none !important;

@@ -1,5 +1,6 @@
 import {ButtonLink} from '@/components/site/ButtonLink'
 import {PlanningToolExperience} from '@/components/site/PlanningToolExperience'
+import {PlanningWorksheet} from '@/components/site/PlanningWorksheet'
 import {
   getPlanningTool,
   mergePlanningTool,
@@ -7,7 +8,12 @@ import {
   planningTools,
   type PlanningTool,
 } from '@/sanity/lib/estatePlanningContent'
-import {getDynamicFetchOptions, sanityFetch, type DynamicFetchOptions} from '@/sanity/lib/live'
+import {
+  getDynamicFetchOptions,
+  sanityFetch,
+  sanityFetchMetadata,
+  type DynamicFetchOptions,
+} from '@/sanity/lib/live'
 import type {Metadata} from 'next'
 import {draftMode} from 'next/headers'
 import {notFound} from 'next/navigation'
@@ -18,7 +24,14 @@ export function generateStaticParams() {
 }
 export async function generateMetadata({params}: PageProps<'/tools/[slug]'>): Promise<Metadata> {
   const {slug} = await params
-  const tool = getPlanningTool(slug)
+  const fallback = getPlanningTool(slug)
+  if (!fallback) return {}
+  const {data} = await sanityFetchMetadata({
+    query: planningToolQuery,
+    params: {slug},
+    perspective: 'published',
+  })
+  const tool = mergePlanningTool(data as Partial<PlanningTool> | null, fallback)
   return tool ? {title: tool.title, description: tool.summary} : {}
 }
 
@@ -46,7 +59,7 @@ async function CachedToolPage({slug, perspective, stega}: {slug: string} & Dynam
 }
 function ToolView({tool}: {tool: PlanningTool}) {
   return (
-    <div className="space-y-12 pb-8 md:space-y-16">
+    <div className={`space-y-12 pb-8 md:space-y-16 ${tool.worksheet ? 'worksheet-page' : ''}`}>
       <section className="max-w-4xl">
         <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
           {tool.eyebrow} · {tool.time}
@@ -56,8 +69,20 @@ function ToolView({tool}: {tool: PlanningTool}) {
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-[color:var(--muted)]">{tool.summary}</p>
       </section>
-      <PlanningToolExperience kind={tool.kind} />
-      <section className="flex flex-col gap-5 rounded-[2rem] bg-[#071f33] p-7 text-white md:flex-row md:items-center md:justify-between md:p-10">
+      {tool.worksheet ? (
+        <PlanningWorksheet
+          key={tool.slug}
+          content={tool.worksheet}
+          title={tool.title}
+          slug={tool.slug}
+        />
+      ) : (
+        <PlanningToolExperience kind={tool.kind} />
+      )}
+      <section
+        data-print-hidden
+        className="flex flex-col gap-5 rounded-[2rem] bg-[#071f33] p-7 text-white md:flex-row md:items-center md:justify-between md:p-10"
+      >
         <div>
           <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
             Ready for a next step

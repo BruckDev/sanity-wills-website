@@ -138,6 +138,28 @@ export type PlanningTool = {
   summary?: string
   kind?: 'readiness' | 'will-trust' | 'calculator' | 'guide'
   time?: string
+  worksheet?: {
+    title?: string
+    statusLabel?: string
+    unansweredLabel?: string
+    doneLabel?: string
+    followUpLabel?: string
+    notApplicableLabel?: string
+    notesLabel?: string
+    summaryTitle?: string
+    progressLabel?: string
+    printLabel?: string
+    downloadLabel?: string
+    intro?: string
+    privacyNote?: string
+    nextSteps?: string
+    disclaimer?: string
+    questions?: Array<{
+      prompt?: string
+      help?: string
+      _key: string
+    }>
+  }
 }
 
 export type Slug = {
@@ -1583,6 +1605,82 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | Geopoint
 
+// Source: app/sitemap.ts
+// Variable: sitemapQuery
+// Query: *[  !(_id in path("drafts.**")) && !(_id in path("versions.**")) &&  _type in ["insight", "caseStudy", "industry", "service", "lifeEvent", "planningTool", "home", "about", "government", "contactPage", "privacyPage", "accessibilityPage", "insightsLanding", "servicesLanding", "industriesLanding"]]{_type, _updatedAt, "slug": slug.current}
+export type SitemapQueryResult = Array<
+  | {
+      _type: 'about'
+      _updatedAt: string
+      slug: null
+    }
+  | {
+      _type: 'accessibilityPage'
+      _updatedAt: string
+      slug: null
+    }
+  | {
+      _type: 'caseStudy'
+      _updatedAt: string
+      slug: string | null
+    }
+  | {
+      _type: 'contactPage'
+      _updatedAt: string
+      slug: null
+    }
+  | {
+      _type: 'home'
+      _updatedAt: string
+      slug: null
+    }
+  | {
+      _type: 'industriesLanding'
+      _updatedAt: string
+      slug: null
+    }
+  | {
+      _type: 'industry'
+      _updatedAt: string
+      slug: string | null
+    }
+  | {
+      _type: 'insight'
+      _updatedAt: string
+      slug: string | null
+    }
+  | {
+      _type: 'insightsLanding'
+      _updatedAt: string
+      slug: null
+    }
+  | {
+      _type: 'lifeEvent'
+      _updatedAt: string
+      slug: string | null
+    }
+  | {
+      _type: 'planningTool'
+      _updatedAt: string
+      slug: string | null
+    }
+  | {
+      _type: 'privacyPage'
+      _updatedAt: string
+      slug: null
+    }
+  | {
+      _type: 'service'
+      _updatedAt: string
+      slug: string | null
+    }
+  | {
+      _type: 'servicesLanding'
+      _updatedAt: string
+      slug: null
+    }
+>
+
 // Source: sanity/lib/estatePlanningContent.ts
 // Variable: lifeEventQuery
 // Query: *[_type == "lifeEvent" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, urgency, checklist, faqs, article{title, intro, sections[]{heading, paragraphs, questions, afterQuestions, items[]{title, description}, checklist, afterChecklist, resources[]{label, href}}, conclusion, disclaimer}}
@@ -1624,7 +1722,7 @@ export type LifeEventQueryResult = {
 
 // Source: sanity/lib/estatePlanningContent.ts
 // Variable: planningToolQuery
-// Query: *[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time}
+// Query: *[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time, worksheet{title, intro, privacyNote, statusLabel, unansweredLabel, doneLabel, followUpLabel, notApplicableLabel, notesLabel, summaryTitle, progressLabel, nextSteps, printLabel, downloadLabel, disclaimer, questions[]{_key, prompt, help}}}
 export type PlanningToolQueryResult = {
   title: string | null
   slug: string | null
@@ -1632,6 +1730,28 @@ export type PlanningToolQueryResult = {
   summary: string | null
   kind: 'calculator' | 'guide' | 'readiness' | 'will-trust' | null
   time: string | null
+  worksheet: {
+    title: string | null
+    intro: string | null
+    privacyNote: string | null
+    statusLabel: string | null
+    unansweredLabel: string | null
+    doneLabel: string | null
+    followUpLabel: string | null
+    notApplicableLabel: string | null
+    notesLabel: string | null
+    summaryTitle: string | null
+    progressLabel: string | null
+    nextSteps: string | null
+    printLabel: string | null
+    downloadLabel: string | null
+    disclaimer: string | null
+    questions: Array<{
+      _key: string
+      prompt: string | null
+      help: string | null
+    }> | null
+  } | null
 } | null
 
 // Source: sanity/lib/siteQueries.ts
@@ -3074,8 +3194,9 @@ export type AccessibilityPageQueryResult = {
 
 declare module '@sanity/client' {
   interface SanityQueries {
+    '*[\n  !(_id in path("drafts.**")) && !(_id in path("versions.**")) &&\n  _type in ["insight", "caseStudy", "industry", "service", "lifeEvent", "planningTool", "home", "about", "government", "contactPage", "privacyPage", "accessibilityPage", "insightsLanding", "servicesLanding", "industriesLanding"]\n]{_type, _updatedAt, "slug": slug.current}': SitemapQueryResult
     '*[_type == "lifeEvent" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, urgency, checklist, faqs, article{title, intro, sections[]{heading, paragraphs, questions, afterQuestions, items[]{title, description}, checklist, afterChecklist, resources[]{label, href}}, conclusion, disclaimer}}': LifeEventQueryResult
-    '*[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time}': PlanningToolQueryResult
+    '*[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time, worksheet{title, intro, privacyNote, statusLabel, unansweredLabel, doneLabel, followUpLabel, notApplicableLabel, notesLabel, summaryTitle, progressLabel, nextSteps, printLabel, downloadLabel, disclaimer, questions[]{_key, prompt, help}}}': PlanningToolQueryResult
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    siteTitle,\n    brandEyebrow,\n    headerNavigation[]{\n      label,\n      href,\n      description,\n      children[]{\n        label,\n        href,\n        style\n      }\n    },\n    contactMethods[]{\n      label,\n      value,\n      href\n    },\n    linkedin,\n    footerColumns[]{\n      title,\n      body,\n      links[]{\n        label,\n        href,\n        style\n      }\n    },\n    footerNote,\n    uiText{\n      heroStatsHeading,\n      headerContactCtaLabel,\n      headerMenuToggleLabel,\n      mainNavigationLabel,\n      mobileNavigationLabel,\n      footerLinkedinLabel,\n      footerLinkedinPlaceholder,\n      footerPrivacyLabel,\n      footerAccessibilityLabel\n    },\n    ogImage,\n    seo\n  }\n': SettingsQueryResult
     '\n  *[_type == "home"][0]{\n    _id,\n    _type,\n    title,\n    display{\n      heroEyebrow,\n      heroBackgroundImageAlt,\n      heroReassuranceHeading,\n      heroReassuranceText,\n      servicesEyebrow,\n      serviceCardLinkLabel,\n      allServicesLinkLabel,\n      servicesAnimationAriaLabel,\n      insightsEyebrow,\n      caseStudiesEyebrow,\n      caseStudiesTitle,\n      caseStudiesDescription,\n      caseStudyPlaceholderLabel,\n      industriesEyebrow,\n      governmentEyebrow,\n      governmentCtaLabel,\n      governmentPanelTitle,\n      governmentPanelSubtitle,\n      engineeringEyebrow,\n      whyUsEyebrow,\n      finalCtaEyebrow\n    },\n    overview,\n    heroPrimaryCta{label, href, style},\n    heroSecondaryCta{label, href, style},\n    heroHighlights[]{value, label},\n    servicesTitle,\n    servicesIntro,\n    servicesVideoTitle,\n    servicesVideoText,\n    servicesVideoLinks[]{label, href, style},\n    featuredServices[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      summary\n    },\n    insightsTitle,\n    insightsIntro,\n    featuredInsights[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      excerpt,\n      articleType,\n      estimatedReadTime,\n      publishedAt,\n      coverImage{\n        ...,\n        asset->\n      }\n    },\n    featuredCaseStudies[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      excerpt\n    },\n    industriesTitle,\n    industriesIntro,\n    featuredIndustries[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      summary\n    },\n    governmentTitle,\n    governmentIntro,\n    governmentCapabilities,\n    engineeringCapabilitiesTitle,\n    engineeringCapabilitiesIntro,\n    engineeringCapabilities[]{title, text},\n    whyUsTitle,\n    whyUsCards[]{\n      title,\n      text\n    },\n    finalCtaTitle,\n    finalCtaText,\n    finalPrimaryCta{label, href, style},\n    finalSecondaryCta{label, href, style},\n    seo\n  }\n': HomeQueryResult
     '\n  *[_type == "home"][0]{\n    display{\n      heroReassuranceHeading,\n      heroReassuranceText\n    }\n  }\n': HomeHeroReassuranceQueryResult

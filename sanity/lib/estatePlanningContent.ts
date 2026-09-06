@@ -1,4 +1,5 @@
 import {defineQuery} from 'next-sanity'
+import {planningWorksheets, type PlanningWorksheet} from './planningWorksheets'
 
 export type PlanningFaq = {question: string; answer: string}
 
@@ -37,6 +38,7 @@ export type LifeEvent = {
 }
 
 export type PlanningTool = {
+  worksheet?: PlanningWorksheet
   slug: string
   title: string
   eyebrow: string
@@ -547,7 +549,7 @@ export const lifeEventQuery = defineQuery(
   `*[_type == "lifeEvent" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, urgency, checklist, faqs, article{title, intro, sections[]{heading, paragraphs, questions, afterQuestions, items[]{title, description}, checklist, afterChecklist, resources[]{label, href}}, conclusion, disclaimer}}`,
 )
 export const planningToolQuery = defineQuery(
-  `*[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time}`,
+  `*[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time, worksheet{title, intro, privacyNote, statusLabel, unansweredLabel, doneLabel, followUpLabel, notApplicableLabel, notesLabel, summaryTitle, progressLabel, nextSteps, printLabel, downloadLabel, disclaimer, questions[]{_key, prompt, help}}}`,
 )
 
 export function getLifeEvent(slug: string) {
@@ -572,5 +574,21 @@ export function mergePlanningTool(
   data: Partial<PlanningTool> | null,
   fallback: PlanningTool,
 ): PlanningTool {
-  return {...fallback, ...data}
+  const defaults = planningWorksheets[fallback.slug]
+  const overrides = Object.fromEntries(
+    Object.entries(data?.worksheet || {}).filter(([, value]) => value != null && value !== ''),
+  )
+  return {
+    ...fallback,
+    ...Object.fromEntries(Object.entries(data || {}).filter(([, value]) => value != null)),
+    worksheet: defaults
+      ? {
+          ...defaults,
+          ...overrides,
+          questions: data?.worksheet?.questions?.length
+            ? data.worksheet.questions
+            : defaults.questions,
+        }
+      : undefined,
+  }
 }
