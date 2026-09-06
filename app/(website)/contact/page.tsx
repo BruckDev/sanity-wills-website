@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="space-y-16 md:space-y-20">
-      <section className="rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-12 md:py-16">
+      <section className="grid gap-8 rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-12 md:py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(20rem,0.95fr)] lg:items-stretch">
         <div className="max-w-4xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             Estate planning professionals
@@ -38,16 +38,16 @@ export default function ContactPage() {
             .
           </p>
         </div>
-      </section>
-      <section className="overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-white">
-        <Image
-          src="/images/contact/estate-planning-professionals-conference.png"
-          alt="Estate-planning professionals attending a conference presentation"
-          width={1746}
-          height={901}
-          sizes="(min-width: 1280px) 80rem, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
-          className="h-auto w-full object-cover"
-        />
+        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/15 bg-[#0e2e48] lg:min-h-[30rem] lg:aspect-auto">
+          <Image
+            src="/images/contact/estate-planning-professionals-conference-hero.png"
+            alt="Estate-planning professionals attending a conference presentation"
+            fill
+            priority
+            sizes="(min-width: 1024px) 38vw, (min-width: 768px) 42rem, calc(100vw - 3rem)"
+            className="object-cover"
+          />
+        </div>
       </section>
       <section className="grid gap-6 md:grid-cols-3">
         <article className="rounded-2xl border border-[color:var(--border)] bg-white p-7">
