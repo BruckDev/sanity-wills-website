@@ -20,12 +20,21 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
   const [submittedZip, setSubmittedZip] = useState<string | null>(validInitialZip || null)
   const [error, setError] = useState('')
   const [isGuided, setIsGuided] = useState(false)
+  const [resultRequest, setResultRequest] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
+  const resultsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (submittedZip && resultRequest) {
+      resultsRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'})
+    }
+  }, [resultRequest, submittedZip])
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout> | undefined
 
     function guideToZipCode() {
+      clearTimeout(timeoutId)
       inputRef.current?.focus({preventScroll: true})
       setIsGuided(true)
       timeoutId = setTimeout(() => setIsGuided(false), 2400)
@@ -41,7 +50,10 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
       const target = event.target as Element | null
 
       if (target?.closest('[data-guide-attorney-zip]')) {
-        setTimeout(guideToZipCode, 0)
+        setTimeout(() => {
+          document.getElementById('attorney-search')?.scrollIntoView({behavior: 'smooth', block: 'start'})
+          guideToZipCode()
+        }, 0)
       }
     }
 
@@ -68,6 +80,7 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
 
     setError('')
     setSubmittedZip(normalizedZip)
+    setResultRequest((request) => request + 1)
   }
 
   return (
@@ -105,7 +118,8 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
       ) : null}
       {submittedZip ? (
         <div
-          className="mt-8 rounded-2xl border border-white/15 bg-white/[0.08] p-6"
+          ref={resultsRef}
+          className="mt-8 scroll-mt-28 rounded-2xl border border-white/15 bg-white/[0.08] p-6"
           aria-live="polite"
         >
           <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
