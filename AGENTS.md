@@ -1,5 +1,9 @@
 # Repository Guidelines
 
+## Local Agent Notes
+
+If `LOCAL_AGENT_NOTES.md` exists in the repository root, read it before starting work. It contains local, user-specific operational preferences and is intentionally excluded from Git.
+
 ## Project Structure & Module Organization
 
 This repository is a Next.js 16 App Router site backed by Sanity. Application routes live in `app/`, with the public site under `app/(website)`, API handlers in `app/api`, and the embedded Studio in `app/studio`. Shared UI lives in `components/`. Sanity configuration, queries, schemas, and Studio plugins live in `sanity/`. Global styles start in `app/globals.css` and `styles/`. Keep generated artifacts such as `sanity.types.ts` and `schema.json` committed when schema changes require them.
