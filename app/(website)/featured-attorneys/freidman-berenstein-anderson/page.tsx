@@ -8,36 +8,33 @@ export const metadata: Metadata = {
   description: 'A marketing demonstration of a featured attorney office profile on Wills.com.',
 }
 
-const qualifications = [
-  'Licensed to practice in Illinois and Federal Courts',
-  'Graduate of The Chicago-Kent College of Law',
-  'Over two decades of courtroom and planning experience',
-  'Known for a hands-on, accessible, and responsive client approach',
+const practiceAreas = [
+  {
+    icon: '▤',
+    title: 'Wills & Trusts',
+    copy: 'Create a clear plan to protect the people and property that matter most.',
+  },
+  {
+    icon: '◆',
+    title: 'Probate',
+    copy: 'Guidance through the probate process with care, clarity, and next steps in view.',
+  },
+  {
+    icon: '▣',
+    title: 'Business Succession',
+    copy: 'Help business owners prepare for a thoughtful transition.',
+  },
+  {
+    icon: '↗',
+    title: 'Estate Tax Planning',
+    copy: 'Explore strategies that may help preserve wealth for future generations.',
+  },
 ]
 
-const services = [
-  'Charitable Trusts',
-  'Deeds',
-  'Estate Planning',
-  'Estate Tax Planning',
-  'Irrevocable Insurance Trusts',
-  'Life Insurance Trusts',
-  'Living Wills',
-  'Postnuptial Agreements',
-  'Powers of Attorney',
-  'Powers of Attorney for Healthcare',
-  'Powers of Attorney for Property',
-  'Prenuptial Agreements',
-  'Probate Administration',
-  'QPRTS – Qualified Personal Residence Trusts',
-  'QTIP Trusts',
-  'Revocable Living Trusts',
-  'Special Needs Trusts',
-  'Tax Planning',
-  'Transfer on Death Instruments for Real Estate',
-  'Trust Administration',
-  'Trusts',
-  'Wills',
+const articleImages = [
+  '/images/estate-planning/will-document.png',
+  '/images/estate-planning/family-hero.png',
+  '/images/estate-planning/advisor-consultation.png',
 ]
 
 const sampleReviews = [
@@ -55,6 +52,12 @@ const sampleReviews = [
   ],
 ]
 
+const benefitItems = [
+  ['✦', 'Personalized guidance', 'Support tailored to the questions you want to discuss.'],
+  ['✓', 'Experienced counsel', 'Clear information for an informed conversation.'],
+  ['◆', 'A more secure tomorrow', 'Planning that keeps the people you value in view.'],
+]
+
 export default function FeaturedAttorneySamplePage() {
   return (
     <div className="space-y-12 pb-8 md:space-y-16">
@@ -63,201 +66,180 @@ export default function FeaturedAttorneySamplePage() {
         created to demonstrate a potential Wills.com office profile.
       </div>
 
-      <section className="overflow-hidden rounded-[2rem] bg-[#071f33] text-white lg:grid lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="px-7 py-10 md:px-12 md:py-14">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Featured attorney office
+      <section className="grid gap-8 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-10">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-[color:var(--border)] bg-[#f3f6f7] shadow-[0_12px_30px_rgba(8,35,58,0.07)] lg:aspect-auto lg:min-h-[31rem]">
+          <Image
+            src="/images/featured-attorneys/christopher-freidman.png"
+            alt="Christopher Freidman, sample featured attorney"
+            fill
+            priority
+            className="object-cover object-top"
+            sizes="(min-width: 1024px) 18rem, 100vw"
+          />
+        </div>
+
+        <div className="lg:flex lg:flex-col lg:justify-center">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+            Trusted. Experienced. Here for what matters.
           </div>
-          <h1 className="mt-5 max-w-3xl font-serif text-4xl leading-[0.98] tracking-[-0.045em] md:text-6xl">
-            Freidman Berenstein and Anderson Law Group
+          <h1 className="mt-4 font-serif text-4xl leading-[0.98] tracking-[-0.045em] text-[color:var(--fg)] md:text-6xl">
+            Christopher Freidman
           </h1>
-          <p className="mt-6 text-lg leading-8 text-white/80">
-            Practical estate-planning guidance from a Chicago law office focused on responsive
-            counsel, clear communication, and long-term planning.
+          <p className="mt-2 font-serif text-2xl leading-8 text-[color:var(--fg)] md:text-3xl">
+            Freidman, Berenstein &amp; Anderson
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <p className="mt-3 text-lg font-medium text-[color:var(--fg)]">
+            Estate planning attorney in Chicago, Illinois
+          </p>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-[color:var(--muted)]">
+            This sample profile illustrates how a featured attorney can introduce clear,
+            client-focused guidance on wills, trusts, and coordinated estate-planning questions.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a
+              href="mailto:freidman@fbalaw.com"
+              className="button-lift inline-flex min-h-12 items-center justify-center rounded-lg bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)]"
+            >
+              Schedule a consultation
+            </a>
             <a
               href="tel:+16306257571"
-              className="button-lift inline-flex min-h-12 items-center justify-center rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31]"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#008e94] px-5 py-3 text-sm font-semibold text-[#067b81] transition hover:bg-[#e8f8f8]"
             >
               Call +1-630-625-7571
             </a>
-            <a
-              href="mailto:freidman@fbalaw.com"
-              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
-            >
-              Email the office
-            </a>
           </div>
-          <p className="mt-5 text-sm font-semibold text-[color:var(--accent)]">
-            Free consultations available
-          </p>
+          <p className="mt-4 text-sm text-[color:var(--muted)]">Free consultations available.</p>
         </div>
-        <div className="relative min-h-[22rem] border-t border-white/15 bg-white lg:border-l lg:border-t-0">
+      </section>
+
+      <section className="grid gap-5 border-y border-[color:var(--border)] py-7 md:grid-cols-3 md:gap-0 md:py-8">
+        {benefitItems.map(([icon, title, copy], index) => (
+          <div
+            key={title}
+            className={`flex gap-4 px-1 md:px-7 ${index > 0 ? 'md:border-l md:border-[color:var(--border)]' : ''}`}
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#e4f5f6] text-xl font-bold text-[#0b6d7a]">
+              {icon}
+            </span>
+            <div>
+              <h2 className="font-semibold text-[color:var(--fg)]">{title}</h2>
+              <p className="mt-1 text-sm leading-5 text-[color:var(--muted)]">{copy}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section className="grid overflow-hidden rounded-xl border border-[color:var(--border)] bg-[#f2f6f7] md:grid-cols-[1.05fr_0.6fr_0.95fr] md:items-center">
+        <div className="relative min-h-[12rem] border-b border-[color:var(--border)] bg-white md:border-b-0 md:border-r">
           <Image
             src="/images/featured-attorneys/freidman-berenstein-anderson-logo.png"
             alt="Freidman, Berenstein and Anderson Attorneys at Law"
             fill
-            priority
-            className="object-contain p-8 md:p-12"
-            sizes="(min-width: 1024px) 40vw, 100vw"
+            className="object-contain p-7 md:p-9"
+            sizes="(min-width: 768px) 34vw, 100vw"
           />
+        </div>
+        <div className="relative mx-auto h-40 w-40 md:h-44 md:w-44">
+          <Image
+            src="/images/featured-attorneys/best-law-firms-badge.png"
+            alt="Best Law Firms badge, shown as a sample recognition placement"
+            fill
+            className="object-contain"
+            sizes="11rem"
+          />
+        </div>
+        <div className="border-t border-[color:var(--border)] p-7 md:border-l md:border-t-0 md:p-9">
+          <div className="font-serif text-2xl text-[color:var(--fg)]">
+            Recognized for excellence
+          </div>
+          <p className="mt-3 leading-7 text-[color:var(--muted)]">
+            A sample placement for an office recognition or professional distinction.
+          </p>
         </div>
       </section>
 
-      <section className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)] lg:items-start">
-        <div className="grid gap-8 rounded-[2rem] border border-[color:var(--border)] bg-white p-7 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:p-10 lg:grid-cols-[minmax(14rem,0.78fr)_minmax(0,1fr)] lg:gap-9">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-            <Image
-              src="/images/featured-attorneys/christopher-freidman.png"
-              alt="Christopher Freidman, sample featured attorney"
-              fill
-              className="object-cover object-top"
-              sizes="(min-width: 768px) 24rem, 100vw"
-            />
-          </div>
+      <section id="practice-areas">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-              Meet the attorney
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+              Practice areas
             </div>
-            <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">
-              Christopher Freidman
+            <h2 className="mt-3 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+              Planning for the questions ahead.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-              For people planning for the future, the right attorney relationship can make complex
-              decisions easier to approach. This sample profile highlights the kind of clear,
-              human-focused information an office could share with Wills.com readers.
-            </p>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {qualifications.map((qualification) => (
-                <li
-                  key={qualification}
-                  className="rounded-xl border border-[#d6e2e8] bg-[#f7fafc] p-4 text-sm leading-6 text-[color:var(--fg)]"
-                >
-                  <span className="mr-2 font-bold text-[color:var(--accent)]">✓</span>
-                  {qualification}
-                </li>
-              ))}
-            </ul>
           </div>
+          <a
+            href="#all-practice-areas"
+            className="text-sm font-semibold text-[#067b81] hover:underline"
+          >
+            View all practice areas →
+          </a>
         </div>
-
-        <aside className="overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] lg:sticky lg:top-24">
-          <div className="relative aspect-[16/10]">
-            <Image
-              src="/images/featured-attorneys/chicago-office-building.jpg"
-              alt="Chicago office building near the sample firm location"
-              fill
-              className="object-cover object-center"
-              sizes="(min-width: 1024px) 32vw, 100vw"
-            />
-          </div>
-          <div className="p-7 md:p-8">
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-              Office details
-            </div>
-            <h2 className="mt-4 font-serif text-3xl tracking-[-0.035em] text-[color:var(--fg)]">
-              Chicago, Illinois
-            </h2>
-            <address className="mt-5 not-italic leading-7 text-[color:var(--muted)]">
-              411 A Wacker Dr
-              <br />
-              Suite 7007
-              <br />
-              Chicago, IL 60606
-            </address>
-            <dl className="mt-7 space-y-5 border-t border-[#cbdce3] pt-6 text-sm">
-              <div>
-                <dt className="font-semibold text-[color:var(--fg)]">Phone</dt>
-                <dd className="mt-1">
-                  <a
-                    className="text-[color:var(--accent-strong)] hover:underline"
-                    href="tel:+16306257571"
-                  >
-                    +1-630-625-7571
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="font-semibold text-[color:var(--fg)]">Email</dt>
-                <dd className="mt-1 break-all">
-                  <a
-                    className="text-[color:var(--accent-strong)] hover:underline"
-                    href="mailto:freidman@fbalaw.com"
-                  >
-                    freidman@fbalaw.com
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="font-semibold text-[color:var(--fg)]">Website</dt>
-                <dd className="mt-1 break-all">
-                  <a
-                    className="text-[color:var(--accent-strong)] hover:underline"
-                    href="https://www.fdalaw.com"
-                  >
-                    www.fdalaw.com
-                  </a>
-                </dd>
-              </div>
-            </dl>
-            <a
-              href="mailto:freidman@fbalaw.com"
-              className="button-lift mt-7 inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#071f33] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0e2e48]"
+        <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {practiceAreas.map((area) => (
+            <article
+              key={area.title}
+              className="rounded-xl border border-[color:var(--border)] bg-white p-6 text-center shadow-[0_10px_24px_rgba(8,35,58,0.04)]"
             >
-              Contact the office
-            </a>
-            <div className="mt-6 flex items-center gap-3 border-t border-[#cbdce3] pt-5">
-              <div className="relative h-14 w-12 shrink-0">
-                <Image
-                  src="/images/featured-attorneys/best-law-firms-badge.png"
-                  alt="Best Law Firms badge, shown as a sample recognition placement"
-                  fill
-                  className="object-contain"
-                  sizes="3rem"
-                />
-              </div>
-              <p className="text-xs leading-5 text-[color:var(--muted)]">
-                <span className="block font-semibold text-[color:var(--fg)]">
-                  Sample recognition placement
-                </span>
-                Best Law Firms badge shown for marketing-layout demonstration only.
-              </p>
-            </div>
-          </div>
-        </aside>
+              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#e4f5f6] font-serif text-2xl text-[#0b6d7a]">
+                {area.icon}
+              </span>
+              <h3 className="mt-5 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
+                {area.title}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">{area.copy}</p>
+            </article>
+          ))}
+        </div>
+        <p id="all-practice-areas" className="mt-5 text-sm leading-6 text-[color:var(--muted)]">
+          Sample practice areas include charitable trusts, deeds, probate administration, powers of
+          attorney, revocable living trusts, special-needs trusts, tax planning, and wills.
+        </p>
       </section>
 
       <section>
-        <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Illustrative attorney articles
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+              Illustrative attorney articles
+            </div>
+            <h2 className="mt-3 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+              Articles by Christopher Freidman
+            </h2>
           </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-            Give readers useful reasons to return.
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-            A featured office can pair its profile with practical, clearly dated education that
-            helps people prepare for a legal conversation.
-          </p>
+          <Link
+            href="/featured-attorneys/freidman-berenstein-anderson/articles"
+            className="text-sm font-semibold text-[#067b81] hover:underline"
+          >
+            View all articles →
+          </Link>
         </div>
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {sampleAttorneyArticles.map((article) => (
+        <div className="mt-7 grid gap-5 md:grid-cols-3">
+          {sampleAttorneyArticles.map((article, index) => (
             <Link
               key={article.slug}
               href={`/featured-attorneys/freidman-berenstein-anderson/articles/${article.slug}`}
-              className="group rounded-2xl border border-[color:var(--border)] bg-white p-6 shadow-[0_14px_35px_rgba(8,35,58,0.05)] transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
+              className="group overflow-hidden rounded-xl border border-[color:var(--border)] bg-white shadow-[0_10px_24px_rgba(8,35,58,0.04)] transition hover:-translate-y-1 hover:border-[#89cfd1]"
             >
-              <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
-                {article.readingTime}
+              <div className="relative aspect-[16/8] overflow-hidden">
+                <Image
+                  src={articleImages[index]}
+                  alt=""
+                  fill
+                  className="object-cover transition duration-300 group-hover:scale-105"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                />
               </div>
-              <h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
-                {article.title}
-              </h3>
-              <p className="mt-3 leading-7 text-[color:var(--muted)]">{article.summary}</p>
-              <span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
-                Read sample article →
-              </span>
+              <div className="p-6">
+                <div className="text-xs font-semibold text-[color:var(--muted)]">
+                  {article.readingTime}
+                </div>
+                <h3 className="mt-3 font-serif text-2xl leading-7 tracking-[-0.03em] text-[color:var(--fg)]">
+                  {article.title}
+                </h3>
+                <p className="mt-3 leading-6 text-[color:var(--muted)]">{article.summary}</p>
+              </div>
             </Link>
           ))}
         </div>
@@ -267,161 +249,123 @@ export default function FeaturedAttorneySamplePage() {
         </p>
       </section>
 
-      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
-        <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Sample consultation experience
-          </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-            Set expectations before the first conversation.
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-            This sample section shows how an office can help prospective clients understand what to
-            prepare and what the first conversation may cover.
-          </p>
-        </div>
-        <ol className="mt-8 grid gap-5 md:grid-cols-3">
-          {[
-            [
-              '01',
-              'Share what matters most',
-              'Start with the people, property, and priorities you want the plan to address.',
-            ],
-            [
-              '02',
-              'Review the full picture',
-              'Discuss existing documents, beneficiary designations, and questions for the attorney.',
-            ],
-            [
-              '03',
-              'Understand next steps',
-              'Leave with a clearer sense of options, timing, and any information to gather.',
-            ],
-          ].map(([number, title, copy]) => (
-            <li key={number} className="rounded-xl border border-[#d6e2e8] bg-white p-6">
-              <span className="text-sm font-bold text-[color:var(--accent)]">{number}</span>
-              <h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
-                {title}
-              </h3>
-              <p className="mt-3 leading-7 text-[color:var(--muted)]">{copy}</p>
-            </li>
-          ))}
-        </ol>
-        <p className="mt-6 text-sm leading-6 text-[color:var(--muted)]">
-          Consultation process details are illustrative for this fictional profile and may differ
-          among actual law offices.
-        </p>
-      </section>
-
-      <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white lg:grid lg:grid-cols-2">
-        <div className="relative min-h-[20rem]">
+      <section className="grid overflow-hidden rounded-xl border border-[color:var(--border)] bg-[#f2f6f7] md:grid-cols-[0.8fr_1.2fr]">
+        <div className="relative min-h-[16rem]">
           <Image
-            src="/images/featured-attorneys/fba-corporate-leadership.png"
-            alt="Sample corporate leadership team at Freidman, Berenstein and Anderson Law Group"
+            src="/images/featured-attorneys/chicago-office-building.jpg"
+            alt="Chicago office building near the sample firm location"
             fill
-            className="object-cover object-center"
-            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+            sizes="(min-width: 768px) 40vw, 100vw"
           />
         </div>
-        <div className="p-7 md:p-10 lg:flex lg:flex-col lg:justify-center">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Corporate leadership
+        <div className="p-7 md:p-9">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+            Office details
           </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">
-            A team built around responsive counsel.
+          <h2 className="mt-3 font-serif text-3xl tracking-[-0.035em] text-[color:var(--fg)] md:text-4xl">
+            Serving Chicago &amp; the greater Illinois area
           </h2>
-          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-            This sample section shows how a featured office can introduce its leadership team and
-            give prospective clients a more personal view of the people behind the practice.
-          </p>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            <address className="not-italic text-sm leading-6 text-[color:var(--muted)]">
+              <span className="mb-2 block font-semibold text-[color:var(--fg)]">
+                Freidman, Berenstein &amp; Anderson
+              </span>
+              411 A Wacker Dr
+              <br />
+              Suite 7007
+              <br />
+              Chicago, IL 60606
+            </address>
+            <div className="border-t border-[color:var(--border)] pt-5 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
+              <p className="text-sm leading-6 text-[color:var(--muted)]">
+                A sample office panel for location, availability, and the preferred way to get in
+                touch.
+              </p>
+              <a
+                href="mailto:freidman@fbalaw.com"
+                className="mt-4 inline-flex text-sm font-semibold text-[#067b81] hover:underline"
+              >
+                Contact the office →
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section
-        id="sample-client-feedback"
-        className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10"
-      >
-        <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Sample client feedback
+      <section id="sample-client-feedback">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+              Sample client feedback
+            </div>
+            <h2 className="mt-3 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+              Thoughtful trust advice, illustrated.
+            </h2>
           </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-            Thoughtful trust advice, illustrated.
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-            These fictional examples show how a featured office could present verified feedback
-            about clear, caring trust-planning guidance.
-          </p>
+          <a
+            href="mailto:freidman@fbalaw.com"
+            className="text-sm font-semibold text-[#067b81] hover:underline"
+          >
+            Ask a question →
+          </a>
         </div>
-        <div className="mt-9 grid justify-items-center gap-7 lg:grid-cols-3 lg:gap-5">
+        <p className="mt-4 max-w-3xl text-[color:var(--muted)]">
+          These fictional examples show how a featured office could present verified client feedback
+          about clear, caring trust-planning guidance.
+        </p>
+        <div className="mt-7 grid gap-5 lg:grid-cols-3">
           {sampleReviews.map(([quote, attribution], index) => (
             <figure
               key={quote}
-              className={`flex aspect-square w-full max-w-[22rem] flex-col items-center justify-center rounded-full px-8 py-9 text-center md:px-10 ${
-                index === 0
-                  ? 'bg-[color:var(--accent)]'
-                  : index === 1
-                    ? 'bg-[#f1a0a0]'
-                    : 'bg-[#f2a15d]'
+              className={`rounded-xl p-6 ${
+                index === 0 ? 'bg-[#dff7f7]' : index === 1 ? 'bg-[#fae2e2]' : 'bg-[#fff0d2]'
               }`}
             >
-              <div className="font-serif text-6xl leading-none text-[#071f33]" aria-hidden="true">
-                “
-              </div>
-              <blockquote className="mt-2 font-serif text-xl leading-7 tracking-[-0.02em] text-[#071f33] md:text-2xl md:leading-8">
-                {quote}
-              </blockquote>
-              <figcaption className="mt-4 text-sm font-medium leading-5 text-[#071f33]/80">
-                {attribution}
-              </figcaption>
               <div
-                className="mt-4 text-lg leading-none text-[#071f33]"
+                className="text-lg tracking-[0.16em] text-[#07858a]"
                 aria-label="Sample five-star rating"
               >
                 ★★★★★
               </div>
+              <blockquote className="mt-5 text-lg leading-7 text-[color:var(--fg)]">
+                {quote}
+              </blockquote>
+              <figcaption className="mt-5 text-sm font-medium text-[color:var(--muted)]">
+                — {attribution}
+              </figcaption>
             </figure>
           ))}
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
-        <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Services
+      <section className="rounded-xl bg-[#071f33] px-7 py-10 text-white md:px-10 md:py-12">
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+              Get in touch
+            </div>
+            <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] md:text-5xl">
+              Ready to protect what matters most?
+            </h2>
+            <p className="mt-4 max-w-xl text-lg leading-8 text-white/80">
+              This sample contact panel shows how a featured office can make the next step clear.
+            </p>
           </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-            Our Estate Planning Services
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-            A sample featured office can make its focus areas easy for readers to scan before
-            reaching out.
-          </p>
-        </div>
-        <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <li
-              key={service}
-              className="rounded-xl border border-[#d6e2e8] bg-white px-5 py-4 text-sm font-semibold leading-6 text-[color:var(--fg)]"
+          <div className="flex flex-wrap gap-3 lg:justify-end">
+            <a
+              href="tel:+16306257571"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
             >
-              {service}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="rounded-[2rem] border border-[#071f33] bg-[#071f33] px-7 py-10 text-white md:px-10 md:py-12">
-        <div className="max-w-4xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            A sample advertising format
+              Call the office
+            </a>
+            <a
+              href="mailto:freidman@fbalaw.com"
+              className="button-lift inline-flex min-h-12 items-center justify-center rounded-lg bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)]"
+            >
+              Schedule a consultation
+            </a>
           </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] md:text-5xl">
-            Make your firm easier for readers to understand.
-          </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-white/80">
-            A featured listing can introduce your office, attorney credentials, location, and
-            preferred contact details alongside educational Wills.com content.
-          </p>
         </div>
       </section>
 
