@@ -41,13 +41,16 @@ const services = [
 ]
 
 const sampleReviews = [
-  ['“Clear guidance when our family needed it most.”', 'Sample client review · Chicago, Illinois'],
   [
-    '“The process felt organized, thoughtful, and easy to understand.”',
+    '“Christopher made our trust options clear and helped us choose a plan that felt right for our family.”',
+    'Sample client review · Chicago, Illinois',
+  ],
+  [
+    '“We left every conversation with practical answers and more confidence about protecting the people we love.”',
     'Sample client review · Illinois',
   ],
   [
-    '“A responsive approach that made difficult planning conversations more manageable.”',
+    '“His thoughtful trust advice made a complex process feel organized, personal, and manageable.”',
     'Sample client review · Chicago area',
   ],
 ]
@@ -326,43 +329,45 @@ export default function FeaturedAttorneySamplePage() {
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
-        <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl">
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-              Sample client reviews
-            </div>
-            <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-              A five-star experience illustrated.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-              These fictional testimonials demonstrate how a featured office could present verified
-              client feedback.
-            </p>
+      <section
+        id="sample-client-feedback"
+        className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10"
+      >
+        <div className="max-w-3xl">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+            Sample client feedback
           </div>
-          <div className="rounded-xl bg-[#071f33] px-6 py-5 text-white">
-            <div
-              className="text-3xl leading-none text-[color:var(--accent)]"
-              aria-label="Five out of five stars"
-            >
-              ★★★★★
-            </div>
-            <div className="mt-2 text-sm font-semibold">5.0 out of 5 stars</div>
-            <div className="mt-1 text-xs text-white/65">Sample rating format</div>
-          </div>
+          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+            Thoughtful trust advice, illustrated.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
+            These fictional examples show how a featured office could present verified feedback
+            about clear, caring trust-planning guidance.
+          </p>
         </div>
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {sampleReviews.map(([quote, attribution]) => (
-            <figure key={quote} className="rounded-2xl border border-[#d6e2e8] bg-white p-6">
-              <div className="text-xl leading-none text-[color:var(--accent)]" aria-hidden="true">
-                ★★★★★
+        <div className="mt-9 grid justify-items-center gap-7 lg:grid-cols-3 lg:gap-5">
+          {sampleReviews.map(([quote, attribution], index) => (
+            <figure
+              key={quote}
+              className={`flex aspect-square w-full max-w-[22rem] flex-col items-center justify-center rounded-full px-8 py-9 text-center md:px-10 ${
+                index === 0 ? 'bg-[#74cbd0]' : index === 1 ? 'bg-[#f1a0a0]' : 'bg-[#f5d476]'
+              }`}
+            >
+              <div className="font-serif text-6xl leading-none text-[#071f33]" aria-hidden="true">
+                “
               </div>
-              <blockquote className="mt-5 font-serif text-2xl leading-8 tracking-[-0.02em] text-[color:var(--fg)]">
+              <blockquote className="mt-2 font-serif text-xl leading-7 tracking-[-0.02em] text-[#071f33] md:text-2xl md:leading-8">
                 {quote}
               </blockquote>
-              <figcaption className="mt-5 text-sm leading-6 text-[color:var(--muted)]">
+              <figcaption className="mt-4 text-sm font-medium leading-5 text-[#071f33]/80">
                 {attribution}
               </figcaption>
+              <div
+                className="mt-4 text-lg leading-none text-[#071f33]"
+                aria-label="Sample five-star rating"
+              >
+                ★★★★★
+              </div>
             </figure>
           ))}
         </div>
