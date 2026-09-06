@@ -105,9 +105,9 @@ export default function FeaturedAttorneySamplePage() {
         </div>
       </section>
 
-      <section className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)] lg:items-start">
-        <div className="rounded-[2rem] border border-[color:var(--border)] bg-white p-7 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:p-10">
-          <div className="relative aspect-[4/5] max-w-sm overflow-hidden rounded-2xl">
+      <section className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)] lg:items-start">
+        <div className="grid gap-8 rounded-[2rem] border border-[color:var(--border)] bg-white p-7 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:p-10 lg:grid-cols-[minmax(14rem,0.78fr)_minmax(0,1fr)] lg:gap-9">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
             <Image
               src="/images/featured-attorneys/christopher-freidman.png"
               alt="Christopher Freidman, sample featured attorney"
@@ -116,28 +116,30 @@ export default function FeaturedAttorneySamplePage() {
               sizes="(min-width: 768px) 24rem, 100vw"
             />
           </div>
-          <div className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Meet the attorney
+          <div>
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+              Meet the attorney
+            </div>
+            <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">
+              Christopher Freidman
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
+              For people planning for the future, the right attorney relationship can make complex
+              decisions easier to approach. This sample profile highlights the kind of clear,
+              human-focused information an office could share with Wills.com readers.
+            </p>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {qualifications.map((qualification) => (
+                <li
+                  key={qualification}
+                  className="rounded-xl border border-[#d6e2e8] bg-[#f7fafc] p-4 text-sm leading-6 text-[color:var(--fg)]"
+                >
+                  <span className="mr-2 font-bold text-[color:var(--accent)]">✓</span>
+                  {qualification}
+                </li>
+              ))}
+            </ul>
           </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">
-            Christopher Freidman
-          </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-[color:var(--muted)]">
-            For people planning for the future, the right attorney relationship can make complex
-            decisions easier to approach. This sample profile highlights the kind of clear,
-            human-focused information an office could share with Wills.com readers.
-          </p>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2">
-            {qualifications.map((qualification) => (
-              <li
-                key={qualification}
-                className="rounded-xl border border-[#d6e2e8] bg-[#f7fafc] p-5 text-sm leading-6 text-[color:var(--fg)]"
-              >
-                <span className="mr-2 font-bold text-[color:var(--accent)]">✓</span>
-                {qualification}
-              </li>
-            ))}
-          </ul>
         </div>
 
         <aside className="overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] lg:sticky lg:top-24">
@@ -155,7 +157,7 @@ export default function FeaturedAttorneySamplePage() {
               Office details
             </div>
             <h2 className="mt-4 font-serif text-3xl tracking-[-0.035em] text-[color:var(--fg)]">
-              Chicago Illinois
+              Chicago, Illinois
             </h2>
             <address className="mt-5 not-italic leading-7 text-[color:var(--muted)]">
               411 A Wacker Dr
@@ -199,14 +201,20 @@ export default function FeaturedAttorneySamplePage() {
                 </dd>
               </div>
             </dl>
-            <div className="mt-7 flex items-center gap-4 rounded-xl border border-[#cbdce3] bg-white p-4">
-              <div className="relative h-20 w-16 shrink-0">
+            <a
+              href="mailto:freidman@fbalaw.com"
+              className="button-lift mt-7 inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#071f33] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0e2e48]"
+            >
+              Contact the office
+            </a>
+            <div className="mt-6 flex items-center gap-3 border-t border-[#cbdce3] pt-5">
+              <div className="relative h-14 w-12 shrink-0">
                 <Image
                   src="/images/featured-attorneys/best-law-firms-badge.png"
                   alt="Best Law Firms badge, shown as a sample recognition placement"
                   fill
                   className="object-contain"
-                  sizes="4rem"
+                  sizes="3rem"
                 />
               </div>
               <p className="text-xs leading-5 text-[color:var(--muted)]">
