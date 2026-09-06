@@ -123,6 +123,16 @@ main {
   color: #ffffff;
 }
 
+.button-lift {
+  position: relative;
+  top: 0;
+  transition-property: background-color, border-color, box-shadow, color, opacity, top;
+}
+
+.button-lift:hover {
+  top: -2px;
+}
+
 @keyframes attorney-zip-guidance {
   0%,
   100% {

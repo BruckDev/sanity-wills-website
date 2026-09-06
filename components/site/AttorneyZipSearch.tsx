@@ -106,7 +106,7 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
         />
         <button
           type="submit"
-          className={`${compact ? 'min-h-12 px-5' : 'min-h-14 px-6'} shrink-0 cursor-pointer whitespace-nowrap rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] text-sm font-semibold text-[#061e31] transition hover:-translate-y-0.5 hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]`}
+          className={`${compact ? 'min-h-12 px-5' : 'min-h-14 px-6'} button-lift shrink-0 cursor-pointer whitespace-nowrap rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] text-sm font-semibold text-[#061e31] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]`}
         >
           Search near me
         </button>

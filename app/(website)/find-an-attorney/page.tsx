@@ -46,7 +46,7 @@ export default function FindAnAttorneyPage() {
           </div>
           <Link
             href="/featured-attorneys/freidman-berenstein-anderson"
-            className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#071f33] px-5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#123852]"
+            className="button-lift inline-flex min-h-12 items-center justify-center rounded-lg bg-[#071f33] px-5 text-sm font-semibold text-white transition hover:bg-[#123852]"
           >
             View sample profile
           </Link>
