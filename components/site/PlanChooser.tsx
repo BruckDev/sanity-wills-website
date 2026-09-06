@@ -2,76 +2,87 @@ import {ButtonLink} from '@/components/site/ButtonLink'
 
 const planOptions = [
   {
-    title: 'Will plan',
-    subtitle: 'Put the essentials in place',
-    description:
-      'Create a straightforward plan that documents your wishes and identifies the people you want to rely on.',
+    title: 'Will Plan',
+    description: 'Create a clear will outline, name guardians, and make your wishes known.',
     features: [
-      [
-        'Select guardians',
-        'Identify the people you would want to raise your children if you cannot.',
-      ],
-      [
-        'Decide who receives property',
-        'Provide instructions for assets that pass through your will.',
-      ],
-      ['Appoint an executor', 'Choose someone to handle your estate and follow your directions.'],
+      'Name guardians for minor children',
+      'Show how your assets are shared',
+      'Bring peace of mind to your family',
     ],
     href: '/create-a-will#page-hero',
-    cta: 'Create my will',
-    tone: 'will',
+    cta: 'Create my will  →',
+    icon: 'document',
   },
   {
-    title: 'Trust plan',
-    subtitle: 'More flexibility for your future',
+    title: 'Trust Plan',
     description:
-      'Learn how a trust can help you manage assets during your lifetime and provide direction for those you leave behind.',
+      'Explore how a trust can help you protect your assets and provide for your loved ones.',
     features: [
-      [
-        'Help protect privacy',
-        'Properly funded trust assets may avoid the public probate process.',
-      ],
-      [
-        'Create lasting instructions',
-        'Set guidelines for how and when assets may be managed or shared.',
-      ],
-      [
-        'Plan for the unexpected',
-        'Name a trusted person to oversee trust assets if you become unable to do so.',
-      ],
+      'Help manage and protect your assets',
+      'Provide for your loved ones',
+      'Explore options for your unique goals',
     ],
     href: '/trusts#page-hero',
-    cta: 'Learn about trusts',
-    tone: 'trust',
+    cta: 'Learn about trusts  →',
+    icon: 'shield',
   },
   {
-    title: 'Still deciding?',
-    subtitle: 'Get guidance on where to begin',
+    title: 'Still Deciding?',
     description:
-      'Answer a few brief questions about your family, assets, and goals. We’ll point you toward helpful educational information to consider.',
+      'Not sure where to start? Answer a few questions to get personalized guidance on what may be right for you.',
     features: [
-      ['About 3 minutes', 'Complete simple questions written in everyday language.'],
-      [
-        'Understand the differences',
-        'See when a will, trust, or more coordinated approach could make sense.',
-      ],
-      ['Private and free to use', 'Explore your options without creating an account.'],
+      'Quick, helpful questions',
+      'Learn about your options',
+      'Take the next step with confidence',
     ],
-    tone: 'quiz',
+    href: '/tools',
+    cta: 'Find my starting point  →',
+    icon: 'compass',
   },
 ] as const
 
-function CheckIcon() {
+function PlanIcon({type}: {type: (typeof planOptions)[number]['icon']}) {
+  const className = 'h-9 w-9'
+
+  if (type === 'document') {
+    return (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        className={className}
+      >
+        <path d="M6 3h8l4 4v14H6V3Z" strokeWidth="1.7" />
+        <path d="M14 3v5h4M9 12h6M9 16h6" strokeWidth="1.7" />
+      </svg>
+    )
+  }
+
+  if (type === 'shield') {
+    return (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        className={className}
+      >
+        <path d="M12 3 19 6v5c0 4.5-2.9 8-7 10-4.1-2-7-5.5-7-10V6l7-3Z" strokeWidth="1.7" />
+      </svg>
+    )
+  }
+
   return (
     <svg
       aria-hidden="true"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      className="h-5 w-5"
+      className={className}
     >
-      <circle cx="12" cy="12" r="9" strokeWidth="1.8" />
-      <path d="m8 12.2 2.5 2.5 5.5-5.6" strokeWidth="1.8" />
+      <circle cx="12" cy="12" r="8.5" strokeWidth="1.7" />
+      <path d="m15.8 8.2-2.2 5.4-5.4 2.2 2.2-5.4 5.4-2.2Z" strokeWidth="1.7" />
     </svg>
   )
 }
@@ -80,74 +91,47 @@ export function PlanChooser() {
   return (
     <section
       aria-labelledby="plan-chooser-title"
-      className="rounded-[2rem] border border-[#d6e2db] bg-[#f6f4ed] px-5 py-10 sm:px-7 md:px-10 md:py-12"
+      className="rounded-[2rem] bg-[#fbf8f1] px-6 py-10 md:px-10 md:py-12"
     >
       <div className="mx-auto max-w-3xl text-center">
-        <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
-          Start with what fits today
-        </div>
         <h2
           id="plan-chooser-title"
-          className="mt-4 font-serif text-4xl leading-[1.08] tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl"
+          className="font-serif text-4xl tracking-[-0.045em] text-[#062842] md:text-5xl"
         >
-          What kind of estate plan are you looking for?
+          Start With What Fits Today
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-[color:var(--muted)] md:text-lg md:leading-8">
-          Choose the option that best reflects where you are right now. You can review the details
-          and make an informed choice as you go.
-        </p>
+        <p className="mt-2 text-lg text-[#547080]">What kind of estate plan are you looking for?</p>
       </div>
-
-      <div className="mt-9 grid items-stretch gap-5 sm:grid-cols-2 min-[900px]:grid-cols-3">
+      <div className="mt-8 grid gap-5 md:grid-cols-3">
         {planOptions.map((option) => (
           <article
             key={option.title}
-            className={`relative flex h-full flex-col rounded-[1.4rem] border bg-white p-6 shadow-[0_14px_34px_rgba(8,35,58,0.06)] sm:last:col-span-2 md:p-7 min-[900px]:last:col-span-1 ${
-              option.tone === 'trust'
-                ? 'border-2 border-[color:var(--accent)]'
-                : option.tone === 'quiz'
-                  ? 'border-[#dbcac6] bg-[#fbf6f4]'
-                  : 'border-[color:var(--border)]'
-            }`}
+            className="flex h-full flex-col rounded-xl border border-[#e0e8e5] bg-white p-6 shadow-[0_12px_30px_rgba(8,35,58,0.06)] md:p-7"
           >
-            <div className="border-b border-[#d6e2e8] pb-5 text-center">
-              <h3 className="font-serif text-3xl tracking-[-0.035em] text-[color:var(--fg)]">
-                {option.title}
-              </h3>
-              <p className="mt-1 text-sm font-semibold text-[color:var(--accent-strong)]">
-                {option.subtitle}
-              </p>
-            </div>
-
-            <p className="mt-5 leading-7 text-[color:var(--muted)]">{option.description}</p>
-
-            <ul className="mt-5 space-y-4">
-              {option.features.map(([title, detail]) => (
-                <li key={title} className="flex gap-3">
-                  <span className="mt-0.5 shrink-0 text-[color:var(--accent)]">
-                    <CheckIcon />
-                  </span>
-                  <span>
-                    <span className="block font-semibold text-[color:var(--fg)]">{title}</span>
-                    <span className="mt-0.5 block text-sm leading-6 text-[color:var(--muted)]">
-                      {detail}
-                    </span>
-                  </span>
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#e8f8f3] text-[#0b987e]">
+              <PlanIcon type={option.icon} />
+            </span>
+            <h3 className="mt-5 font-serif text-3xl tracking-[-0.035em] text-[#062842]">
+              {option.title}
+            </h3>
+            <p className="mt-2 min-h-20 text-sm leading-6 text-[#547080]">{option.description}</p>
+            <ul className="mt-5 space-y-3 text-sm leading-5 text-[#385568]">
+              {option.features.map((feature) => (
+                <li key={feature} className="flex gap-2">
+                  <span className="font-bold text-[#0b987e]">✓</span>
+                  {feature}
                 </li>
               ))}
             </ul>
-
-            {'href' in option && 'cta' in option ? (
-              <ButtonLink href={option.href} label={`${option.cta} →`} className="mt-7 w-full" />
-            ) : null}
+            <ButtonLink
+              href={option.href}
+              label={option.cta}
+              style={option.title === 'Will Plan' ? 'primary' : 'secondary'}
+              className="mt-7 w-full rounded-full"
+            />
           </article>
         ))}
       </div>
-
-      <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-5 text-[color:var(--muted)]">
-        These paths provide general educational information. A licensed attorney can help you choose
-        documents for your state and circumstances.
-      </p>
     </section>
   )
 }

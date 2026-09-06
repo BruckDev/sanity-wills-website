@@ -1,44 +1,10 @@
 import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
 import {PlanChooser} from '@/components/site/PlanChooser'
-import {getDynamicFetchOptions, sanityFetch, type DynamicFetchOptions} from '@/sanity/lib/live'
-import {homeHeroReassuranceQuery} from '@/sanity/lib/siteQueries'
-import {draftMode} from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
-import {Suspense} from 'react'
 
 type HeroBenefitIcon = 'children' | 'home' | 'guidance' | 'wishes'
-
-const fallbackHeroReassurance = {
-  heading: 'Estate planning isn’t one-size-fits-all.',
-  text: 'Different state laws can affect whether your documents work as intended. An online will can be a helpful starting point, but a licensed estate-planning professional in your state can help you make sure that all of your needs are met.',
-}
-
-function HeroReassuranceCard({heading, text}: typeof fallbackHeroReassurance) {
-  return (
-    <aside className="relative mt-7 w-full rounded-[18px] border border-[#14a86f]/45 border-l-4 border-l-[#14a86f] bg-[#0a2534]/90 px-5 py-4 text-base leading-7 text-[#d6e2db] shadow-[0_12px_28px_rgba(0,0,0,0.12)] md:px-6 md:text-lg md:leading-8">
-      <p>
-        <strong className="font-semibold text-[#faf8f5]">{heading}</strong> {text}
-      </p>
-    </aside>
-  )
-}
-
-async function CachedHeroReassuranceCard({perspective, stega}: DynamicFetchOptions) {
-  'use cache'
-
-  const {data} = await sanityFetch({query: homeHeroReassuranceQuery, perspective, stega})
-  const heading = data?.display?.heroReassuranceHeading || fallbackHeroReassurance.heading
-  const text = data?.display?.heroReassuranceText || fallbackHeroReassurance.text
-
-  return <HeroReassuranceCard heading={heading} text={text} />
-}
-
-async function DynamicHeroReassuranceCard() {
-  const fetchOptions = await getDynamicFetchOptions()
-  return <CachedHeroReassuranceCard {...fetchOptions} />
-}
 
 const heroPaths: Array<{
   icon: HeroBenefitIcon
@@ -49,31 +15,55 @@ const heroPaths: Array<{
   {
     icon: 'children',
     label: 'Protect your children',
-    detail: 'Choose the people who will care for them.',
+    detail: 'Help ensure the people you love are cared for.',
     href: '/life-events/new-parents',
   },
   {
     icon: 'home',
     label: 'Protect your home',
-    detail: 'Decide who receives your property.',
+    detail: 'Safeguard what you have worked so hard for.',
     href: '/trusts',
   },
   {
     icon: 'guidance',
     label: 'Reduce family conflict',
-    detail: 'Leave clear guidance behind.',
+    detail: 'Provide clarity today for a more peaceful tomorrow.',
     href: '/estate-planning',
   },
   {
     icon: 'wishes',
     label: 'Make your wishes known',
-    detail: 'Choose trusted decision-makers.',
+    detail: 'Ensure your values and wishes are honored.',
     href: '/#attorney-search',
   },
 ]
 
+const articles = [
+  {
+    title: 'Will vs. Trust: Which Is Right for Your Family?',
+    description: 'Understand the key differences and find the option that may fit your goals.',
+    href: '/trusts',
+    image: '/images/estate-planning/will-document.png',
+    alt: 'A will and testament with a pen',
+  },
+  {
+    title: 'Naming Guardians for Minor Children',
+    description: 'Learn what to consider when choosing guardians and making your wishes clear.',
+    href: '/life-events/new-parents',
+    image: '/images/estate-planning/hero-family-young.png',
+    alt: 'A family spending time together outdoors',
+  },
+  {
+    title: 'Estate Planning for New Homeowners',
+    description: 'Discover key steps to protect your home and plan for the future.',
+    href: '/life-events/new-homeowners',
+    image: '/images/home/life-events/new-homeowners.jpg',
+    alt: 'A family in front of their home',
+  },
+]
+
 function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
-  const className = 'h-5 w-5'
+  const className = 'h-8 w-8'
 
   if (icon === 'children') {
     return (
@@ -84,9 +74,11 @@ function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
         stroke="currentColor"
         className={className}
       >
+        <circle cx="8" cy="8" r="2.5" strokeWidth="1.6" />
+        <circle cx="16" cy="8" r="2.5" strokeWidth="1.6" />
         <path
-          d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 5.65-7 10-7 10Z"
-          strokeWidth="1.8"
+          d="M3.5 19c.4-3 2.2-4.8 4.5-4.8S12.2 16 12.5 19M11.5 19c.4-3 2.2-4.8 4.5-4.8s4.2 1.8 4.5 4.8"
+          strokeWidth="1.6"
         />
       </svg>
     )
@@ -101,8 +93,8 @@ function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
         stroke="currentColor"
         className={className}
       >
-        <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z" strokeWidth="1.8" />
-        <path d="M9 21v-6h6v6" strokeWidth="1.8" />
+        <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z" strokeWidth="1.6" />
+        <path d="M9 21v-6h6v6" strokeWidth="1.6" />
       </svg>
     )
   }
@@ -117,10 +109,10 @@ function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
         className={className}
       >
         <path
-          d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
-          strokeWidth="1.8"
+          d="M4 11.5 8.3 16l3.2-3.2-4.3-4.5L4 11.5Zm8.5 1.3 3.2 3.2 4.3-4.5-3.2-3.2-4.3 4.5Z"
+          strokeWidth="1.6"
         />
-        <path d="m8.5 12 2.2 2.2 4.8-4.8M9 7h6" strokeWidth="1.8" />
+        <path d="M9.8 14.5 12 16.7l2.2-2.2M9.8 9.5 12 7.3l2.2 2.2" strokeWidth="1.6" />
       </svg>
     )
   }
@@ -133,181 +125,202 @@ function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
       stroke="currentColor"
       className={className}
     >
-      <circle cx="12" cy="12" r="8.5" strokeWidth="1.8" />
-      <path d="m8.5 12 2.2 2.2 4.8-4.8" strokeWidth="1.8" />
+      <path d="M6 3h9l3 3v15H6V3Z" strokeWidth="1.6" />
+      <path d="M15 3v4h4M9 12h6M9 16h6" strokeWidth="1.6" />
     </svg>
   )
 }
 
-export default async function HomePage() {
-  const {isEnabled: isDraftMode} = await draftMode()
-
+function LocationIcon() {
   return (
-    <div className="space-y-16 md:space-y-20">
-      <section className="relative isolate overflow-hidden rounded-[2rem] border border-[#102536] bg-[#102536] px-5 py-7 text-[#faf8f5] shadow-[0_28px_70px_rgba(16,37,54,0.24)] sm:px-8 md:px-10 md:py-9 xl:px-14 xl:py-12">
-        <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#14a86f]/25" />
-        <div className="absolute bottom-0 right-0 h-72 w-2/3 bg-[radial-gradient(ellipse_at_bottom_right,rgba(20,168,111,0.22),transparent_64%)]" />
-        <div className="relative mx-auto grid max-w-none gap-7 md:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] md:items-center lg:gap-10">
-          <div className="text-left">
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#14a86f]">
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      className="h-14 w-14"
+    >
+      <path d="M12 21s7-6.2 7-12A7 7 0 1 0 5 9c0 5.8 7 12 7 12Z" strokeWidth="1.7" />
+      <circle cx="12" cy="9" r="2.4" strokeWidth="1.7" />
+    </svg>
+  )
+}
+
+export default function HomePage() {
+  return (
+    <div className="space-y-12 md:space-y-16">
+      <section className="overflow-hidden rounded-[2rem] border border-[#e5ece7] bg-[radial-gradient(circle_at_84%_22%,#e2f4ec_0,transparent_26rem),linear-gradient(110deg,#fffcf7_0%,#f8f4ec_54%,#f0faf6_100%)] px-6 py-9 md:px-10 md:py-12 lg:px-14">
+        <div className="grid gap-9 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12">
+          <div className="max-w-xl">
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#597385]">
               Estate planning, made clearer
             </div>
-            <h1 className="hero-title mt-4 font-serif">Protect What Matters Most</h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-[#bac7cf] md:text-xl">
+            <h1 className="mt-4 font-serif text-5xl leading-[0.98] tracking-[-0.055em] text-[#062842] sm:text-6xl md:text-7xl">
+              Protect What Matters Most
+            </h1>
+            <p className="mt-5 max-w-lg text-lg leading-8 text-[#3b596b] md:text-xl">
               Create a will, protect your family, and make your wishes clear—with guidance that
               meets you where you are.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
               <ButtonLink
                 href="/create-a-will"
-                label="Start my will"
-                className="hero-button-primary !text-white hover:!text-white"
+                label="Start my will  →"
+                className="rounded-full px-7"
+              />
+              <Link
+                href="/find-an-attorney"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#07304d] underline decoration-[#10a88a] decoration-2 underline-offset-4 hover:text-[#0c8b78]"
+              >
+                Find an attorney <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+          <div className="relative mx-auto w-full max-w-[42rem]">
+            <div className="absolute -left-5 bottom-2 h-40 w-40 rounded-full bg-[#dff2e9] blur-2xl" />
+            <div className="relative aspect-[1.13] overflow-hidden rounded-[42%_4%_37%_4%] shadow-[0_24px_60px_rgba(22,56,72,0.18)]">
+              <Image
+                src="/images/estate-planning/hero-protect-what-matters.png"
+                alt="A multigenerational family spending time together at home"
+                fill
+                priority
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 52vw, 100vw"
               />
             </div>
-            <div
-              id="attorney-search"
-              className="mt-5 max-w-xl scroll-mt-32 border-t border-white/15 pt-4"
-            >
-              <div className="text-sm font-semibold text-white">
-                Find an estate-planning attorney
-              </div>
-              <AttorneyZipSearch compact />
+            <div className="absolute -bottom-6 right-0 hidden max-w-44 -rotate-6 rounded-[1.5rem] bg-[#e7f6f0] px-5 py-4 font-serif text-lg leading-6 text-[#0c4462] shadow-[0_12px_24px_rgba(25,79,91,0.12)] sm:block">
+              A brighter tomorrow, together
             </div>
           </div>
-          <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-[24px] border border-[#faf8f5]/25 bg-[#eaf2ed] shadow-[0_18px_40px_rgba(0,0,0,0.2)] md:order-none">
-            <Image
-              src="/images/estate-planning/hero-protect-what-matters.png"
-              alt="A multigenerational family spending time together at home"
-              fill
-              priority
-              className="object-cover object-center opacity-95"
-              sizes="(min-width: 768px) 45vw, 100vw"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-[#eaf2ed]/10" />
-          </div>
-          <div className="order-1 md:order-none md:col-span-2">
-            {isDraftMode ? (
-              <Suspense
-                fallback={
-                  <HeroReassuranceCard
-                    heading={fallbackHeroReassurance.heading}
-                    text={fallbackHeroReassurance.text}
-                  />
-                }
-              >
-                <DynamicHeroReassuranceCard />
-              </Suspense>
-            ) : (
-              <CachedHeroReassuranceCard perspective="published" stega={false} />
-            )}
-          </div>
-        </div>
-        <div className="relative mx-auto mt-5 grid max-w-none gap-1 overflow-hidden rounded-[18px] border border-[#d6e2db] bg-[#eaf2ed] sm:grid-cols-2 md:grid-cols-4 md:gap-0">
-          {heroPaths.map((path, index) => (
-            <Link
-              key={path.href}
-              href={path.href}
-              data-guide-attorney-zip={path.href === '/#attorney-search' || undefined}
-              className={`group flex items-start gap-3 bg-[#eaf2ed] p-4 text-left transition hover:bg-[#f2e5e3] lg:px-5 ${index > 0 ? 'md:border-l md:border-[#cddbd3]' : ''}`}
-            >
-              <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f2e5e3] text-[#14a86f]">
-                <HeroBenefitIcon icon={path.icon} />
-              </span>
-              <span>
-                <span className="block text-base font-semibold tracking-normal text-[#102536]">
-                  {path.label}
-                </span>
-                <span className="mt-1 block text-sm leading-6 text-[#5a707a] group-hover:text-[#102536]">
-                  {path.detail}
-                </span>
-              </span>
-            </Link>
-          ))}
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-4xl">
-        <div
-          role="region"
-          aria-label="Scrollable will or trust comparison guide"
-          tabIndex={0}
-          className="overflow-x-auto rounded-[2rem] border border-[color:var(--border)] bg-white shadow-[0_22px_55px_rgba(8,35,58,0.08)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color:var(--accent)]"
-        >
-          <Image
-            src="/images/home/will-or-trust-simple-guide.png"
-            alt="A simple illustrated guide comparing what goes in a will with what a trust can do"
-            width={1536}
-            height={1024}
-            className="h-auto w-full min-w-[40rem] sm:min-w-0"
-            sizes="(min-width: 1024px) 56rem, calc(100vw - 2rem)"
-          />
-        </div>
+      <section className="grid overflow-hidden rounded-[1.6rem] border border-[#dbe9e3] bg-[#eff9f5] sm:grid-cols-2 lg:grid-cols-4">
+        {heroPaths.map((path, index) => (
+          <Link
+            key={path.href}
+            href={path.href}
+            data-guide-attorney-zip={path.href === '/#attorney-search' || undefined}
+            className={`group px-6 py-6 text-center transition hover:bg-white/55 ${index > 0 ? 'border-t border-[#dbe9e3] sm:border-t-0 lg:border-l' : ''}`}
+          >
+            <span className="mx-auto flex h-11 w-11 items-center justify-center text-[#083f63]">
+              <HeroBenefitIcon icon={path.icon} />
+            </span>
+            <span className="mt-3 block font-serif text-xl text-[#062842]">{path.label}</span>
+            <span className="mt-1 block text-sm leading-5 text-[#547080]">{path.detail}</span>
+          </Link>
+        ))}
       </section>
 
       <PlanChooser />
 
-      <section className="grid gap-6 rounded-[2rem] border border-[color:var(--border)] bg-white p-6 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div>
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Attorney directory
+      <section
+        id="attorney-search"
+        className="relative isolate overflow-hidden rounded-[1.8rem] bg-[#082e4b] px-6 py-10 text-white shadow-[0_18px_42px_rgba(8,46,75,0.18)] md:px-10 md:py-12"
+      >
+        <Image
+          src="/images/estate-planning/attorney-directory-team.png"
+          alt=""
+          fill
+          className="-z-20 object-cover object-center opacity-30"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-[#082e4b]/80" />
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="flex gap-5">
+            <span className="hidden shrink-0 text-[#b8d9d1] sm:block">
+              <LocationIcon />
+            </span>
+            <div>
+              <h2 className="font-serif text-4xl leading-tight tracking-[-0.04em] md:text-5xl">
+                Find estate-planning guidance near you
+              </h2>
+              <p className="mt-4 max-w-xl text-base leading-7 text-white/80 md:text-lg">
+                Estate planning laws vary by state. Find experienced estate-planning attorneys in
+                your area and explore their profiles to get the support you need.
+              </p>
+            </div>
           </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-            Find estate-planning guidance near you.
-          </h2>
-          <p className="mt-4 max-w-xl leading-7 text-[color:var(--muted)]">
-            Search by ZIP code to see attorney profiles as firms join the Wills.com directory.
-          </p>
-          <Link
-            href="/find-an-attorney"
-            className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] underline decoration-[color:var(--accent)] underline-offset-4 hover:text-[color:var(--fg)]"
-          >
-            How the directory works →
-          </Link>
-        </div>
-        <div className="rounded-2xl bg-[#071f33] p-5 text-white md:p-6">
-          <div className="relative aspect-[16/6] overflow-hidden rounded-xl border border-white/15">
-            <Image
-              src="/images/estate-planning/attorney-directory-team.png"
-              alt="Estate-planning attorneys"
-              fill
-              className="object-cover object-top"
-              sizes="(min-width: 1024px) 48vw, 100vw"
-            />
-          </div>
-          <div className="mt-5">
-            <ButtonLink
-              href="/find-an-attorney"
-              label="Open the attorney directory"
-              className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!border-[color:var(--accent-strong)] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
-            />
+          <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm sm:p-5">
+            <AttorneyZipSearch compact />
+            <p className="mt-3 text-xs leading-5 text-white/65">
+              Connect with qualified estate-planning professionals in your area.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="grid gap-8 rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-10 md:py-14 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
-        <div>
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Estate planning professionals
+      <section>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="font-serif text-4xl tracking-[-0.04em] text-[#062842] md:text-5xl">
+              Learn From Estate-Planning Professionals
+            </h2>
+            <p className="mt-2 text-lg text-[#547080]">
+              Helpful articles and insights on the topics that matter most.
+            </p>
           </div>
-          <h2 className="mt-4 max-w-3xl font-serif text-4xl tracking-[-0.035em] md:text-5xl">
-            Share useful guidance with people who are ready to plan.
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-white/75">
-            We are building an editorial home for attorney-reviewed articles and practical
-            explanations. Help readers understand the questions to ask before they seek legal
-            advice.
-          </p>
-        </div>
-        <div className="lg:justify-self-end">
           <ButtonLink
-            href="/contact"
-            label="Contribute an article"
-            className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
+            href="/insights"
+            label="Explore articles  →"
+            style="secondary"
+            className="rounded-full"
           />
         </div>
+        <div className="mt-7 grid gap-5 md:grid-cols-3">
+          {articles.map((article) => (
+            <article
+              key={article.title}
+              className="overflow-hidden rounded-2xl border border-[#dce7e4] bg-white shadow-[0_12px_28px_rgba(8,35,58,0.06)]"
+            >
+              <div className="relative aspect-[1.7]">
+                <Image
+                  src={article.image}
+                  alt={article.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="font-serif text-2xl leading-7 tracking-[-0.03em] text-[#062842]">
+                  {article.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#547080]">{article.description}</p>
+                <Link
+                  href={article.href}
+                  className="mt-4 inline-flex text-sm font-semibold text-[#0b987e] hover:text-[#063e5b]"
+                >
+                  Read more <span className="ml-2">→</span>
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
-      <section className="!mt-10 border-t border-[color:var(--border)] pt-5 text-sm leading-6 text-[color:var(--muted)] md:!mt-12">
+      <section className="grid gap-5 rounded-[1.6rem] border border-[#d9eee5] bg-[#ecfaf4] px-6 py-7 md:grid-cols-[auto_1fr_auto] md:items-center md:px-9">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-[#0b987e]">
+          <HeroBenefitIcon icon="children" />
+        </span>
+        <div>
+          <h2 className="font-serif text-3xl tracking-[-0.035em] text-[#062842]">
+            Are You an Estate-Planning Professional?
+          </h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#547080]">
+            Share your knowledge and help others make informed decisions. Contribute an article to
+            be featured on Wills.com, a resource for attorney-reviewed guidance.
+          </p>
+        </div>
+        <ButtonLink
+          href="/contact"
+          label="Contribute an article  →"
+          style="secondary"
+          className="rounded-full"
+        />
+      </section>
+
+      <section className="border-t border-[#dce7e4] pt-5 text-sm leading-6 text-[color:var(--muted)]">
         <strong className="font-semibold text-[color:var(--fg)]">Important:</strong> Wills.com
         provides general educational information, not legal, tax, or financial advice. Reading this
         site does not create an attorney-client relationship. Consult a licensed professional in
