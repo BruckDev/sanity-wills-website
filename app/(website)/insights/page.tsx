@@ -198,25 +198,21 @@ export default function InsightsPage() {
         </article>
       </section>
 
-      <section className="rounded-2xl bg-[#173f36] px-7 py-10 text-white md:px-10">
+      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] px-7 py-10 text-[color:var(--fg)] md:px-10">
         <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e5ca8c]">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             For legal professionals
           </div>
           <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em]">
             Interested in contributing?
           </h2>
-          <p className="mt-5 text-lg leading-8 text-white/75">
+          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
             We welcome original, public-facing educational content from attorney offices. Help
             readers understand a topic without turning a general article into individualized legal
             advice.
           </p>
           <div className="mt-8">
-            <ButtonLink
-              href="/contact"
-              label="Share an article idea"
-              className="border-[#e7d2a1] bg-[#e7d2a1] !text-[#123c34] hover:bg-[#f3e5c7]"
-            />
+            <ButtonLink href="/contact" label="Share an article idea" />
           </div>
         </div>
       </section>
