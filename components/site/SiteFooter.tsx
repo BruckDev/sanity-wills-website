@@ -2,64 +2,44 @@ import Link from 'next/link'
 
 export function SiteFooter() {
   return (
-    <footer className="mt-6 bg-[#071f33] text-white md:mt-8">
-      <div className="mx-auto grid max-w-[80rem] gap-10 px-4 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:px-8 lg:px-12">
-        <div>
-          <div className="font-serif text-4xl tracking-[-0.06em]">
+    <footer className="mt-0 border-t border-[#dce7e4] bg-white text-[#173a55]">
+      <div className="mx-auto flex max-w-[88rem] flex-col gap-5 px-5 py-7 md:flex-row md:items-center md:justify-between md:px-8">
+        <div className="flex items-center gap-7">
+          <div className="font-serif text-3xl tracking-[-0.06em] text-[#071f33]">
             Wills<span className="text-[color:var(--accent)]">.com</span>
           </div>
-          <p className="mt-5 max-w-sm text-sm leading-7 text-white/70">
-            Clear, thoughtful education for people preparing to make important estate-planning
-            decisions.
-          </p>
-        </div>
-        <div>
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Learn
-          </div>
-          <div className="mt-5 grid gap-3 text-sm text-white/75">
-            <Link href="/wills" className="hover:text-white">
+          <nav
+            aria-label="Footer navigation"
+            className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-[#355267]"
+          >
+            <Link href="/wills" className="hover:text-[#0b987e]">
               Wills
             </Link>
-            <Link href="/create-a-will" className="hover:text-white">
-              Create a will outline
-            </Link>
-            <Link href="/trusts" className="hover:text-white">
+            <Link href="/trusts" className="hover:text-[#0b987e]">
               Trusts
             </Link>
-            <Link href="/estate-planning" className="hover:text-white">
-              Estate-planning checklist
+            <Link href="/estate-planning" className="hover:text-[#0b987e]">
+              Estate Planning
             </Link>
-            <Link href="/insights" className="hover:text-white">
+            <Link href="/life-events" className="hover:text-[#0b987e]">
+              Life Events
+            </Link>
+            <Link href="/tools" className="hover:text-[#0b987e]">
+              Free Tools
+            </Link>
+            <Link href="/insights" className="hover:text-[#0b987e]">
               Articles
             </Link>
-          </div>
+          </nav>
         </div>
-        <div>
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Work with us
-          </div>
-          <div className="mt-5 grid gap-3 text-sm text-white/75">
-            <Link href="/contact" className="hover:text-white">
-              Contribute an article
-            </Link>
-            <Link href="/about" className="hover:text-white">
-              About Wills.com
-            </Link>
-            <Link href="/privacy" className="hover:text-white">
-              Privacy
-            </Link>
-            <Link href="/accessibility" className="hover:text-white">
-              Accessibility
-            </Link>
-          </div>
+        <div className="max-w-sm text-xs leading-5 text-[#718292] md:text-right">
+          Wills.com provides general information, not legal advice. Please consult a qualified
+          professional for your specific situation.
         </div>
       </div>
-      <div className="border-t border-white/10">
-        <div className="mx-auto max-w-[80rem] px-4 py-5 text-xs leading-6 text-white/55 md:px-8 lg:px-12">
-          © {new Date().getFullYear()} Wills.com. General information only; not legal, tax, or
-          financial advice. Laws and outcomes vary by jurisdiction and individual circumstances.
-        </div>
+      <div className="mx-auto flex max-w-[88rem] flex-col gap-1 border-t border-[#edf1ef] px-5 py-3 text-[11px] text-[#7b8c99] md:flex-row md:items-center md:justify-between md:px-8">
+        <span>© {new Date().getFullYear()} Wills.com. All rights reserved.</span>
+        <span className="font-serif italic">A more secure future for the people you love.</span>
       </div>
     </footer>
   )

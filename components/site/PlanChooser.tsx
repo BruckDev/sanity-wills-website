@@ -91,22 +91,30 @@ export function PlanChooser() {
   return (
     <section
       aria-labelledby="plan-chooser-title"
-      className="rounded-[2rem] bg-[#fbf8f1] px-4 py-10 sm:px-6 md:px-8 md:py-12"
+      className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-[#fbf8f1] px-5 py-6 sm:px-8 md:py-6"
     >
-      <div className="mx-auto max-w-3xl text-center">
+      <span
+        aria-hidden="true"
+        className="absolute -bottom-8 -left-9 h-36 w-36 rounded-full border-[18px] border-[#dcebe2] opacity-75"
+      />
+      <span
+        aria-hidden="true"
+        className="absolute right-4 top-8 hidden h-24 w-12 rotate-[-28deg] rounded-[100%_0] border-l-[14px] border-[#dcebe2] opacity-75 md:block"
+      />
+      <div className="relative mx-auto max-w-3xl text-center">
         <h2
           id="plan-chooser-title"
-          className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#062842] md:text-4xl"
+          className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#062842]"
         >
           Start With What Fits Today
         </h2>
         <p className="mt-2 text-lg text-[#547080]">What kind of estate plan are you looking for?</p>
       </div>
-      <div className="mt-8 grid gap-5 md:grid-cols-3">
+      <div className="relative mx-auto mt-3 grid max-w-[78rem] gap-5 md:grid-cols-3">
         {planOptions.map((option) => (
           <article
             key={option.title}
-            className="flex h-full flex-col rounded-xl border border-[#e0e8e5] bg-white p-6 shadow-[0_12px_30px_rgba(8,35,58,0.06)] md:p-7"
+            className="flex h-full flex-col rounded-lg border border-[#e5ece8] bg-white p-6 shadow-[0_8px_20px_rgba(8,35,58,0.04)] md:p-7"
           >
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#e8f8f3] text-[#0b987e]">
               <PlanIcon type={option.icon} />

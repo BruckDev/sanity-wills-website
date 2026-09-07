@@ -99,7 +99,6 @@ function WebsiteHeader({data}: {data: any}) {
         {label: 'Life events', href: '/life-events'},
         {label: 'Free tools', href: '/tools'},
         {label: 'Articles', href: '/insights'},
-        {label: 'Estate planning professionals', href: '/contact'},
       ]}
     />
   )

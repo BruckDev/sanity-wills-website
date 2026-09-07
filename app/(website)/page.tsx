@@ -63,7 +63,7 @@ const articles = [
 ]
 
 function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
-  const className = 'h-8 w-8'
+  const className = 'h-7 w-7'
 
   if (icon === 'children') {
     return (
@@ -148,22 +148,22 @@ function LocationIcon() {
 
 export default function HomePage() {
   return (
-    <div className="space-y-12 md:space-y-16">
+    <div>
       <div className="-mt-8 space-y-0 md:-mt-12 lg:-mt-14">
         <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-[#e5ece7] bg-[radial-gradient(circle_at_84%_22%,#e2f4ec_0,transparent_26rem),linear-gradient(110deg,#fffcf7_0%,#f8f4ec_54%,#f0faf6_100%)]">
-          <div className="mx-auto grid w-full max-w-[88rem] gap-9 px-6 py-10 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-12 md:px-12 xl:px-16 xl:py-14">
+          <div className="mx-auto grid w-full max-w-[88rem] gap-8 px-6 py-10 md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-0 md:px-12 md:py-0 xl:px-16">
             <div className="max-w-xl">
               <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#597385]">
                 Estate planning, made clearer
               </div>
-              <h1 className="mt-4 font-serif text-[clamp(2.75rem,5.1vw,4.75rem)] leading-[1.06] tracking-[-0.04em] text-[#062842]">
+              <h1 className="mt-3 font-serif text-[clamp(2.7rem,5vw,4.55rem)] leading-[1.04] tracking-[-0.045em] text-[#062842]">
                 Protect What Matters Most
               </h1>
-              <p className="mt-5 max-w-lg text-lg leading-8 text-[#3b596b] md:text-xl">
+              <p className="mt-4 max-w-lg text-base leading-7 text-[#3b596b] md:text-lg">
                 Create a will, protect your family, and make your wishes clear—with guidance that
                 meets you where you are.
               </p>
-              <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <ButtonLink
                   href="/create-a-will"
                   label="Start my will  →"
@@ -178,9 +178,9 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="relative mx-auto w-full max-w-[42rem]">
+            <div className="relative mx-auto w-full max-w-[48rem] md:w-[calc(100%+3rem)] md:translate-x-10 md:-translate-y-2">
               <div className="absolute -left-5 bottom-2 h-40 w-40 rounded-full bg-[#dff2e9] blur-2xl" />
-              <div className="relative aspect-[1.3] overflow-hidden rounded-[42%_4%_37%_4%] shadow-[0_12px_36px_rgba(22,56,72,0.08)]">
+              <div className="relative aspect-[1.62] overflow-hidden rounded-[42%_4%_37%_4%] shadow-[0_12px_36px_rgba(22,56,72,0.08)]">
                 <Image
                   src="/images/estate-planning/hero-protect-what-matters.png"
                   alt="A multigenerational family spending time together at home"
@@ -190,7 +190,7 @@ export default function HomePage() {
                   sizes="(min-width: 1024px) 52vw, 100vw"
                 />
               </div>
-              <div className="absolute -bottom-6 right-0 hidden max-w-44 -rotate-6 rounded-[1.5rem] bg-[#e7f6f0] px-5 py-4 font-serif text-lg leading-6 text-[#0c4462] shadow-[0_12px_24px_rgba(25,79,91,0.12)] sm:block">
+              <div className="absolute -bottom-6 right-0 hidden max-w-44 -rotate-6 rounded-[1.5rem] bg-[#e7f6f0] px-5 py-4 font-serif text-lg leading-6 text-[#0c4462] shadow-[0_12px_24px_rgba(25,79,91,0.12)] sm:block md:bottom-0">
                 A brighter tomorrow, together
               </div>
             </div>
@@ -204,7 +204,7 @@ export default function HomePage() {
                 key={path.href}
                 href={path.href}
                 data-guide-attorney-zip={path.href === '/#attorney-search' || undefined}
-                className={`group px-6 py-6 text-center transition hover:bg-white/55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[color:var(--teal)] ${
+                className={`group px-4 py-4 text-center transition hover:bg-white/55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[color:var(--teal)] ${
                   index === 1
                     ? 'border-t border-[#dbe9e3] sm:border-l sm:border-t-0'
                     : index === 2
@@ -217,8 +217,8 @@ export default function HomePage() {
                 <span className="mx-auto flex h-11 w-11 items-center justify-center text-[#083f63]">
                   <HeroBenefitIcon icon={path.icon} />
                 </span>
-                <span className="mt-3 block font-serif text-xl text-[#062842]">{path.label}</span>
-                <span className="mt-1 block text-sm leading-5 text-[#547080]">{path.detail}</span>
+                <span className="mt-2 block font-serif text-base text-[#062842]">{path.label}</span>
+                <span className="mt-1 block text-xs leading-4 text-[#547080]">{path.detail}</span>
               </Link>
             ))}
           </div>
@@ -229,7 +229,7 @@ export default function HomePage() {
 
       <section
         id="attorney-search"
-        className="relative isolate scroll-mt-28 overflow-hidden rounded-[1.8rem] bg-[#082e4b] px-6 py-10 text-white shadow-[0_18px_42px_rgba(8,46,75,0.12)] md:px-10 md:py-12"
+        className="relative left-1/2 isolate w-screen -translate-x-1/2 scroll-mt-28 overflow-hidden bg-[#082e4b] px-6 py-11 text-white md:px-10 md:py-12"
       >
         <Image
           src="/images/estate-planning/attorney-directory-team.png"
@@ -239,14 +239,14 @@ export default function HomePage() {
           sizes="100vw"
         />
         <div className="absolute inset-0 -z-10 bg-[#082e4b]/80" />
-        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div className="mx-auto grid max-w-[78rem] gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="flex gap-5">
             <span className="hidden shrink-0 text-[#b8d9d1] sm:block">
               <LocationIcon />
             </span>
             <div>
-              <h2 className="font-serif text-3xl leading-tight tracking-[-0.03em] md:text-4xl">
-                Find estate-planning guidance near you
+              <h2 className="font-serif text-3xl leading-tight tracking-[-0.03em]">
+                Find Estate-Planning Guidance Near You
               </h2>
               <p className="mt-4 max-w-xl text-base leading-7 text-white/80 md:text-lg">
                 Estate planning laws vary by state. Find experienced estate-planning attorneys in
@@ -254,7 +254,7 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm sm:p-5">
+          <div className="p-0 sm:p-0">
             <AttorneyZipSearch compact />
             <p className="mt-3 text-xs leading-5 text-white/65">
               Connect with qualified estate-planning professionals in your area.
@@ -263,10 +263,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section>
+      <section className="mx-auto w-full max-w-[78rem] py-10 md:py-12">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#062842] md:text-4xl">
+            <h2 className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#062842]">
               Learn From Estate-Planning Professionals
             </h2>
             <p className="mt-2 text-lg text-[#547080]">
@@ -284,9 +284,9 @@ export default function HomePage() {
           {articles.map((article) => (
             <article
               key={article.title}
-              className="flex flex-col overflow-hidden rounded-xl border border-[#dce7e4] bg-white"
+              className="flex flex-col overflow-hidden rounded-md bg-white"
             >
-              <div className="relative aspect-[1.7]">
+              <div className="relative aspect-[1.65] overflow-hidden rounded-md">
                 <Image
                   src={article.image}
                   alt={article.alt}
@@ -295,8 +295,8 @@ export default function HomePage() {
                   sizes="(min-width: 768px) 33vw, 100vw"
                 />
               </div>
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="font-serif text-2xl leading-7 tracking-[-0.03em] text-[#062842]">
+              <div className="flex flex-1 flex-col pt-3">
+                <h3 className="font-serif text-xl leading-6 tracking-[-0.03em] text-[#062842] md:text-2xl">
                   {article.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-[#547080]">{article.description}</p>
@@ -312,8 +312,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid gap-5 rounded-[1.6rem] border border-[#d9eee5] bg-[#ecfaf4] px-6 py-7 md:grid-cols-[auto_1fr_auto] md:items-center md:px-9">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-[#0b987e]">
+      <section className="mx-auto mb-6 grid w-full max-w-[78rem] gap-5 rounded-md border border-[#d9eee5] bg-[#ecfaf4] px-6 py-6 md:grid-cols-[auto_1fr_auto] md:items-center md:px-9">
+        <span className="flex h-14 w-14 items-center justify-center border-r border-[#91cfc0] pr-4 text-[#0b987e] md:w-20">
           <HeroBenefitIcon icon="children" />
         </span>
         <div>
@@ -331,13 +331,6 @@ export default function HomePage() {
           style="secondary"
           className="rounded-full"
         />
-      </section>
-
-      <section className="border-t border-[#dce7e4] pt-5 text-sm leading-6 text-[color:var(--muted)]">
-        <strong className="font-semibold text-[color:var(--fg)]">Important:</strong> Wills.com
-        provides general educational information, not legal, tax, or financial advice. Reading this
-        site does not create an attorney-client relationship. Consult a licensed professional in
-        your state about your circumstances.
       </section>
     </div>
   )
