@@ -156,7 +156,7 @@ export default function HomePage() {
               <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#597385]">
                 Estate planning, made clearer
               </div>
-              <h1 className="mt-3 font-serif text-[clamp(2.7rem,5vw,4.55rem)] leading-[1.04] tracking-[-0.045em] text-[#062842]">
+              <h1 className="mt-3 font-serif text-[clamp(2.9rem,5.5vw,4.55rem)] leading-[1.03] tracking-[-0.045em] text-[#082d4c]">
                 Protect What Matters Most
               </h1>
               <p className="mt-4 max-w-lg text-base leading-7 text-[#3b596b] md:text-lg">
@@ -180,7 +180,7 @@ export default function HomePage() {
             </div>
             <div className="relative mx-auto w-full max-w-[48rem] md:w-[calc(100%+3rem)] md:translate-x-10 md:-translate-y-2">
               <div className="absolute -left-5 bottom-2 h-40 w-40 rounded-full bg-[#dff2e9] blur-2xl" />
-              <div className="relative aspect-[1.62] overflow-hidden rounded-[42%_4%_37%_4%] shadow-[0_12px_36px_rgba(22,56,72,0.08)]">
+              <div className="relative aspect-[1.62] overflow-hidden rounded-[42%_4%_37%_4%] shadow-[0_10px_30px_rgba(22,56,72,0.06)]">
                 <Image
                   src="/images/estate-planning/hero-protect-what-matters.png"
                   alt="A multigenerational family spending time together at home"
@@ -229,7 +229,7 @@ export default function HomePage() {
 
       <section
         id="attorney-search"
-        className="relative left-1/2 isolate w-screen -translate-x-1/2 scroll-mt-28 overflow-hidden bg-[#082e4b] px-6 py-11 text-white md:px-10 md:py-12"
+        className="relative left-1/2 isolate w-screen -translate-x-1/2 scroll-mt-28 overflow-hidden bg-[#082e4b] px-6 py-10 text-white md:px-10 md:py-7"
       >
         <Image
           src="/images/estate-planning/attorney-directory-team.png"
@@ -239,13 +239,13 @@ export default function HomePage() {
           sizes="100vw"
         />
         <div className="absolute inset-0 -z-10 bg-[#082e4b]/80" />
-        <div className="mx-auto grid max-w-[78rem] gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div className="mx-auto grid max-w-[52rem] gap-7 md:grid-cols-[1.15fr_0.85fr] md:items-center md:gap-6">
           <div className="flex gap-5">
             <span className="hidden shrink-0 text-[#b8d9d1] sm:block">
               <LocationIcon />
             </span>
             <div>
-              <h2 className="font-serif text-3xl leading-tight tracking-[-0.03em]">
+              <h2 className="font-serif text-2xl leading-tight tracking-[-0.03em] md:text-[1.7rem]">
                 Find Estate-Planning Guidance Near You
               </h2>
               <p className="mt-4 max-w-xl text-base leading-7 text-white/80 md:text-lg">
@@ -263,7 +263,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[78rem] py-10 md:py-12">
+      <section className="mx-auto w-full max-w-[52rem] py-10 md:py-11">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#062842]">
@@ -286,7 +286,7 @@ export default function HomePage() {
               key={article.title}
               className="flex flex-col overflow-hidden rounded-md bg-white"
             >
-              <div className="relative aspect-[1.65] overflow-hidden rounded-md">
+              <div className="relative aspect-[1.9] overflow-hidden rounded-md">
                 <Image
                   src={article.image}
                   alt={article.alt}
@@ -296,7 +296,7 @@ export default function HomePage() {
                 />
               </div>
               <div className="flex flex-1 flex-col pt-3">
-                <h3 className="font-serif text-xl leading-6 tracking-[-0.03em] text-[#062842] md:text-2xl">
+                <h3 className="font-serif text-xl leading-6 tracking-[-0.03em] text-[#062842]">
                   {article.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-[#547080]">{article.description}</p>
@@ -312,7 +312,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto mb-6 grid w-full max-w-[78rem] gap-5 rounded-md border border-[#d9eee5] bg-[#ecfaf4] px-6 py-6 md:grid-cols-[auto_1fr_auto] md:items-center md:px-9">
+      <section className="mx-auto mb-6 grid w-full max-w-[52rem] gap-5 rounded-md border border-[#d9eee5] bg-[#ecfaf4] px-6 py-6 md:grid-cols-[auto_1fr_auto] md:items-center md:px-9">
         <span className="flex h-14 w-14 items-center justify-center border-r border-[#91cfc0] pr-4 text-[#0b987e] md:w-20">
           <HeroBenefitIcon icon="children" />
         </span>

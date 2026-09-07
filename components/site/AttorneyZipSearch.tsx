@@ -51,7 +51,9 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
 
       if (target?.closest('[data-guide-attorney-zip]')) {
         setTimeout(() => {
-          document.getElementById('attorney-search')?.scrollIntoView({behavior: 'smooth', block: 'start'})
+          document
+            .getElementById('attorney-search')
+            ?.scrollIntoView({behavior: 'smooth', block: 'start'})
           guideToZipCode()
         }, 0)
       }
@@ -101,12 +103,12 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
           inputMode="numeric"
           autoComplete="postal-code"
           placeholder="Enter your ZIP code"
-          className={`${compact ? 'min-h-12 px-4' : 'min-h-14 px-5'} min-w-0 flex-1 rounded-lg border border-white/35 bg-white text-base font-medium text-[#071f33] placeholder:text-[#5d7080] outline-none transition focus:border-[color:var(--accent)] focus:ring-2 focus:ring-[color:var(--accent)] ${isGuided ? 'attorney-zip-guidance' : ''}`}
+          className={`${compact ? 'min-h-10 px-4' : 'min-h-14 px-5'} min-w-0 flex-1 rounded-md border border-white/35 bg-white text-base font-medium text-[#071f33] placeholder:text-[#5d7080] outline-none transition focus:border-[color:var(--accent)] focus:ring-2 focus:ring-[color:var(--accent)] ${isGuided ? 'attorney-zip-guidance' : ''}`}
           aria-describedby={error ? 'attorney-zip-error' : undefined}
         />
         <button
           type="submit"
-          className={`${compact ? 'min-h-12 px-5' : 'min-h-14 px-6'} button-lift shrink-0 cursor-pointer whitespace-nowrap rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] text-sm font-semibold text-[#061e31] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]`}
+          className={`${compact ? 'min-h-10 px-5' : 'min-h-14 px-6'} button-lift shrink-0 cursor-pointer whitespace-nowrap rounded-md border border-[color:var(--accent)] bg-[color:var(--accent)] text-sm font-semibold text-[#061e31] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]`}
         >
           Search near me
         </button>

@@ -3,7 +3,7 @@ import {ButtonLink} from '@/components/site/ButtonLink'
 const planOptions = [
   {
     title: 'Will Plan',
-    description: 'Create a clear will outline, name guardians, and make your wishes known.',
+    description: 'Create a legally valid will, name guardians, and make your wishes clear.',
     features: [
       'Name guardians for minor children',
       'Show how your assets are shared',
@@ -110,20 +110,22 @@ export function PlanChooser() {
         </h2>
         <p className="mt-2 text-lg text-[#547080]">What kind of estate plan are you looking for?</p>
       </div>
-      <div className="relative mx-auto mt-3 grid max-w-[78rem] gap-5 md:grid-cols-3">
+      <div className="relative mx-auto mt-3 grid max-w-[52rem] gap-4 md:grid-cols-3">
         {planOptions.map((option) => (
           <article
             key={option.title}
-            className="flex h-full flex-col rounded-lg border border-[#e5ece8] bg-white p-6 shadow-[0_8px_20px_rgba(8,35,58,0.04)] md:p-7"
+            className="flex h-full flex-col rounded-lg border border-[#e5ece8] bg-white p-4 shadow-[0_6px_18px_rgba(8,35,58,0.035)] md:p-4"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#e8f8f3] text-[#0b987e]">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#e8f8f3] text-[#0b987e]">
               <PlanIcon type={option.icon} />
             </span>
-            <h3 className="mt-5 font-serif text-3xl tracking-[-0.035em] text-[#062842]">
+            <h3 className="mt-1 font-serif text-2xl tracking-[-0.035em] text-[#062842]">
               {option.title}
             </h3>
-            <p className="mt-2 min-h-20 text-sm leading-6 text-[#547080]">{option.description}</p>
-            <ul className="!ml-0 mt-5 space-y-3 pb-7 text-sm leading-5 text-[#385568]">
+            <p className="mt-1 min-h-0 text-[13px] leading-4 text-[#547080]">
+              {option.description}
+            </p>
+            <ul className="!ml-0 mt-1 space-y-1.5 pb-3 text-xs leading-4 text-[#385568]">
               {option.features.map((feature) => (
                 <li key={feature} className="flex gap-2">
                   <span className="font-bold text-[#0b987e]">✓</span>

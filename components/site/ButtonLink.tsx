@@ -24,7 +24,7 @@ export function ButtonLink({href, label, style = 'primary', className = ''}: But
   return (
     <Link
       href={href}
-      className={`inline-flex min-h-12 items-center justify-center gap-2 ${/\brounded(?:-|\s|$)/.test(className) ? '' : 'rounded-lg'} px-5 py-3 text-sm font-semibold tracking-[0.01em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${styles[style as keyof typeof styles] || styles.primary} ${className}`}
+      className={`inline-flex min-h-10 items-center justify-center gap-2 ${/\brounded(?:-|\s|$)/.test(className) ? '' : 'rounded-lg'} px-5 py-2 text-sm font-semibold tracking-[0.01em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${styles[style as keyof typeof styles] || styles.primary} ${className}`}
     >
       {label}
     </Link>
