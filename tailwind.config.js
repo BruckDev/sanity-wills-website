@@ -17,6 +17,12 @@ module.exports = {
       // their expected, framework-default values throughout the public site.
       spacing: {},
     },
+    borderRadius: {
+      ...theme.borderRadius,
+      'xl': '0.75rem',
+      '2xl': '1rem',
+      '3xl': '1.5rem',
+    },
     // Overriding fontFamily to use @next/font loaded families
     fontFamily: {
       mono: 'var(--font-mono)',

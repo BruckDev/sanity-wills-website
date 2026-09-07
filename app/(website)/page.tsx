@@ -151,12 +151,12 @@ export default function HomePage() {
     <div className="space-y-12 md:space-y-16">
       <div className="-mt-8 space-y-0 md:-mt-12 lg:-mt-14">
         <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-[#e5ece7] bg-[radial-gradient(circle_at_84%_22%,#e2f4ec_0,transparent_26rem),linear-gradient(110deg,#fffcf7_0%,#f8f4ec_54%,#f0faf6_100%)]">
-          <div className="mx-auto grid w-full max-w-[88rem] gap-9 px-6 py-9 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12 lg:px-12 xl:px-16 xl:py-12">
+          <div className="mx-auto grid w-full max-w-[88rem] gap-9 px-6 py-10 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-12 md:px-12 xl:px-16 xl:py-14">
             <div className="max-w-xl">
               <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#597385]">
                 Estate planning, made clearer
               </div>
-              <h1 className="mt-4 font-serif text-5xl leading-[0.98] tracking-[-0.055em] text-[#062842] sm:text-6xl md:text-7xl">
+              <h1 className="mt-4 font-serif text-[clamp(2.75rem,5.1vw,4.75rem)] leading-[1.06] tracking-[-0.04em] text-[#062842]">
                 Protect What Matters Most
               </h1>
               <p className="mt-5 max-w-lg text-lg leading-8 text-[#3b596b] md:text-xl">
@@ -167,6 +167,7 @@ export default function HomePage() {
                 <ButtonLink
                   href="/create-a-will"
                   label="Start my will  →"
+                  style="teal"
                   className="rounded-full px-7"
                 />
                 <Link
@@ -179,7 +180,7 @@ export default function HomePage() {
             </div>
             <div className="relative mx-auto w-full max-w-[42rem]">
               <div className="absolute -left-5 bottom-2 h-40 w-40 rounded-full bg-[#dff2e9] blur-2xl" />
-              <div className="relative aspect-[1.13] overflow-hidden rounded-[42%_4%_37%_4%] shadow-[0_24px_60px_rgba(22,56,72,0.18)]">
+              <div className="relative aspect-[1.3] overflow-hidden rounded-[42%_4%_37%_4%] shadow-[0_12px_36px_rgba(22,56,72,0.08)]">
                 <Image
                   src="/images/estate-planning/hero-protect-what-matters.png"
                   alt="A multigenerational family spending time together at home"
@@ -197,13 +198,21 @@ export default function HomePage() {
         </section>
 
         <section className="relative left-1/2 w-screen -translate-x-1/2 border-b border-[#dbe9e3] bg-[#eff9f5]">
-          <div className="mx-auto grid w-full max-w-[88rem] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid w-full max-w-[88rem] sm:grid-cols-2 md:grid-cols-4">
             {heroPaths.map((path, index) => (
               <Link
                 key={path.href}
                 href={path.href}
                 data-guide-attorney-zip={path.href === '/#attorney-search' || undefined}
-                className={`group px-6 py-6 text-center transition hover:bg-white/55 ${index > 0 ? 'border-t border-[#dbe9e3] sm:border-t-0 lg:border-l' : ''}`}
+                className={`group px-6 py-6 text-center transition hover:bg-white/55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[color:var(--teal)] ${
+                  index === 1
+                    ? 'border-t border-[#dbe9e3] sm:border-l sm:border-t-0'
+                    : index === 2
+                      ? 'border-t border-[#dbe9e3]'
+                      : index === 3
+                        ? 'border-t border-[#dbe9e3] sm:border-l sm:border-t-0'
+                        : ''
+                } ${index > 0 ? 'md:border-l md:border-t-0' : ''}`}
               >
                 <span className="mx-auto flex h-11 w-11 items-center justify-center text-[#083f63]">
                   <HeroBenefitIcon icon={path.icon} />
@@ -220,7 +229,7 @@ export default function HomePage() {
 
       <section
         id="attorney-search"
-        className="relative isolate overflow-hidden rounded-[1.8rem] bg-[#082e4b] px-6 py-10 text-white shadow-[0_18px_42px_rgba(8,46,75,0.18)] md:px-10 md:py-12"
+        className="relative isolate scroll-mt-28 overflow-hidden rounded-[1.8rem] bg-[#082e4b] px-6 py-10 text-white shadow-[0_18px_42px_rgba(8,46,75,0.12)] md:px-10 md:py-12"
       >
         <Image
           src="/images/estate-planning/attorney-directory-team.png"
@@ -236,7 +245,7 @@ export default function HomePage() {
               <LocationIcon />
             </span>
             <div>
-              <h2 className="font-serif text-4xl leading-tight tracking-[-0.04em] md:text-5xl">
+              <h2 className="font-serif text-3xl leading-tight tracking-[-0.03em] md:text-4xl">
                 Find estate-planning guidance near you
               </h2>
               <p className="mt-4 max-w-xl text-base leading-7 text-white/80 md:text-lg">
@@ -257,7 +266,7 @@ export default function HomePage() {
       <section>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="font-serif text-4xl tracking-[-0.04em] text-[#062842] md:text-5xl">
+            <h2 className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#062842] md:text-4xl">
               Learn From Estate-Planning Professionals
             </h2>
             <p className="mt-2 text-lg text-[#547080]">
@@ -275,7 +284,7 @@ export default function HomePage() {
           {articles.map((article) => (
             <article
               key={article.title}
-              className="overflow-hidden rounded-2xl border border-[#dce7e4] bg-white shadow-[0_12px_28px_rgba(8,35,58,0.06)]"
+              className="flex flex-col overflow-hidden rounded-xl border border-[#dce7e4] bg-white"
             >
               <div className="relative aspect-[1.7]">
                 <Image
@@ -286,14 +295,14 @@ export default function HomePage() {
                   sizes="(min-width: 768px) 33vw, 100vw"
                 />
               </div>
-              <div className="p-5">
+              <div className="flex flex-1 flex-col p-5">
                 <h3 className="font-serif text-2xl leading-7 tracking-[-0.03em] text-[#062842]">
                   {article.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-[#547080]">{article.description}</p>
                 <Link
                   href={article.href}
-                  className="mt-4 inline-flex text-sm font-semibold text-[#0b987e] hover:text-[#063e5b]"
+                  className="mt-auto inline-flex pt-4 text-sm font-semibold text-[color:var(--teal)] underline underline-offset-4 hover:text-[#063e5b]"
                 >
                   Read more <span className="ml-2">→</span>
                 </Link>

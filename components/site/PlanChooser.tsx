@@ -91,12 +91,12 @@ export function PlanChooser() {
   return (
     <section
       aria-labelledby="plan-chooser-title"
-      className="rounded-[2rem] bg-[#fbf8f1] px-6 py-10 md:px-10 md:py-12"
+      className="rounded-[2rem] bg-[#fbf8f1] px-4 py-10 sm:px-6 md:px-8 md:py-12"
     >
       <div className="mx-auto max-w-3xl text-center">
         <h2
           id="plan-chooser-title"
-          className="font-serif text-4xl tracking-[-0.045em] text-[#062842] md:text-5xl"
+          className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#062842] md:text-4xl"
         >
           Start With What Fits Today
         </h2>
@@ -115,7 +115,7 @@ export function PlanChooser() {
               {option.title}
             </h3>
             <p className="mt-2 min-h-20 text-sm leading-6 text-[#547080]">{option.description}</p>
-            <ul className="mt-5 space-y-3 text-sm leading-5 text-[#385568]">
+            <ul className="!ml-0 mt-5 space-y-3 pb-7 text-sm leading-5 text-[#385568]">
               {option.features.map((feature) => (
                 <li key={feature} className="flex gap-2">
                   <span className="font-bold text-[#0b987e]">✓</span>
@@ -126,8 +126,8 @@ export function PlanChooser() {
             <ButtonLink
               href={option.href}
               label={option.cta}
-              style={option.title === 'Will Plan' ? 'primary' : 'secondary'}
-              className="mt-7 w-full rounded-full"
+              style={option.title === 'Will Plan' ? 'teal' : 'secondary'}
+              className="mt-auto w-full rounded-full"
             />
           </article>
         ))}

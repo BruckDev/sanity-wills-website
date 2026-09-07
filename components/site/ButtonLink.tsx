@@ -3,7 +3,7 @@ import Link from 'next/link'
 type ButtonLinkProps = {
   href?: string | null
   label?: string | null
-  style?: 'primary' | 'secondary' | 'text' | string | null
+  style?: 'primary' | 'secondary' | 'text' | 'teal' | string | null
   className?: string
 }
 
@@ -13,6 +13,7 @@ export function ButtonLink({href, label, style = 'primary', className = ''}: But
   }
 
   const styles = {
+    teal: 'button-lift border border-[color:var(--teal)] bg-[color:var(--teal)] text-white shadow-sm hover:border-[color:var(--teal-strong)] hover:bg-[color:var(--teal-strong)] focus-visible:outline-[color:var(--teal)]',
     primary:
       'button-lift border border-[color:var(--accent)] bg-[color:var(--accent)] text-[#061e31] shadow-[0_10px_24px_rgba(7,31,51,0.16)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] hover:shadow-[0_14px_30px_rgba(7,31,51,0.22)] focus-visible:outline-[color:var(--accent)]',
     secondary:
@@ -23,7 +24,7 @@ export function ButtonLink({href, label, style = 'primary', className = ''}: But
   return (
     <Link
       href={href}
-      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold tracking-[0.01em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${styles[style as keyof typeof styles] || styles.primary} ${className}`}
+      className={`inline-flex min-h-12 items-center justify-center gap-2 ${/\brounded(?:-|\s|$)/.test(className) ? '' : 'rounded-lg'} px-5 py-3 text-sm font-semibold tracking-[0.01em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${styles[style as keyof typeof styles] || styles.primary} ${className}`}
     >
       {label}
     </Link>
