@@ -300,10 +300,10 @@ function HomeContent({
         className="relative left-1/2 isolate w-screen -translate-x-1/2 scroll-mt-28 overflow-hidden bg-[#082e4b] px-6 py-10 text-white md:px-10 md:py-7"
       >
         <Image
-          src={background || '/images/estate-planning/attorney-directory-team.png'}
+          src={background || '/images/estate-planning/attorney-search-hillside.png'}
           alt=""
           fill
-          className="-z-20 object-cover object-center"
+          className="-z-20 object-cover object-right"
           sizes="100vw"
         />
         <div className="absolute inset-0 -z-10 bg-[#082e4b]/75" />
