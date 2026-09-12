@@ -22,15 +22,15 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 z-40 select-none border-b border-[#dce6ec] bg-white/95 text-[color:var(--fg)] backdrop-blur-md">
-      <div className="mx-auto flex w-full max-w-[88rem] items-center justify-between gap-4 px-5 py-3 md:px-8 md:py-2.5">
+    <header className="sticky top-0 z-40 select-none border-b border-white/15 bg-[#071f33] text-white backdrop-blur-md">
+      <div className="mx-auto flex w-full max-w-[88rem] items-center justify-between gap-4 px-5 py-4 md:px-8 md:py-5">
         <Link href="/" className="cursor-pointer shrink-0" onClick={() => setOpen(false)}>
-          <span className="font-serif text-3xl tracking-[-0.06em] text-[#071f33] md:text-[2.35rem]">
+          <span className="font-serif text-4xl tracking-[-0.06em] text-white md:text-5xl">
             Wills<span className="text-[color:var(--accent)]">.com</span>
           </span>
           <span className="sr-only">Wills.com</span>
         </Link>
-        <nav aria-label="Main navigation" className="hidden items-center gap-0.5 md:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-1 xl:flex">
           {navItems.map((item) => {
             const active = isCurrent(item.href)
 
@@ -39,10 +39,10 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
                 key={item.href}
                 href={item.href || '/'}
                 aria-current={active ? 'page' : undefined}
-                className={`cursor-pointer rounded-md border-b-2 px-2 py-2 text-xs font-medium transition lg:px-2.5 ${
+                className={`cursor-pointer rounded-md border-b-2 px-2.5 py-3 text-base font-medium transition ${
                   active
-                    ? 'border-[color:var(--accent)] bg-[#eaf6f1] text-[#0b6246]'
-                    : 'border-transparent text-[#173a55] hover:bg-[#f1f6f8] hover:text-[#0b6246]'
+                    ? 'border-[color:var(--accent)] bg-white/10 text-[#7ee0c7]'
+                    : 'border-transparent text-white hover:bg-white/10 hover:text-[#7ee0c7]'
                 }`}
               >
                 {item.label}
@@ -52,10 +52,10 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
           <Link
             href="/#attorney-search"
             aria-current={isCurrent('/find-an-attorney') ? 'page' : undefined}
-            className={`ml-2 shrink-0 cursor-pointer rounded-full border px-4 py-2 text-center text-xs font-semibold transition ${
+            className={`ml-2 shrink-0 cursor-pointer rounded-full border px-5 py-3 text-center text-base font-semibold transition ${
               isCurrent('/find-an-attorney')
                 ? 'border-[#075f43] bg-[#dff3ea] text-[#075f43]'
-                : 'border-[#123b59] bg-white text-[#123b59] hover:border-[#0b987e] hover:bg-[#f3fbf8] hover:text-[#0b7563]'
+                : 'border-[#7ee0c7] text-[#7ee0c7] hover:bg-white/10'
             }`}
           >
             Find an estate-planning professional
@@ -63,7 +63,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
         </nav>
         <button
           type="button"
-          className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg border border-[#cbdbe4] text-[#071f33] hover:bg-[#f1f6f8] md:hidden"
+          className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg border border-white/40 text-white hover:bg-white/10 xl:hidden"
           aria-expanded={open}
           aria-label="Toggle menu"
           onClick={() => setOpen((value) => !value)}
@@ -76,7 +76,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
       {open ? (
         <nav
           aria-label="Mobile navigation"
-          className="border-t border-[#dce6ec] bg-white px-4 py-5 md:hidden"
+          className="border-t border-white/15 bg-[#071f33] px-4 py-5 xl:hidden"
         >
           <div className="mx-auto grid max-w-[96rem] gap-4">
             <>
@@ -90,8 +90,8 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
                     aria-current={active ? 'page' : undefined}
                     className={`cursor-pointer rounded-lg border-l-4 px-4 py-3 text-lg font-semibold ${
                       active
-                        ? 'border-[color:var(--accent)] bg-[#eaf6f1] text-[#0b6246]'
-                        : 'border-transparent text-[#173a55] hover:bg-[#f1f6f8]'
+                        ? 'border-[color:var(--accent)] bg-white/10 text-[#7ee0c7]'
+                        : 'border-transparent text-white hover:bg-white/10'
                     }`}
                     onClick={() => setOpen(false)}
                   >

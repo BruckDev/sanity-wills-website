@@ -30,3 +30,7 @@ h5,
 h6 {
   letter-spacing: 0;
 }
+
+.font-cursive {
+  font-family: 'Segoe Script', 'Apple Chancery', 'Brush Script MT', cursive;
+}

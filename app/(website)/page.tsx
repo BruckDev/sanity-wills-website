@@ -1,8 +1,12 @@
 import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
 import {PlanChooser} from '@/components/site/PlanChooser'
+import {getDynamicFetchOptions, sanityFetch, type DynamicFetchOptions} from '@/sanity/lib/live'
+import {homeAppearanceQuery} from '@/sanity/lib/siteQueries'
+import {draftMode} from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
+import {Suspense} from 'react'
 
 type HeroBenefitIcon = 'children' | 'home' | 'guidance' | 'wishes'
 
@@ -146,15 +150,36 @@ function LocationIcon() {
   )
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const {isEnabled} = await draftMode()
+  return isEnabled ? (
+    <Suspense fallback={<HomeContent />}>
+      <DynamicHome />
+    </Suspense>
+  ) : (
+    <CachedHome perspective="published" stega={false} />
+  )
+}
+
+async function DynamicHome() {
+  return <CachedHome {...await getDynamicFetchOptions()} />
+}
+
+async function CachedHome(fetchOptions: DynamicFetchOptions) {
+  'use cache'
+  const {data} = await sanityFetch({query: homeAppearanceQuery, ...fetchOptions})
+  return <HomeContent eyebrow={data?.planningEyebrow} background={data?.attorneySearchBackground} />
+}
+
+function HomeContent({eyebrow, background}: {eyebrow?: string | null; background?: string | null}) {
   return (
     <div>
       <div className="-mt-8 space-y-0 md:-mt-12 lg:-mt-14">
         <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-[#e5ece7] bg-[radial-gradient(circle_at_84%_22%,#e2f4ec_0,transparent_26rem),linear-gradient(110deg,#fffcf7_0%,#f8f4ec_54%,#f0faf6_100%)]">
           <div className="mx-auto grid w-full max-w-[88rem] gap-8 px-6 py-10 md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-0 md:px-12 md:py-0 xl:px-16">
             <div className="max-w-xl">
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#597385]">
-                Estate planning, made clearer
+              <div className="text-sm font-bold tracking-[0.12em] text-[#597385]">
+                {eyebrow || 'estate planning made simple'}
               </div>
               <h1 className="mt-3 font-serif text-[clamp(2.9rem,5.5vw,4.55rem)] leading-[1.03] tracking-[-0.045em] text-[#082d4c]">
                 Protect What Matters Most
@@ -190,7 +215,7 @@ export default function HomePage() {
                   sizes="(min-width: 1024px) 52vw, 100vw"
                 />
               </div>
-              <div className="absolute -bottom-6 right-0 hidden max-w-44 -rotate-6 rounded-[1.5rem] bg-[#e7f6f0] px-5 py-4 font-serif text-lg leading-6 text-[#0c4462] shadow-[0_12px_24px_rgba(25,79,91,0.12)] sm:block md:bottom-0">
+              <div className="absolute -bottom-6 right-4 hidden max-w-52 -rotate-6 rounded-[1.5rem] bg-[#e7f6f0] px-5 py-4 font-cursive text-2xl leading-7 text-[#0c4462] shadow-[0_12px_24px_rgba(25,79,91,0.12)] sm:block md:bottom-0 md:right-10">
                 A brighter tomorrow, together
               </div>
             </div>
@@ -204,7 +229,7 @@ export default function HomePage() {
                 key={path.href}
                 href={path.href}
                 data-guide-attorney-zip={path.href === '/#attorney-search' || undefined}
-                className={`group px-4 py-4 text-center transition hover:bg-white/55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[color:var(--teal)] ${
+                className={`group px-5 py-5 text-center transition hover:bg-white/55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[color:var(--teal)] ${
                   index === 1
                     ? 'border-t border-[#dbe9e3] sm:border-l sm:border-t-0'
                     : index === 2
@@ -217,8 +242,8 @@ export default function HomePage() {
                 <span className="mx-auto flex h-11 w-11 items-center justify-center text-[#083f63]">
                   <HeroBenefitIcon icon={path.icon} />
                 </span>
-                <span className="mt-2 block font-serif text-base text-[#062842]">{path.label}</span>
-                <span className="mt-1 block text-xs leading-4 text-[#547080]">{path.detail}</span>
+                <span className="mt-2 block font-serif text-xl text-[#062842]">{path.label}</span>
+                <span className="mt-2 block text-base leading-6 text-[#547080]">{path.detail}</span>
               </Link>
             ))}
           </div>
@@ -232,13 +257,13 @@ export default function HomePage() {
         className="relative left-1/2 isolate w-screen -translate-x-1/2 scroll-mt-28 overflow-hidden bg-[#082e4b] px-6 py-10 text-white md:px-10 md:py-7"
       >
         <Image
-          src="/images/estate-planning/attorney-directory-team.png"
+          src={background || '/images/estate-planning/attorney-directory-team.png'}
           alt=""
           fill
-          className="-z-20 object-cover object-center opacity-30"
+          className="-z-20 object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 -z-10 bg-[#082e4b]/80" />
+        <div className="absolute inset-0 -z-10 bg-[#082e4b]/75" />
         <div className="mx-auto grid max-w-[52rem] gap-7 md:grid-cols-[1.15fr_0.85fr] md:items-center md:gap-6">
           <div className="flex gap-5">
             <span className="hidden shrink-0 text-[#b8d9d1] sm:block">

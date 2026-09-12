@@ -8,6 +8,18 @@ export default defineType({
   icon: HomeIcon,
   fields: [
     defineField({
+      name: 'planningEyebrow',
+      title: 'Planning hero tagline',
+      type: 'string',
+      initialValue: 'estate planning made simple',
+    }),
+    defineField({
+      name: 'attorneySearchBackground',
+      title: 'Attorney search background',
+      type: 'image',
+      options: {hotspot: true},
+    }),
+    defineField({
       name: 'title',
       title: 'Hero title',
       type: 'string',
