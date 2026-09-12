@@ -1,7 +1,7 @@
 import {defineQuery} from 'next-sanity'
 
 export const homeAppearanceQuery = defineQuery(
-  `*[_type == "home"][0]{planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url}`,
+  `*[_type == "home"][0]{planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url, articleCards[0...6]{title, description, href, alt, "image": coalesce(image.asset->url, imagePath)}}`,
 )
 
 export const settingsQuery = defineQuery(`

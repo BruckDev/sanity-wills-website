@@ -1,6 +1,7 @@
 import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
 import {PlanChooser} from '@/components/site/PlanChooser'
+import {homeArticleCards, type HomeArticleCard} from '@/sanity/lib/homeArticleCards'
 import {getDynamicFetchOptions, sanityFetch, type DynamicFetchOptions} from '@/sanity/lib/live'
 import {homeAppearanceQuery} from '@/sanity/lib/siteQueries'
 import {draftMode} from 'next/headers'
@@ -39,30 +40,6 @@ const heroPaths: Array<{
     label: 'Make your wishes known',
     detail: 'Ensure your values and wishes are honored.',
     href: '/#attorney-search',
-  },
-]
-
-const articles = [
-  {
-    title: 'Will vs. Trust: Which Is Right for Your Family?',
-    description: 'Understand the key differences and find the option that may fit your goals.',
-    href: '/trusts',
-    image: '/images/estate-planning/will-document.png',
-    alt: 'A will and testament with a pen',
-  },
-  {
-    title: 'Naming Guardians for Minor Children',
-    description: 'Learn what to consider when choosing guardians and making your wishes clear.',
-    href: '/life-events/new-parents',
-    image: '/images/estate-planning/hero-family-young.png',
-    alt: 'A family spending time together outdoors',
-  },
-  {
-    title: 'Estate Planning for New Homeowners',
-    description: 'Discover key steps to protect your home and plan for the future.',
-    href: '/life-events/new-homeowners',
-    image: '/images/home/life-events/new-homeowners.jpg',
-    alt: 'A family in front of their home',
   },
 ]
 
@@ -177,6 +154,15 @@ async function CachedHome(fetchOptions: DynamicFetchOptions) {
       eyebrow={data?.planningEyebrow}
       background={data?.attorneySearchBackground}
       planHeading={data?.planChooserHeading}
+      articleCards={data?.articleCards
+        ?.filter((card) => card.title && card.href)
+        .map((card) => ({
+          title: card.title!,
+          href: card.href!,
+          description: card.description || '',
+          image: card.image || homeArticleCards[0].image,
+          alt: card.alt || '',
+        }))}
     />
   )
 }
@@ -185,9 +171,11 @@ function HomeContent({
   eyebrow,
   background,
   planHeading,
+  articleCards,
 }: {
   eyebrow?: string | null
   background?: string | null
+  articleCards?: HomeArticleCard[] | null
   planHeading?: string | null
 }) {
   return (
@@ -331,7 +319,7 @@ function HomeContent({
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[52rem] py-10 md:py-11">
+      <section className="mx-auto w-full max-w-[72rem] py-12 md:py-16">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#062842]">
@@ -348,29 +336,29 @@ function HomeContent({
             className="rounded-full"
           />
         </div>
-        <div className="mt-7 grid gap-5 md:grid-cols-3">
-          {articles.map((article) => (
+        <div className="mt-8 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+          {(articleCards?.length ? articleCards : homeArticleCards).map((article) => (
             <article
               key={article.title}
-              className="flex flex-col overflow-hidden rounded-md bg-white"
+              className="flex flex-col overflow-hidden rounded-xl border border-[#e0e9ed] bg-white shadow-[0_6px_18px_rgba(8,35,58,0.04)]"
             >
-              <div className="relative aspect-[1.9] overflow-hidden rounded-md">
+              <div className="relative aspect-[1.55] overflow-hidden">
                 <Image
                   src={article.image}
                   alt={article.alt}
                   fill
                   className="object-cover"
-                  sizes="(min-width: 768px) 33vw, 100vw"
+                  sizes="(min-width: 1280px) 365px, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
                 />
               </div>
-              <div className="flex flex-1 flex-col pt-3">
-                <h3 className="font-serif text-xl leading-6 tracking-[-0.03em] text-[#062842]">
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="font-serif text-2xl leading-7 tracking-[-0.03em] text-[#062842]">
                   {article.title}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-[#547080]">{article.description}</p>
+                <p className="mt-3 text-base leading-7 text-[#547080]">{article.description}</p>
                 <Link
                   href={article.href}
-                  className="mt-auto inline-flex pt-4 text-sm font-semibold text-[color:var(--teal)] underline underline-offset-4 hover:text-[#063e5b]"
+                  className="mt-auto inline-flex pt-5 text-base font-semibold text-[color:var(--teal)] underline underline-offset-4 hover:text-[#063e5b]"
                 >
                   Read more <span className="ml-2">→</span>
                 </Link>

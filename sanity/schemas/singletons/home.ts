@@ -1,5 +1,6 @@
 import {HomeIcon} from '@sanity/icons'
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {homeArticleCards} from '../../lib/homeArticleCards'
 
 export default defineType({
   name: 'home',
@@ -7,6 +8,43 @@ export default defineType({
   type: 'document',
   icon: HomeIcon,
   fields: [
+    defineField({
+      name: 'articleCards',
+      title: 'Homepage article cards',
+      type: 'array',
+      initialValue: homeArticleCards.map(({image, ...card}, index) => ({
+        ...card,
+        _type: 'homeArticleCard',
+        _key: `article-${index}`,
+        imagePath: image,
+      })),
+      validation: (rule) => rule.max(6),
+      of: [
+        defineArrayMember({
+          name: 'homeArticleCard',
+          type: 'object',
+          fields: [
+            defineField({name: 'title', type: 'string', validation: (rule) => rule.required()}),
+            defineField({name: 'description', type: 'text', rows: 3}),
+            defineField({
+              name: 'href',
+              title: 'Article link',
+              type: 'string',
+              validation: (rule) => rule.required().regex(/^(\/|https:\/\/)/),
+            }),
+            defineField({name: 'image', type: 'image', options: {hotspot: true}}),
+            defineField({
+              name: 'imagePath',
+              title: 'Fallback image path',
+              type: 'string',
+              description: 'A bundled site image path, used when no image is uploaded.',
+            }),
+            defineField({name: 'alt', title: 'Image description', type: 'string'}),
+          ],
+          preview: {select: {title: 'title', media: 'image'}},
+        }),
+      ],
+    }),
     defineField({
       name: 'planChooserHeading',
       title: 'Plan chooser heading',
