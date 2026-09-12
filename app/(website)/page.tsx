@@ -66,9 +66,13 @@ const articles = [
   },
 ]
 
-function HeroBenefitIcon({icon}: {icon: HeroBenefitIcon}) {
-  const className = 'h-7 w-7'
-
+function HeroBenefitIcon({
+  icon,
+  className = 'h-7 w-7',
+}: {
+  icon: HeroBenefitIcon
+  className?: string
+}) {
   if (icon === 'children') {
     return (
       <svg
@@ -265,7 +269,7 @@ function HomeContent({eyebrow, background}: {eyebrow?: string | null; background
                 } ${index > 0 ? 'md:border-l md:border-t-0' : ''}`}
               >
                 <span className="mx-auto flex h-11 w-11 items-center justify-center text-[#083f63]">
-                  <HeroBenefitIcon icon={path.icon} />
+                  <HeroBenefitIcon icon={path.icon} className="h-8 w-8" />
                 </span>
                 <span className="mt-2 block font-serif text-xl text-[#062842]">{path.label}</span>
                 <span className="mt-2 block text-base leading-6 text-[#547080]">{path.detail}</span>
