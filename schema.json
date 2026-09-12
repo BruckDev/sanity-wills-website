@@ -9300,6 +9300,13 @@
           "type": "string"
         }
       },
+      "planChooserHeading": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "planningEyebrow": {
         "type": "objectAttribute",
         "value": {

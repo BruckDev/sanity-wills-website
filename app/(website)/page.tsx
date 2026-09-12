@@ -172,10 +172,24 @@ async function DynamicHome() {
 async function CachedHome(fetchOptions: DynamicFetchOptions) {
   'use cache'
   const {data} = await sanityFetch({query: homeAppearanceQuery, ...fetchOptions})
-  return <HomeContent eyebrow={data?.planningEyebrow} background={data?.attorneySearchBackground} />
+  return (
+    <HomeContent
+      eyebrow={data?.planningEyebrow}
+      background={data?.attorneySearchBackground}
+      planHeading={data?.planChooserHeading}
+    />
+  )
 }
 
-function HomeContent({eyebrow, background}: {eyebrow?: string | null; background?: string | null}) {
+function HomeContent({
+  eyebrow,
+  background,
+  planHeading,
+}: {
+  eyebrow?: string | null
+  background?: string | null
+  planHeading?: string | null
+}) {
   return (
     <div>
       <div className="-mt-8 space-y-0 md:-mt-12 lg:-mt-14">
@@ -279,7 +293,7 @@ function HomeContent({eyebrow, background}: {eyebrow?: string | null; background
         </section>
       </div>
 
-      <PlanChooser />
+      <PlanChooser heading={planHeading} />
 
       <section
         id="attorney-search"

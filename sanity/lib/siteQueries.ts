@@ -1,7 +1,7 @@
 import {defineQuery} from 'next-sanity'
 
 export const homeAppearanceQuery = defineQuery(
-  `*[_type == "home"][0]{planningEyebrow, "attorneySearchBackground": attorneySearchBackground.asset->url}`,
+  `*[_type == "home"][0]{planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url}`,
 )
 
 export const settingsQuery = defineQuery(`

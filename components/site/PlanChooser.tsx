@@ -87,7 +87,7 @@ function PlanIcon({type}: {type: (typeof planOptions)[number]['icon']}) {
   )
 }
 
-export function PlanChooser() {
+export function PlanChooser({heading}: {heading?: string | null}) {
   return (
     <section
       aria-labelledby="plan-chooser-title"
@@ -106,7 +106,7 @@ export function PlanChooser() {
           id="plan-chooser-title"
           className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#062842]"
         >
-          Start With What Fits Today
+          {heading || 'Start With What Works Today'}
         </h2>
         <p className="mt-2 text-lg text-[#547080]">What kind of estate plan are you looking for?</p>
       </div>

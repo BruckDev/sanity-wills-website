@@ -8,6 +8,12 @@ export default defineType({
   icon: HomeIcon,
   fields: [
     defineField({
+      name: 'planChooserHeading',
+      title: 'Plan chooser heading',
+      type: 'string',
+      initialValue: 'Start With What Works Today',
+    }),
+    defineField({
       name: 'planningEyebrow',
       title: 'Planning hero tagline',
       type: 'string',
