@@ -176,9 +176,9 @@ function HomeContent({eyebrow, background}: {eyebrow?: string | null; background
     <div>
       <div className="-mt-8 space-y-0 md:-mt-12 lg:-mt-14">
         <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-[#e5ece7] bg-[radial-gradient(circle_at_84%_22%,#e2f4ec_0,transparent_26rem),linear-gradient(110deg,#fffcf7_0%,#f8f4ec_54%,#f0faf6_100%)]">
-          <div className="mx-auto grid w-full max-w-[88rem] gap-8 px-6 py-10 md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-0 md:px-12 md:py-0 xl:px-16">
+          <div className="mx-auto grid w-full max-w-[88rem] gap-8 px-6 py-10 md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-0 md:px-12 md:py-6 lg:py-0 xl:px-16">
             <div className="max-w-xl">
-              <div className="text-sm font-bold tracking-[0.12em] text-[#597385]">
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#597385]">
                 {eyebrow || 'estate planning made simple'}
               </div>
               <h1 className="mt-3 font-serif text-[clamp(2.9rem,5.5vw,4.55rem)] leading-[1.03] tracking-[-0.045em] text-[#082d4c]">
@@ -215,8 +215,33 @@ function HomeContent({eyebrow, background}: {eyebrow?: string | null; background
                   sizes="(min-width: 1024px) 52vw, 100vw"
                 />
               </div>
-              <div className="absolute -bottom-6 right-4 hidden max-w-52 -rotate-6 rounded-[1.5rem] bg-[#e7f6f0] px-5 py-4 font-cursive text-2xl leading-7 text-[#0c4462] shadow-[0_12px_24px_rgba(25,79,91,0.12)] sm:block md:bottom-0 md:right-10">
-                A brighter tomorrow, together
+              <div className="pointer-events-none absolute bottom-0 right-0 hidden h-40 w-64 sm:block">
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 256 160"
+                  className="absolute inset-0 h-full w-full"
+                  preserveAspectRatio="none"
+                >
+                  <path d="M0 160C38 132 43 65 98 39C145 17 206 28 256 0V160Z" fill="#eaf6f0" />
+                </svg>
+                <div className="absolute bottom-6 right-10 w-44 -rotate-6 text-center font-cursive text-base font-semibold leading-7 text-[#0c4462]">
+                  A brighter
+                  <br />
+                  tomorrow, together
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 120 12"
+                    className="ml-auto mr-3 mt-1 h-3 w-28"
+                    fill="none"
+                  >
+                    <path
+                      d="M3 10Q56 1 117 4"
+                      stroke="#80cec1"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
