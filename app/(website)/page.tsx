@@ -181,7 +181,7 @@ function HomeContent({
   return (
     <div>
       <div className="-mt-8 space-y-0 md:-mt-12 lg:-mt-14">
-        <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-[#e5ece7] bg-[radial-gradient(circle_at_84%_22%,#e2f4ec_0,transparent_26rem),linear-gradient(110deg,#fffcf7_0%,#f8f4ec_54%,#f0faf6_100%)]">
+        <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-[#e5ece7] bg-[#f4f6f9]">
           <div className="mx-auto grid w-full max-w-[88rem] gap-8 px-6 py-10 md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-0 md:px-12 md:py-6 lg:py-0 xl:px-16">
             <div className="max-w-xl">
               <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#597385]">
