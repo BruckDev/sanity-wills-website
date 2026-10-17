@@ -1,14 +1,18 @@
+import {ArticleCardGrid} from '@/components/site/ArticleCardGrid'
 import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
 import {HomeIntroduction} from '@/components/site/HomeIntroduction'
 import {PlanChooser} from '@/components/site/PlanChooser'
-import {homeArticleCards, type HomeArticleCard} from '@/sanity/lib/homeArticleCards'
+import {
+  homeArticleCards,
+  resolveHomeArticleCards,
+  type HomeArticleCard,
+} from '@/sanity/lib/homeArticleCards'
 import {homeIntroduction, type HomeIntroductionContent} from '@/sanity/lib/homeIntroduction'
 import {getDynamicFetchOptions, sanityFetch, type DynamicFetchOptions} from '@/sanity/lib/live'
 import {homeAppearanceQuery} from '@/sanity/lib/siteQueries'
 import {draftMode} from 'next/headers'
 import Image from 'next/image'
-import Link from 'next/link'
 import {Suspense} from 'react'
 
 type HeroBenefitIcon = 'children' | 'home' | 'guidance' | 'wishes'
@@ -134,15 +138,7 @@ async function CachedHome(fetchOptions: DynamicFetchOptions) {
       }}
       background={data?.attorneySearchBackground}
       planHeading={data?.planChooserHeading}
-      articleCards={data?.articleCards
-        ?.filter((card) => card.title && card.href)
-        .map((card) => ({
-          title: card.title!,
-          href: card.href!,
-          description: card.description || '',
-          image: card.image || homeArticleCards[0].image,
-          alt: card.alt || '',
-        }))}
+      articleCards={resolveHomeArticleCards(data?.articleCards)}
     />
   )
 }
@@ -217,35 +213,8 @@ function HomeContent({
             className="rounded-full"
           />
         </div>
-        <div className="mt-8 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-          {(articleCards?.length ? articleCards : homeArticleCards).map((article) => (
-            <article
-              key={article.title}
-              className="flex flex-col overflow-hidden rounded-xl border border-[#e0e9ed] bg-white shadow-[0_6px_18px_rgba(8,35,58,0.04)]"
-            >
-              <div className="relative aspect-[1.55] overflow-hidden">
-                <Image
-                  src={article.image}
-                  alt={article.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1280px) 365px, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-serif text-2xl leading-7 tracking-[-0.03em] text-[#062842]">
-                  {article.title}
-                </h3>
-                <p className="mt-3 text-base leading-7 text-[#547080]">{article.description}</p>
-                <Link
-                  href={article.href}
-                  className="mt-auto inline-flex pt-5 text-base font-semibold text-[color:var(--teal)] underline underline-offset-4 hover:text-[#063e5b]"
-                >
-                  Read more <span className="ml-2">→</span>
-                </Link>
-              </div>
-            </article>
-          ))}
+        <div className="mt-8">
+          <ArticleCardGrid cards={articleCards?.length ? articleCards : homeArticleCards} />
         </div>
       </section>
 

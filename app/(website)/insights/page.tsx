@@ -1,7 +1,17 @@
+import {ArticleCardGrid} from '@/components/site/ArticleCardGrid'
 import {ButtonLink} from '@/components/site/ButtonLink'
+import {
+  homeArticleCards,
+  resolveHomeArticleCards,
+  type HomeArticleCard,
+} from '@/sanity/lib/homeArticleCards'
+import {getDynamicFetchOptions, sanityFetch, type DynamicFetchOptions} from '@/sanity/lib/live'
+import {homeAppearanceQuery} from '@/sanity/lib/siteQueries'
 import type {Metadata} from 'next'
+import {draftMode} from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
+import {Suspense} from 'react'
 
 export const metadata: Metadata = {
   title: 'Estate-planning articles',
@@ -9,7 +19,28 @@ export const metadata: Metadata = {
     'Attorney-informed educational articles about wills, trusts, and estate-planning decisions.',
 }
 
-export default function InsightsPage() {
+export default async function InsightsPage() {
+  const {isEnabled} = await draftMode()
+  return isEnabled ? (
+    <Suspense fallback={<InsightsContent cards={homeArticleCards} />}>
+      <DynamicInsights />
+    </Suspense>
+  ) : (
+    <CachedInsights perspective="published" stega={false} />
+  )
+}
+
+async function DynamicInsights() {
+  return <CachedInsights {...await getDynamicFetchOptions()} />
+}
+
+async function CachedInsights(options: DynamicFetchOptions) {
+  'use cache'
+  const {data} = await sanityFetch({query: homeAppearanceQuery, ...options})
+  return <InsightsContent cards={resolveHomeArticleCards(data?.articleCards)} />
+}
+
+function InsightsContent({cards}: {cards: HomeArticleCard[]}) {
   return (
     <div className="space-y-16 md:space-y-20">
       <section className="rounded-[2rem] border border-[#d5d7cb] bg-[#eef1e8] px-6 py-12 md:px-12 md:py-16">
@@ -26,6 +57,9 @@ export default function InsightsPage() {
             context they address.
           </p>
         </div>
+      </section>
+      <section id="articles" className="scroll-mt-32">
+        <ArticleCardGrid cards={cards} headingLevel={2} />
       </section>
       <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white md:grid md:grid-cols-2">
         <div className="relative min-h-72">
@@ -160,42 +194,6 @@ export default function InsightsPage() {
             </span>
           </Link>
         </div>
-      </section>
-      <section id="articles" className="scroll-mt-32 grid gap-6 lg:grid-cols-3">
-        <article className="rounded-2xl border border-[color:var(--border)] bg-white p-7">
-          <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
-            Coming soon
-          </div>
-          <h2 className="mt-5 font-serif text-3xl text-[color:var(--fg)]">
-            How beneficiary designations fit into an estate plan
-          </h2>
-          <p className="mt-4 leading-7 text-[color:var(--muted)]">
-            A practical look at why account forms, ownership, and estate documents need to be
-            reviewed together.
-          </p>
-        </article>
-        <article className="rounded-2xl border border-[color:var(--border)] bg-white p-7">
-          <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
-            Coming soon
-          </div>
-          <h2 className="mt-5 font-serif text-3xl text-[color:var(--fg)]">
-            Choosing an executor or trustee
-          </h2>
-          <p className="mt-4 leading-7 text-[color:var(--muted)]">
-            Questions to consider before asking someone to take on a fiduciary role.
-          </p>
-        </article>
-        <article className="rounded-2xl border border-[color:var(--border)] bg-white p-7">
-          <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
-            Coming soon
-          </div>
-          <h2 className="mt-5 font-serif text-3xl text-[color:var(--fg)]">
-            When it is time to revisit your plan
-          </h2>
-          <p className="mt-4 leading-7 text-[color:var(--muted)]">
-            Life events and legal changes that should prompt a conversation with an adviser.
-          </p>
-        </article>
       </section>
 
       <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] px-7 py-10 text-[color:var(--fg)] md:px-10">

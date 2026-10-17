@@ -46,3 +46,24 @@ export const homeArticleCards = [
 ]
 
 export type HomeArticleCard = (typeof homeArticleCards)[number]
+
+export function resolveHomeArticleCards(
+  cards?: Array<{
+    title?: string | null
+    description?: string | null
+    href?: string | null
+    image?: string | null
+    alt?: string | null
+  }> | null,
+): HomeArticleCard[] {
+  const resolved = cards
+    ?.filter((card) => card.title && card.href)
+    .map((card) => ({
+      title: card.title!,
+      href: card.href!,
+      description: card.description || '',
+      image: card.image || homeArticleCards[0].image,
+      alt: card.alt || '',
+    }))
+  return resolved?.length ? resolved : homeArticleCards
+}
