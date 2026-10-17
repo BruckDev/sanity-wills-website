@@ -1387,6 +1387,29 @@ export type Home = {
   _createdAt: string
   _updatedAt: string
   _rev: string
+  introduction?: {
+    title?: string
+    description?: string
+    ctaLabel?: string
+    ctaHref?: string
+    photoAlt?: string
+    lifeStages?: Array<{
+      label?: string
+      href?: string
+      _key: string
+    }>
+    beginningEyebrow?: string
+    beginningTitle?: string
+    basicsTitle?: string
+    basicsDescription?: string
+    basicsHref?: string
+    attorneyTitle?: string
+    attorneyDescription?: string
+    attorneyHref?: string
+    insightEyebrow?: string
+    insightTitle?: string
+    insightHref?: string
+  }
   articleCards?: Array<{
     title?: string
     description?: string
@@ -2071,8 +2094,31 @@ export type PlanningToolQueryResult = {
 
 // Source: sanity/lib/siteQueries.ts
 // Variable: homeAppearanceQuery
-// Query: *[_type == "home"][0]{planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url, articleCards[0...6]{title, description, href, alt, "image": coalesce(image.asset->url, imagePath)}}
+// Query: *[_type == "home"][0]{introduction, planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url, articleCards[0...6]{title, description, href, alt, "image": coalesce(image.asset->url, imagePath)}}
 export type HomeAppearanceQueryResult = {
+  introduction: {
+    title?: string
+    description?: string
+    ctaLabel?: string
+    ctaHref?: string
+    photoAlt?: string
+    lifeStages?: Array<{
+      label?: string
+      href?: string
+      _key: string
+    }>
+    beginningEyebrow?: string
+    beginningTitle?: string
+    basicsTitle?: string
+    basicsDescription?: string
+    basicsHref?: string
+    attorneyTitle?: string
+    attorneyDescription?: string
+    attorneyHref?: string
+    insightEyebrow?: string
+    insightTitle?: string
+    insightHref?: string
+  } | null
   planningEyebrow: string | null
   planChooserHeading: string | null
   attorneySearchBackground: string | null
@@ -3530,7 +3576,7 @@ declare module '@sanity/client' {
     '*[_type == "attorneyProgram" && _id == "attorneyProgram"][0]{...}': ProgramQueryResult
     '*[_type == "lifeEvent" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, urgency, checklist, faqs, article{title, intro, sections[]{heading, paragraphs, questions, afterQuestions, items[]{title, description}, checklist, afterChecklist, resources[]{label, href}}, conclusion, disclaimer}}': LifeEventQueryResult
     '*[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time, worksheet{title, intro, privacyNote, statusLabel, unansweredLabel, doneLabel, followUpLabel, notApplicableLabel, notesLabel, summaryTitle, progressLabel, nextSteps, printLabel, downloadLabel, disclaimer, questions[]{_key, prompt, help}}}': PlanningToolQueryResult
-    '*[_type == "home"][0]{planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url, articleCards[0...6]{title, description, href, alt, "image": coalesce(image.asset->url, imagePath)}}': HomeAppearanceQueryResult
+    '*[_type == "home"][0]{introduction, planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url, articleCards[0...6]{title, description, href, alt, "image": coalesce(image.asset->url, imagePath)}}': HomeAppearanceQueryResult
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    siteTitle,\n    brandEyebrow,\n    headerNavigation[]{\n      label,\n      href,\n      description,\n      children[]{\n        label,\n        href,\n        style\n      }\n    },\n    contactMethods[]{\n      label,\n      value,\n      href\n    },\n    linkedin,\n    footerColumns[]{\n      title,\n      body,\n      links[]{\n        label,\n        href,\n        style\n      }\n    },\n    footerNote,\n    uiText{\n      heroStatsHeading,\n      headerContactCtaLabel,\n      headerMenuToggleLabel,\n      mainNavigationLabel,\n      mobileNavigationLabel,\n      footerLinkedinLabel,\n      footerLinkedinPlaceholder,\n      footerPrivacyLabel,\n      footerAccessibilityLabel\n    },\n    ogImage,\n    seo\n  }\n': SettingsQueryResult
     '\n  *[_type == "home"][0]{\n    _id,\n    _type,\n    title,\n    display{\n      heroEyebrow,\n      heroBackgroundImageAlt,\n      heroReassuranceHeading,\n      heroReassuranceText,\n      servicesEyebrow,\n      serviceCardLinkLabel,\n      allServicesLinkLabel,\n      servicesAnimationAriaLabel,\n      insightsEyebrow,\n      caseStudiesEyebrow,\n      caseStudiesTitle,\n      caseStudiesDescription,\n      caseStudyPlaceholderLabel,\n      industriesEyebrow,\n      governmentEyebrow,\n      governmentCtaLabel,\n      governmentPanelTitle,\n      governmentPanelSubtitle,\n      engineeringEyebrow,\n      whyUsEyebrow,\n      finalCtaEyebrow\n    },\n    overview,\n    heroPrimaryCta{label, href, style},\n    heroSecondaryCta{label, href, style},\n    heroHighlights[]{value, label},\n    servicesTitle,\n    servicesIntro,\n    servicesVideoTitle,\n    servicesVideoText,\n    servicesVideoLinks[]{label, href, style},\n    featuredServices[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      summary\n    },\n    insightsTitle,\n    insightsIntro,\n    featuredInsights[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      excerpt,\n      articleType,\n      estimatedReadTime,\n      publishedAt,\n      coverImage{\n        ...,\n        asset->\n      }\n    },\n    featuredCaseStudies[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      excerpt\n    },\n    industriesTitle,\n    industriesIntro,\n    featuredIndustries[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      summary\n    },\n    governmentTitle,\n    governmentIntro,\n    governmentCapabilities,\n    engineeringCapabilitiesTitle,\n    engineeringCapabilitiesIntro,\n    engineeringCapabilities[]{title, text},\n    whyUsTitle,\n    whyUsCards[]{\n      title,\n      text\n    },\n    finalCtaTitle,\n    finalCtaText,\n    finalPrimaryCta{label, href, style},\n    finalSecondaryCta{label, href, style},\n    seo\n  }\n': HomeQueryResult
     '\n  *[_type == "home"][0]{\n    display{\n      heroReassuranceHeading,\n      heroReassuranceText\n    }\n  }\n': HomeHeroReassuranceQueryResult

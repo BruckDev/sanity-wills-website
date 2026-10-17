@@ -22,7 +22,10 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 z-40 select-none border-b border-white/15 bg-[#071f33] text-white backdrop-blur-md">
+    <header
+      data-home={pathname === '/'}
+      className="site-header sticky top-0 z-40 select-none border-b border-white/15 bg-[#071f33] text-white backdrop-blur-md"
+    >
       <div className="mx-auto flex w-full max-w-[88rem] items-center justify-between gap-4 px-5 py-4 md:px-8 md:py-5">
         <Link href="/" className="cursor-pointer shrink-0" onClick={() => setOpen(false)}>
           <span className="font-serif text-4xl tracking-[-0.06em] text-white md:text-5xl">

@@ -1,6 +1,7 @@
 import {HomeIcon} from '@sanity/icons'
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {homeArticleCards} from '../../lib/homeArticleCards'
+import {homeIntroduction} from '../../lib/homeIntroduction'
 
 export default defineType({
   name: 'home',
@@ -8,6 +9,57 @@ export default defineType({
   type: 'document',
   icon: HomeIcon,
   fields: [
+    defineField({
+      name: 'introduction',
+      title: 'Homepage introduction',
+      type: 'object',
+      initialValue: homeIntroduction,
+      fields: Object.entries(homeIntroduction).map(([name, value]) =>
+        defineField(
+          Array.isArray(value)
+            ? {
+                name,
+                title: 'Life stages',
+                type: 'array',
+                validation: (rule) => rule.length(4),
+                of: [
+                  defineArrayMember({
+                    type: 'object',
+                    fields: [
+                      defineField({
+                        name: 'label',
+                        type: 'string',
+                        validation: (rule) => rule.required(),
+                      }),
+                      defineField({
+                        name: 'href',
+                        type: 'string',
+                        validation: (rule) => rule.required().regex(/^(\/|#|https:\/\/)/),
+                      }),
+                    ],
+                  }),
+                ],
+              }
+            : {
+                name,
+                title: name
+                  .replace(/([A-Z])/g, ' $1')
+                  .replace(/^./, (letter) => letter.toUpperCase()),
+                type:
+                  name === 'title' || name.endsWith('Description') || name === 'description'
+                    ? 'text'
+                    : 'string',
+                initialValue: value,
+                ...(name.endsWith('Href')
+                  ? {
+                      validation: (rule: import('sanity').StringRule) =>
+                        rule.regex(/^(\/|#|https:\/\/)/),
+                    }
+                  : {}),
+              },
+        ),
+      ),
+    }),
     defineField({
       name: 'articleCards',
       title: 'Homepage article cards',

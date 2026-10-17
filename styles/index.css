@@ -34,3 +34,34 @@ h6 {
 .font-cursive {
   font-family: 'Segoe Script', 'Apple Chancery', 'Brush Script MT', cursive;
 }
+
+.site-header[data-home='true'] {
+  border-color: #e4eae7;
+  background: white;
+  color: #082d4c;
+}
+
+.site-header[data-home='true'] a,
+.site-header[data-home='true'] a > span,
+.site-header[data-home='true'] button {
+  color: #082d4c;
+}
+
+.site-header[data-home='true'] button,
+.site-header[data-home='true'] nav > a:last-child {
+  border-color: #7ba79e;
+}
+
+.site-header[data-home='true'] nav {
+  background: white;
+}
+
+.site-header[data-home='true'] a:hover,
+.site-header[data-home='true'] button:hover {
+  background: #edf6f2;
+  color: #006e65;
+}
+
+#plan-chooser-title {
+  scroll-margin-top: 8rem;
+}

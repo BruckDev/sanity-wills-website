@@ -1,7 +1,9 @@
 import {AttorneyZipSearch} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
+import {HomeIntroduction} from '@/components/site/HomeIntroduction'
 import {PlanChooser} from '@/components/site/PlanChooser'
 import {homeArticleCards, type HomeArticleCard} from '@/sanity/lib/homeArticleCards'
+import {homeIntroduction, type HomeIntroductionContent} from '@/sanity/lib/homeIntroduction'
 import {getDynamicFetchOptions, sanityFetch, type DynamicFetchOptions} from '@/sanity/lib/live'
 import {homeAppearanceQuery} from '@/sanity/lib/siteQueries'
 import {draftMode} from 'next/headers'
@@ -10,38 +12,6 @@ import Link from 'next/link'
 import {Suspense} from 'react'
 
 type HeroBenefitIcon = 'children' | 'home' | 'guidance' | 'wishes'
-
-const heroPaths: Array<{
-  icon: HeroBenefitIcon
-  label: string
-  detail: string
-  href: string
-}> = [
-  {
-    icon: 'children',
-    label: 'Protect your children',
-    detail: 'Help ensure the people you love are cared for.',
-    href: '/life-events/new-parents',
-  },
-  {
-    icon: 'home',
-    label: 'Protect your home',
-    detail: 'Safeguard what you have worked so hard for.',
-    href: '/trusts',
-  },
-  {
-    icon: 'guidance',
-    label: 'Reduce family conflict',
-    detail: 'Provide clarity today for a more peaceful tomorrow.',
-    href: '/estate-planning',
-  },
-  {
-    icon: 'wishes',
-    label: 'Make your wishes known',
-    detail: 'Ensure your values and wishes are honored.',
-    href: '/#attorney-search',
-  },
-]
 
 function HeroBenefitIcon({
   icon,
@@ -151,7 +121,17 @@ async function CachedHome(fetchOptions: DynamicFetchOptions) {
   const {data} = await sanityFetch({query: homeAppearanceQuery, ...fetchOptions})
   return (
     <HomeContent
-      eyebrow={data?.planningEyebrow}
+      introduction={{
+        ...homeIntroduction,
+        ...Object.fromEntries(
+          Object.entries(data?.introduction || {}).filter(([, value]) => value != null),
+        ),
+        lifeStages: data?.introduction?.lifeStages?.length
+          ? data.introduction.lifeStages
+              .filter((stage) => stage.label && stage.href)
+              .map((stage) => ({label: stage.label!, href: stage.href!}))
+          : homeIntroduction.lifeStages,
+      }}
       background={data?.attorneySearchBackground}
       planHeading={data?.planChooserHeading}
       articleCards={data?.articleCards
@@ -168,118 +148,19 @@ async function CachedHome(fetchOptions: DynamicFetchOptions) {
 }
 
 function HomeContent({
-  eyebrow,
+  introduction = homeIntroduction,
   background,
   planHeading,
   articleCards,
 }: {
-  eyebrow?: string | null
+  introduction?: HomeIntroductionContent
   background?: string | null
   articleCards?: HomeArticleCard[] | null
   planHeading?: string | null
 }) {
   return (
     <div>
-      <div className="-mt-8 space-y-0 md:-mt-12 lg:-mt-14">
-        <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-[#e5ece7] bg-[#f4f6f9]">
-          <div className="mx-auto grid w-full max-w-[88rem] gap-8 px-6 py-10 md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-0 md:px-12 md:py-6 lg:py-0 xl:px-16">
-            <div className="max-w-xl">
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#597385]">
-                {eyebrow || 'estate planning made simple'}
-              </div>
-              <h1 className="mt-3 font-serif text-[clamp(2.9rem,5.5vw,4.55rem)] leading-[1.03] tracking-[-0.045em] text-[#082d4c]">
-                Protect What Matters Most
-              </h1>
-              <p className="mt-4 max-w-lg text-base leading-7 text-[#3b596b] md:text-lg">
-                Create a will, protect your family, and make your wishes clear—with guidance that
-                meets you where you are.
-              </p>
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <ButtonLink
-                  href="/create-a-will"
-                  label="Start my will  →"
-                  style="teal"
-                  className="rounded-full px-7"
-                />
-                <Link
-                  href="/find-an-attorney"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#07304d] underline decoration-[#10a88a] decoration-2 underline-offset-4 hover:text-[#0c8b78]"
-                >
-                  Find an attorney <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </div>
-            <div className="relative mx-auto w-full max-w-[48rem] md:w-[calc(100%+3rem)] md:translate-x-10 md:-translate-y-2">
-              <div className="absolute -left-5 bottom-2 h-40 w-40 rounded-full bg-[#dff2e9] blur-2xl" />
-              <div className="relative aspect-[1.62] overflow-hidden rounded-[42%_4%_37%_4%] shadow-[0_10px_30px_rgba(22,56,72,0.06)]">
-                <Image
-                  src="/images/estate-planning/hero-protect-what-matters.png"
-                  alt="A multigenerational family spending time together at home"
-                  fill
-                  priority
-                  className="object-cover object-center"
-                  sizes="(min-width: 1024px) 52vw, 100vw"
-                />
-              </div>
-              <div className="pointer-events-none absolute bottom-0 right-0 hidden h-40 w-64 sm:block">
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 256 160"
-                  className="absolute inset-0 h-full w-full"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M0 160C38 132 43 65 98 39C145 17 206 28 256 0V160Z" fill="#eaf6f0" />
-                </svg>
-                <div className="absolute bottom-6 right-10 w-44 -rotate-6 text-center font-cursive text-base font-semibold leading-7 text-[#0c4462]">
-                  A brighter
-                  <br />
-                  tomorrow, together
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 120 12"
-                    className="ml-auto mr-3 mt-1 h-3 w-28"
-                    fill="none"
-                  >
-                    <path
-                      d="M3 10Q56 1 117 4"
-                      stroke="#80cec1"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="relative left-1/2 w-screen -translate-x-1/2 border-b border-[#dbe9e3] bg-[#eff9f5]">
-          <div className="mx-auto grid w-full max-w-[88rem] sm:grid-cols-2 md:grid-cols-4">
-            {heroPaths.map((path, index) => (
-              <Link
-                key={path.href}
-                href={path.href}
-                data-guide-attorney-zip={path.href === '/#attorney-search' || undefined}
-                className={`group px-5 py-5 text-center transition hover:bg-white/55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[color:var(--teal)] ${
-                  index === 1
-                    ? 'border-t border-[#dbe9e3] sm:border-l sm:border-t-0'
-                    : index === 2
-                      ? 'border-t border-[#dbe9e3]'
-                      : index === 3
-                        ? 'border-t border-[#dbe9e3] sm:border-l sm:border-t-0'
-                        : ''
-                } ${index > 0 ? 'md:border-l md:border-t-0' : ''}`}
-              >
-                <span className="mx-auto flex h-11 w-11 items-center justify-center text-[#083f63]">
-                  <HeroBenefitIcon icon={path.icon} className="h-8 w-8" />
-                </span>
-                <span className="mt-2 block font-serif text-xl text-[#062842]">{path.label}</span>
-                <span className="mt-2 block text-base leading-6 text-[#547080]">{path.detail}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-      </div>
+      <HomeIntroduction content={introduction} />
 
       <PlanChooser heading={planHeading} />
 
