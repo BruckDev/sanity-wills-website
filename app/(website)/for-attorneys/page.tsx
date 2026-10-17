@@ -50,6 +50,7 @@ function httpsLink(value: string) {
 
 function ProgramPage({page}: {page: AttorneyProgramContent}) {
   const callUrl = httpsLink(page.callUrl)
+  const checkoutUrl = httpsLink(page.plans[0]?.checkoutUrl || '')
   return (
     <div className="space-y-14 pb-10 md:space-y-20">
       <section className="rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-12 md:py-16">
@@ -64,6 +65,12 @@ function ProgramPage({page}: {page: AttorneyProgramContent}) {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/80">{page.intro}</p>
             <div className="mt-8 flex flex-wrap gap-3" data-program-cta="hero">
               <ButtonLink href="#apply" label={page.applyLabel} />
+              <ButtonLink
+                href="/featured-attorneys/freidman-berenstein-anderson"
+                label={page.sampleProfileLabel}
+                style="secondary"
+              />
+              {checkoutUrl && <ButtonLink href={checkoutUrl} label={page.stripePayLabel} />}
               <ButtonLink
                 href={callUrl || stegaClean(page.callEmail)}
                 label={callUrl ? page.callLabel : page.callFallbackLabel}

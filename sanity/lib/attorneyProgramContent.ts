@@ -10,6 +10,8 @@ export const attorneyProgramContent = {
     'Introduce your estate-planning firm to people exploring wills, trusts, and their next steps. Join the Wills.com Founding Attorney Program with a clearly labeled paid profile and a fixed monthly fee.',
   badge: 'Founding Attorney Program · First 100 firms',
   applyLabel: 'Apply for a founding profile',
+  sampleProfileLabel: 'View sample attorney profile',
+  stripePayLabel: 'Pay $29.99/month with Stripe',
   callLabel: 'Schedule a call',
   callFallbackLabel: 'Request a call by email',
   callUrl: '',

@@ -7495,6 +7495,20 @@
         },
         "optional": true
       },
+      "sampleProfileLabel": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "stripePayLabel": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "callLabel": {
         "type": "objectAttribute",
         "value": {
