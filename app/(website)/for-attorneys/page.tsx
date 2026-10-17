@@ -15,7 +15,7 @@ import {Suspense} from 'react'
 export const metadata: Metadata = {
   title: 'For Attorneys / Advertise — Founding Attorney Program',
   description:
-    'Join the Wills.com Founding Attorney Program. $69/month for the first 100 firms, or $99/month with video or featured educational content. Fixed-fee, labeled advertising.',
+    'Join the Wills.com Founding Attorney Program. $39/month for the first 100 firms, or $99/month with video or featured educational content. Fixed-fee, labeled advertising.',
   alternates: {canonical: 'https://wills.com/for-attorneys'},
 }
 
