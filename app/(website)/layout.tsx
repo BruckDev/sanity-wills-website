@@ -3,7 +3,10 @@ import {ConversionAnalytics} from '@/components/site/ConversionAnalytics'
 import {SiteFooter} from '@/components/site/SiteFooter'
 import {SiteHeader} from '@/components/site/SiteHeader'
 import {getAttorneyProgram} from '@/sanity/lib/attorneyProgram'
-import type {AttorneyProgramContent} from '@/sanity/lib/attorneyProgramContent'
+import {
+  attorneyProgramContent,
+  type AttorneyProgramContent,
+} from '@/sanity/lib/attorneyProgramContent'
 import {
   getDynamicFetchOptions,
   sanityFetch,
@@ -72,7 +75,11 @@ async function DynamicWebsiteHeader() {
 
 async function CachedWebsiteHeader(fetchOptions: DynamicFetchOptions) {
   'use cache'
-  return <WebsiteHeader data={await fetchSettings(fetchOptions)} />
+  const [data, program] = await Promise.all([
+    fetchSettings(fetchOptions),
+    getAttorneyProgram(fetchOptions),
+  ])
+  return <WebsiteHeader data={data} program={program} />
 }
 
 async function DynamicWebsiteFooter() {
@@ -99,7 +106,13 @@ async function fetchSettings(fetchOptions: DynamicFetchOptions) {
   return (data as any) || fallbackSettings
 }
 
-function WebsiteHeader({data}: {data: any}) {
+function WebsiteHeader({
+  data,
+  program = attorneyProgramContent,
+}: {
+  data: any
+  program?: AttorneyProgramContent
+}) {
   return (
     <SiteHeader
       navigation={[
@@ -109,6 +122,7 @@ function WebsiteHeader({data}: {data: any}) {
         {label: 'Life events', href: '/life-events'},
         {label: 'Free tools', href: '/tools'},
         {label: 'Articles', href: '/insights'},
+        {label: program.headerLabel, href: '/for-attorneys'},
       ]}
     />
   )

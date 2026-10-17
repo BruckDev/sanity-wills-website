@@ -7432,6 +7432,13 @@
           "type": "string"
         }
       },
+      "headerLabel": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "eyebrow": {
         "type": "objectAttribute",
         "value": {

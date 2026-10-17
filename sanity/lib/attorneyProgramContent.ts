@@ -1,4 +1,5 @@
 export const attorneyProgramContent = {
+  headerLabel: 'For Attorneys',
   eyebrow: 'For attorneys / Advertise',
   contactPromoTitle: 'Founding Attorney Program',
   contactPromoCopy:

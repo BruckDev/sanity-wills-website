@@ -1023,6 +1023,7 @@ export type AttorneyProgram = {
   _createdAt: string
   _updatedAt: string
   _rev: string
+  headerLabel?: string
   eyebrow?: string
   contactPromoTitle?: string
   contactPromoCopy?: string
@@ -1886,6 +1887,7 @@ export type ProgramQueryResult = {
   _createdAt: string
   _updatedAt: string
   _rev: string
+  headerLabel?: string
   eyebrow?: string
   contactPromoTitle?: string
   contactPromoCopy?: string

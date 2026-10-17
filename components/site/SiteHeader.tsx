@@ -39,7 +39,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
                 key={item.href}
                 href={item.href || '/'}
                 aria-current={active ? 'page' : undefined}
-                className={`cursor-pointer rounded-md border-b-2 px-2.5 py-3 text-base font-medium transition ${
+                className={`cursor-pointer whitespace-nowrap rounded-md border-b-2 px-2 py-3 text-sm font-medium transition 2xl:px-2.5 2xl:text-base ${
                   active
                     ? 'border-[color:var(--accent)] bg-white/10 text-[#7ee0c7]'
                     : 'border-transparent text-white hover:bg-white/10 hover:text-[#7ee0c7]'
@@ -52,7 +52,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
           <Link
             href="/#attorney-search"
             aria-current={isCurrent('/find-an-attorney') ? 'page' : undefined}
-            className={`ml-2 shrink-0 cursor-pointer rounded-full border px-5 py-3 text-center text-base font-semibold transition ${
+            className={`ml-2 shrink-0 cursor-pointer rounded-full border px-4 py-3 text-center text-sm font-semibold transition 2xl:px-5 2xl:text-base ${
               isCurrent('/find-an-attorney')
                 ? 'border-[#075f43] bg-[#dff3ea] text-[#075f43]'
                 : 'border-[#7ee0c7] text-[#7ee0c7] hover:bg-white/10'
