@@ -1,12 +1,16 @@
-import {ArticleCardGrid} from '@/components/site/ArticleCardGrid'
+import {ArticleTopicBrowser} from '@/components/site/ArticleTopicBrowser'
 import {ButtonLink} from '@/components/site/ButtonLink'
+import {
+  articleDirectoryContent,
+  type ArticleDirectoryContent,
+} from '@/sanity/lib/articleDirectoryContent'
 import {
   homeArticleCards,
   resolveHomeArticleCards,
   type HomeArticleCard,
 } from '@/sanity/lib/homeArticleCards'
 import {getDynamicFetchOptions, sanityFetch, type DynamicFetchOptions} from '@/sanity/lib/live'
-import {homeAppearanceQuery} from '@/sanity/lib/siteQueries'
+import {homeAppearanceQuery, insightsLandingQuery} from '@/sanity/lib/siteQueries'
 import type {Metadata} from 'next'
 import {draftMode} from 'next/headers'
 import Image from 'next/image'
@@ -15,14 +19,15 @@ import {Suspense} from 'react'
 
 export const metadata: Metadata = {
   title: 'Estate-planning articles',
-  description:
-    'Attorney-informed educational articles about wills, trusts, and estate-planning decisions.',
+  description: 'Educational articles about wills, trusts, and estate-planning decisions.',
 }
 
 export default async function InsightsPage() {
   const {isEnabled} = await draftMode()
   return isEnabled ? (
-    <Suspense fallback={<InsightsContent cards={homeArticleCards} />}>
+    <Suspense
+      fallback={<InsightsContent cards={homeArticleCards} content={articleDirectoryContent} />}
+    >
       <DynamicInsights />
     </Suspense>
   ) : (
@@ -36,184 +41,167 @@ async function DynamicInsights() {
 
 async function CachedInsights(options: DynamicFetchOptions) {
   'use cache'
-  const {data} = await sanityFetch({query: homeAppearanceQuery, ...options})
-  return <InsightsContent cards={resolveHomeArticleCards(data?.articleCards)} />
+  const [{data}, {data: landing}] = await Promise.all([
+    sanityFetch({query: homeAppearanceQuery, ...options}),
+    sanityFetch({query: insightsLandingQuery, ...options}),
+  ])
+  const content = {
+    ...articleDirectoryContent,
+    ...Object.fromEntries(
+      Object.entries(landing?.directory || {}).filter(([, value]) => value != null),
+    ),
+  }
+  return <InsightsContent cards={resolveHomeArticleCards(data?.articleCards)} content={content} />
 }
 
-function InsightsContent({cards}: {cards: HomeArticleCard[]}) {
+function InsightsContent({
+  cards,
+  content,
+}: {
+  cards: HomeArticleCard[]
+  content: ArticleDirectoryContent
+}) {
+  const [lead, ...remaining] = cards
   return (
-    <div className="space-y-16 md:space-y-20">
-      <section className="rounded-[2rem] border border-[#d5d7cb] bg-[#eef1e8] px-6 py-12 md:px-12 md:py-16">
-        <div className="max-w-4xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            Estate-planning articles
+    <div className="relative left-1/2 -mt-8 w-screen -translate-x-1/2 bg-white text-[#082d4c] md:-mt-12 lg:-mt-14">
+      <section className="relative isolate pb-12 pt-8 md:pb-16">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[linear-gradient(160deg,#00766b_0%,#064c4d_50%,#082d4c_100%)] md:h-[35rem]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 -z-10 h-[36rem] opacity-[0.08] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:40px_40px] md:h-[35rem]"
+        />
+        <div className="mx-auto max-w-[76rem] px-5 md:px-10">
+          <div className="flex justify-end">
+            <Link
+              href="/editorial-policy"
+              className="text-xs text-white/90 underline underline-offset-4"
+            >
+              {content.policyLabel}
+            </Link>
           </div>
-          <h1 className="mt-5 font-serif text-5xl leading-[0.98] tracking-[-0.045em] text-[color:var(--fg)] md:text-7xl">
-            Better questions make for better planning conversations.
-          </h1>
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-[color:var(--muted)] md:text-xl">
-            Our editorial library is being built for clear, attorney-informed explanations of
-            estate-planning concepts. Articles will identify their author and the jurisdictional
-            context they address.
-          </p>
+          <header className="mx-auto max-w-4xl pb-9 pt-7 text-center text-white md:pb-12">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c2e7dc]">
+              {content.eyebrow}
+            </p>
+            <h1 className="mt-4 text-4xl font-bold leading-[1.1] tracking-[-0.035em] sm:text-5xl lg:text-6xl">
+              {content.title}
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/90 md:text-lg">
+              {content.description}
+            </p>
+          </header>
+          {lead && (
+            <div className="grid gap-5 lg:grid-cols-[1.45fr_1fr]">
+              <article className="overflow-hidden rounded-xl bg-white p-4 shadow-[0_12px_36px_rgba(7,31,51,0.12)] md:p-5">
+                <Link
+                  href={lead.href}
+                  aria-label={lead.title}
+                  className="relative block aspect-[1.9] overflow-hidden rounded-md"
+                >
+                  <Image
+                    src={lead.image}
+                    alt={lead.alt}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 640px, 100vw"
+                    className="object-cover"
+                  />
+                </Link>
+                <div className="px-1 pb-3 pt-5">
+                  <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#007668]">
+                    {content.featuredLabel}{' '}
+                    <span aria-hidden="true" className="px-1 text-[#8ca69d]">
+                      ·
+                    </span>{' '}
+                    {lead.category}
+                  </p>
+                  <h2 className="mt-3 text-2xl font-bold leading-tight tracking-[-0.02em] md:text-3xl">
+                    <Link href={lead.href} className="hover:underline">
+                      {lead.title}
+                    </Link>
+                  </h2>
+                  <p className="mt-3 text-base leading-7 text-[#547080]">{lead.description}</p>
+                  <Link
+                    href={lead.href}
+                    className="mt-1 inline-block text-sm font-semibold text-[#007668] underline underline-offset-4"
+                  >
+                    {content.readLabel} <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </article>
+              <div className="grid gap-5">
+                {remaining.slice(0, 3).map((article) => (
+                  <article
+                    key={article.href}
+                    className="grid grid-cols-[6.5rem_1fr] items-center gap-4 rounded-xl bg-white p-4 shadow-[0_10px_30px_rgba(7,31,51,0.1)] sm:grid-cols-[9rem_1fr] md:p-5 lg:grid-cols-[8rem_1fr]"
+                  >
+                    <Link
+                      href={article.href}
+                      aria-label={article.title}
+                      className="relative block aspect-[1.3] overflow-hidden rounded-md"
+                    >
+                      <Image
+                        src={article.image}
+                        alt={article.alt}
+                        fill
+                        sizes="144px"
+                        className="object-cover"
+                      />
+                    </Link>
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.09em] text-[#007668]">
+                        {article.category}
+                      </p>
+                      <h2 className="mt-2 text-base font-bold leading-snug md:text-lg">
+                        <Link href={article.href} className="hover:underline">
+                          {article.title}
+                        </Link>
+                      </h2>
+                      <Link
+                        href={article.href}
+                        className="mt-3 inline-block text-xs font-semibold text-[#007668] underline underline-offset-4"
+                      >
+                        {content.readLabel} <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
-      <section id="articles" className="scroll-mt-32">
-        <ArticleCardGrid cards={cards} headingLevel={2} />
-      </section>
-      <section className="overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-white md:grid md:grid-cols-2">
-        <div className="relative min-h-72">
-          <Image
-            src="/images/estate-planning/tax-planning.png"
-            alt="Tax and estate-planning paperwork with a calculator"
-            fill
-            className="object-cover"
-            sizes="(min-width: 768px) 50vw, 100vw"
+      <div className="mx-auto max-w-[76rem] space-y-14 px-5 pb-14 md:px-10 md:pb-20">
+        <ArticleTopicBrowser cards={cards} content={content} />
+        <aside className="flex flex-col gap-6 border-y border-[#d8e3df] bg-[#f1f8f5] px-6 py-8 md:flex-row md:items-center md:justify-between md:px-9">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl font-bold tracking-tight">{content.guidanceTitle}</h2>
+            <p className="mt-3 text-base leading-7 text-[#547080]">{content.guidanceCopy}</p>
+          </div>
+          <ButtonLink
+            href="/find-an-attorney"
+            label={content.guidanceLabel}
+            style="teal"
+            className="shrink-0 rounded-full"
           />
-        </div>
-        <div className="p-7 md:p-10">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            A coordinated conversation
-          </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)]">
-            Bring the right advisers into the room.
-          </h2>
-          <p className="mt-5 leading-8 text-[color:var(--muted)]">
-            Legal, tax, insurance, and financial considerations can overlap. A qualified attorney
-            can help determine when other professionals should be part of the planning process.
+        </aside>
+        <section className="max-w-3xl">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#007668]">
+            {content.contributeEyebrow}
           </p>
-          <div className="mt-7">
-            <ButtonLink
-              href="/#attorney-search"
-              label="Find an adviser near you"
-              className="!border-[color:var(--accent)] !bg-[color:var(--accent)] !text-[#061e31] hover:!bg-[color:var(--accent-strong)] hover:!text-[#061e31]"
-            />
-          </div>
-        </div>
-      </section>
-      <section className="grid gap-7 overflow-hidden rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <div>
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            A common planning question
-          </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-            Avoid probate when possible.
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--muted)]">
-            Probate can add time cost and public records to a difficult moment. Learn when a living
-            trust or other planning choices may help your loved ones reduce delays and keep more of
-            your affairs private.
-          </p>
-          <div className="mt-7">
-            <ButtonLink href="/trusts" label="Learn about trusts and probate" />
-          </div>
-        </div>
-        <div className="rounded-2xl border border-[#cbdce3] bg-white p-6 md:p-7">
-          <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
-            Start with the right questions
-          </div>
-          <ul className="mt-5 space-y-4 text-sm leading-6 text-[color:var(--fg)]">
-            <li className="border-t border-[#d6e2e8] pt-4">
-              What property may need a different ownership or beneficiary arrangement?
-            </li>
-            <li className="border-t border-[#d6e2e8] pt-4">
-              Who should manage property for the people you love?
-            </li>
-            <li className="border-t border-[#d6e2e8] pt-4">
-              Which choices need state-specific legal advice?
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] p-7 md:p-10">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl">
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-              Wills.com journal
-            </div>
-            <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-              Helpful guides for the questions ahead.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-              Explore practical, attorney-informed topics designed to make your next step easier to
-              understand.
-            </p>
-          </div>
-          <ButtonLink href="#articles" label="Browse articles" />
-        </div>
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
-          <Link
-            href="/wills"
-            className="group rounded-2xl border border-[#d6e2e8] bg-white p-6 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
-          >
-            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
-              Guide
-            </div>
-            <h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
-              How a will fits into a plan
-            </h3>
-            <p className="mt-3 leading-7 text-[color:var(--muted)]">
-              Start with the role a will can play when documenting directions and naming key people.
-            </p>
-            <span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
-              Explore the topic →
-            </span>
-          </Link>
-          <Link
-            href="/trusts"
-            className="group rounded-2xl border border-[#d6e2e8] bg-white p-6 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
-          >
-            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
-              Guide
-            </div>
-            <h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
-              Questions to ask about trusts
-            </h3>
-            <p className="mt-3 leading-7 text-[color:var(--muted)]">
-              Understand the decisions that may matter when property needs stewardship over time.
-            </p>
-            <span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
-              Explore the topic →
-            </span>
-          </Link>
-          <Link
-            href="/#attorney-search"
-            className="group rounded-2xl border border-[#d6e2e8] bg-white p-6 transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
-          >
-            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
-              Guide
-            </div>
-            <h3 className="mt-4 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
-              Preparing for an attorney meeting
-            </h3>
-            <p className="mt-3 leading-7 text-[color:var(--muted)]">
-              Bring the right people, documents, and questions into the conversation.
-            </p>
-            <span className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent-strong)] group-hover:underline">
-              Explore the topic →
-            </span>
-          </Link>
-        </div>
-      </section>
-
-      <section className="rounded-[2rem] border border-[#d6e2e8] bg-[#eaf3f6] px-7 py-10 text-[color:var(--fg)] md:px-10">
-        <div className="max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-            For legal professionals
-          </div>
-          <h2 className="mt-4 font-serif text-4xl tracking-[-0.035em]">
-            Interested in contributing?
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-[color:var(--muted)]">
-            We welcome original, public-facing educational content from attorney offices. Help
-            readers understand a topic without turning a general article into individualized legal
-            advice.
-          </p>
-          <div className="mt-8">
-            <ButtonLink href="/contact" label="Share an article idea" />
-          </div>
-        </div>
-      </section>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight">{content.contributeTitle}</h2>
+          <p className="mt-4 text-base leading-7 text-[#547080]">{content.contributeCopy}</p>
+          <ButtonLink
+            href="/contact"
+            label={content.contributeLabel}
+            style="text"
+            className="mt-3"
+          />
+        </section>
+      </div>
     </div>
   )
 }

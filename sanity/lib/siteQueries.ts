@@ -1,7 +1,7 @@
 import {defineQuery} from 'next-sanity'
 
 export const homeAppearanceQuery = defineQuery(
-  `*[_type == "home"][0]{introduction, planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url, articleCards[0...6]{title, description, href, alt, "image": coalesce(image.asset->url, imagePath)}}`,
+  `*[_type == "home"][0]{introduction, planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url, articleCards[0...6]{title, category, description, href, alt, "image": coalesce(image.asset->url, imagePath)}}`,
 )
 
 export const settingsQuery = defineQuery(`
@@ -488,7 +488,7 @@ export const industriesLandingQuery = defineQuery(`
 `)
 
 export const insightsLandingQuery = defineQuery(`
-  *[_type == "insightsLanding"][0]{
+  *[_type == "insightsLanding"][0]{directory,
     _id,
     eyebrow,
     title,

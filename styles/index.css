@@ -35,29 +35,29 @@ h6 {
   font-family: 'Segoe Script', 'Apple Chancery', 'Brush Script MT', cursive;
 }
 
-.site-header[data-home='true'] {
+.site-header[data-light='true'] {
   border-color: #e4eae7;
   background: white;
   color: #082d4c;
 }
 
-.site-header[data-home='true'] a,
-.site-header[data-home='true'] a > span,
-.site-header[data-home='true'] button {
+.site-header[data-light='true'] a,
+.site-header[data-light='true'] a > span,
+.site-header[data-light='true'] button {
   color: #082d4c;
 }
 
-.site-header[data-home='true'] button,
-.site-header[data-home='true'] nav > a:last-child {
+.site-header[data-light='true'] button,
+.site-header[data-light='true'] nav > a:last-child {
   border-color: #7ba79e;
 }
 
-.site-header[data-home='true'] nav {
+.site-header[data-light='true'] nav {
   background: white;
 }
 
-.site-header[data-home='true'] a:hover,
-.site-header[data-home='true'] button:hover {
+.site-header[data-light='true'] a:hover,
+.site-header[data-light='true'] button:hover {
   background: #edf6f2;
   color: #006e65;
 }

@@ -1,5 +1,6 @@
 import {DocumentIcon} from '@sanity/icons'
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {articleDirectoryContent} from '../../lib/articleDirectoryContent'
 
 export default defineType({
   name: 'insightsLanding',
@@ -7,6 +8,20 @@ export default defineType({
   type: 'document',
   icon: DocumentIcon,
   fields: [
+    defineField({
+      name: 'directory',
+      title: 'Articles directory display',
+      type: 'object',
+      initialValue: articleDirectoryContent,
+      fields: Object.entries(articleDirectoryContent).map(([name, value]) =>
+        defineField({
+          name,
+          title: name.replace(/([A-Z])/g, ' $1').replace(/^./, (letter) => letter.toUpperCase()),
+          type: value.length > 100 ? 'text' : 'string',
+          initialValue: value,
+        }),
+      ),
+    }),
     defineField({name: 'eyebrow', title: 'Hero eyebrow', type: 'string', initialValue: 'Insights'}),
     defineField({
       name: 'title',

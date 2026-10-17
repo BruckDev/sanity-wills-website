@@ -23,7 +23,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
 
   return (
     <header
-      data-home={pathname === '/'}
+      data-light={pathname === '/' || pathname === '/insights'}
       className="site-header sticky top-0 z-40 select-none border-b border-white/15 bg-[#071f33] text-white backdrop-blur-md"
     >
       <div className="mx-auto flex w-full max-w-[88rem] items-center justify-between gap-4 px-5 py-4 md:px-8 md:py-5">

@@ -1,6 +1,7 @@
 export const homeArticleCards = [
   {
     title: 'Will vs. Trust: Which Is Right for Your Family?',
+    category: 'Wills & trusts',
     description: 'Understand the key differences and find the option that may fit your goals.',
     href: '/trusts',
     image: '/images/estate-planning/will-document.png',
@@ -8,6 +9,7 @@ export const homeArticleCards = [
   },
   {
     title: 'Naming Guardians for Minor Children',
+    category: 'Family planning',
     description: 'Learn what to consider when choosing guardians and making your wishes clear.',
     href: '/life-events/new-parents',
     image: '/images/estate-planning/hero-family-young.png',
@@ -15,6 +17,7 @@ export const homeArticleCards = [
   },
   {
     title: 'Estate Planning for New Homeowners',
+    category: 'Home & property',
     description: 'Discover key steps to protect your home and plan for the future.',
     href: '/life-events/new-homeowners',
     image: '/images/home/life-events/new-homeowners.jpg',
@@ -22,6 +25,7 @@ export const homeArticleCards = [
   },
   {
     title: 'Understanding Wills: Where to Start',
+    category: 'Wills & trusts',
     description:
       'Explore the basics of wills and the questions to bring to your planning conversation.',
     href: '/wills',
@@ -30,6 +34,7 @@ export const homeArticleCards = [
   },
   {
     title: 'Estate Planning When You Get Married',
+    category: 'Family planning',
     description: 'Explore planning questions for the next chapter of your life together.',
     href: '/life-events/getting-married',
     image: '/images/home/life-events/getting-married.jpg',
@@ -37,6 +42,7 @@ export const homeArticleCards = [
   },
   {
     title: 'Estate Planning for Business Owners',
+    category: 'Business planning',
     description:
       'Consider how your business fits into the plans you make for your family and future.',
     href: '/life-events/starting-a-business',
@@ -54,6 +60,7 @@ export function resolveHomeArticleCards(
     href?: string | null
     image?: string | null
     alt?: string | null
+    category?: string | null
   }> | null,
 ): HomeArticleCard[] {
   const resolved = cards
@@ -64,6 +71,10 @@ export function resolveHomeArticleCards(
       description: card.description || '',
       image: card.image || homeArticleCards[0].image,
       alt: card.alt || '',
+      category:
+        card.category ||
+        homeArticleCards.find((fallback) => fallback.href === card.href)?.category ||
+        homeArticleCards[0].category,
     }))
   return resolved?.length ? resolved : homeArticleCards
 }
