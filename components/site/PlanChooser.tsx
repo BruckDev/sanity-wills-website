@@ -91,7 +91,7 @@ export function PlanChooser({heading}: {heading?: string | null}) {
   return (
     <section
       aria-labelledby="plan-chooser-title"
-      className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-[#fbf8f1] px-5 py-10 sm:px-8 md:py-12"
+      className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-[#f0fcf8] px-5 py-10 sm:px-8 md:py-12"
     >
       <span
         aria-hidden="true"
