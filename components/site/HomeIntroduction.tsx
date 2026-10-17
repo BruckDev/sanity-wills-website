@@ -90,7 +90,11 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
               {content.title
                 .split(/(Wills\.com)/i)
                 .map((part, index) =>
-                  part.toLowerCase() === 'wills.com' ? <WillsWordmark key={index} /> : part,
+                  part.toLowerCase() === 'wills.com' ? (
+                    <WillsWordmark key={index} headline />
+                  ) : (
+                    part
+                  ),
                 )}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-white/90 lg:text-xl">
