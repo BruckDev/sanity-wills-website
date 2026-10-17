@@ -82,9 +82,9 @@ function LifeStageArt({index}: {index: number}) {
 export function HomeIntroduction({content}: {content: HomeIntroductionContent}) {
   return (
     <div className="relative left-1/2 -mt-8 w-screen -translate-x-1/2 bg-white md:-mt-12 lg:-mt-14">
-      <section className="bg-[#07324d] text-white">
-        <div className="mx-auto grid max-w-[88rem] gap-8 px-6 pb-28 pt-10 md:grid-cols-[0.95fr_1.05fr] md:items-center md:gap-6 md:px-10 md:pb-28 md:pt-6 lg:gap-10 lg:px-12">
-          <div className="py-4 lg:py-10">
+      <section className="relative isolate overflow-hidden bg-[#07324d] pb-16 text-white md:pb-0">
+        <div className="relative z-10 mx-auto flex max-w-[88rem] items-center px-6 pb-5 pt-10 md:min-h-[36rem] md:px-10 md:pb-32 md:pt-16 lg:px-12">
+          <div className="py-4 md:max-w-[52%] lg:max-w-[48%] lg:py-10">
             <h1 className="whitespace-pre-line font-serif text-[clamp(2.75rem,4.6vw,4.65rem)] leading-[1.04] tracking-[-0.045em]">
               {content.title}
             </h1>
@@ -98,17 +98,21 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
               className="mt-2 min-h-12 rounded-full px-10 text-base"
             />
           </div>
-          <div className="relative aspect-[1.7] overflow-hidden rounded-2xl md:aspect-[1.45] lg:aspect-[1.65]">
-            <Image
-              src="/images/estate-planning/hero-protect-what-matters.png"
-              alt={content.photoAlt}
-              fill
-              priority
-              sizes="(min-width: 1440px) 690px, (min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-            />
-          </div>
         </div>
+        <div className="home-hero-photo relative -mt-4 aspect-[1.62] w-full md:absolute md:inset-y-0 md:right-0 md:mt-0 md:aspect-auto lg:w-[78%]">
+          <Image
+            src="/images/estate-planning/hero-protect-what-matters.png"
+            alt={content.photoAlt}
+            fill
+            priority
+            sizes="(min-width: 1024px) 78vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          className="home-hero-wash pointer-events-none absolute inset-0 hidden md:block"
+        />
       </section>
       <nav
         aria-label={content.beginningEyebrow}

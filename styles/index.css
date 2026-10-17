@@ -65,3 +65,27 @@ h6 {
 #plan-chooser-title {
   scroll-margin-top: 8rem;
 }
+
+.home-hero-photo {
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+@media (min-width: 768px) {
+  .home-hero-photo {
+    mask-image: none;
+  }
+
+  .home-hero-wash {
+    background:
+      linear-gradient(to top, #07324d 0%, transparent 25%),
+      linear-gradient(
+        to right,
+        #07324d 0%,
+        #07324d 24%,
+        rgb(7 50 77 / 96%) 32%,
+        rgb(7 50 77 / 78%) 43%,
+        rgb(7 50 77 / 32%) 57%,
+        transparent 72%
+      );
+  }
+}
