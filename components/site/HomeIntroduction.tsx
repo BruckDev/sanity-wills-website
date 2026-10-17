@@ -1,4 +1,5 @@
 import {ButtonLink} from '@/components/site/ButtonLink'
+import {WillsWordmark} from '@/components/site/WillsWordmark'
 import {type HomeIntroductionContent} from '@/sanity/lib/homeIntroduction'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -86,17 +87,29 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
         <div className="relative z-10 mx-auto flex max-w-[88rem] items-center px-6 pb-5 pt-10 md:min-h-[36rem] md:px-10 md:pb-32 md:pt-16 lg:px-12">
           <div className="py-4 md:max-w-[52%] lg:max-w-[48%] lg:py-10">
             <h1 className="whitespace-pre-line font-serif text-[clamp(2.75rem,4.6vw,4.65rem)] leading-[1.04] tracking-[-0.045em]">
-              {content.title}
+              {content.title
+                .split(/(Wills\.com)/i)
+                .map((part, index) =>
+                  part.toLowerCase() === 'wills.com' ? <WillsWordmark key={index} /> : part,
+                )}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-white/90 lg:text-xl">
               {content.description}
             </p>
-            <ButtonLink
-              href={content.ctaHref}
-              label={content.ctaLabel}
-              style="teal"
-              className="mt-2 min-h-12 rounded-full px-10 text-base"
-            />
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              <ButtonLink
+                href={content.ctaHref}
+                label={content.ctaLabel}
+                style="teal"
+                className="min-h-12 rounded-full !px-3 sm:!px-6"
+              />
+              <ButtonLink
+                href={content.attorneyCtaHref}
+                label={content.attorneyCtaLabel}
+                style="secondary"
+                className="min-h-12 rounded-full !px-3 sm:!px-6"
+              />
+            </div>
           </div>
         </div>
         <div className="home-hero-photo relative -mt-4 aspect-[1.62] w-full md:absolute md:inset-y-0 md:right-0 md:mt-0 md:aspect-auto lg:w-[78%]">

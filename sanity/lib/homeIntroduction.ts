@@ -1,9 +1,11 @@
 export const homeIntroduction = {
-  title: 'Plan with clarity.\nProtect what matters.',
+  title: 'Protect what matters\nwith guidance from Wills.com',
   description:
     'Straightforward guidance, trusted tools, and estate-planning education for every stage of life.',
   ctaLabel: 'Explore your options',
   ctaHref: '#plan-chooser-title',
+  attorneyCtaLabel: 'Find an attorney',
+  attorneyCtaHref: '/find-an-attorney',
   photoAlt: 'A multigenerational family spending time together at home',
   lifeStages: [
     {label: 'Starting a family', href: '/life-events/new-parents'},

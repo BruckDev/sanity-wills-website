@@ -1,5 +1,6 @@
 'use client'
 
+import {WillsWordmark} from '@/components/site/WillsWordmark'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import {useState} from 'react'
@@ -28,9 +29,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
     >
       <div className="mx-auto flex w-full max-w-[88rem] items-center justify-between gap-4 px-5 py-4 md:px-8 md:py-5">
         <Link href="/" className="cursor-pointer shrink-0" onClick={() => setOpen(false)}>
-          <span className="font-serif text-4xl tracking-[-0.06em] text-white md:text-5xl">
-            Wills<span className="text-[color:var(--accent)]">.com</span>
-          </span>
+          <WillsWordmark className="text-4xl text-white md:text-5xl" />
           <span className="sr-only">Wills.com</span>
         </Link>
         <nav aria-label="Main navigation" className="hidden items-center gap-1 xl:flex">

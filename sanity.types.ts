@@ -1410,6 +1410,8 @@ export type Home = {
     description?: string
     ctaLabel?: string
     ctaHref?: string
+    attorneyCtaLabel?: string
+    attorneyCtaHref?: string
     photoAlt?: string
     lifeStages?: Array<{
       label?: string
@@ -2120,6 +2122,8 @@ export type HomeAppearanceQueryResult = {
     description?: string
     ctaLabel?: string
     ctaHref?: string
+    attorneyCtaLabel?: string
+    attorneyCtaHref?: string
     photoAlt?: string
     lifeStages?: Array<{
       label?: string

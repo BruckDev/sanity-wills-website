@@ -10352,6 +10352,20 @@
               },
               "optional": true
             },
+            "attorneyCtaLabel": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "attorneyCtaHref": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
             "photoAlt": {
               "type": "objectAttribute",
               "value": {
