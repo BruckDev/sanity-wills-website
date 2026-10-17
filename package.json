@@ -39,6 +39,7 @@
     "sanity-plugin-asset-source-unsplash": "7.0.10",
     "server-only": "0.0.1",
     "sonner": "2.0.7",
+    "stripe": "23.0.0",
     "styled-components": "^6.4.3"
   },
   "devDependencies": {
