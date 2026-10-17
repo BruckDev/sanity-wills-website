@@ -4,8 +4,8 @@ The public offer lives at `/for-attorneys`. All offer copy, plans, optional HTTP
 
 ## Activate billing and booking
 
-- Configure the correct $39 and $99 **monthly recurring** checkout products in your billing provider, with month-to-month cancellation. Put their HTTPS URLs in each plan's `checkoutUrl`. No checkout product, subscription, or payment is created by this repository.
-- Review and accept a firm before inviting payment. Maintain an acceptance register with the first 100 firms, accepted date, plan, agreed markets, billing customer/subscription ID, and continuing eligibility for the $39 rate. The website does not automatically enforce capacity or grandfathered billing.
+- Configure the correct $29.99 and $99 **monthly recurring** checkout products in your billing provider, with month-to-month cancellation. Put their HTTPS URLs in each plan's `checkoutUrl`. No checkout product, subscription, or payment is created by this repository.
+- Review and accept a firm before inviting payment. Maintain an acceptance register with the first 100 firms, accepted date, plan, agreed markets, billing customer/subscription ID, and continuing eligibility for the $29.99 rate. The website does not automatically enforce capacity or grandfathered billing.
 - Add an HTTPS booking URL to `callUrl`. Until these URLs exist, buttons go to the application or an explicitly labeled email call request. `RESEND_API_KEY` and `CONTACT_FORM_FROM` enable the existing inquiry delivery handler; `CONTACT_FORM_RECIPIENT` defaults to the existing Wills.com contact address. Missing delivery configuration produces an email fallback, never a success message or lead event.
 - Agree coverage, content format, publication timing, and cancellation details in writing before charging. New paid profiles and placements still require editorial onboarding and publication. Unpaid launch listings are not enrolled firms and must not be billed or described as sponsors.
 

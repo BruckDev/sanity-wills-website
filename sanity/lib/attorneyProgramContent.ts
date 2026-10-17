@@ -2,7 +2,7 @@ export const attorneyProgramContent = {
   eyebrow: 'For attorneys / Advertise',
   contactPromoTitle: 'Founding Attorney Program',
   contactPromoCopy:
-    'Join our founding program from $39/month for clearly labeled profiles and local placement. Fixed monthly fees, with no promised number of leads.',
+    'Join our founding program from $29.99/month for clearly labeled profiles and local placement. Fixed monthly fees, with no promised number of leads.',
   contactPromoLabel: 'View founding plans →',
   title: 'Build your local presence. Be here from the beginning.',
   intro:
@@ -16,14 +16,14 @@ export const attorneyProgramContent = {
   termsLine: 'Month-to-month. No promised number of leads. No percentage of legal fees.',
   plansTitle: 'A clear offer. A predictable monthly cost.',
   plansIntro:
-    'The $39 founding profile rate is reserved for the first 100 accepted firms and stays locked while your subscription remains continuously active. One subscription covers one firm profile; coverage is agreed before billing.',
+    'The $29.99 founding profile rate is reserved for the first 100 accepted firms and stays locked while your subscription remains continuously active. One subscription covers one firm profile; coverage is agreed before billing.',
   monthlyLabel: '/ month',
   payLabel: 'Pay monthly',
   payFallbackLabel: 'Apply to arrange payment',
   plans: [
     {
       name: 'Founding profile',
-      price: '$39',
+      price: '$29.99',
       description: 'Your firm, your communities, and useful education in one place.',
       checkoutUrl: '',
       features: [
@@ -132,7 +132,7 @@ export const attorneyProgramContent = {
     },
     {
       title: 'Subscription terms',
-      copy: 'Subscriptions are month-to-month at the selected fixed monthly rate. The $39 base profile rate remains locked for the first 100 accepted firms while continuously subscribed. The $99 plan includes one agreed video or featured educational content addition. Cancel through the billing provider or contact us before the next renewal to stop future charges; placement ends at the end of the paid period. Deliverables and publication timing are confirmed before billing. No lead volume, clients, outcomes, or exclusive territory are guaranteed.',
+      copy: 'Subscriptions are month-to-month at the selected fixed monthly rate. The $29.99 base profile rate remains locked for the first 100 accepted firms while continuously subscribed. The $99 plan includes one agreed video or featured educational content addition. Cancel through the billing provider or contact us before the next renewal to stop future charges; placement ends at the end of the paid period. Deliverables and publication timing are confirmed before billing. No lead volume, clients, outcomes, or exclusive territory are guaranteed.',
     },
     {
       title: 'Advertising requirements',
@@ -158,7 +158,7 @@ export const attorneyProgramContent = {
     emailFallback: 'Email your application to gbruck@bruckcpa.com instead.',
   },
   applicationCopy:
-    'In your message, include your preferred plan ($39 or $99), website, bar jurisdictions and numbers, office address, and service areas or ZIP radius. We will confirm availability and next steps. Please do not send client information or confidential legal matters.',
+    'In your message, include your preferred plan ($29.99 or $99), website, bar jurisdictions and numbers, office address, and service areas or ZIP radius. We will confirm availability and next steps. Please do not send client information or confidential legal matters.',
   privacyLabel: 'Privacy Policy',
   contactLabel: 'Questions or corrections? Contact us',
   disclaimer:
