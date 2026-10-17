@@ -8,6 +8,7 @@ import * as resolve from '@/sanity/plugins/resolve'
 import {pageStructure, singletonPlugin} from '@/sanity/plugins/settings'
 import attorneyProfile from '@/sanity/schemas/documents/attorneyProfile'
 import caseStudy from '@/sanity/schemas/documents/caseStudy'
+import directoryListing from '@/sanity/schemas/documents/directoryListing'
 import industry from '@/sanity/schemas/documents/industry'
 import insight from '@/sanity/schemas/documents/insight'
 import leader from '@/sanity/schemas/documents/leader'
@@ -27,6 +28,7 @@ import stat from '@/sanity/schemas/objects/stat'
 import timeline from '@/sanity/schemas/objects/timeline'
 import about from '@/sanity/schemas/singletons/about'
 import accessibilityPage from '@/sanity/schemas/singletons/accessibilityPage'
+import attorneyProgram from '@/sanity/schemas/singletons/attorneyProgram'
 import contactPage from '@/sanity/schemas/singletons/contactPage'
 import governmentPage from '@/sanity/schemas/singletons/government'
 import home from '@/sanity/schemas/singletons/home'
@@ -56,6 +58,7 @@ export default defineConfig({
       about,
       governmentPage,
       contactPage,
+      attorneyProgram,
       servicesLanding,
       industriesLanding,
       insightsLanding,
@@ -71,6 +74,7 @@ export default defineConfig({
       caseStudy,
       leader,
       attorneyProfile,
+      directoryListing,
       lifeEvent,
       planningTool,
       // Objects
@@ -96,6 +100,7 @@ export default defineConfig({
         about,
         governmentPage,
         contactPage,
+        attorneyProgram,
         servicesLanding,
         industriesLanding,
         insightsLanding,
@@ -110,6 +115,7 @@ export default defineConfig({
       about.name,
       governmentPage.name,
       contactPage.name,
+      attorneyProgram.name,
       servicesLanding.name,
       industriesLanding.name,
       insightsLanding.name,

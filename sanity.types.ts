@@ -212,6 +212,27 @@ export type LifeEvent = {
   }>
 }
 
+export type DirectoryListing = {
+  _id: string
+  _type: 'directoryListing'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  id?: string
+  name?: string
+  state?: string
+  city?: string
+  zip?: string
+  address?: string
+  phone?: string
+  summary?: string
+  websiteUrl?: string
+  sourceUrl?: string
+  practiceSourceUrl?: string
+  sourceCheckedAt?: string
+  suppressed?: boolean
+}
+
 export type AttorneyProfile = {
   _id: string
   _type: 'attorneyProfile'
@@ -996,6 +1017,116 @@ export type ServicesLanding = {
   seo?: Seo
 }
 
+export type AttorneyProgram = {
+  _id: string
+  _type: 'attorneyProgram'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  eyebrow?: string
+  contactPromoTitle?: string
+  contactPromoCopy?: string
+  contactPromoLabel?: string
+  title?: string
+  intro?: string
+  badge?: string
+  applyLabel?: string
+  callLabel?: string
+  callFallbackLabel?: string
+  callUrl?: string
+  callEmail?: string
+  termsLine?: string
+  plansTitle?: string
+  plansIntro?: string
+  monthlyLabel?: string
+  payLabel?: string
+  payFallbackLabel?: string
+  plans?: Array<{
+    name?: string
+    price?: string
+    description?: string
+    checkoutUrl?: string
+    features?: Array<string>
+    _key: string
+  }>
+  paymentNote?: string
+  coverageTitle?: string
+  coverageCopy?: string
+  launchNote?: string
+  directory?: {
+    title?: string
+    intro?: string
+    publicLabel?: string
+    profileLabel?: string
+    websiteLabel?: string
+    phoneLabel?: string
+    sourceLabel?: string
+    practiceSourceLabel?: string
+    checkedLabel?: string
+    correctionLabel?: string
+    searchNote?: string
+    resultsTitle?: string
+    emptyTitle?: string
+    loadingLabel?: string
+    errorLabel?: string
+  }
+  reportEyebrow?: string
+  reportTitle?: string
+  reportIntro?: string
+  reportMetrics?: Array<{
+    label?: string
+    value?: string
+    detail?: string
+    _key: string
+  }>
+  reportNote?: string
+  processTitle?: string
+  steps?: Array<{
+    title?: string
+    copy?: string
+    _key: string
+  }>
+  policiesTitle?: string
+  policies?: Array<{
+    title?: string
+    copy?: string
+    _key: string
+  }>
+  applicationTitle?: string
+  form?: {
+    firmName?: string
+    contactName?: string
+    email?: string
+    phone?: string
+    message?: string
+    submit?: string
+    sending?: string
+    success?: string
+    firmNameError?: string
+    contactNameError?: string
+    emailError?: string
+    phoneError?: string
+    messageError?: string
+    fallback?: string
+    emailFallback?: string
+  }
+  applicationCopy?: string
+  privacyLabel?: string
+  contactLabel?: string
+  disclaimer?: string
+  trustPages?: {
+    termsTitle?: string
+    editorialTitle?: string
+    listingsTitle?: string
+    updated?: string
+    termsSections?: Array<{
+      title?: string
+      copy?: string
+      _key: string
+    }>
+  }
+}
+
 export type ContactPage = {
   _id: string
   _type: 'contactPage'
@@ -1596,6 +1727,7 @@ export type AllSanitySchemaTypes =
   | PlanningTool
   | Slug
   | LifeEvent
+  | DirectoryListing
   | AttorneyProfile
   | Leader
   | SanityImageCrop
@@ -1614,6 +1746,7 @@ export type AllSanitySchemaTypes =
   | InsightsLanding
   | IndustriesLanding
   | ServicesLanding
+  | AttorneyProgram
   | ContactPage
   | SanityFileAssetReference
   | GovernmentPage
@@ -1705,6 +1838,157 @@ export type SitemapQueryResult = Array<
       slug: null
     }
 >
+
+// Source: sanity/lib/attorneyListings.ts
+// Variable: listingsQuery
+// Query: {  "listings": *[_type == "directoryListing"]{id, name, state, city, zip, address, phone, summary, websiteUrl, sourceUrl, practiceSourceUrl, sourceCheckedAt, suppressed},  "copy": *[_type == "attorneyProgram" && _id == "attorneyProgram"][0].directory}
+export type ListingsQueryResult = {
+  listings: Array<{
+    id: string | null
+    name: string | null
+    state: string | null
+    city: string | null
+    zip: string | null
+    address: string | null
+    phone: string | null
+    summary: string | null
+    websiteUrl: string | null
+    sourceUrl: string | null
+    practiceSourceUrl: string | null
+    sourceCheckedAt: string | null
+    suppressed: boolean | null
+  }>
+  copy: {
+    title?: string
+    intro?: string
+    publicLabel?: string
+    profileLabel?: string
+    websiteLabel?: string
+    phoneLabel?: string
+    sourceLabel?: string
+    practiceSourceLabel?: string
+    checkedLabel?: string
+    correctionLabel?: string
+    searchNote?: string
+    resultsTitle?: string
+    emptyTitle?: string
+    loadingLabel?: string
+    errorLabel?: string
+  } | null
+}
+
+// Source: sanity/lib/attorneyProgram.ts
+// Variable: programQuery
+// Query: *[_type == "attorneyProgram" && _id == "attorneyProgram"][0]{...}
+export type ProgramQueryResult = {
+  _id: 'attorneyProgram'
+  _type: 'attorneyProgram'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  eyebrow?: string
+  contactPromoTitle?: string
+  contactPromoCopy?: string
+  contactPromoLabel?: string
+  title?: string
+  intro?: string
+  badge?: string
+  applyLabel?: string
+  callLabel?: string
+  callFallbackLabel?: string
+  callUrl?: string
+  callEmail?: string
+  termsLine?: string
+  plansTitle?: string
+  plansIntro?: string
+  monthlyLabel?: string
+  payLabel?: string
+  payFallbackLabel?: string
+  plans?: Array<{
+    name?: string
+    price?: string
+    description?: string
+    checkoutUrl?: string
+    features?: Array<string>
+    _key: string
+  }>
+  paymentNote?: string
+  coverageTitle?: string
+  coverageCopy?: string
+  launchNote?: string
+  directory?: {
+    title?: string
+    intro?: string
+    publicLabel?: string
+    profileLabel?: string
+    websiteLabel?: string
+    phoneLabel?: string
+    sourceLabel?: string
+    practiceSourceLabel?: string
+    checkedLabel?: string
+    correctionLabel?: string
+    searchNote?: string
+    resultsTitle?: string
+    emptyTitle?: string
+    loadingLabel?: string
+    errorLabel?: string
+  }
+  reportEyebrow?: string
+  reportTitle?: string
+  reportIntro?: string
+  reportMetrics?: Array<{
+    label?: string
+    value?: string
+    detail?: string
+    _key: string
+  }>
+  reportNote?: string
+  processTitle?: string
+  steps?: Array<{
+    title?: string
+    copy?: string
+    _key: string
+  }>
+  policiesTitle?: string
+  policies?: Array<{
+    title?: string
+    copy?: string
+    _key: string
+  }>
+  applicationTitle?: string
+  form?: {
+    firmName?: string
+    contactName?: string
+    email?: string
+    phone?: string
+    message?: string
+    submit?: string
+    sending?: string
+    success?: string
+    firmNameError?: string
+    contactNameError?: string
+    emailError?: string
+    phoneError?: string
+    messageError?: string
+    fallback?: string
+    emailFallback?: string
+  }
+  applicationCopy?: string
+  privacyLabel?: string
+  contactLabel?: string
+  disclaimer?: string
+  trustPages?: {
+    termsTitle?: string
+    editorialTitle?: string
+    listingsTitle?: string
+    updated?: string
+    termsSections?: Array<{
+      title?: string
+      copy?: string
+      _key: string
+    }>
+  }
+} | null
 
 // Source: sanity/lib/estatePlanningContent.ts
 // Variable: lifeEventQuery
@@ -3236,6 +3520,8 @@ export type AccessibilityPageQueryResult = {
 declare module '@sanity/client' {
   interface SanityQueries {
     '*[\n  !(_id in path("drafts.**")) && !(_id in path("versions.**")) &&\n  _type in ["insight", "caseStudy", "industry", "service", "lifeEvent", "planningTool", "home", "about", "government", "contactPage", "privacyPage", "accessibilityPage", "insightsLanding", "servicesLanding", "industriesLanding"]\n]{_type, _updatedAt, "slug": slug.current}': SitemapQueryResult
+    '{\n  "listings": *[_type == "directoryListing"]{id, name, state, city, zip, address, phone, summary, websiteUrl, sourceUrl, practiceSourceUrl, sourceCheckedAt, suppressed},\n  "copy": *[_type == "attorneyProgram" && _id == "attorneyProgram"][0].directory\n}': ListingsQueryResult
+    '*[_type == "attorneyProgram" && _id == "attorneyProgram"][0]{...}': ProgramQueryResult
     '*[_type == "lifeEvent" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, urgency, checklist, faqs, article{title, intro, sections[]{heading, paragraphs, questions, afterQuestions, items[]{title, description}, checklist, afterChecklist, resources[]{label, href}}, conclusion, disclaimer}}': LifeEventQueryResult
     '*[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time, worksheet{title, intro, privacyNote, statusLabel, unansweredLabel, doneLabel, followUpLabel, notApplicableLabel, notesLabel, summaryTitle, progressLabel, nextSteps, printLabel, downloadLabel, disclaimer, questions[]{_key, prompt, help}}}': PlanningToolQueryResult
     '*[_type == "home"][0]{planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url, articleCards[0...6]{title, description, href, alt, "image": coalesce(image.asset->url, imagePath)}}': HomeAppearanceQueryResult

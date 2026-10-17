@@ -1,5 +1,7 @@
 'use client'
 
+import {trackEvent} from '@/lib/analytics'
+import {attorneyProgramContent} from '@/sanity/lib/attorneyProgramContent'
 import {useState, type FormEvent} from 'react'
 
 type FormValues = {
@@ -12,7 +14,17 @@ type FormValues = {
 
 const initialValues: FormValues = {firmName: '', contactName: '', email: '', phone: '', message: ''}
 
-export function AttorneyContactForm() {
+export function AttorneyContactForm({
+  copy = {
+    ...attorneyProgramContent.form,
+    submit: 'Submit inquiry',
+    sending: 'Sending inquiry…',
+    success: 'Thank you—your inquiry has been sent. We will be in touch soon.',
+    emailFallback: 'Email your inquiry to gbruck@bruckcpa.com instead.',
+  },
+}: {
+  copy?: typeof attorneyProgramContent.form
+}) {
   const [values, setValues] = useState<FormValues>(initialValues)
   const [errors, setErrors] = useState<Partial<Record<keyof FormValues, string>>>({})
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'fallback'>('idle')
@@ -41,12 +53,11 @@ export function AttorneyContactForm() {
     event.preventDefault()
     const nextErrors: Partial<Record<keyof FormValues, string>> = {}
 
-    if (!values.firmName.trim()) nextErrors.firmName = 'Enter your firm name.'
-    if (!values.contactName.trim()) nextErrors.contactName = 'Enter your name.'
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim()))
-      nextErrors.email = 'Enter a valid email address.'
-    if (!values.phone.trim()) nextErrors.phone = 'Enter a phone number.'
-    if (!values.message.trim()) nextErrors.message = 'Tell us a little about your firm or inquiry.'
+    if (!values.firmName.trim()) nextErrors.firmName = copy.firmNameError
+    if (!values.contactName.trim()) nextErrors.contactName = copy.contactNameError
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) nextErrors.email = copy.emailError
+    if (!values.phone.trim()) nextErrors.phone = copy.phoneError
+    if (!values.message.trim()) nextErrors.message = copy.messageError
 
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length) return
@@ -58,6 +69,12 @@ export function AttorneyContactForm() {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({...values, website: ''}),
       })
+      if (response.ok)
+        trackEvent('generate_lead', {
+          form_id: 'attorney_inquiry',
+          lead_type:
+            window.location.pathname === '/for-attorneys' ? 'sponsor_application' : 'firm_inquiry',
+        })
       setStatus(response.ok ? 'success' : 'fallback')
     } catch {
       setStatus('fallback')
@@ -72,21 +89,21 @@ export function AttorneyContactForm() {
     >
       <div className="grid gap-6 md:grid-cols-2">
         <Field
-          label="Firm name"
+          label={copy.firmName}
           name="firmName"
           value={values.firmName}
           onChange={updateValue}
           error={errors.firmName}
         />
         <Field
-          label="Your name"
+          label={copy.contactName}
           name="contactName"
           value={values.contactName}
           onChange={updateValue}
           error={errors.contactName}
         />
         <Field
-          label="Email"
+          label={copy.email}
           name="email"
           type="email"
           value={values.email}
@@ -94,7 +111,7 @@ export function AttorneyContactForm() {
           error={errors.email}
         />
         <Field
-          label="Phone"
+          label={copy.phone}
           name="phone"
           type="tel"
           value={values.phone}
@@ -107,7 +124,7 @@ export function AttorneyContactForm() {
           className="mb-2 block text-sm font-semibold text-[color:var(--fg)]"
           htmlFor="message"
         >
-          Tell us about your firm or inquiry
+          {copy.message}
         </label>
         <textarea
           id="message"
@@ -131,21 +148,21 @@ export function AttorneyContactForm() {
           disabled={status === 'submitting'}
           className="button-lift inline-flex min-h-12 items-center justify-center rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)] disabled:cursor-not-allowed disabled:opacity-70"
         >
-          {status === 'submitting' ? 'Sending inquiry…' : 'Submit inquiry'}
+          {status === 'submitting' ? copy.sending : copy.submit}
         </button>
         {status === 'success' ? (
           <p role="status" className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
-            Thank you—your inquiry has been sent. We will be in touch soon.
+            {copy.success}
           </p>
         ) : null}
         {status === 'fallback' ? (
           <p role="status" className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
-            Direct delivery is temporarily unavailable.{' '}
+            {copy.fallback}{' '}
             <a
               href={emailHref()}
               className="font-semibold text-[color:var(--accent-strong)] underline"
             >
-              Email your inquiry to gbruck@bruckcpa.com instead.
+              {copy.emailFallback}
             </a>
           </p>
         ) : null}

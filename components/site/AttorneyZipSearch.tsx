@@ -1,7 +1,11 @@
 'use client'
 
+import {trackEvent} from '@/lib/analytics'
+import {attorneyProgramContent} from '@/sanity/lib/attorneyProgramContent'
+import type {AttorneyListing} from '@/sanity/lib/initialAttorneyListings'
 import {useSearchParams} from 'next/navigation'
 import {useEffect, useRef, useState, type FormEvent} from 'react'
+import {AttorneyListingCards} from './AttorneyListingCards'
 
 type AttorneyZipSearchProps = {
   initialZip?: string
@@ -21,8 +25,32 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
   const [error, setError] = useState('')
   const [isGuided, setIsGuided] = useState(false)
   const [resultRequest, setResultRequest] = useState(0)
+  const [listings, setListings] = useState<AttorneyListing[]>([])
+  const [copy, setCopy] = useState(attorneyProgramContent.directory)
+  const [searchStatus, setSearchStatus] = useState<'loading' | 'ready' | 'error'>('loading')
   const inputRef = useRef<HTMLInputElement>(null)
   const resultsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!submittedZip) return
+    const controller = new AbortController()
+    fetch(`/api/attorney-directory?zip=${encodeURIComponent(submittedZip)}`, {
+      signal: controller.signal,
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error('Directory unavailable')
+        const result = await response.json()
+        if (controller.signal.aborted) return
+        setListings(result.listings)
+        setCopy(result.copy)
+        setSearchStatus('ready')
+        trackEvent('zip_search', {result_count: result.listings.length})
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) setSearchStatus('error')
+      })
+    return () => controller.abort()
+  }, [submittedZip, resultRequest])
 
   useEffect(() => {
     if (submittedZip && resultRequest) {
@@ -81,6 +109,7 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
     }
 
     setError('')
+    setSearchStatus('loading')
     setSubmittedZip(normalizedZip)
     setResultRequest((request) => request + 1)
   }
@@ -128,14 +157,24 @@ export function AttorneyZipSearch({initialZip = '', compact = false}: AttorneyZi
             Results for {submittedZip}
           </div>
           <h2 className="mt-3 font-serif text-3xl tracking-[-0.03em]">
-            No local attorney profiles are available yet.
+            {searchStatus === 'loading'
+              ? copy.loadingLabel
+              : searchStatus === 'error'
+                ? copy.errorLabel
+                : listings.length
+                  ? copy.resultsTitle
+                  : copy.emptyTitle}
           </h2>
-          <p className="mt-3 max-w-2xl leading-7 text-white/80">
-            We are adding qualified estate-planning firms to Wills.com. Check back soon, or ask a
-            local attorney office to request a directory listing.
-          </p>
+          {searchStatus === 'ready' ? (
+            <>
+              <p className="mt-3 max-w-2xl leading-7 text-white/80">{copy.searchNote}</p>
+              <div className="mt-5">
+                <AttorneyListingCards listings={listings} copy={copy} />
+              </div>
+            </>
+          ) : null}
           <a
-            href="/contact#directory-listing"
+            href="/for-attorneys"
             className="mt-5 inline-flex text-sm font-semibold text-[color:var(--accent)] underline underline-offset-4 hover:text-white"
           >
             Request a directory listing →

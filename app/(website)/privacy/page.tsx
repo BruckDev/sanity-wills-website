@@ -22,7 +22,7 @@ export default async function PrivacyPage() {
   return (
     <div className="space-y-12">
       <PageHero eyebrow={page.eyebrow} title={page.title} description={page.overview} />
-      <section className="max-w-4xl border border-dashed border-[color:var(--border-strong)] bg-white p-6 text-base leading-8 text-[color:var(--muted)] md:p-8">
+      <section className="max-w-4xl rounded-2xl border border-[color:var(--border-strong)] bg-white p-6 text-base leading-8 text-[color:var(--muted)] md:p-8">
         <CustomPortableText id={null} type={null} path={[]} value={page.body} />
       </section>
     </div>

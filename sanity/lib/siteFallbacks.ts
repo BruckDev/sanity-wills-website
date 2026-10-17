@@ -713,16 +713,23 @@ export const fallbackInsightsLanding = {
 
 export const fallbackPrivacyPage = {
   eyebrow: 'Privacy',
-  title: 'Privacy information placeholder',
+  title: 'Privacy Policy',
   overview: toBlocks([
-    'Replace this page with organization-specific privacy language once legal and operational requirements are confirmed.',
+    'Effective October 17, 2026. This policy describes information handled through Wills.com, including directory activity and professional inquiries.',
   ]),
   body: toBlocks([
-    'This placeholder page exists so the site includes a clear privacy destination in the footer. Before launch, add approved privacy language covering data collection, contact forms, analytics, and any third-party services used on the website.',
+    'Information you provide: Our professional inquiry form collects firm name, contact name, email, phone, and your message. We use this information to respond, evaluate an application, and administer a professional relationship. Do not submit confidential client information or details of a legal matter.',
+    'Form delivery: When direct delivery is configured, inquiries are sent through Resend to the Wills.com contact team. If delivery is unavailable, an email link lets you send the inquiry using your own email provider. Opening that link alone does not confirm delivery. Payment and scheduling services, when linked, process information under their own policies; this site does not collect card details in its inquiry form.',
+    'Analytics and technical data: Wills.com uses Google Analytics 4 to measure page views and interactions such as directory searches, profile views, website clicks, phone-link clicks, and successful inquiry submissions. Google may process device, cookie, and network information. Our custom analytics events omit names, email addresses, phone numbers, message text, and searched ZIP codes. Phone-link clicks do not confirm completed calls. Vercel hosts the site and provides performance monitoring; hosting and security logs may include network and request information.',
+    'Privacy choices: The custom analytics integration respects browser Do Not Track and Global Privacy Control signals. You can also block analytics through browser controls or the Google Analytics opt-out browser add-on at tools.google.com/dlpage/gaoptout. Blocking analytics may make sponsor reports incomplete but does not prevent you from browsing the site or contacting a firm.',
+    'Sharing and reporting: Hosting, content, email, analytics, and billing providers process information needed to supply their services. Sponsor reports use aggregate activity rather than inquiry message contents. Professional applications are for Wills.com administration and are not consumer leads sold to firms. Clicking a firm link takes you to that firm’s separate service and privacy practices.',
+    'Retention and requests: Inquiry correspondence is kept as needed to respond and maintain the relationship, subject to applicable recordkeeping obligations. Contact gbruck@bruckcpa.com to request access, correction, deletion, or removal of a public-source listing. We may need to confirm the requester’s identity. Public professional listings are compiled from linked firm sources; publication does not imply the firm has signed up or paid.',
+    'Updates: We may revise this policy as site features and providers change. The effective date will identify the published version.',
   ]),
   seo: {
     title: 'Privacy | Wills',
-    description: 'Placeholder privacy information for the Wills website.',
+    description:
+      'How Wills.com handles inquiries, directory information, analytics, and privacy requests.',
   },
 }
 

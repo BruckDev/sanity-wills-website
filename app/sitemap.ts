@@ -1,5 +1,6 @@
 import {directoryLocations} from '@/sanity/lib/attorneyDirectoryContent'
 import {lifeEvents, planningTools} from '@/sanity/lib/estatePlanningContent'
+import {initialAttorneyListings} from '@/sanity/lib/initialAttorneyListings'
 import {sanityFetchMetadata} from '@/sanity/lib/live'
 import type {MetadataRoute} from 'next'
 import {defineQuery} from 'next-sanity'
@@ -42,6 +43,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/insights',
     '/about',
     '/contact',
+    '/for-attorneys',
+    '/terms',
+    '/editorial-policy',
+    '/how-listings-work',
+    ...initialAttorneyListings.map(({id}) => `/find-an-attorney/profiles/${id}`),
     '/privacy',
     '/accessibility',
     '/tools',

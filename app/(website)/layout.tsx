@@ -1,6 +1,9 @@
 import '@/styles/index.css'
+import {ConversionAnalytics} from '@/components/site/ConversionAnalytics'
 import {SiteFooter} from '@/components/site/SiteFooter'
 import {SiteHeader} from '@/components/site/SiteHeader'
+import {getAttorneyProgram} from '@/sanity/lib/attorneyProgram'
+import type {AttorneyProgramContent} from '@/sanity/lib/attorneyProgramContent'
 import {
   getDynamicFetchOptions,
   sanityFetch,
@@ -17,6 +20,7 @@ import {Suspense} from 'react'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
+    verification: {google: process.env.GOOGLE_SITE_VERIFICATION || undefined},
     title: {template: '%s | Wills.com', default: 'Wills.com | Estate planning guidance'},
     description: 'Clear educational guidance about wills, trusts, and estate planning.',
     openGraph: {
@@ -54,6 +58,7 @@ export default async function WebsiteLayout({children}: LayoutProps<'/'>) {
       </div>
       <Suspense fallback={null}>
         <SpeedInsights />
+        <ConversionAnalytics />
       </Suspense>
       <SanityLive includeDrafts={isDraftMode} />
       {isDraftMode ? <VisualEditing /> : null}
@@ -76,7 +81,12 @@ async function DynamicWebsiteFooter() {
 
 async function CachedWebsiteFooter(fetchOptions: DynamicFetchOptions) {
   'use cache'
-  return <WebsiteFooter data={await fetchSettings(fetchOptions)} />
+  return (
+    <WebsiteFooter
+      data={await fetchSettings(fetchOptions)}
+      program={await getAttorneyProgram(fetchOptions)}
+    />
+  )
 }
 
 async function fetchSettings(fetchOptions: DynamicFetchOptions) {
@@ -104,6 +114,6 @@ function WebsiteHeader({data}: {data: any}) {
   )
 }
 
-function WebsiteFooter({data}: {data: any}) {
-  return <SiteFooter />
+function WebsiteFooter({data, program}: {data: any; program?: AttorneyProgramContent}) {
+  return <SiteFooter program={program} />
 }

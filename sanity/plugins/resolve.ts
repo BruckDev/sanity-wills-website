@@ -7,6 +7,7 @@ import {resolveHref} from '@/sanity/lib/utils'
 import {defineDocuments, defineLocations} from 'sanity/presentation'
 
 export const mainDocuments = defineDocuments([
+  {route: '/for-attorneys', filter: `_type == "attorneyProgram" && _id == "attorneyProgram"`},
   {
     route: '/projects/:slug',
     filter: `_type == "project" && slug.current == $slug`,
@@ -18,6 +19,14 @@ export const mainDocuments = defineDocuments([
 ])
 
 export const locations = {
+  attorneyProgram: defineLocations({
+    locations: [
+      {title: 'For Attorneys / Advertise', href: '/for-attorneys'},
+      {title: 'Terms', href: '/terms'},
+      {title: 'Editorial policy', href: '/editorial-policy'},
+      {title: 'How listings work', href: '/how-listings-work'},
+    ],
+  }),
   settings: defineLocations({
     message: 'This document is used on all pages',
     tone: 'caution',

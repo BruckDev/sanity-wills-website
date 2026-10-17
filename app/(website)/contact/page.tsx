@@ -1,11 +1,13 @@
 import {AttorneyContactForm} from '@/components/site/AttorneyContactForm'
+import {AttorneyProgramPromo} from '@/components/site/AttorneyProgramPromo'
 import type {Metadata} from 'next'
 import Image from 'next/image'
+import {Suspense} from 'react'
 
 export const metadata: Metadata = {
   title: 'Estate planning professionals',
   description:
-    'Connect with Wills.com about educational contributions, professional partnerships, and future advertising opportunities.',
+    'Connect with Wills.com about educational contributions, professional partnerships, and the Founding Attorney Program.',
 }
 
 export default function ContactPage() {
@@ -64,13 +66,9 @@ export default function ContactPage() {
             without promising outcomes or offering individualized advice online.
           </p>
         </article>
-        <article className="rounded-2xl border border-[color:var(--border)] bg-white p-7">
-          <h2 className="font-serif text-3xl text-[color:var(--fg)]">Future advertising</h2>
-          <p className="mt-4 leading-7 text-[color:var(--muted)]">
-            As the audience grows, Wills.com expects to offer clearly labeled sponsorship and
-            advertising opportunities designed to preserve editorial clarity.
-          </p>
-        </article>
+        <Suspense fallback={null}>
+          <AttorneyProgramPromo />
+        </Suspense>
       </section>
 
       <section

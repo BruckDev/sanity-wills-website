@@ -1,6 +1,10 @@
+import {
+  attorneyProgramContent,
+  type AttorneyProgramContent,
+} from '@/sanity/lib/attorneyProgramContent'
 import Link from 'next/link'
 
-export function SiteFooter() {
+export function SiteFooter({program = attorneyProgramContent}: {program?: AttorneyProgramContent}) {
   return (
     <footer className="mt-0 border-t border-[#dce7e4] bg-white text-[#173a55]">
       <div className="mx-auto flex max-w-[88rem] flex-col gap-5 px-5 py-7 md:flex-row md:items-center md:justify-between md:px-8">
@@ -29,6 +33,21 @@ export function SiteFooter() {
             </Link>
             <Link href="/insights" className="hover:text-[#0b987e]">
               Articles
+            </Link>
+            <Link href="/for-attorneys" className="hover:text-[#0b987e]">
+              {program.eyebrow}
+            </Link>
+            <Link href="/privacy" className="hover:text-[#0b987e]">
+              {program.privacyLabel}
+            </Link>
+            <Link href="/terms" className="hover:text-[#0b987e]">
+              {program.trustPages.termsTitle}
+            </Link>
+            <Link href="/editorial-policy" className="hover:text-[#0b987e]">
+              {program.trustPages.editorialTitle}
+            </Link>
+            <Link href="/how-listings-work" className="hover:text-[#0b987e]">
+              {program.trustPages.listingsTitle}
             </Link>
           </nav>
         </div>

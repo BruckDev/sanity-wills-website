@@ -1,5 +1,6 @@
 import {AttorneyZipSearch, AttorneyZipSearchFromUrl} from '@/components/site/AttorneyZipSearch'
 import {ButtonLink} from '@/components/site/ButtonLink'
+import {DirectoryInventory} from '@/components/site/DirectoryInventory'
 import {directoryLocations} from '@/sanity/lib/attorneyDirectoryContent'
 import type {Metadata} from 'next'
 import Link from 'next/link'
@@ -30,6 +31,9 @@ export default function FindAnAttorneyPage() {
         </div>
       </section>
 
+      <Suspense fallback={null}>
+        <DirectoryInventory />
+      </Suspense>
       <section className="rounded-[2rem] border border-[color:var(--border)] bg-white p-6 shadow-[0_18px_45px_rgba(8,35,58,0.06)] md:p-9">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
@@ -122,7 +126,7 @@ export default function FindAnAttorneyPage() {
             ],
             [
               '02',
-              'Review verified profiles',
+              'Review firm profiles',
               'As offices join, compare their jurisdiction, focus areas, and contact options.',
             ],
             [
@@ -203,7 +207,7 @@ export default function FindAnAttorneyPage() {
             counsel. Tell us about your firm and the communities you serve.
           </p>
           <div className="mt-7">
-            <ButtonLink href="/contact#directory-listing" label="Request a directory listing" />
+            <ButtonLink href="/for-attorneys" label="Explore the founding program" />
           </div>
         </div>
       </section>
