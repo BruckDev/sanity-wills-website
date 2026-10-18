@@ -11,7 +11,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
       <section className="relative isolate overflow-hidden bg-[#07324d] pb-16 text-white md:pb-0">
         <div className="relative z-10 mx-auto flex max-w-[88rem] items-center px-6 pb-5 pt-10 md:min-h-[36rem] md:px-10 md:pb-32 md:pt-16 lg:px-12">
           <div className="py-4 md:max-w-[52%] lg:max-w-[48%] lg:py-10">
-            <h1 className="whitespace-pre-line text-center font-serif text-[clamp(2.75rem,4.6vw,4.65rem)] leading-[1.04] tracking-[-0.045em]">
+            <h1 className="whitespace-pre-line font-serif text-[clamp(2.75rem,4.6vw,4.65rem)] leading-[1.04] tracking-[-0.045em]">
               {content.title
                 .split(/(Wills\.com)/i)
                 .map((part, index) =>
