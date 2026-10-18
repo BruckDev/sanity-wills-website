@@ -1,84 +1,9 @@
 import {ButtonLink} from '@/components/site/ButtonLink'
+import {LifeStageArt} from '@/components/site/LifeStageArt'
 import {WillsWordmark} from '@/components/site/WillsWordmark'
 import {type HomeIntroductionContent} from '@/sanity/lib/homeIntroduction'
 import Image from 'next/image'
 import Link from 'next/link'
-
-function LifeStageArt({index}: {index: number}) {
-  return (
-    <svg viewBox="0 0 220 128" fill="none" aria-hidden="true" className="h-28 w-full">
-      <ellipse cx="110" cy="115" rx="89" ry="8" fill="#e8f0ec" />
-      <g stroke="#698d80" strokeWidth="3" strokeLinecap="round">
-        <path d="M32 113Q38 85 25 65M39 113Q48 86 60 76M182 113Q176 85 190 64M175 112Q163 88 159 79" />
-      </g>
-      <g fill="#99b9a9">
-        <ellipse cx="26" cy="75" rx="7" ry="15" transform="rotate(-24 26 75)" />
-        <ellipse cx="49" cy="90" rx="7" ry="14" transform="rotate(35 49 90)" />
-        <ellipse cx="187" cy="77" rx="7" ry="16" transform="rotate(25 187 77)" />
-        <ellipse cx="168" cy="96" rx="7" ry="13" transform="rotate(-35 168 96)" />
-      </g>
-      {index === 0 ? (
-        <>
-          <path d="M57 113V78Q57 60 83 60Q106 60 109 86L113 113" fill="#83a9a5" />
-          <path d="M109 113L116 78Q120 63 143 65Q165 69 164 89V113" fill="#dcb880" />
-          <ellipse cx="82" cy="42" rx="15" ry="20" fill="#e7bd9e" />
-          <path d="M66 44V29Q76 13 92 28L98 41Q81 40 74 29L72 48" fill="#51493e" />
-          <ellipse cx="140" cy="48" rx="14" ry="18" fill="#edc8a9" />
-          <path
-            d="M124 50Q115 26 135 26Q158 25 159 63L150 69L148 42Q133 43 129 35"
-            fill="#55453a"
-          />
-          <path d="M79 86Q107 65 133 88L145 106Q106 124 76 101Z" fill="#f5eee2" />
-          <circle cx="110" cy="84" r="11" fill="#edc8a9" />
-          <path
-            d="M66 86Q78 106 104 104M151 86Q146 104 119 106"
-            stroke="#e7bd9e"
-            strokeWidth="9"
-            strokeLinecap="round"
-          />
-        </>
-      ) : index === 1 ? (
-        <>
-          <path d="M57 63L110 19L166 63" fill="#2f6070" />
-          <path d="M67 59L110 25L155 60V114H67Z" fill="#f1e7d3" />
-          <path d="M110 25L155 60V114H110Z" fill="#e4d5bb" />
-          <path d="M70 64L110 31L151 64" stroke="#faf7ed" strokeWidth="5" />
-          <path d="M98 84H120V114H98Z" fill="#618986" />
-          <path d="M79 65H92V80H79ZM128 65H141V80H128Z" fill="#98bcc2" />
-          <path d="M133 22V41L146 51V22Z" fill="#d3c1a4" />
-          <path d="M91 117H130" stroke="#c1b7a5" strokeWidth="5" />
-        </>
-      ) : index === 2 ? (
-        <>
-          <circle cx="158" cy="27" r="12" fill="#edbc76" />
-          <path d="M46 90Q82 48 118 80Q151 44 178 83V113H46" fill="#c6d8cb" />
-          <path d="M68 105V73Q70 58 88 59Q106 60 106 77V105" fill="#6d9397" />
-          <path d="M108 105V76Q111 61 128 62Q147 65 147 80V105" fill="#a2b6a5" />
-          <circle cx="87" cy="48" r="14" fill="#e0bea2" />
-          <path d="M73 48Q69 28 86 29Q103 29 102 47L93 42L78 43" fill="#b5b9b3" />
-          <circle cx="126" cy="52" r="13" fill="#e5c3a8" />
-          <path d="M114 52Q105 32 124 32Q143 32 141 58L133 52L128 40" fill="#d9d8cf" />
-          <path d="M59 85H159M59 97H159" stroke="#a6825d" strokeWidth="9" />
-          <path d="M66 82V119M153 82V119" stroke="#4b625d" strokeWidth="5" />
-        </>
-      ) : (
-        <g stroke="#65877b" strokeWidth="3" strokeLinecap="round">
-          <path d="M110 115Q104 70 119 18M94 113Q77 76 75 41M124 114Q151 84 152 45M106 113Q117 81 102 62" />
-          <g fill="#8eafa0" stroke="none">
-            <ellipse cx="117" cy="34" rx="7" ry="17" transform="rotate(16 117 34)" />
-            <ellipse cx="103" cy="51" rx="7" ry="16" transform="rotate(-42 103 51)" />
-            <ellipse cx="124" cy="65" rx="7" ry="17" transform="rotate(40 124 65)" />
-            <ellipse cx="98" cy="84" rx="7" ry="16" transform="rotate(-42 98 84)" />
-            <ellipse cx="75" cy="54" rx="6" ry="16" transform="rotate(-10 75 54)" />
-            <ellipse cx="87" cy="75" rx="6" ry="15" transform="rotate(40 87 75)" />
-            <ellipse cx="145" cy="66" rx="6" ry="15" transform="rotate(-28 145 66)" />
-            <ellipse cx="153" cy="88" rx="6" ry="16" transform="rotate(43 153 88)" />
-          </g>
-        </g>
-      )}
-    </svg>
-  )
-}
 
 export function HomeIntroduction({content}: {content: HomeIntroductionContent}) {
   return (
