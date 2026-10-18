@@ -8,7 +8,7 @@ import Link from 'next/link'
 export function HomeIntroduction({content}: {content: HomeIntroductionContent}) {
   return (
     <div className="relative left-1/2 -mt-8 w-screen -translate-x-1/2 bg-white md:-mt-12 lg:-mt-14">
-      <section className="relative isolate overflow-hidden bg-[#07324d] pb-16 text-white md:pb-0">
+      <section className="home-hero relative isolate overflow-hidden pb-16 text-white md:pb-0">
         <div className="relative z-10 mx-auto flex max-w-[88rem] items-center px-6 pb-5 pt-10 md:min-h-[36rem] md:px-10 md:pb-32 md:pt-16 lg:px-12">
           <div className="py-4 md:max-w-[52%] lg:max-w-[48%] lg:py-10">
             <h1 className="whitespace-pre-line font-serif text-[clamp(2.75rem,4.6vw,4.65rem)] leading-[1.04] tracking-[-0.045em]">
@@ -22,7 +22,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
                   ),
                 )}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/90 lg:text-xl">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-white lg:text-xl">
               {content.description}
             </p>
             <div className="mt-2 flex flex-wrap items-center gap-3">

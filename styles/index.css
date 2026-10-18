@@ -66,6 +66,11 @@ h6 {
   scroll-margin-top: 8rem;
 }
 
+.home-hero {
+  --hero-tone: 82 120 131;
+  background-color: rgb(var(--hero-tone));
+}
+
 .home-hero-photo {
   mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
@@ -77,14 +82,14 @@ h6 {
 
   .home-hero-wash {
     background:
-      linear-gradient(to top, #07324d 0%, transparent 25%),
+      linear-gradient(to top, rgb(var(--hero-tone)) 0%, transparent 25%),
       linear-gradient(
         to right,
-        #07324d 0%,
-        #07324d 24%,
-        rgb(7 50 77 / 96%) 32%,
-        rgb(7 50 77 / 78%) 43%,
-        rgb(7 50 77 / 32%) 57%,
+        rgb(var(--hero-tone)) 0%,
+        rgb(var(--hero-tone)) 24%,
+        rgb(var(--hero-tone) / 96%) 32%,
+        rgb(var(--hero-tone) / 90%) 43%,
+        rgb(var(--hero-tone) / 35%) 57%,
         transparent 72%
       );
   }
