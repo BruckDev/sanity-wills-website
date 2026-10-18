@@ -1,13 +1,14 @@
 const palette = {
-  teal: '#0A9396',
-  seafoam: '#94D2BD',
-  sand: '#E9D8A6',
-  amber: '#CA6702',
-  rust: '#BB3E03',
+  teal: '#618986',
+  seafoam: '#99B9A9',
+  sand: '#F1E7D3',
+  amber: '#C79B68',
+  rust: '#A6825D',
+  autumnAccent: '#CA6702',
 }
 
 export function LifeStageArt({index}: {index: number}) {
-  const {teal, seafoam, sand, amber, rust} = palette
+  const {teal, seafoam, sand, amber, rust, autumnAccent} = palette
   return (
     <svg
       viewBox="0 0 220 128"
@@ -56,7 +57,7 @@ export function LifeStageArt({index}: {index: number}) {
           <path d="M113 55c-1-20 12-33 31-32 1 19-11 33-31 32Z" fill={seafoam} />
           <path d="M106 75c-21 1-34-11-33-29 20-1 34 10 33 29Z" fill={seafoam} />
           <path d="M114 79c-1-18 11-29 29-28 1 18-11 29-29 28Z" fill={teal} />
-          <circle cx="150" cy="68" r="8" fill={amber} />
+          <circle cx="150" cy="68" r="8" fill={autumnAccent} opacity="0.65" />
           <path d="m128 102 4 4 9-10" stroke={teal} strokeWidth="3" />
         </>
       ) : (
