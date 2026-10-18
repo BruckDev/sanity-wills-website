@@ -10,7 +10,7 @@ export function WillsWordmark({
     : undefined
   return (
     <span className={`inline-block whitespace-nowrap font-serif tracking-[-0.06em] ${className}`}>
-      <span className={headline ? 'text-[#082d4c]' : undefined} style={headlinePaint}>
+      <span className={headline ? 'text-[#010e24]' : undefined} style={headlinePaint}>
         Wills
       </span>
       <span className="text-[color:var(--accent)]" style={headlinePaint}>
