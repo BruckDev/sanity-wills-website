@@ -67,8 +67,10 @@ h6 {
 }
 
 .home-hero {
-  --hero-tone: 34 69 138;
+  --hero-tone: 7 50 77;
+  --hero-highlight: 49 94 122;
   background-color: rgb(var(--hero-tone));
+  background-image: linear-gradient(to right, rgb(var(--hero-tone)), rgb(var(--hero-highlight)));
 }
 
 .home-hero-photo {
@@ -86,10 +88,10 @@ h6 {
       linear-gradient(
         to right,
         rgb(var(--hero-tone)) 0%,
-        rgb(var(--hero-tone) / 92%) 12%,
-        rgb(var(--hero-tone) / 86%) 24%,
-        rgb(var(--hero-tone) / 74%) 36%,
-        rgb(var(--hero-tone) / 40%) 48%,
+        rgb(26 67 94 / 96%) 12%,
+        rgb(var(--hero-highlight) / 92%) 24%,
+        rgb(var(--hero-highlight) / 74%) 36%,
+        rgb(var(--hero-highlight) / 40%) 48%,
         transparent 62%
       );
   }
