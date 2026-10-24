@@ -57,13 +57,13 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
       </section>
       <nav
         aria-label={content.beginningEyebrow}
-        className="relative z-10 mx-4 -mt-20 grid max-w-[74rem] grid-cols-2 gap-2 overflow-hidden rounded-2xl bg-white p-3 shadow-[0_14px_45px_rgba(7,31,51,0.09)] md:mx-10 md:grid-cols-4 md:gap-3 md:p-5 xl:mx-auto"
+        className="relative z-10 mx-4 -mt-20 grid max-w-[64rem] grid-cols-2 gap-2 overflow-hidden rounded-2xl bg-white p-3 shadow-[0_14px_45px_rgba(7,31,51,0.09)] md:mx-10 md:grid-cols-4 md:gap-3 md:p-5 lg:mx-auto lg:w-[calc(100%-5rem)]"
       >
         {[...content.lifeStages, ...content.planningTopics].map((topic) => (
           <Link
             key={topic.imagePath}
             href={topic.href}
-            className="group relative flex aspect-square flex-col items-center justify-center rounded-xl border border-[#e0eae4] bg-[#f4f8f3] px-3 py-2 text-center text-[#082d4c] transition hover:border-[#7bb9ad] hover:bg-[#eaf3eb] focus-visible:outline-2 focus-visible:outline-[#008a80] lg:py-4"
+            className="group relative flex min-h-40 flex-col items-center justify-center rounded-xl border border-[#e0eae4] bg-[#f4f8f3] px-3 py-2 text-center text-[#082d4c] transition hover:border-[#7bb9ad] hover:bg-[#eaf3eb] focus-visible:outline-2 focus-visible:outline-[#008a80] lg:min-h-52 lg:py-4"
           >
             <span aria-hidden="true" className="absolute right-3 top-2 text-lg text-[#6b8980]">
               ↗
@@ -71,12 +71,12 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
             <Image
               src={topic.imagePath}
               alt=""
-              width={80}
-              height={80}
-              sizes="(min-width: 1024px) 80px, 56px"
-              className="h-14 w-14 shrink-0 object-contain lg:h-20 lg:w-20"
+              width={112}
+              height={112}
+              sizes="(min-width: 1024px) 112px, 64px"
+              className="h-16 w-16 shrink-0 object-contain lg:h-28 lg:w-28"
             />
-            <span className="mt-2 flex min-h-16 max-w-56 items-center justify-center font-serif text-base leading-5 lg:min-h-12 lg:text-xl lg:leading-6">
+            <span className="mt-1 flex min-h-16 max-w-56 items-center justify-center font-serif text-base leading-5 lg:mt-2 lg:min-h-12 lg:text-xl lg:leading-6">
               {topic.label}
             </span>
           </Link>
