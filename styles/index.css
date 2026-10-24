@@ -67,7 +67,7 @@ h6 {
 }
 
 .home-hero {
-  --hero-tone: 63 107 139;
+  --hero-tone: 34 69 138;
   background-color: rgb(var(--hero-tone));
 }
 
