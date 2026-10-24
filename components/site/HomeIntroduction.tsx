@@ -1,5 +1,4 @@
 import {ButtonLink} from '@/components/site/ButtonLink'
-import {LifeStageArt} from '@/components/site/LifeStageArt'
 import {WillsWordmark} from '@/components/site/WillsWordmark'
 import {type HomeIntroductionContent} from '@/sanity/lib/homeIntroduction'
 import Image from 'next/image'
@@ -60,19 +59,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
         aria-label={content.beginningEyebrow}
         className="relative z-10 mx-4 -mt-20 grid max-w-[74rem] grid-cols-2 gap-2 overflow-hidden rounded-2xl bg-white p-3 shadow-[0_14px_45px_rgba(7,31,51,0.09)] md:mx-10 md:grid-cols-4 md:gap-3 md:p-5 xl:mx-auto"
       >
-        {content.lifeStages.map((stage, index) => (
-          <Link
-            key={stage.href}
-            href={stage.href}
-            className={`group rounded-lg px-2 py-4 text-center text-[#082d4c] transition hover:bg-[#eff7f3] focus-visible:outline-2 focus-visible:outline-[#008a80] ${index % 2 ? 'border-l border-[#e4e9e6]' : ''} ${index === 2 ? 'md:border-l' : ''}`}
-          >
-            <LifeStageArt index={index} />
-            <span className="mx-auto mt-2 block max-w-56 font-serif text-lg leading-6 md:text-xl">
-              {stage.label}
-            </span>
-          </Link>
-        ))}
-        {content.planningTopics.map((topic) => (
+        {[...content.lifeStages, ...content.planningTopics].map((topic) => (
           <Link
             key={topic.imagePath}
             href={topic.href}
@@ -84,10 +71,10 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
             <Image
               src={topic.imagePath}
               alt=""
-              width={128}
-              height={128}
-              sizes="(min-width: 1280px) 128px, (min-width: 1024px) 112px, 64px"
-              className="h-16 w-16 shrink-0 object-contain lg:h-28 lg:w-28 xl:h-32 xl:w-32"
+              width={80}
+              height={80}
+              sizes="(min-width: 1024px) 80px, 56px"
+              className="h-14 w-14 shrink-0 object-contain lg:h-20 lg:w-20"
             />
             <span className="mt-2 flex min-h-16 max-w-56 items-center justify-center font-serif text-base leading-5 lg:min-h-12 lg:text-xl lg:leading-6">
               {topic.label}

@@ -36,15 +36,11 @@ export default defineType({
                         type: 'string',
                         validation: (rule) => rule.required().regex(/^(\/|#|https:\/\/)/),
                       }),
-                      ...(name === 'planningTopics'
-                        ? [
-                            defineField({
-                              name: 'imagePath',
-                              title: 'Icon image path',
-                              type: 'string',
-                            }),
-                          ]
-                        : []),
+                      defineField({
+                        name: 'imagePath',
+                        title: 'Icon image path',
+                        type: 'string',
+                      }),
                     ],
                   }),
                 ],

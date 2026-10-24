@@ -1416,6 +1416,7 @@ export type Home = {
     lifeStages?: Array<{
       label?: string
       href?: string
+      imagePath?: string
       _key: string
     }>
     planningTopics?: Array<{
@@ -2134,6 +2135,7 @@ export type HomeAppearanceQueryResult = {
     lifeStages?: Array<{
       label?: string
       href?: string
+      imagePath?: string
       _key: string
     }>
     planningTopics?: Array<{

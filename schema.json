@@ -10393,6 +10393,13 @@
                         "type": "string"
                       },
                       "optional": true
+                    },
+                    "imagePath": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      },
+                      "optional": true
                     }
                   },
                   "rest": {

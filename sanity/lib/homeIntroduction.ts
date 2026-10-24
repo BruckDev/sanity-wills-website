@@ -8,24 +8,40 @@ export const homeIntroduction = {
   attorneyCtaHref: '/find-an-attorney',
   photoAlt: 'A multigenerational family spending time together at home',
   lifeStages: [
-    {label: 'Starting a family', href: '/life-events/new-parents'},
-    {label: 'Buying a home', href: '/life-events/new-homeowners'},
-    {label: 'Planning your legacy', href: '/estate-planning'},
-    {label: 'Supporting someone after a loss', href: '/life-events'},
+    {
+      label: 'Starting a family',
+      href: '/life-events/new-parents',
+      imagePath: '/images/estate-planning/family-miniature.png',
+    },
+    {
+      label: 'Buying a home',
+      href: '/life-events/new-homeowners',
+      imagePath: '/images/estate-planning/home-miniature.png',
+    },
+    {
+      label: 'Planning your legacy',
+      href: '/estate-planning',
+      imagePath: '/images/estate-planning/legacy-miniature.png',
+    },
+    {
+      label: 'Supporting someone after a loss',
+      href: '/life-events',
+      imagePath: '/images/estate-planning/support-miniature.png',
+    },
   ],
   planningTopics: [
     {
       label: 'Financial POA',
       href: '/estate-planning',
-      imagePath: '/images/estate-planning/financial-poa.png',
+      imagePath: '/images/estate-planning/financial-poa-miniature.png',
     },
     {
       label: 'Advance Healthcare Directive',
       href: '/estate-planning',
-      imagePath: '/images/estate-planning/healthcare-directive.png',
+      imagePath: '/images/estate-planning/healthcare-directive-miniature.png',
     },
-    {label: 'Living Trust', href: '/trusts', imagePath: '/images/estate-planning/living-trust.png'},
-    {label: 'Probate', href: '/wills', imagePath: '/images/estate-planning/probate.png'},
+    {label: 'Living Trust', href: '/trusts', imagePath: '/images/estate-planning/living-trust-miniature.png'},
+    {label: 'Probate', href: '/wills', imagePath: '/images/estate-planning/probate-miniature.png'},
   ],
   beginningEyebrow: 'Estate planning, made clear',
   beginningTitle: 'A clear place to begin.',
