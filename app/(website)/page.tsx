@@ -135,6 +135,11 @@ async function CachedHome(fetchOptions: DynamicFetchOptions) {
               .filter((stage) => stage.label && stage.href)
               .map((stage) => ({label: stage.label!, href: stage.href!}))
           : homeIntroduction.lifeStages,
+        planningTopics: homeIntroduction.planningTopics.map((topic, index) => ({
+          label: data?.introduction?.planningTopics?.[index]?.label || topic.label,
+          href: data?.introduction?.planningTopics?.[index]?.href || topic.href,
+          imagePath: data?.introduction?.planningTopics?.[index]?.imagePath || topic.imagePath,
+        })),
       }}
       background={data?.attorneySearchBackground}
       planHeading={data?.planChooserHeading}

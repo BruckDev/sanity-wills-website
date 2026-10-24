@@ -1418,6 +1418,12 @@ export type Home = {
       href?: string
       _key: string
     }>
+    planningTopics?: Array<{
+      label?: string
+      href?: string
+      imagePath?: string
+      _key: string
+    }>
     beginningEyebrow?: string
     beginningTitle?: string
     basicsTitle?: string
@@ -2128,6 +2134,12 @@ export type HomeAppearanceQueryResult = {
     lifeStages?: Array<{
       label?: string
       href?: string
+      _key: string
+    }>
+    planningTopics?: Array<{
+      label?: string
+      href?: string
+      imagePath?: string
       _key: string
     }>
     beginningEyebrow?: string

@@ -13,6 +13,20 @@ export const homeIntroduction = {
     {label: 'Planning your legacy', href: '/estate-planning'},
     {label: 'Supporting someone after a loss', href: '/life-events'},
   ],
+  planningTopics: [
+    {
+      label: 'Financial POA',
+      href: '/estate-planning',
+      imagePath: '/images/estate-planning/financial-poa.png',
+    },
+    {
+      label: 'Advance Healthcare Directive',
+      href: '/estate-planning',
+      imagePath: '/images/estate-planning/healthcare-directive.png',
+    },
+    {label: 'Living Trust', href: '/trusts', imagePath: '/images/estate-planning/living-trust.png'},
+    {label: 'Probate', href: '/wills', imagePath: '/images/estate-planning/probate.png'},
+  ],
   beginningEyebrow: 'Estate planning, made clear',
   beginningTitle: 'A clear place to begin.',
   basicsTitle: 'Learn the basics',

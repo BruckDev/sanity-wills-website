@@ -58,7 +58,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
       </section>
       <nav
         aria-label={content.beginningEyebrow}
-        className="relative z-10 mx-4 -mt-20 grid max-w-[74rem] grid-cols-2 overflow-hidden rounded-2xl bg-white p-3 shadow-[0_14px_45px_rgba(7,31,51,0.09)] md:mx-10 md:grid-cols-4 md:p-5 xl:mx-auto"
+        className="relative z-10 mx-4 -mt-20 grid max-w-[74rem] grid-cols-2 gap-2 overflow-hidden rounded-2xl bg-white p-3 shadow-[0_14px_45px_rgba(7,31,51,0.09)] md:mx-10 md:grid-cols-4 md:gap-3 md:p-5 xl:mx-auto"
       >
         {content.lifeStages.map((stage, index) => (
           <Link
@@ -69,6 +69,28 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
             <LifeStageArt index={index} />
             <span className="mx-auto mt-2 block max-w-56 font-serif text-lg leading-6 md:text-xl">
               {stage.label}
+            </span>
+          </Link>
+        ))}
+        {content.planningTopics.map((topic) => (
+          <Link
+            key={topic.imagePath}
+            href={topic.href}
+            className="group relative flex aspect-square flex-col items-center justify-center rounded-xl border border-[#e0eae4] bg-[#f4f8f3] px-3 py-2 text-center text-[#082d4c] transition hover:border-[#7bb9ad] hover:bg-[#eaf3eb] focus-visible:outline-2 focus-visible:outline-[#008a80] lg:py-4"
+          >
+            <span aria-hidden="true" className="absolute right-3 top-2 text-lg text-[#6b8980]">
+              ↗
+            </span>
+            <Image
+              src={topic.imagePath}
+              alt=""
+              width={128}
+              height={128}
+              sizes="(min-width: 1280px) 128px, (min-width: 1024px) 112px, 64px"
+              className="h-16 w-16 shrink-0 object-contain lg:h-28 lg:w-28 xl:h-32 xl:w-32"
+            />
+            <span className="mt-2 flex min-h-16 max-w-56 items-center justify-center font-serif text-base leading-5 lg:min-h-12 lg:text-xl lg:leading-6">
+              {topic.label}
             </span>
           </Link>
         ))}

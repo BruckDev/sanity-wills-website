@@ -19,7 +19,7 @@ export default defineType({
           Array.isArray(value)
             ? {
                 name,
-                title: 'Life stages',
+                title: name === 'planningTopics' ? 'Planning topics' : 'Life stages',
                 type: 'array',
                 validation: (rule) => rule.length(4),
                 of: [
@@ -36,6 +36,15 @@ export default defineType({
                         type: 'string',
                         validation: (rule) => rule.required().regex(/^(\/|#|https:\/\/)/),
                       }),
+                      ...(name === 'planningTopics'
+                        ? [
+                            defineField({
+                              name: 'imagePath',
+                              title: 'Icon image path',
+                              type: 'string',
+                            }),
+                          ]
+                        : []),
                     ],
                   }),
                 ],
