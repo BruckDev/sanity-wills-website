@@ -86,11 +86,11 @@ h6 {
       linear-gradient(
         to right,
         rgb(var(--hero-tone)) 0%,
-        rgb(var(--hero-tone)) 24%,
-        rgb(var(--hero-tone) / 96%) 32%,
-        rgb(var(--hero-tone) / 90%) 43%,
-        rgb(var(--hero-tone) / 35%) 57%,
-        transparent 72%
+        rgb(var(--hero-tone) / 92%) 12%,
+        rgb(var(--hero-tone) / 86%) 24%,
+        rgb(var(--hero-tone) / 74%) 36%,
+        rgb(var(--hero-tone) / 40%) 48%,
+        transparent 62%
       );
   }
 }

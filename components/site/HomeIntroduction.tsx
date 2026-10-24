@@ -41,13 +41,13 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
             </div>
           </div>
         </div>
-        <div className="home-hero-photo relative -mt-4 aspect-[1.62] w-full md:absolute md:inset-y-0 md:right-0 md:mt-0 md:aspect-auto lg:w-[78%]">
+        <div className="home-hero-photo relative -mt-4 aspect-[1.62] w-full md:absolute md:inset-y-0 md:right-0 md:mt-0 md:aspect-auto">
           <Image
             src="/images/estate-planning/hero-protect-what-matters.png"
             alt={content.photoAlt}
             fill
             priority
-            sizes="(min-width: 1024px) 78vw, 100vw"
+            sizes="100vw"
             className="object-cover"
           />
         </div>
