@@ -19,13 +19,19 @@ export function LifeStageArt({index}: {index: number}) {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <circle cx="110" cy="64" r="53" fill={seafoam} opacity="0.18" />
+      <circle
+        cx="110"
+        cy="64"
+        r="53"
+        fill={index === 1 ? '#b8e6ff' : seafoam}
+        opacity={index === 1 ? 1 : 0.18}
+      />
       <circle cx="168" cy="29" r="6" fill={sand} />
       <path d="M47 91h8m-4-4v8" stroke={seafoam} strokeWidth="3" />
       {index === 0 ? (
         <>
-          <path d="M63 108V79a23 23 0 0 1 46 0v29" fill={teal} />
-          <path d="M111 108V79a23 23 0 0 1 46 0v29" fill={amber} />
+          <path d="M63 108V79a23 23 0 0 1 46 0v29" fill="#add6fc" />
+          <path d="M111 108V79a23 23 0 0 1 46 0v29" fill="#fdc2e1" />
           <circle cx="86" cy="39" r="16" fill={sand} />
           <path d="M71 36a16 16 0 0 1 31-5c-10 4-19 3-25-2" fill={teal} />
           <circle cx="134" cy="39" r="16" fill={sand} />
@@ -38,7 +44,7 @@ export function LifeStageArt({index}: {index: number}) {
         </>
       ) : index === 1 ? (
         <>
-          <path d="M64 59 107 24l43 35v52H64Z" fill={sand} />
+          <path d="M64 59 107 24l43 35v52H64Z" fill="#ffdebc" />
           <path d="m56 61 51-42 51 42" stroke={teal} strokeWidth="7" />
           <path d="M130 37V24h12v23" fill={rust} />
           <path d="M96 79a11 11 0 0 1 22 0v32H96Z" fill={teal} />
@@ -54,16 +60,16 @@ export function LifeStageArt({index}: {index: number}) {
           <rect x="76" y="77" width="69" height="37" rx="6" fill={sand} />
           <path d="M87 99h19m-19 7h34" stroke={amber} strokeWidth="3" />
           <path d="M110 89V38m0 34L86 52m24 8 24-22" stroke={rust} strokeWidth="5" />
-          <path d="M108 48c-19 2-30-8-29-25 19-1 31 9 29 25Z" fill={teal} />
-          <path d="M113 55c-1-20 12-33 31-32 1 19-11 33-31 32Z" fill={seafoam} />
-          <path d="M106 75c-21 1-34-11-33-29 20-1 34 10 33 29Z" fill={seafoam} />
-          <path d="M114 79c-1-18 11-29 29-28 1 18-11 29-29 28Z" fill={teal} />
+          <path d="M108 48c-19 2-30-8-29-25 19-1 31 9 29 25Z" fill="#6da655" />
+          <path d="M113 55c-1-20 12-33 31-32 1 19-11 33-31 32Z" fill="#6da655" />
+          <path d="M106 75c-21 1-34-11-33-29 20-1 34 10 33 29Z" fill="#6da655" />
+          <path d="M114 79c-1-18 11-29 29-28 1 18-11 29-29 28Z" fill="#6da655" />
           <circle cx="150" cy="68" r="8" fill={autumnAccent} opacity="0.65" />
           <path d="m128 102 4 4 9-10" stroke={teal} strokeWidth="3" />
         </>
       ) : index === 3 ? (
         <>
-          <path d="M110 75 89 54c-16-17 8-38 21-20 13-18 37 3 21 20Z" fill={teal} />
+          <path d="M110 75 89 54c-16-17 8-38 21-20 13-18 37 3 21 20Z" fill="#f29595" />
           <path d="M84 39c-5 6-4 12 0 17" stroke={seafoam} strokeWidth="3" />
           <path d="m60 89 12-16c4-5 11-5 16-1l17 14h19c10 0 13 11 5 15l-16 8H82Z" fill={sand} />
           <path d="m160 89-12-16c-4-5-11-5-16-1l-12 10" stroke={amber} strokeWidth="9" />
@@ -73,7 +79,7 @@ export function LifeStageArt({index}: {index: number}) {
         </>
       ) : index === 4 ? (
         <>
-          <path d="M76 22h53l18 18v65H76Z" fill={sand} />
+          <path d="M76 22h53l18 18v65H76Z" fill="#ffecd7" />
           <path d="M129 22v18h18" fill={seafoam} />
           <path d="M88 49h35M88 59h30M88 69h20" stroke={teal} strokeWidth="4" />
           <path d="m101 87 7-5 7 5 10-9" stroke={rust} strokeWidth="3" />
@@ -86,17 +92,17 @@ export function LifeStageArt({index}: {index: number}) {
         </>
       ) : index === 5 ? (
         <>
-          <path d="M74 21h57l16 17v72H74Z" fill={sand} />
+          <path d="M74 21h57l16 17v72H74Z" fill="#ffecd7" />
           <path d="M131 21v17h16" fill={seafoam} />
-          <path d="M96 42h13V30h12v12h13v12h-13v13h-12V54H96Z" fill={teal} />
+          <path d="M96 42h13V30h12v12h13v12h-13v13h-12V54H96Z" fill="#3d85c6" />
           <path d="M87 79h34M87 89h25M87 99h17" stroke={amber} strokeWidth="4" />
-          <path d="m144 109-18-18c-13-15 6-31 18-17 12-14 31 2 18 17Z" fill={seafoam} />
+          <path d="m144 109-18-18c-13-15 6-31 18-17 12-14 31 2 18 17Z" fill="#ea9999" />
           <path d="m129 88 8 1 4-8 6 17 4-9h9" stroke={teal} strokeWidth="3" />
         </>
       ) : index === 6 ? (
         <>
-          <path d="M75 64 111 34l35 30v43H75Z" fill={sand} />
-          <path d="m67 66 44-37 44 37" stroke={teal} strokeWidth="6" />
+          <path d="M75 64 111 34l35 30v43H75Z" fill="#fadcbd" />
+          <path d="m67 66 44-37 44 37" stroke="#fa8585" strokeWidth="6" />
           <path d="M101 84a10 10 0 0 1 20 0v23h-20Z" fill={teal} />
           <rect x="84" y="67" width="11" height="13" rx="2" fill={seafoam} />
           <rect x="127" y="67" width="11" height="13" rx="2" fill={seafoam} />
