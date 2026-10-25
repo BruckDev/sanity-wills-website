@@ -18,29 +18,6 @@ export const metadata: Metadata = {
   description: 'A marketing demonstration of a featured attorney office profile on Wills.com.',
 }
 
-const practiceAreas = [
-  {
-    icon: '▤',
-    title: 'Wills & Trusts',
-    copy: 'Create a clear plan to protect the people and property that matter most.',
-  },
-  {
-    icon: '◆',
-    title: 'Probate',
-    copy: 'Guidance through the probate process with care, clarity, and next steps in view.',
-  },
-  {
-    icon: '▣',
-    title: 'Business Succession',
-    copy: 'Help business owners prepare for a thoughtful transition.',
-  },
-  {
-    icon: '↗',
-    title: 'Estate Tax Planning',
-    copy: 'Explore strategies that may help preserve wealth for future generations.',
-  },
-]
-
 const sampleReviews = [
   [
     '“Christopher made our trust options clear and helped us choose a plan that felt right for our family.”',
@@ -296,45 +273,6 @@ export default function FeaturedAttorneySamplePage() {
             A sample placement for an office recognition or professional distinction.
           </p>
         </div>
-      </section>
-
-      <section id="practice-areas">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
-              Practice areas
-            </div>
-            <h2 className="mt-3 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-              Planning for the questions ahead.
-            </h2>
-          </div>
-          <a
-            href="#all-practice-areas"
-            className="text-sm font-semibold text-[#067b81] hover:underline"
-          >
-            View all practice areas →
-          </a>
-        </div>
-        <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {practiceAreas.map((area) => (
-            <article
-              key={area.title}
-              className="rounded-xl border border-[color:var(--border)] bg-white p-6 text-center shadow-[0_10px_24px_rgba(8,35,58,0.04)]"
-            >
-              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#e4f5f6] font-serif text-2xl text-[#0b6d7a]">
-                {area.icon}
-              </span>
-              <h3 className="mt-5 font-serif text-2xl tracking-[-0.03em] text-[color:var(--fg)]">
-                {area.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">{area.copy}</p>
-            </article>
-          ))}
-        </div>
-        <p id="all-practice-areas" className="mt-5 text-sm leading-6 text-[color:var(--muted)]">
-          Sample practice areas include charitable trusts, deeds, probate administration, powers of
-          attorney, revocable living trusts, special-needs trusts, tax planning, and wills.
-        </p>
       </section>
 
       <Suspense
