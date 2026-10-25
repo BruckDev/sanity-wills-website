@@ -81,7 +81,7 @@ h6 {
 .attorney-expertise-track {
   display: flex;
   width: max-content;
-  animation: attorney-expertise-scroll 100s linear infinite;
+  animation: attorney-expertise-scroll 45s linear infinite;
 }
 
 .attorney-expertise-group {
@@ -93,8 +93,7 @@ h6 {
   white-space: nowrap;
 }
 
-.attorney-expertise:hover .attorney-expertise-track,
-.attorney-expertise:focus-within .attorney-expertise-track {
+.attorney-expertise:focus-visible .attorney-expertise-track {
   animation-play-state: paused;
 }
 
