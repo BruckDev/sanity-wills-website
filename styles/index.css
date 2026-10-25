@@ -78,6 +78,108 @@ h6 {
   mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
 }
 
+.attorney-article-stage {
+  position: relative;
+  height: 23rem;
+  overflow: hidden;
+}
+
+.attorney-article-slide {
+  position: absolute;
+  top: 6%;
+  height: 88%;
+  width: 76%;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #082d4c;
+  opacity: 0.6;
+  transition:
+    left 450ms ease,
+    width 450ms ease,
+    top 450ms ease,
+    height 450ms ease,
+    opacity 450ms ease;
+}
+
+.attorney-article-slide[data-position='previous'] {
+  left: -72%;
+}
+
+.attorney-article-slide[data-position='next'] {
+  left: 96%;
+}
+
+.attorney-article-slide[data-position='active'] {
+  top: 0;
+  left: 8%;
+  z-index: 1;
+  height: 100%;
+  width: 84%;
+  opacity: 1;
+}
+
+.attorney-article-slide:hover,
+.attorney-article-slide:focus-within {
+  opacity: 1;
+}
+
+.attorney-article-byline {
+  display: none;
+}
+
+.attorney-article-slide[data-position='active'] .attorney-article-byline {
+  display: flex;
+}
+
+.attorney-article-title {
+  font-size: 1.375rem;
+}
+
+.attorney-article-slide:not([data-position='active']) .attorney-article-copy {
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  .attorney-article-stage {
+    height: 28rem;
+  }
+
+  .attorney-article-slide {
+    width: 20%;
+  }
+
+  .attorney-article-slide[data-position='previous'] {
+    left: 0;
+  }
+
+  .attorney-article-slide[data-position='next'] {
+    left: 80%;
+  }
+
+  .attorney-article-slide[data-position='active'] {
+    left: 22%;
+    width: 56%;
+  }
+
+  .attorney-article-slide:not([data-position='active']) .attorney-article-copy {
+    visibility: visible;
+  }
+
+  .attorney-article-title {
+    font-size: 1.125rem;
+  }
+
+  .attorney-article-slide[data-position='active'] .attorney-article-title {
+    font-size: 1.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .attorney-article-slide {
+    transition: none;
+  }
+}
+
 .attorney-expertise-track {
   display: flex;
   width: max-content;

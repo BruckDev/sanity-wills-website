@@ -17,6 +17,7 @@ export async function getAttorneyProgram(
   return {
     ...attorneyProgramContent,
     ...overrides,
+    sampleArticles: {...attorneyProgramContent.sampleArticles, ...data?.sampleArticles},
     sampleSocials: {
       unavailableLabel:
         data?.sampleSocials?.unavailableLabel ||

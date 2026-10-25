@@ -11,6 +11,17 @@ export const attorneyProgramContent = {
   badge: 'Founding Attorney Program · First 100 firms',
   applyLabel: 'Apply for a founding profile',
   sampleProfileLabel: 'View sample attorney profile',
+  sampleArticles: {
+    eyebrow: 'Illustrative attorney articles',
+    heading: 'Articles by Christopher Freidman',
+    allArticlesLabel: 'View all articles',
+    authorName: 'Christopher Freidman',
+    previousLabel: 'Previous article',
+    nextLabel: 'Next article',
+    selectLabel: 'Show article',
+    disclaimer:
+      'Article titles and copy are illustrative marketing content for this fictional sample profile.',
+  },
   sampleSocials: {
     unavailableLabel: 'Link not added yet',
     links: [

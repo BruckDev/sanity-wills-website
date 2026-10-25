@@ -1,3 +1,4 @@
+import {AttorneyArticleCarousel} from '@/components/site/AttorneyArticleCarousel'
 import {AttorneyExpertiseMarquee} from '@/components/site/AttorneyExpertiseMarquee'
 import {AttorneySocialLinks} from '@/components/site/AttorneySocialLinks'
 import {getAttorneyProgram} from '@/sanity/lib/attorneyProgram'
@@ -5,7 +6,6 @@ import {attorneyProgramContent} from '@/sanity/lib/attorneyProgramContent'
 import {getDynamicFetchOptions} from '@/sanity/lib/live'
 import type {Metadata} from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
 import {Suspense} from 'react'
 import {sampleAttorneyArticles} from './articleData'
 
@@ -72,6 +72,18 @@ async function EditableExpertise() {
 async function EditableSocialLinks() {
   const page = await getAttorneyProgram(await getDynamicFetchOptions())
   return <AttorneySocialLinks content={page.sampleSocials} />
+}
+
+const carouselArticles = sampleAttorneyArticles.map((article, index) => ({
+  slug: article.slug,
+  title: article.title,
+  readingTime: article.readingTime,
+  image: articleImages[index],
+}))
+
+async function EditableArticles() {
+  const page = await getAttorneyProgram(await getDynamicFetchOptions())
+  return <AttorneyArticleCarousel articles={carouselArticles} content={page.sampleArticles} />
 }
 
 export default function FeaturedAttorneySamplePage() {
@@ -323,56 +335,16 @@ export default function FeaturedAttorneySamplePage() {
         </p>
       </section>
 
-      <section>
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
-              Illustrative attorney articles
-            </div>
-            <h2 className="mt-3 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-              Articles by Christopher Freidman
-            </h2>
-          </div>
-          <Link
-            href="/featured-attorneys/freidman-berenstein-anderson/articles"
-            className="text-sm font-semibold text-[#067b81] hover:underline"
-          >
-            View all articles →
-          </Link>
-        </div>
-        <div className="mt-7 grid gap-5 md:grid-cols-3">
-          {sampleAttorneyArticles.map((article, index) => (
-            <Link
-              key={article.slug}
-              href={`/featured-attorneys/freidman-berenstein-anderson/articles/${article.slug}`}
-              className="group overflow-hidden rounded-xl border border-[color:var(--border)] bg-white shadow-[0_10px_24px_rgba(8,35,58,0.04)] transition hover:-translate-y-1 hover:border-[#89cfd1]"
-            >
-              <div className="relative aspect-[16/8] overflow-hidden">
-                <Image
-                  src={articleImages[index]}
-                  alt=""
-                  fill
-                  className="object-cover transition duration-300 group-hover:scale-105"
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                />
-              </div>
-              <div className="p-6">
-                <div className="text-xs font-semibold text-[color:var(--muted)]">
-                  {article.readingTime}
-                </div>
-                <h3 className="mt-3 font-serif text-2xl leading-7 tracking-[-0.03em] text-[color:var(--fg)]">
-                  {article.title}
-                </h3>
-                <p className="mt-3 leading-6 text-[color:var(--muted)]">{article.summary}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-        <p className="mt-5 text-sm leading-6 text-[color:var(--muted)]">
-          Article titles and copy are illustrative marketing content for this fictional sample
-          profile.
-        </p>
-      </section>
+      <Suspense
+        fallback={
+          <AttorneyArticleCarousel
+            articles={carouselArticles}
+            content={attorneyProgramContent.sampleArticles}
+          />
+        }
+      >
+        <EditableArticles />
+      </Suspense>
 
       <section className="rounded-xl bg-[#071f33] px-7 py-10 text-white md:px-10 md:py-12">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
