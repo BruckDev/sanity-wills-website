@@ -1,6 +1,11 @@
+import {AttorneyExpertiseMarquee} from '@/components/site/AttorneyExpertiseMarquee'
+import {getAttorneyProgram} from '@/sanity/lib/attorneyProgram'
+import {attorneyProgramContent} from '@/sanity/lib/attorneyProgramContent'
+import {getDynamicFetchOptions} from '@/sanity/lib/live'
 import type {Metadata} from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import {Suspense} from 'react'
 import {sampleAttorneyArticles} from './articleData'
 
 export const metadata: Metadata = {
@@ -58,6 +63,11 @@ const benefitItems = [
   ['◆', 'A more secure tomorrow', 'Planning that keeps the people you value in view.'],
 ]
 
+async function EditableExpertise() {
+  const page = await getAttorneyProgram(await getDynamicFetchOptions())
+  return <AttorneyExpertiseMarquee content={page.sampleExpertise} />
+}
+
 export default function FeaturedAttorneySamplePage() {
   return (
     <div className="space-y-12 pb-8 md:space-y-16">
@@ -112,6 +122,12 @@ export default function FeaturedAttorneySamplePage() {
           <p className="mt-4 text-sm text-[color:var(--muted)]">Free consultations available.</p>
         </div>
       </section>
+
+      <Suspense
+        fallback={<AttorneyExpertiseMarquee content={attorneyProgramContent.sampleExpertise} />}
+      >
+        <EditableExpertise />
+      </Suspense>
 
       <section className="grid gap-5 border-y border-[color:var(--border)] py-7 md:grid-cols-3 md:gap-0 md:py-8">
         {benefitItems.map(([icon, title, copy], index) => (

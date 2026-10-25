@@ -73,6 +73,63 @@ h6 {
   background-image: linear-gradient(to right, rgb(var(--hero-tone)), rgb(var(--hero-highlight)));
 }
 
+.attorney-expertise-window {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.attorney-expertise-track {
+  display: flex;
+  width: max-content;
+  animation: attorney-expertise-scroll 100s linear infinite;
+}
+
+.attorney-expertise-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 1.75rem;
+  padding-inline-end: 1.75rem;
+  white-space: nowrap;
+}
+
+.attorney-expertise:hover .attorney-expertise-track,
+.attorney-expertise:focus-within .attorney-expertise-track {
+  animation-play-state: paused;
+}
+
+@keyframes attorney-expertise-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .attorney-expertise-window {
+    mask-image: none;
+    padding-inline: 1.5rem;
+  }
+
+  .attorney-expertise-track {
+    width: auto;
+    animation: none;
+    transform: none;
+  }
+
+  .attorney-expertise-group {
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.75rem;
+    padding-inline-end: 0;
+    white-space: normal;
+  }
+
+  .attorney-expertise-group + .attorney-expertise-group {
+    display: none;
+  }
+}
+
 .home-hero-photo {
   mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }

@@ -17,6 +17,13 @@ export async function getAttorneyProgram(
   return {
     ...attorneyProgramContent,
     ...overrides,
+    sampleExpertise: {
+      ...attorneyProgramContent.sampleExpertise,
+      ...data?.sampleExpertise,
+      phrases: data?.sampleExpertise?.phrases?.length
+        ? data.sampleExpertise.phrases
+        : attorneyProgramContent.sampleExpertise.phrases,
+    },
     form: {...attorneyProgramContent.form, ...data?.form},
     directory: {...attorneyProgramContent.directory, ...data?.directory},
     trustPages: {...attorneyProgramContent.trustPages, ...data?.trustPages},

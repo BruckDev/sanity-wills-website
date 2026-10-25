@@ -1051,6 +1051,10 @@ export type AttorneyProgram = {
   badge?: string
   applyLabel?: string
   sampleProfileLabel?: string
+  sampleExpertise?: {
+    heading?: string
+    phrases?: Array<string>
+  }
   stripePayLabel?: string
   callLabel?: string
   callFallbackLabel?: string
@@ -1950,6 +1954,10 @@ export type ProgramQueryResult = {
   badge?: string
   applyLabel?: string
   sampleProfileLabel?: string
+  sampleExpertise?: {
+    heading?: string
+    phrases?: Array<string>
+  }
   stripePayLabel?: string
   callLabel?: string
   callFallbackLabel?: string
