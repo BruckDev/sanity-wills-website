@@ -181,6 +181,52 @@ export default function FeaturedAttorneySamplePage() {
         </div>
       </section>
 
+      <section id="sample-client-feedback">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+              Sample client feedback
+            </div>
+            <h2 className="mt-3 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
+              Thoughtful trust advice, illustrated.
+            </h2>
+          </div>
+          <a
+            href="mailto:freidman@fbalaw.com"
+            className="text-sm font-semibold text-[#067b81] hover:underline"
+          >
+            Ask a question →
+          </a>
+        </div>
+        <p className="mt-4 max-w-3xl text-[color:var(--muted)]">
+          These fictional examples show how a featured office could present verified client feedback
+          about clear, caring trust-planning guidance.
+        </p>
+        <div className="mt-7 grid gap-5 lg:grid-cols-3">
+          {sampleReviews.map(([quote, attribution], index) => (
+            <figure
+              key={quote}
+              className={`rounded-xl p-6 ${
+                index === 0 ? 'bg-[#dff7f7]' : index === 1 ? 'bg-[#fae2e2]' : 'bg-[#fff0d2]'
+              }`}
+            >
+              <div
+                className="text-lg tracking-[0.16em] text-[#07858a]"
+                aria-label="Sample five-star rating"
+              >
+                ★★★★★
+              </div>
+              <blockquote className="mt-5 text-lg leading-7 text-[color:var(--fg)]">
+                {quote}
+              </blockquote>
+              <figcaption className="mt-5 text-sm font-medium text-[color:var(--muted)]">
+                — {attribution}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="grid gap-5 border-y border-[color:var(--border)] py-7 md:grid-cols-3 md:gap-0 md:py-8">
         {benefitItems.map(([icon, title, copy], index) => (
           <div
@@ -315,52 +361,6 @@ export default function FeaturedAttorneySamplePage() {
           Article titles and copy are illustrative marketing content for this fictional sample
           profile.
         </p>
-      </section>
-
-      <section id="sample-client-feedback">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
-              Sample client feedback
-            </div>
-            <h2 className="mt-3 font-serif text-4xl tracking-[-0.035em] text-[color:var(--fg)] md:text-5xl">
-              Thoughtful trust advice, illustrated.
-            </h2>
-          </div>
-          <a
-            href="mailto:freidman@fbalaw.com"
-            className="text-sm font-semibold text-[#067b81] hover:underline"
-          >
-            Ask a question →
-          </a>
-        </div>
-        <p className="mt-4 max-w-3xl text-[color:var(--muted)]">
-          These fictional examples show how a featured office could present verified client feedback
-          about clear, caring trust-planning guidance.
-        </p>
-        <div className="mt-7 grid gap-5 lg:grid-cols-3">
-          {sampleReviews.map(([quote, attribution], index) => (
-            <figure
-              key={quote}
-              className={`rounded-xl p-6 ${
-                index === 0 ? 'bg-[#dff7f7]' : index === 1 ? 'bg-[#fae2e2]' : 'bg-[#fff0d2]'
-              }`}
-            >
-              <div
-                className="text-lg tracking-[0.16em] text-[#07858a]"
-                aria-label="Sample five-star rating"
-              >
-                ★★★★★
-              </div>
-              <blockquote className="mt-5 text-lg leading-7 text-[color:var(--fg)]">
-                {quote}
-              </blockquote>
-              <figcaption className="mt-5 text-sm font-medium text-[color:var(--muted)]">
-                — {attribution}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
       </section>
 
       <section className="rounded-xl bg-[#071f33] px-7 py-10 text-white md:px-10 md:py-12">
