@@ -1,4 +1,5 @@
 import {AttorneyExpertiseMarquee} from '@/components/site/AttorneyExpertiseMarquee'
+import {AttorneySocialLinks} from '@/components/site/AttorneySocialLinks'
 import {getAttorneyProgram} from '@/sanity/lib/attorneyProgram'
 import {attorneyProgramContent} from '@/sanity/lib/attorneyProgramContent'
 import {getDynamicFetchOptions} from '@/sanity/lib/live'
@@ -68,6 +69,11 @@ async function EditableExpertise() {
   return <AttorneyExpertiseMarquee content={page.sampleExpertise} />
 }
 
+async function EditableSocialLinks() {
+  const page = await getAttorneyProgram(await getDynamicFetchOptions())
+  return <AttorneySocialLinks content={page.sampleSocials} />
+}
+
 export default function FeaturedAttorneySamplePage() {
   return (
     <div className="space-y-12 pb-8 md:space-y-16">
@@ -119,6 +125,11 @@ export default function FeaturedAttorneySamplePage() {
               Call +1-630-625-7571
             </a>
           </div>
+          <Suspense
+            fallback={<AttorneySocialLinks content={attorneyProgramContent.sampleSocials} />}
+          >
+            <EditableSocialLinks />
+          </Suspense>
           <p className="mt-4 text-sm text-[color:var(--muted)]">Free consultations available.</p>
         </div>
       </section>

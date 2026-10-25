@@ -11,6 +11,16 @@ export const attorneyProgramContent = {
   badge: 'Founding Attorney Program · First 100 firms',
   applyLabel: 'Apply for a founding profile',
   sampleProfileLabel: 'View sample attorney profile',
+  sampleSocials: {
+    unavailableLabel: 'Link not added yet',
+    links: [
+      {platform: 'linkedin', label: 'LinkedIn', profileUrl: ''},
+      {platform: 'facebook', label: 'Facebook', profileUrl: ''},
+      {platform: 'x', label: 'X', profileUrl: ''},
+      {platform: 'instagram', label: 'Instagram', profileUrl: ''},
+      {platform: 'website', label: 'Website', profileUrl: ''},
+    ],
+  },
   sampleExpertise: {
     heading: 'Areas of expertise',
     phrases: [

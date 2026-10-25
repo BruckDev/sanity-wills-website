@@ -17,6 +17,15 @@ export async function getAttorneyProgram(
   return {
     ...attorneyProgramContent,
     ...overrides,
+    sampleSocials: {
+      unavailableLabel:
+        data?.sampleSocials?.unavailableLabel ||
+        attorneyProgramContent.sampleSocials.unavailableLabel,
+      links: attorneyProgramContent.sampleSocials.links.map((link, index) => ({
+        ...link,
+        ...data?.sampleSocials?.links?.[index],
+      })),
+    },
     sampleExpertise: {
       ...attorneyProgramContent.sampleExpertise,
       ...data?.sampleExpertise,

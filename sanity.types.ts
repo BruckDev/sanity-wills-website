@@ -1051,6 +1051,15 @@ export type AttorneyProgram = {
   badge?: string
   applyLabel?: string
   sampleProfileLabel?: string
+  sampleSocials?: {
+    unavailableLabel?: string
+    links?: Array<{
+      platform?: string
+      label?: string
+      profileUrl?: string
+      _key: string
+    }>
+  }
   sampleExpertise?: {
     heading?: string
     phrases?: Array<string>
@@ -1954,6 +1963,15 @@ export type ProgramQueryResult = {
   badge?: string
   applyLabel?: string
   sampleProfileLabel?: string
+  sampleSocials?: {
+    unavailableLabel?: string
+    links?: Array<{
+      platform?: string
+      label?: string
+      profileUrl?: string
+      _key: string
+    }>
+  }
   sampleExpertise?: {
     heading?: string
     phrases?: Array<string>
