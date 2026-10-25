@@ -265,7 +265,15 @@ export default function FeaturedAttorneySamplePage() {
         </p>
       </section>
 
-      <section className="grid overflow-hidden rounded-xl border border-[color:var(--border)] bg-[#f2f6f7] md:grid-cols-[0.8fr_1.2fr]">
+      <section className="relative isolate grid overflow-hidden rounded-xl border border-[color:var(--border)] bg-[#082e4b] text-white md:grid-cols-[0.8fr_1.2fr]">
+        <Image
+          src="/images/estate-planning/attorney-search-hillside.png"
+          alt=""
+          fill
+          className="-z-20 object-cover object-right"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-[#082e4b]/75" />
         <div className="relative min-h-[16rem]">
           <Image
             src="/images/featured-attorneys/chicago-office-building.jpg"
@@ -276,15 +284,15 @@ export default function FeaturedAttorneySamplePage() {
           />
         </div>
         <div className="p-7 md:p-9">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#b8d9d1]">
             Office details
           </div>
-          <h2 className="mt-3 font-serif text-3xl tracking-[-0.035em] text-[color:var(--fg)] md:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl tracking-[-0.035em] text-white md:text-4xl">
             Serving Chicago &amp; the greater Illinois area
           </h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            <address className="not-italic text-sm leading-6 text-[color:var(--muted)]">
-              <span className="mb-2 block font-semibold text-[color:var(--fg)]">
+            <address className="not-italic text-sm leading-6 text-white/85">
+              <span className="mb-2 block font-semibold text-white">
                 Freidman, Berenstein &amp; Anderson
               </span>
               411 A Wacker Dr
@@ -293,14 +301,14 @@ export default function FeaturedAttorneySamplePage() {
               <br />
               Chicago, IL 60606
             </address>
-            <div className="border-t border-[color:var(--border)] pt-5 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
-              <p className="text-sm leading-6 text-[color:var(--muted)]">
+            <div className="border-t border-white/25 pt-5 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
+              <p className="text-sm leading-6 text-white/85">
                 A sample office panel for location, availability, and the preferred way to get in
                 touch.
               </p>
               <a
                 href="mailto:freidman@fbalaw.com"
-                className="mt-4 inline-flex text-sm font-semibold text-[#067b81] hover:underline"
+                className="mt-4 inline-flex text-sm font-semibold text-[#b8d9d1] hover:underline"
               >
                 Contact the office →
               </a>
