@@ -1,5 +1,5 @@
 export const homeIntroduction = {
-  title: 'Protect what matters\nwith guidance from Wills.com',
+  title: 'Protect what matters\nwith guidance from our trusted attorneys',
   description:
     'Straightforward guidance, trusted tools, and estate-planning education for every stage of life.',
   ctaLabel: 'Explore your options',
