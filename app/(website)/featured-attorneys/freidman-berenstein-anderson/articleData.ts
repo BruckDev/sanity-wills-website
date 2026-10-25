@@ -1,14 +1,20 @@
+import {sampleAdditionalArticles} from '@/sanity/lib/sampleAdditionalArticles'
+import {stegaClean} from 'next-sanity'
+
 export type SampleAttorneyArticle = {
   slug: string
   title: string
   summary: string
   readingTime: string
+  image: string
+  sources?: Array<{title: string; href: string}>
   sections: Array<{heading: string; body: string}>
 }
 
-export const sampleAttorneyArticles: SampleAttorneyArticle[] = [
+const originalArticles: SampleAttorneyArticle[] = [
   {
     slug: 'when-to-update-an-estate-plan',
+    image: '/images/estate-planning/will-document.png',
     title: 'When should you update an estate plan in Illinois?',
     summary:
       'Life changes, beneficiary designations, and state-law differences can all make a review worthwhile.',
@@ -30,6 +36,7 @@ export const sampleAttorneyArticles: SampleAttorneyArticle[] = [
   },
   {
     slug: 'will-versus-trust-questions',
+    image: '/images/estate-planning/family-hero.png',
     title: 'Will versus trust: questions families often ask',
     summary: 'A will and a trust can serve different roles in a coordinated estate plan.',
     readingTime: '5 min read',
@@ -50,6 +57,7 @@ export const sampleAttorneyArticles: SampleAttorneyArticle[] = [
   },
   {
     slug: 'preparing-for-an-estate-planning-consultation',
+    image: '/images/estate-planning/advisor-consultation.png',
     title: 'How to prepare for an estate-planning consultation',
     summary: 'A little preparation can make a first conversation more focused and productive.',
     readingTime: '3 min read',
@@ -70,6 +78,17 @@ export const sampleAttorneyArticles: SampleAttorneyArticle[] = [
   },
 ]
 
-export function findSampleAttorneyArticle(slug: string) {
-  return sampleAttorneyArticles.find((article) => article.slug === slug)
+export function resolveSampleAttorneyArticles(
+  additions = sampleAdditionalArticles,
+): SampleAttorneyArticle[] {
+  return [
+    ...originalArticles,
+    ...additions.map((article) => ({...article, slug: stegaClean(article.slug)})),
+  ]
+}
+
+export const sampleAttorneyArticles = resolveSampleAttorneyArticles()
+
+export function findSampleAttorneyArticle(slug: string, articles = sampleAttorneyArticles) {
+  return articles.find((article) => article.slug === slug)
 }

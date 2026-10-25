@@ -17,6 +17,18 @@ export async function getAttorneyProgram(
   return {
     ...attorneyProgramContent,
     ...overrides,
+    sampleAdditionalArticles: attorneyProgramContent.sampleAdditionalArticles.map(
+      (article, index) => ({
+        ...article,
+        ...data?.sampleAdditionalArticles?.[index],
+        sections: data?.sampleAdditionalArticles?.[index]?.sections?.length
+          ? data.sampleAdditionalArticles[index].sections
+          : article.sections,
+        sources: data?.sampleAdditionalArticles?.[index]?.sources?.length
+          ? data.sampleAdditionalArticles[index].sources
+          : article.sources,
+      }),
+    ),
     sampleArticles: {...attorneyProgramContent.sampleArticles, ...data?.sampleArticles},
     sampleSocials: {
       unavailableLabel:

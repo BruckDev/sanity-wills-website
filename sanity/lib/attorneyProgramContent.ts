@@ -1,4 +1,7 @@
+import {sampleAdditionalArticles} from './sampleAdditionalArticles'
+
 export const attorneyProgramContent = {
+  sampleAdditionalArticles,
   headerLabel: 'For Attorneys',
   eyebrow: 'For attorneys / Advertise',
   contactPromoTitle: 'Founding Attorney Program',
@@ -12,6 +15,7 @@ export const attorneyProgramContent = {
   applyLabel: 'Apply for a founding profile',
   sampleProfileLabel: 'View sample attorney profile',
   sampleArticles: {
+    sourcesLabel: 'Further reading',
     eyebrow: 'Illustrative attorney articles',
     heading: 'Articles by Christopher Freidman',
     allArticlesLabel: 'View all articles',

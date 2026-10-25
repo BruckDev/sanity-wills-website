@@ -1041,6 +1041,24 @@ export type AttorneyProgram = {
   _createdAt: string
   _updatedAt: string
   _rev: string
+  sampleAdditionalArticles?: Array<{
+    slug?: string
+    title?: string
+    summary?: string
+    readingTime?: string
+    image?: string
+    sections?: Array<{
+      heading?: string
+      body?: string
+      _key: string
+    }>
+    sources?: Array<{
+      title?: string
+      href?: string
+      _key: string
+    }>
+    _key: string
+  }>
   headerLabel?: string
   eyebrow?: string
   contactPromoTitle?: string
@@ -1052,6 +1070,7 @@ export type AttorneyProgram = {
   applyLabel?: string
   sampleProfileLabel?: string
   sampleArticles?: {
+    sourcesLabel?: string
     eyebrow?: string
     heading?: string
     allArticlesLabel?: string
@@ -1963,6 +1982,24 @@ export type ProgramQueryResult = {
   _createdAt: string
   _updatedAt: string
   _rev: string
+  sampleAdditionalArticles?: Array<{
+    slug?: string
+    title?: string
+    summary?: string
+    readingTime?: string
+    image?: string
+    sections?: Array<{
+      heading?: string
+      body?: string
+      _key: string
+    }>
+    sources?: Array<{
+      title?: string
+      href?: string
+      _key: string
+    }>
+    _key: string
+  }>
   headerLabel?: string
   eyebrow?: string
   contactPromoTitle?: string
@@ -1974,6 +2011,7 @@ export type ProgramQueryResult = {
   applyLabel?: string
   sampleProfileLabel?: string
   sampleArticles?: {
+    sourcesLabel?: string
     eyebrow?: string
     heading?: string
     allArticlesLabel?: string

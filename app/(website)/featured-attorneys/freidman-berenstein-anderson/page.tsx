@@ -7,7 +7,11 @@ import {getDynamicFetchOptions} from '@/sanity/lib/live'
 import type {Metadata} from 'next'
 import Image from 'next/image'
 import {Suspense} from 'react'
-import {sampleAttorneyArticles} from './articleData'
+import {
+  resolveSampleAttorneyArticles,
+  sampleAttorneyArticles,
+  type SampleAttorneyArticle,
+} from './articleData'
 
 export const metadata: Metadata = {
   title: 'Sample featured attorney listing',
@@ -35,12 +39,6 @@ const practiceAreas = [
     title: 'Estate Tax Planning',
     copy: 'Explore strategies that may help preserve wealth for future generations.',
   },
-]
-
-const articleImages = [
-  '/images/estate-planning/will-document.png',
-  '/images/estate-planning/family-hero.png',
-  '/images/estate-planning/advisor-consultation.png',
 ]
 
 const sampleReviews = [
@@ -74,16 +72,20 @@ async function EditableSocialLinks() {
   return <AttorneySocialLinks content={page.sampleSocials} />
 }
 
-const carouselArticles = sampleAttorneyArticles.map((article, index) => ({
-  slug: article.slug,
-  title: article.title,
-  readingTime: article.readingTime,
-  image: articleImages[index],
-}))
+function carouselCards(articles: SampleAttorneyArticle[]) {
+  return articles.map(({slug, title, readingTime, image}) => ({slug, title, readingTime, image}))
+}
+
+const carouselArticles = carouselCards(sampleAttorneyArticles)
 
 async function EditableArticles() {
   const page = await getAttorneyProgram(await getDynamicFetchOptions())
-  return <AttorneyArticleCarousel articles={carouselArticles} content={page.sampleArticles} />
+  return (
+    <AttorneyArticleCarousel
+      articles={carouselCards(resolveSampleAttorneyArticles(page.sampleAdditionalArticles))}
+      content={page.sampleArticles}
+    />
+  )
 }
 
 export default function FeaturedAttorneySamplePage() {

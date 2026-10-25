@@ -1,7 +1,17 @@
+import {attorneyProgramContent} from '@/sanity/lib/attorneyProgramContent'
+import {getDynamicFetchOptions, type DynamicFetchOptions} from '@/sanity/lib/live'
 import type {Metadata} from 'next'
+import {stegaClean} from 'next-sanity'
+import {draftMode} from 'next/headers'
 import Link from 'next/link'
 import {notFound} from 'next/navigation'
-import {findSampleAttorneyArticle, sampleAttorneyArticles} from '../../articleData'
+import {Suspense} from 'react'
+import {getSampleArticleContent} from '../../articleContent'
+import {
+  findSampleAttorneyArticle,
+  sampleAttorneyArticles,
+  type SampleAttorneyArticle,
+} from '../../articleData'
 
 export function generateStaticParams() {
   return sampleAttorneyArticles.map((article) => ({slug: article.slug}))
@@ -11,7 +21,9 @@ export async function generateMetadata({
   params,
 }: PageProps<'/featured-attorneys/freidman-berenstein-anderson/articles/[slug]'>): Promise<Metadata> {
   const {slug} = await params
-  const article = findSampleAttorneyArticle(slug)
+  const options = await getDynamicFetchOptions()
+  const {articles} = await getSampleArticleContent({...options, stega: false})
+  const article = findSampleAttorneyArticle(slug, articles)
   return article
     ? {title: `${article.title} | Sample attorney article`, description: article.summary}
     : {}
@@ -21,7 +33,42 @@ export default async function SampleAttorneyArticlePage({
   params,
 }: PageProps<'/featured-attorneys/freidman-berenstein-anderson/articles/[slug]'>) {
   const {slug} = await params
-  const article = findSampleAttorneyArticle(slug)
+  const {isEnabled} = await draftMode()
+  return isEnabled ? (
+    <Suspense
+      fallback={
+        <ArticleBody
+          article={findSampleAttorneyArticle(slug)}
+          sourcesLabel={attorneyProgramContent.sampleArticles.sourcesLabel}
+        />
+      }
+    >
+      <DynamicArticle slug={slug} />
+    </Suspense>
+  ) : (
+    <CachedArticle slug={slug} perspective="published" stega={false} />
+  )
+}
+
+async function DynamicArticle({slug}: {slug: string}) {
+  return <CachedArticle slug={slug} {...await getDynamicFetchOptions()} />
+}
+
+async function CachedArticle({slug, ...options}: DynamicFetchOptions & {slug: string}) {
+  'use cache'
+  const {articles, sourcesLabel} = await getSampleArticleContent(options)
+  return (
+    <ArticleBody article={findSampleAttorneyArticle(slug, articles)} sourcesLabel={sourcesLabel} />
+  )
+}
+
+function ArticleBody({
+  article,
+  sourcesLabel,
+}: {
+  article?: SampleAttorneyArticle
+  sourcesLabel: string
+}) {
   if (!article) notFound()
 
   return (
@@ -51,6 +98,25 @@ export default async function SampleAttorneyArticlePage({
           </section>
         ))}
       </div>
+      {article.sources?.length ? (
+        <section className="rounded-2xl border border-[color:var(--border)] bg-white p-7">
+          <h2 className="font-serif text-2xl text-[color:var(--fg)]">{sourcesLabel}</h2>
+          <ul className="mt-4 space-y-2">
+            {article.sources.map((source) => (
+              <li key={source.href}>
+                <a
+                  href={stegaClean(source.href)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[color:var(--accent-strong)] underline underline-offset-4"
+                >
+                  {source.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
       <aside className="rounded-2xl border border-[#d6e2e8] bg-[#eaf3f6] p-6 text-sm leading-6 text-[color:var(--muted)]">
         <strong className="text-[color:var(--fg)]">Sample content notice:</strong> This is fictional
         demonstration copy for a marketing layout. It is general educational information, not legal

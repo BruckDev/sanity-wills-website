@@ -52,6 +52,7 @@ export function AttorneyArticleCarousel({
       <div className="attorney-article-stage mt-8">
         {articles.map((article, index) => {
           const offset = (index - active + articles.length) % articles.length
+          if (offset !== 0 && offset !== 1 && offset !== articles.length - 1) return null
           const position = offset === 0 ? 'active' : offset === 1 ? 'next' : 'previous'
           const body = (
             <>
@@ -122,7 +123,7 @@ export function AttorneyArticleCarousel({
             onClick={() => setActive(index)}
             aria-label={`${content.selectLabel} ${index + 1}: ${article.title}`}
             aria-pressed={index === active}
-            className="flex h-11 w-9 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-[#067b81]"
+            className="flex h-11 w-7 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-[#067b81] md:w-9"
           >
             <span
               aria-hidden="true"
