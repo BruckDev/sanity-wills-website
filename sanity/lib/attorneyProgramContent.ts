@@ -60,14 +60,14 @@ export const attorneyProgramContent = {
   plansIntro:
     'The $29.99 founding profile rate is reserved for the first 100 accepted firms and stays locked while your subscription remains continuously active. One subscription covers one firm profile; coverage is agreed before billing.',
   monthlyLabel: '/ month',
-  payLabel: 'Pay monthly',
+  payLabel: 'View our plans',
   payFallbackLabel: 'Apply to arrange payment',
   plans: [
     {
       name: 'Founding profile',
       price: '$29.99',
       description: 'Your firm, your communities, and useful education in one place.',
-      checkoutUrl: '',
+      checkoutUrl: 'https://buy.stripe.com/28E9AScECg1RaNz52s57W00',
       features: [
         'Firm profile with practice areas and attorney information',
         'Agreed service areas, ZIP codes, or ZIP radius',
