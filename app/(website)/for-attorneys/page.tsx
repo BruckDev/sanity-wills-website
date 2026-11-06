@@ -15,7 +15,7 @@ import {Suspense} from 'react'
 export const metadata: Metadata = {
   title: 'For Attorneys / Advertise — Founding Attorney Program',
   description:
-    'Join the Wills.com Founding Attorney Program. $29.99/month for the first 100 firms, or $99/month with video or featured educational content. Fixed-fee, labeled advertising.',
+    'Join the Wills.com Founding Attorney Program. $29.99/month for the first 100 firms. Fixed-fee, labeled advertising.',
   alternates: {canonical: 'https://wills.com/for-attorneys'},
 }
 
@@ -99,8 +99,8 @@ function ProgramPage({page}: {page: AttorneyProgramContent}) {
         <p className="mt-5 max-w-3xl text-lg leading-8 text-[color:var(--muted)]">
           {page.plansIntro}
         </p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {page.plans.map((plan, index) => {
+        <div className="mt-8 grid gap-6">
+          {page.plans.slice(0, 1).map((plan, index) => {
             const checkout = httpsLink(plan.checkoutUrl)
             return (
               <article
@@ -210,7 +210,7 @@ function ProgramPage({page}: {page: AttorneyProgramContent}) {
         <h2 className="font-serif text-4xl tracking-[-0.035em] text-white">
           {page.applicationTitle}
         </h2>
-        <p className="mt-4 max-w-3xl leading-8 text-white/80">{page.applicationCopy}</p>
+        <p className="mt-4 max-w-3xl leading-8 text-white/80">{page.applicationCopy.replace('preferred plan ($29.99 or $99), ', '')}</p>
         <div className="mt-7">
           <AttorneyContactForm copy={page.form} />
         </div>
