@@ -14,12 +14,12 @@
   --muted: #52677a;
   --border: rgba(8, 35, 58, 0.14);
   --border-strong: rgba(8, 35, 58, 0.28);
-  --accent: #00a88e;
-  --accent-strong: #008b75;
+  --accent: #80a800;
+  --accent-strong: #4b6200;
   --accent-contrast: #ffffff;
-  --teal: #05a88f;
-  --teal-strong: #078b78;
-  --success: #00a96b;
+  --teal: #4b6200;
+  --teal-strong: #374900;
+  --success: #526d00;
   --warning: #8a5d0a;
   --charcoal: #071f33;
   --ink-soft: #173a55;
@@ -114,14 +114,14 @@ main {
 
 .hero-button-primary {
   border-radius: 10px;
-  background: #14a86f;
+  background: #4b6200;
   color: #ffffff;
   padding: 15px 24px;
   font-weight: 600;
 }
 
 .hero-button-primary:hover {
-  background: #118d5e;
+  background: #374900;
   color: #ffffff;
 }
 

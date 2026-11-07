@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export function SiteFooter({program = attorneyProgramContent}: {program?: AttorneyProgramContent}) {
   return (
-    <footer className="mt-0 border-t border-[#dce7e4] bg-white text-[#173a55]">
+    <footer className="mt-0 border-t border-[#e1e9d9] bg-white text-[#173a55]">
       <div className="mx-auto flex max-w-[88rem] flex-col gap-5 px-5 py-7 md:flex-row md:items-center md:justify-between md:px-8">
         <div className="flex items-center gap-7">
           <Link href="/" aria-label="Wills.com home" className="shrink-0">
@@ -17,37 +17,37 @@ export function SiteFooter({program = attorneyProgramContent}: {program?: Attorn
             aria-label="Footer navigation"
             className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-[#355267]"
           >
-            <Link href="/wills" className="hover:text-[#0b987e]">
+            <Link href="/wills" className="hover:text-[#4b6200]">
               Wills
             </Link>
-            <Link href="/trusts" className="hover:text-[#0b987e]">
+            <Link href="/trusts" className="hover:text-[#4b6200]">
               Trusts
             </Link>
-            <Link href="/estate-planning" className="hover:text-[#0b987e]">
+            <Link href="/estate-planning" className="hover:text-[#4b6200]">
               Estate Planning
             </Link>
-            <Link href="/life-events" className="hover:text-[#0b987e]">
+            <Link href="/life-events" className="hover:text-[#4b6200]">
               Life Events
             </Link>
-            <Link href="/tools" className="hover:text-[#0b987e]">
+            <Link href="/tools" className="hover:text-[#4b6200]">
               Free Tools
             </Link>
-            <Link href="/insights" className="hover:text-[#0b987e]">
+            <Link href="/insights" className="hover:text-[#4b6200]">
               Articles
             </Link>
-            <Link href="/for-attorneys" className="hover:text-[#0b987e]">
+            <Link href="/for-attorneys" className="hover:text-[#4b6200]">
               {program.eyebrow}
             </Link>
-            <Link href="/privacy" className="hover:text-[#0b987e]">
+            <Link href="/privacy" className="hover:text-[#4b6200]">
               {program.privacyLabel}
             </Link>
-            <Link href="/terms" className="hover:text-[#0b987e]">
+            <Link href="/terms" className="hover:text-[#4b6200]">
               {program.trustPages.termsTitle}
             </Link>
-            <Link href="/editorial-policy" className="hover:text-[#0b987e]">
+            <Link href="/editorial-policy" className="hover:text-[#4b6200]">
               {program.trustPages.editorialTitle}
             </Link>
-            <Link href="/how-listings-work" className="hover:text-[#0b987e]">
+            <Link href="/how-listings-work" className="hover:text-[#4b6200]">
               {program.trustPages.listingsTitle}
             </Link>
           </nav>

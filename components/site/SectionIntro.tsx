@@ -20,7 +20,7 @@ export function SectionIntro({
       {eyebrow ? (
         <div
           className={`mb-4 text-xs font-bold uppercase tracking-[0.18em] ${
-            isDark ? 'text-[#8de1b1]' : 'text-[color:var(--accent)]'
+            isDark ? 'text-[#bbd967]' : 'text-[color:var(--accent)]'
           }`}
         >
           {eyebrow}

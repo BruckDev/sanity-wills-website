@@ -133,7 +133,7 @@ export function PlanningToolExperience({kind}: {kind: ToolKind}) {
           ))}
         </div>
         {answered === prompts.length ? (
-          <div className="mt-6 rounded-2xl border border-[#b8cdb6] bg-[#eef5f0] p-5 text-[color:var(--fg)]">
+          <div className="mt-6 rounded-2xl border border-[#c8d6b4] bg-[#f3f7eb] p-5 text-[color:var(--fg)]">
             <strong>
               {needsConversation > 0
                 ? 'A coordinated will and trust conversation may be useful.'
@@ -174,7 +174,7 @@ export function PlanningToolExperience({kind}: {kind: ToolKind}) {
                     : [...current, prompt],
                 )
               }
-              className="mt-1 h-4 w-4 accent-[#00a86b]"
+              className="mt-1 h-4 w-4 accent-[#526d00]"
             />
             {prompt}
           </label>

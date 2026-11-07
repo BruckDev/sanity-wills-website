@@ -23,7 +23,7 @@ export function ArticleTopicBrowser({
         {content.allTitle}
       </h2>
       <div
-        className="mt-6 flex flex-wrap items-center gap-2 border-b border-[#d8e3df] pb-6"
+        className="mt-6 flex flex-wrap items-center gap-2 border-b border-[#dfe8d8] pb-6"
         role="group"
         aria-label={content.exploreLabel}
       >
@@ -36,7 +36,7 @@ export function ArticleTopicBrowser({
             type="button"
             aria-pressed={topic === item}
             onClick={() => setTopic(item)}
-            className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#007f72] ${topic === item ? 'border-[#082d4c] bg-[#082d4c] text-white' : 'border-[#cbdad4] bg-white text-[#082d4c] hover:bg-[#edf7f2]'}`}
+            className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#435900] ${topic === item ? 'border-[#082d4c] bg-[#082d4c] text-white' : 'border-[#d5e1c9] bg-white text-[#082d4c] hover:bg-[#f1f7ea]'}`}
           >
             {item || content.allLabel}
           </button>
@@ -46,7 +46,7 @@ export function ArticleTopicBrowser({
         {visible.map((article) => (
           <article
             key={article.href}
-            className="grid grid-cols-[6rem_1fr] items-start gap-5 border-b border-[#d8e3df] py-7 sm:grid-cols-[9rem_1fr]"
+            className="grid grid-cols-[6rem_1fr] items-start gap-5 border-b border-[#dfe8d8] py-7 sm:grid-cols-[9rem_1fr]"
           >
             <Link
               href={article.href}
@@ -62,7 +62,7 @@ export function ArticleTopicBrowser({
               />
             </Link>
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#007668]">
+              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#435900]">
                 {article.category}
               </p>
               <h3 className="mt-2 text-lg font-bold leading-snug text-[#082d4c] sm:text-xl">
@@ -75,7 +75,7 @@ export function ArticleTopicBrowser({
               </p>
               <Link
                 href={article.href}
-                className="mt-3 inline-block text-xs font-bold text-[#007668] underline underline-offset-4"
+                className="mt-3 inline-block text-xs font-bold text-[#435900] underline underline-offset-4"
               >
                 {content.readLabel} <span aria-hidden="true">→</span>
               </Link>

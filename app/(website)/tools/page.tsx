@@ -80,7 +80,7 @@ export default function ToolsPage() {
           Start with these questions
         </div>
         <ul className="mt-5 grid gap-4 text-left text-base leading-7 text-[color:var(--muted)] md:grid-cols-3 md:text-lg">
-          <li className="border-t-2 border-[#b8cdb6] pt-4">
+          <li className="border-t-2 border-[#c8d6b4] pt-4">
             <p>Who should receive your property—and who should receive it if they cannot?</p>
             <Image
               src="/images/home/starting-questions/property.svg"
@@ -91,7 +91,7 @@ export default function ToolsPage() {
               className="mt-5 aspect-[5/4] w-full rounded-2xl bg-[#f6faf9] object-contain p-2"
             />
           </li>
-          <li className="border-t-2 border-[#b8cdb6] pt-4">
+          <li className="border-t-2 border-[#c8d6b4] pt-4">
             <p>Who do you trust to handle money, paperwork, and decisions?</p>
             <Image
               src="/images/home/starting-questions/special-care.png"
@@ -102,7 +102,7 @@ export default function ToolsPage() {
               className="mt-5 aspect-[5/4] w-full rounded-2xl bg-[#f6faf9] object-contain p-2"
             />
           </li>
-          <li className="border-t-2 border-[#b8cdb6] pt-4">
+          <li className="border-t-2 border-[#c8d6b4] pt-4">
             <p>
               What needs special care: children, a home, a business, pets, or a loved one with
               disabilities?
@@ -169,7 +169,7 @@ export default function ToolsPage() {
         </div>
         <ol className="mt-10 grid list-none gap-5 md:grid-cols-3">
           {planningSteps.map(([number, title, text]) => (
-            <li key={number} className="border-t-2 border-[#b8cdb6] pt-5">
+            <li key={number} className="border-t-2 border-[#c8d6b4] pt-5">
               <div className="text-sm font-bold tracking-[0.15em] text-[color:var(--accent)]">
                 {number}
               </div>

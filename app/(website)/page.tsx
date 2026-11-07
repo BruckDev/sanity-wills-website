@@ -186,7 +186,7 @@ function HomeContent({
         <div className="absolute inset-0 -z-10 bg-[#082e4b]/75" />
         <div className="mx-auto grid max-w-[52rem] gap-7 md:grid-cols-[1.15fr_0.85fr] md:items-center md:gap-6">
           <div className="flex gap-5">
-            <span className="hidden shrink-0 text-[#b8d9d1] sm:block">
+            <span className="hidden shrink-0 text-[#d0dfb1] sm:block">
               <LocationIcon />
             </span>
             <div>
@@ -230,8 +230,8 @@ function HomeContent({
         </div>
       </section>
 
-      <section className="mx-auto mb-6 grid w-full max-w-[52rem] gap-5 rounded-md border border-[#d9eee5] bg-[#ecfaf4] px-6 py-6 md:grid-cols-[auto_1fr_auto] md:items-center md:px-9">
-        <span className="flex h-14 w-14 items-center justify-center border-r border-[#91cfc0] pr-4 text-[#0b987e] md:w-20">
+      <section className="mx-auto mb-6 grid w-full max-w-[52rem] gap-5 rounded-md border border-[#e8f0da] bg-[#f3f8eb] px-6 py-6 md:grid-cols-[auto_1fr_auto] md:items-center md:px-9">
+        <span className="flex h-14 w-14 items-center justify-center border-r border-[#adc77a] pr-4 text-[#4b6200] md:w-20">
           <HeroBenefitIcon icon="children" />
         </span>
         <div>

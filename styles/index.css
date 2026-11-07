@@ -36,7 +36,7 @@ h6 {
 }
 
 .site-header[data-light='true'] {
-  border-color: #e4eae7;
+  border-color: #e3e9dd;
   background: white;
   color: #082d4c;
 }
@@ -49,7 +49,7 @@ h6 {
 
 .site-header[data-light='true'] button,
 .site-header[data-light='true'] nav > a:last-child {
-  border-color: #7ba79e;
+  border-color: #91a875;
 }
 
 .site-header[data-light='true'] nav {
@@ -58,8 +58,8 @@ h6 {
 
 .site-header[data-light='true'] a:hover,
 .site-header[data-light='true'] button:hover {
-  background: #edf6f2;
-  color: #006e65;
+  background: #f0f5e9;
+  color: #435900;
 }
 
 #plan-chooser-title {

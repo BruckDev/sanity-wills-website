@@ -83,7 +83,7 @@ function InsightsContent({
             </Link>
           </div>
           <header className="mx-auto max-w-4xl pb-9 pt-7 text-center text-white md:pb-12">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c2e7dc]">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#dcebbd]">
               {content.eyebrow}
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-[1.1] tracking-[-0.035em] sm:text-5xl lg:text-6xl">
@@ -111,9 +111,9 @@ function InsightsContent({
                   />
                 </Link>
                 <div className="px-1 pb-3 pt-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#007668]">
+                  <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#435900]">
                     {content.featuredLabel}{' '}
-                    <span aria-hidden="true" className="px-1 text-[#8ca69d]">
+                    <span aria-hidden="true" className="px-1 text-[#8d9e7a]">
                       ·
                     </span>{' '}
                     {lead.category}
@@ -126,7 +126,7 @@ function InsightsContent({
                   <p className="mt-3 text-base leading-7 text-[#547080]">{lead.description}</p>
                   <Link
                     href={lead.href}
-                    className="mt-1 inline-block text-sm font-semibold text-[#007668] underline underline-offset-4"
+                    className="mt-1 inline-block text-sm font-semibold text-[#435900] underline underline-offset-4"
                   >
                     {content.readLabel} <span aria-hidden="true">→</span>
                   </Link>
@@ -152,7 +152,7 @@ function InsightsContent({
                       />
                     </Link>
                     <div>
-                      <p className="text-[11px] font-bold uppercase tracking-[0.09em] text-[#007668]">
+                      <p className="text-[11px] font-bold uppercase tracking-[0.09em] text-[#435900]">
                         {article.category}
                       </p>
                       <h2 className="mt-2 text-base font-bold leading-snug md:text-lg">
@@ -162,7 +162,7 @@ function InsightsContent({
                       </h2>
                       <Link
                         href={article.href}
-                        className="mt-3 inline-block text-xs font-semibold text-[#007668] underline underline-offset-4"
+                        className="mt-3 inline-block text-xs font-semibold text-[#435900] underline underline-offset-4"
                       >
                         {content.readLabel} <span aria-hidden="true">→</span>
                       </Link>
@@ -176,7 +176,7 @@ function InsightsContent({
       </section>
       <div className="mx-auto max-w-[76rem] space-y-14 px-5 pb-14 md:px-10 md:pb-20">
         <ArticleTopicBrowser cards={cards} content={content} />
-        <aside className="flex flex-col gap-6 border-y border-[#d8e3df] bg-[#f1f8f5] px-6 py-8 md:flex-row md:items-center md:justify-between md:px-9">
+        <aside className="flex flex-col gap-6 border-y border-[#dfe8d8] bg-[#f4f8ee] px-6 py-8 md:flex-row md:items-center md:justify-between md:px-9">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-bold tracking-tight">{content.guidanceTitle}</h2>
             <p className="mt-3 text-base leading-7 text-[#547080]">{content.guidanceCopy}</p>
@@ -189,7 +189,7 @@ function InsightsContent({
           />
         </aside>
         <section className="max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#007668]">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#435900]">
             {content.contributeEyebrow}
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight">{content.contributeTitle}</h2>

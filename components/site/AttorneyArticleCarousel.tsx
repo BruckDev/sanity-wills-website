@@ -44,7 +44,7 @@ export function AttorneyArticleCarousel({
         </h2>
         <Link
           href="/featured-attorneys/freidman-berenstein-anderson/articles"
-          className="mt-5 inline-flex items-center gap-2 border-b border-[#067b81] pb-1 text-sm font-bold uppercase tracking-[0.08em] text-[#067b81] hover:text-[#004b50]"
+          className="mt-5 inline-flex items-center gap-2 border-b border-[#4b6200] pb-1 text-sm font-bold uppercase tracking-[0.08em] text-[#4b6200] hover:text-[#344500]"
         >
           {content.allArticlesLabel} <span aria-hidden="true">→</span>
         </Link>
@@ -112,7 +112,7 @@ export function AttorneyArticleCarousel({
           type="button"
           onClick={() => move(-1)}
           aria-label={content.previousLabel}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f2f6f4] text-[#067b81] transition hover:bg-[#e0eee8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#067b81]"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f2f6f4] text-[#4b6200] transition hover:bg-[#ebf2df] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4b6200]"
         >
           <Chevron />
         </button>
@@ -123,11 +123,11 @@ export function AttorneyArticleCarousel({
             onClick={() => setActive(index)}
             aria-label={`${content.selectLabel} ${index + 1}: ${article.title}`}
             aria-pressed={index === active}
-            className="flex h-11 w-7 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-[#067b81] md:w-9"
+            className="flex h-11 w-7 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-[#4b6200] md:w-9"
           >
             <span
               aria-hidden="true"
-              className={`h-2.5 w-2.5 rounded-full border border-[#008a76] ${index === active ? 'bg-[#008a76]' : 'bg-white'}`}
+              className={`h-2.5 w-2.5 rounded-full border border-[#4b6200] ${index === active ? 'bg-[#4b6200]' : 'bg-white'}`}
             />
           </button>
         ))}
@@ -135,7 +135,7 @@ export function AttorneyArticleCarousel({
           type="button"
           onClick={() => move(1)}
           aria-label={content.nextLabel}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f2f6f4] text-[#067b81] transition hover:bg-[#e0eee8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#067b81]"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f2f6f4] text-[#4b6200] transition hover:bg-[#ebf2df] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4b6200]"
         >
           <Chevron next />
         </button>

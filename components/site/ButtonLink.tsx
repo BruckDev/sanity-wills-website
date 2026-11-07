@@ -15,7 +15,7 @@ export function ButtonLink({href, label, style = 'primary', className = ''}: But
   const styles = {
     teal: 'button-lift border border-[color:var(--teal)] bg-[color:var(--teal)] text-white shadow-sm hover:border-[color:var(--teal-strong)] hover:bg-[color:var(--teal-strong)] focus-visible:outline-[color:var(--teal)]',
     primary:
-      'button-lift border border-[color:var(--accent)] bg-[color:var(--accent)] text-[#061e31] shadow-[0_10px_24px_rgba(7,31,51,0.16)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-[#061e31] hover:shadow-[0_14px_30px_rgba(7,31,51,0.22)] focus-visible:outline-[color:var(--accent)]',
+      'button-lift border border-[color:var(--accent)] bg-[color:var(--accent)] text-[#061e31] shadow-[0_10px_24px_rgba(7,31,51,0.16)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:text-white hover:shadow-[0_14px_30px_rgba(7,31,51,0.22)] focus-visible:outline-[color:var(--accent)]',
     secondary:
       'button-lift border border-[color:var(--border-strong)] bg-white text-[color:var(--fg)] shadow-[0_8px_18px_rgba(7,26,43,0.05)] hover:border-[color:var(--accent)] hover:text-[color:var(--fg)] focus-visible:outline-[color:var(--accent)]',
     text: 'border-none bg-transparent px-0 text-[color:var(--fg)] underline decoration-[color:var(--accent)] underline-offset-4 hover:text-[color:var(--accent)]',

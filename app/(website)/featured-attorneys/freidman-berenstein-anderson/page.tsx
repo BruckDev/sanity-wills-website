@@ -105,13 +105,13 @@ export default function FeaturedAttorneySamplePage() {
           <div className="mt-7 flex flex-wrap gap-3">
             <a
               href="mailto:freidman@fbalaw.com"
-              className="button-lift inline-flex min-h-12 items-center justify-center rounded-lg bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)]"
+              className="button-lift inline-flex min-h-12 items-center justify-center rounded-lg bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-white"
             >
               Schedule a consultation
             </a>
             <a
               href="tel:+16306257571"
-              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#008e94] px-5 py-3 text-sm font-semibold text-[#067b81] transition hover:bg-[#e8f8f8]"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#4b6200] px-5 py-3 text-sm font-semibold text-[#4b6200] transition hover:bg-[#e8f8f8]"
             >
               Call +1-630-625-7571
             </a>
@@ -150,7 +150,7 @@ export default function FeaturedAttorneySamplePage() {
           />
         </div>
         <div className="p-7 md:p-9">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#b8d9d1]">
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d0dfb1]">
             Office details
           </div>
           <h2 className="mt-3 font-serif text-3xl tracking-[-0.035em] text-white md:text-4xl">
@@ -174,7 +174,7 @@ export default function FeaturedAttorneySamplePage() {
               </p>
               <a
                 href="mailto:freidman@fbalaw.com"
-                className="mt-4 inline-flex text-sm font-semibold text-[#b8d9d1] hover:underline"
+                className="mt-4 inline-flex text-sm font-semibold text-[#d0dfb1] hover:underline"
               >
                 Contact the office →
               </a>
@@ -195,7 +195,7 @@ export default function FeaturedAttorneySamplePage() {
           </div>
           <a
             href="mailto:freidman@fbalaw.com"
-            className="text-sm font-semibold text-[#067b81] hover:underline"
+            className="text-sm font-semibold text-[#4b6200] hover:underline"
           >
             Ask a question →
           </a>
@@ -213,7 +213,7 @@ export default function FeaturedAttorneySamplePage() {
               }`}
             >
               <div
-                className="text-lg tracking-[0.16em] text-[#07858a]"
+                className="text-lg tracking-[0.16em] text-[#4b6200]"
                 aria-label="Sample five-star rating"
               >
                 ★★★★★
@@ -235,7 +235,7 @@ export default function FeaturedAttorneySamplePage() {
             key={title}
             className={`flex gap-4 px-1 md:px-7 ${index > 0 ? 'md:border-l md:border-[color:var(--border)]' : ''}`}
           >
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#e4f5f6] text-xl font-bold text-[#0b6d7a]">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#e4f5f6] text-xl font-bold text-[#435900]">
               {icon}
             </span>
             <div>
@@ -308,7 +308,7 @@ export default function FeaturedAttorneySamplePage() {
             </a>
             <a
               href="mailto:freidman@fbalaw.com"
-              className="button-lift inline-flex min-h-12 items-center justify-center rounded-lg bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)]"
+              className="button-lift inline-flex min-h-12 items-center justify-center rounded-lg bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#061e31] transition hover:bg-[color:var(--accent-strong)] hover:text-white"
             >
               Schedule a consultation
             </a>

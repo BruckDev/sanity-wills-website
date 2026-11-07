@@ -86,7 +86,7 @@ export default function EstatePlanningPage() {
             href="/trusts"
             className="group overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[#eef5f7] shadow-[0_18px_45px_rgba(8,35,58,0.06)] transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
           >
-            <div className="relative aspect-[16/10] overflow-hidden bg-[#dce9e7] p-3">
+            <div className="relative aspect-[16/10] overflow-hidden bg-[#e1e9da] p-3">
               <Image
                 src="/images/estate-planning/family-protection.png"
                 alt="A family, home, and savings protected beneath an umbrella"
@@ -115,7 +115,7 @@ export default function EstatePlanningPage() {
             href="#checklist"
             className="group overflow-hidden rounded-2xl border border-[color:var(--border)] bg-white shadow-[0_18px_45px_rgba(8,35,58,0.06)] transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
           >
-            <div className="relative aspect-[16/10] overflow-hidden bg-[#edf4f0] p-3">
+            <div className="relative aspect-[16/10] overflow-hidden bg-[#f3f7eb] p-3">
               <Image
                 src="/images/estate-planning/estate-planning-overview.png"
                 alt="Estate planning overview showing wills, trusts, probate, powers of attorney, and health-care directives"
@@ -184,7 +184,7 @@ export default function EstatePlanningPage() {
               key={item}
               className="flex gap-5 rounded-xl border border-[color:var(--border)] bg-white p-5"
             >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#e5eee2] text-sm font-bold text-[#176648]">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#e5eee2] text-sm font-bold text-[#435900]">
                 {index + 1}
               </span>
               <span className="pt-1 leading-7 text-[color:var(--fg)]">{item}</span>

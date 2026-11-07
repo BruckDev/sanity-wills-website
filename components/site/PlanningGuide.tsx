@@ -91,7 +91,7 @@ export function PlanningGuide({
         <div className="grid gap-4 sm:grid-cols-2">
           <Link
             href="/wills"
-            className="rounded-xl border border-[color:var(--border)] p-5 font-semibold text-[color:var(--fg)] hover:border-[#789b80]"
+            className="rounded-xl border border-[color:var(--border)] p-5 font-semibold text-[color:var(--fg)] hover:border-[#829763]"
           >
             Understanding wills{' '}
             <span className="mt-2 block text-sm font-normal text-[color:var(--muted)]">
@@ -100,7 +100,7 @@ export function PlanningGuide({
           </Link>
           <Link
             href="/trusts"
-            className="rounded-xl border border-[color:var(--border)] p-5 font-semibold text-[color:var(--fg)] hover:border-[#789b80]"
+            className="rounded-xl border border-[color:var(--border)] p-5 font-semibold text-[color:var(--fg)] hover:border-[#829763]"
           >
             Understanding trusts{' '}
             <span className="mt-2 block text-sm font-normal text-[color:var(--muted)]">
