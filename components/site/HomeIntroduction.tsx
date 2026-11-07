@@ -110,7 +110,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
               </div>
             ))}
           </dl>
-          <div className="mt-10">
+          <div className="mt-10 [&_.attorney-expertise-track]:[animation-duration:25s]">
             <AttorneyExpertiseMarquee content={attorneyProgramContent.sampleExpertise} />
           </div>
         </div>
