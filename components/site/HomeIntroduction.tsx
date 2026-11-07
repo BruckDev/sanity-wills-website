@@ -85,9 +85,9 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
         ))}
       </nav>
       <section className="mx-auto grid max-w-[88rem] gap-8 px-6 pb-8 pt-14 md:grid-cols-[minmax(14rem,0.8fr)_2fr] md:items-center md:px-10 lg:gap-14 lg:px-12">
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl bg-[#d9f2e9]">
+        <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-2xl bg-[#d9f2e9]">
           <Image
-            src="/images/home/wills-trust-portrait.webp"
+            src="/images/home/wills-trust-portrait-new.webp"
             alt={content.trustPhotoAlt}
             fill
             sizes="(min-width: 768px) 28vw, 90vw"
