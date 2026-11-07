@@ -1,3 +1,5 @@
+import {AttorneyExpertiseMarquee} from '@/components/site/AttorneyExpertiseMarquee'
+import {attorneyProgramContent} from '@/sanity/lib/attorneyProgramContent'
 import {ButtonLink} from '@/components/site/ButtonLink'
 import {WillsWordmark} from '@/components/site/WillsWordmark'
 import {type HomeIntroductionContent} from '@/sanity/lib/homeIntroduction'
@@ -82,6 +84,37 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
           </Link>
         ))}
       </nav>
+      <section className="mx-auto grid max-w-[88rem] gap-8 px-6 pb-8 pt-14 md:grid-cols-[minmax(14rem,0.8fr)_2fr] md:items-center md:px-10 lg:gap-14 lg:px-12">
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl bg-[#d9f2e9]">
+          <Image
+            src="/images/home/wills-trust-portrait.webp"
+            alt={content.trustPhotoAlt}
+            fill
+            sizes="(min-width: 768px) 28vw, 90vw"
+            className="object-cover object-center"
+          />
+        </div>
+        <div className="min-w-0">
+          <h2 className="font-serif text-4xl tracking-[-0.035em] text-[#082d4c] md:text-5xl">
+            {content.trustTitle}
+          </h2>
+          <dl className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3 md:mt-10">
+            {[
+              [content.trustDecisionsValue, content.trustDecisionsLabel],
+              [content.trustArticlesValue, content.trustArticlesLabel],
+              [content.trustExpertsValue, content.trustExpertsLabel],
+            ].map(([value, label]) => (
+              <div key={label}>
+                <dt className="font-serif text-4xl font-semibold tracking-tight text-[#087d67] md:text-5xl">{value}</dt>
+                <dd className="mt-2 text-base leading-6 text-[#547080]">{label}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-10">
+            <AttorneyExpertiseMarquee content={attorneyProgramContent.sampleExpertise} />
+          </div>
+        </div>
+      </section>
       <section className="mx-auto max-w-[88rem] px-6 pb-12 pt-10 md:px-10 lg:px-12">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#082d4c]">
           {content.beginningEyebrow}
