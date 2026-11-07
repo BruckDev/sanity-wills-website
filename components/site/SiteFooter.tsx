@@ -2,6 +2,7 @@ import {
   attorneyProgramContent,
   type AttorneyProgramContent,
 } from '@/sanity/lib/attorneyProgramContent'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export function SiteFooter({program = attorneyProgramContent}: {program?: AttorneyProgramContent}) {
@@ -9,9 +10,9 @@ export function SiteFooter({program = attorneyProgramContent}: {program?: Attorn
     <footer className="mt-0 border-t border-[#dce7e4] bg-white text-[#173a55]">
       <div className="mx-auto flex max-w-[88rem] flex-col gap-5 px-5 py-7 md:flex-row md:items-center md:justify-between md:px-8">
         <div className="flex items-center gap-7">
-          <div className="font-serif text-3xl tracking-[-0.06em] text-[#071f33]">
-            Wills<span className="text-[color:var(--accent)]">.com</span>
-          </div>
+          <Link href="/" aria-label="Wills.com home" className="shrink-0">
+            <Image src="/brand/wills-logo.png" alt="" width={180} height={56} className="h-auto w-36" />
+          </Link>
           <nav
             aria-label="Footer navigation"
             className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-[#355267]"
