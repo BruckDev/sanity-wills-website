@@ -1,7 +1,10 @@
 import {AttorneyContactForm} from '@/components/site/AttorneyContactForm'
-import {AttorneyProgramPromo} from '@/components/site/AttorneyProgramPromo'
+import {ButtonLink} from '@/components/site/ButtonLink'
+import {getAttorneyProgram} from '@/sanity/lib/attorneyProgram'
+import {getDynamicFetchOptions} from '@/sanity/lib/live'
 import type {Metadata} from 'next'
 import Image from 'next/image'
+import {stegaClean} from 'next-sanity'
 import {Suspense} from 'react'
 
 export const metadata: Metadata = {
@@ -51,7 +54,7 @@ export default function ContactPage() {
           />
         </div>
       </section>
-      <section className="grid gap-6 md:grid-cols-3">
+      <section className="grid gap-6 md:grid-cols-2">
         <article className="rounded-2xl border border-[color:var(--border)] bg-white p-7">
           <h2 className="font-serif text-3xl text-[color:var(--fg)]">Contribute an article</h2>
           <p className="mt-4 leading-7 text-[color:var(--muted)]">
@@ -66,10 +69,11 @@ export default function ContactPage() {
             without promising outcomes or offering individualized advice online.
           </p>
         </article>
-        <Suspense fallback={null}>
-          <AttorneyProgramPromo />
-        </Suspense>
       </section>
+
+      <Suspense fallback={null}>
+        <FoundingProfile />
+      </Suspense>
 
       <section
         id="directory-listing"
@@ -94,5 +98,46 @@ export default function ContactPage() {
         substitute for professional advice.
       </p>
     </div>
+  )
+}
+
+async function FoundingProfile() {
+  const page = await getAttorneyProgram(await getDynamicFetchOptions())
+  const plan = page.plans[0]
+  if (!plan) return null
+
+  let checkout: string | undefined
+  try {
+    const url = stegaClean(plan.checkoutUrl || '')
+    if (new URL(url).protocol === 'https:') checkout = url
+  } catch {
+    // Use the application form when checkout is unavailable.
+  }
+
+  return (
+    <section className="mx-auto w-full max-w-3xl rounded-2xl border border-[color:var(--border)] bg-white p-7 md:p-9">
+      <h2 className="font-serif text-3xl">{plan.name}</h2>
+      <p className="mt-5 font-serif text-6xl tracking-[-0.04em]">
+        {plan.price}
+        <span className="ml-2 font-sans text-sm tracking-normal text-[color:var(--muted)]">
+          {page.monthlyLabel}
+        </span>
+      </p>
+      <p className="mt-4 leading-7 text-[color:var(--muted)]">{plan.description}</p>
+      <ul className="mb-8 mt-6 space-y-3">
+        {plan.features.map((feature, i) => (
+          <li key={i} className="flex gap-3 text-sm leading-6">
+            <span aria-hidden="true" className="font-bold text-[color:var(--accent-strong)]">✓</span>
+            {feature}
+          </li>
+        ))}
+      </ul>
+      <ButtonLink
+        href={checkout || '/for-attorneys#apply'}
+        label={checkout ? page.payLabel : page.payFallbackLabel}
+        className="w-full"
+      />
+      <p className="mt-5 text-sm leading-6 text-[color:var(--muted)]">{page.paymentNote}</p>
+    </section>
   )
 }
