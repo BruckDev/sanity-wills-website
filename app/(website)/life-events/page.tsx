@@ -3,6 +3,8 @@ import type {Metadata} from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import {LifeMilestones} from './LifeMilestones'
+
 export const metadata: Metadata = {
   title: 'Estate planning for life events',
   description:
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
 export default function LifeEventsPage() {
   return (
     <div className="space-y-14 pb-8 md:space-y-20">
-      <section className="rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-10 md:py-16">
+      <section className="grid items-center gap-8 rounded-[2rem] bg-[#071f33] px-6 py-12 text-white md:px-10 md:py-16 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             Life event planning
@@ -25,6 +27,7 @@ export default function LifeEventsPage() {
             protecting.
           </p>
         </div>
+        <LifeMilestones />
       </section>
 
       <section className="rounded-[2rem] border border-[#b8cdb6] bg-[#eef5f0] p-7 md:p-10">
