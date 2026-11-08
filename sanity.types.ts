@@ -1041,6 +1041,7 @@ export type AttorneyProgram = {
   _createdAt: string
   _updatedAt: string
   _rev: string
+  contactHeroIntroduction?: string
   sampleAdditionalArticles?: Array<{
     slug?: string
     title?: string
@@ -1982,6 +1983,7 @@ export type ProgramQueryResult = {
   _createdAt: string
   _updatedAt: string
   _rev: string
+  contactHeroIntroduction?: string
   sampleAdditionalArticles?: Array<{
     slug?: string
     title?: string

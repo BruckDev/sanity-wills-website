@@ -1,6 +1,8 @@
 import {sampleAdditionalArticles} from './sampleAdditionalArticles'
 
 export const attorneyProgramContent = {
+  contactHeroIntroduction:
+    'Wills.com is building a trusted resource for consumers seeking clear estate-planning information and local legal guidance.',
   sampleAdditionalArticles,
   headerLabel: 'For Attorneys',
   eyebrow: 'For attorneys / Advertise',

@@ -1,6 +1,7 @@
 import {AttorneyContactForm} from '@/components/site/AttorneyContactForm'
 import {ButtonLink} from '@/components/site/ButtonLink'
 import {getAttorneyProgram} from '@/sanity/lib/attorneyProgram'
+import {attorneyProgramContent} from '@/sanity/lib/attorneyProgramContent'
 import {getDynamicFetchOptions} from '@/sanity/lib/live'
 import type {Metadata} from 'next'
 import Image from 'next/image'
@@ -25,10 +26,9 @@ export default function ContactPage() {
             Help people take the next right step.
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-white/78 md:text-xl">
-            Our valuable domain, Wills.com, has attracted significant attention and growing traffic
-            from consumers and professionals seeking reliable estate-planning information. As we
-            continue expanding our resources, reach, and expert partnerships, we anticipate even
-            greater interest in the months ahead.
+            <Suspense fallback={attorneyProgramContent.contactHeroIntroduction}>
+              <ContactHeroIntroduction />
+            </Suspense>
           </p>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/78 md:text-xl">
             We welcome article submissions from esteemed estate-planning, legal, financial, and
@@ -99,6 +99,11 @@ export default function ContactPage() {
       </p>
     </div>
   )
+}
+
+async function ContactHeroIntroduction() {
+  const program = await getAttorneyProgram(await getDynamicFetchOptions())
+  return program.contactHeroIntroduction
 }
 
 async function FoundingProfile() {

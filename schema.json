@@ -7553,6 +7553,13 @@
           "type": "string"
         }
       },
+      "contactHeroIntroduction": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "sampleAdditionalArticles": {
         "type": "objectAttribute",
         "value": {
