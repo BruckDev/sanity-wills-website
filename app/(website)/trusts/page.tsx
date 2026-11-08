@@ -11,6 +11,10 @@ export default function TrustsPage() {
   return (
     <PlanningGuide
       eyebrow="Trusts 101"
+      heroImage={{
+        src: '/images/estate-planning/trusts-consultation.webp',
+        alt: 'An estate-planning professional meeting with a couple',
+      }}
       title="A trust can provide a framework for managing property over time."
       intro="In general, a trust is an arrangement in which a trustee holds and manages property for beneficiaries under terms set out in the trust instrument. Trusts are flexible, but the right design depends on what you own, who you want to benefit, and the law where you live."
       callout={{
