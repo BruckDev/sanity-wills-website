@@ -54,7 +54,7 @@ export const attorneyProgramContent = {
   callLabel: 'Schedule a call',
   callFallbackLabel: 'Request a call by email',
   callUrl: '',
-  callEmail: 'mailto:gbruck@bruckcpa.com?subject=Founding%20Attorney%20Program%20call',
+  callEmail: 'mailto:partnerships@wills.com?subject=Founding%20Attorney%20Program%20call',
   termsLine: 'Month-to-month. No promised number of leads. No percentage of legal fees.',
   plansTitle: 'A clear offer. A predictable monthly cost.',
   plansIntro:
