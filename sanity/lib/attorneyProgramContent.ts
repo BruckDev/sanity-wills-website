@@ -74,9 +74,8 @@ export const attorneyProgramContent = {
         'Firm profile with practice areas and attorney information',
         'Agreed service areas, ZIP codes, or ZIP radius',
         'Office details, phone, email, and website links',
-        'One firm-authored educational article, subject to editorial review',
+        'Up to 5 firm-authored educational articles per month, subject to editorial review',
         'Clearly labeled featured placement on relevant local pages',
-        'Monthly activity report',
       ],
     },
     {

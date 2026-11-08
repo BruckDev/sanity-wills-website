@@ -9,6 +9,7 @@ import {getDynamicFetchOptions, type DynamicFetchOptions} from '@/sanity/lib/liv
 import type {Metadata} from 'next'
 import {stegaClean} from 'next-sanity'
 import {draftMode} from 'next/headers'
+import Image from 'next/image'
 import Link from 'next/link'
 import {Suspense} from 'react'
 
@@ -105,30 +106,40 @@ function ProgramPage({page}: {page: AttorneyProgramContent}) {
             return (
               <article
                 key={index}
-                className="flex flex-col rounded-2xl border border-[color:var(--border)] bg-white p-7 md:p-9"
+                className="grid gap-6 rounded-2xl border border-[color:var(--border)] bg-white p-7 md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] md:items-center md:gap-8 md:p-9"
               >
-                <h3 className="font-serif text-3xl">{plan.name}</h3>
-                <p className="mt-5 font-serif text-6xl tracking-[-0.04em]">
-                  {plan.price}
-                  <span className="ml-2 font-sans text-sm tracking-normal text-[color:var(--muted)]">
-                    {page.monthlyLabel}
-                  </span>
-                </p>
-                <p className="mt-4 leading-7 text-[color:var(--muted)]">{plan.description}</p>
-                <ul className="mb-8 mt-6 flex-1 space-y-3">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex gap-3 text-sm leading-6">
-                      <span
-                        aria-hidden="true"
-                        className="font-bold text-[color:var(--accent-strong)]"
-                      >
-                        ✓
-                      </span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <div data-program-cta={`plan-${index}`}>
+                <div>
+                  <h3 className="font-serif text-3xl">{plan.name}</h3>
+                  <p className="mt-5 font-serif text-6xl tracking-[-0.04em]">
+                    {plan.price}
+                    <span className="ml-2 font-sans text-sm tracking-normal text-[color:var(--muted)]">
+                      {page.monthlyLabel}
+                    </span>
+                  </p>
+                  <p className="mt-4 leading-7 text-[color:var(--muted)]">{plan.description}</p>
+                  <ul className="mt-6 space-y-3">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex gap-3 text-sm leading-6">
+                        <span
+                          aria-hidden="true"
+                          className="font-bold text-[color:var(--accent-strong)]"
+                        >
+                          ✓
+                        </span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <Image
+                  src="/images/estate-planning/founding-profile-consultation.webp"
+                  alt=""
+                  width={1000}
+                  height={1000}
+                  sizes="(min-width: 768px) 352px, calc(100vw - 6rem)"
+                  className="h-auto w-full rounded-xl"
+                />
+                <div className="md:col-span-2" data-program-cta={`plan-${index}`}>
                   <ButtonLink
                     href={checkout || '#apply'}
                     label={checkout ? page.payLabel : page.payFallbackLabel}
