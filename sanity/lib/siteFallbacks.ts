@@ -1,3 +1,5 @@
+import {employerStockAfterDeathInsight} from './employerStockAfterDeath'
+
 function block(text: string) {
   return {
     _key: text.slice(0, 12).replace(/\s+/g, '-').toLowerCase(),
@@ -351,6 +353,7 @@ export const fallbackIndustries = [
 ]
 
 export const fallbackInsights = [
+  employerStockAfterDeathInsight,
   {
     title: 'Designing modernization roadmaps that organizations can actually execute',
     slug: 'designing-modernization-roadmaps',

@@ -5,6 +5,7 @@ import {getDynamicFetchOptions, sanityFetch, sanityFetchMetadata} from '@/sanity
 import {fallbackInsights, toBlocks} from '@/sanity/lib/siteFallbacks'
 import {insightBySlugQuery} from '@/sanity/lib/siteQueries'
 import type {Metadata} from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import {notFound} from 'next/navigation'
 
@@ -40,29 +41,62 @@ export default async function InsightDetailPage({params}: PageProps<'/insights/[
     notFound()
   }
 
+  const cover = insight.coverImage
+  const backCta = insight.display?.backCta || {
+    label: 'Back to Insights',
+    href: '/insights',
+    style: 'secondary',
+  }
+
   return (
     <div className="space-y-16 md:space-y-20">
-      <PageHero
-        eyebrow={insight.articleType || 'Insight'}
-        title={insight.title || ''}
-        description={insight.excerpt ? toBlocks([insight.excerpt]) : []}
-        secondaryCta={
-          insight.display?.backCta || {
-            label: 'Back to Insights',
-            href: '/insights',
-            style: 'secondary',
-          }
-        }
-        stats={[
-          {
-            value: insight.estimatedReadTime,
-            label: insight.display?.readTimeLabel || 'Estimated read time',
-          },
-        ]}
-      />
+      {!cover?.asset?.url && (
+        <PageHero
+          eyebrow={insight.articleType || 'Insight'}
+          title={insight.title || ''}
+          description={insight.excerpt ? toBlocks([insight.excerpt]) : []}
+          secondaryCta={backCta}
+          stats={[
+            {
+              value: insight.estimatedReadTime,
+              label: insight.display?.readTimeLabel || 'Estimated read time',
+            },
+          ]}
+        />
+      )}
 
       <article className="mx-auto max-w-4xl space-y-8 border border-[color:var(--border)] bg-white p-6 md:p-10">
-        <CustomPortableText id={null} type={null} path={[]} value={insight.body || []} />
+        {cover?.asset?.url ? (
+          <>
+            <header>
+              <ButtonLink {...backCta} />
+              <p className="mt-6 text-sm font-semibold text-[color:var(--muted)]">
+                {[insight.articleType, insight.estimatedReadTime].filter(Boolean).join(' · ')}
+              </p>
+              <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-5xl">
+                {insight.title}
+              </h1>
+              <p className="mt-4 text-lg leading-7 text-[color:var(--muted)]">{insight.excerpt}</p>
+            </header>
+            <div className="relative aspect-video overflow-hidden rounded-xl">
+              <Image
+                src={cover.asset.url}
+                alt={cover.alt || ''}
+                fill
+                sizes="(min-width: 896px) 816px, calc(100vw - 5rem)"
+                className="object-cover"
+              />
+            </div>
+          </>
+        ) : null}
+        <div className="prose prose-slate max-w-none">
+          <CustomPortableText
+            id={insight._id || null}
+            type={insight._id ? 'insight' : null}
+            path={['body']}
+            value={insight.body || []}
+          />
+        </div>
       </article>
 
       {(insight.relatedServices || []).length || (insight.relatedIndustries || []).length ? (

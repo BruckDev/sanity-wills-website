@@ -1,4 +1,5 @@
 import {directoryLocations} from '@/sanity/lib/attorneyDirectoryContent'
+import {employerStockAfterDeathCard} from '@/sanity/lib/employerStockAfterDeath'
 import {lifeEvents, planningTools} from '@/sanity/lib/estatePlanningContent'
 import {initialAttorneyListings} from '@/sanity/lib/initialAttorneyListings'
 import {sanityFetchMetadata} from '@/sanity/lib/live'
@@ -41,6 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/estate-planning',
     '/create-a-will',
     '/insights',
+    employerStockAfterDeathCard.href,
     '/about',
     '/contact',
     '/for-attorneys',

@@ -4,6 +4,7 @@ import {
   articleDirectoryContent,
   type ArticleDirectoryContent,
 } from '@/sanity/lib/articleDirectoryContent'
+import {employerStockAfterDeathCard} from '@/sanity/lib/employerStockAfterDeath'
 import {
   homeArticleCards,
   resolveHomeArticleCards,
@@ -171,7 +172,14 @@ function InsightsContent({
         </div>
       </section>
       <div className="mx-auto max-w-[76rem] space-y-14 px-5 pb-14 md:px-10 md:pb-20">
-        <ArticleTopicBrowser cards={cards} content={content} />
+        <ArticleTopicBrowser
+          cards={
+            cards.some(({href}) => href === employerStockAfterDeathCard.href)
+              ? cards
+              : [employerStockAfterDeathCard, ...cards]
+          }
+          content={content}
+        />
         <aside className="flex flex-col gap-6 border-y border-[#d8e3df] bg-[#f1f8f5] px-6 py-8 md:flex-row md:items-center md:justify-between md:px-9">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-bold tracking-tight">{content.guidanceTitle}</h2>
