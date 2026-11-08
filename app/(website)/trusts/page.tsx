@@ -1,5 +1,6 @@
 import {PlanningGuide} from '@/components/site/PlanningGuide'
 import type {Metadata} from 'next'
+import {TrustActions} from './TrustActions'
 
 export const metadata: Metadata = {
   title: 'Understanding trusts',
@@ -21,32 +22,36 @@ export default function TrustsPage() {
         title: 'Creating a trust is only part of the work.',
         text: 'For a trust to operate as intended, assets may need to be retitled to the trust, accounts reviewed, and beneficiary designations coordinated. An unfunded trust may not avoid the process a person hoped to avoid.',
       }}
-      sections={[
-        {
-          title: 'Understand the three key roles',
-          text: 'The grantor creates and funds the trust. The trustee manages assets and follows the document. Beneficiaries receive the benefit of trust property. One person can fill more than one role in many arrangements.',
-        },
-        {
-          title: 'Revocable living trusts',
-          text: 'A revocable living trust can generally be changed during the grantor’s lifetime and is commonly used to manage and distribute property. It is not automatically a tax, creditor, or asset-protection solution.',
-        },
-        {
-          title: 'Choose a trustee with care',
-          text: 'A trustee has fiduciary duties. Consider the complexity of assets, family dynamics, time commitment, impartiality, compensation, and whether a professional or corporate trustee is suitable.',
-        },
-        {
-          title: 'Set distribution terms',
-          text: 'Trust language can describe when and how beneficiaries receive property, such as for education, health, staged ages, or a lifetime of management. Precision matters, especially when needs may change.',
-        },
-        {
-          title: 'Coordinate titles and designations',
-          text: 'A trust only governs assets it owns or receives under its terms. Review real estate, financial accounts, business interests, life insurance, retirement accounts, and payable-on-death designations with advisers.',
-        },
-        {
-          title: 'Avoid one-size-fits-all promises',
-          text: 'Trusts may help with management, privacy, probate administration, and tailored distributions in some situations. They do not eliminate every cost, tax, court process, or family conflict.',
-        },
-      ]}
+      sections={
+        <TrustActions
+          sections={[
+            {
+              title: 'Understand the three key roles',
+              text: 'The grantor creates and funds the trust. The trustee manages assets and follows the document. Beneficiaries receive the benefit of trust property. One person can fill more than one role in many arrangements.',
+            },
+            {
+              title: 'Revocable living trusts',
+              text: 'A revocable living trust can generally be changed during the grantor’s lifetime and is commonly used to manage and distribute property. It is not automatically a tax, creditor, or asset-protection solution.',
+            },
+            {
+              title: 'Choose a trustee with care',
+              text: 'A trustee has fiduciary duties. Consider the complexity of assets, family dynamics, time commitment, impartiality, compensation, and whether a professional or corporate trustee is suitable.',
+            },
+            {
+              title: 'Set distribution terms',
+              text: 'Trust language can describe when and how beneficiaries receive property, such as for education, health, staged ages, or a lifetime of management. Precision matters, especially when needs may change.',
+            },
+            {
+              title: 'Coordinate titles and designations',
+              text: 'A trust only governs assets it owns or receives under its terms. Review real estate, financial accounts, business interests, life insurance, retirement accounts, and payable-on-death designations with advisers.',
+            },
+            {
+              title: 'Avoid one-size-fits-all promises',
+              text: 'Trusts may help with management, privacy, probate administration, and tailored distributions in some situations. They do not eliminate every cost, tax, court process, or family conflict.',
+            },
+          ]}
+        />
+      }
     />
   )
 }

@@ -1,6 +1,7 @@
 import {ButtonLink} from '@/components/site/ButtonLink'
 import Image from 'next/image'
 import Link from 'next/link'
+import type {ReactElement} from 'react'
 
 type GuideSection = {title: string; text: string}
 type GuideHeroImage = {src: string; alt: string}
@@ -16,7 +17,7 @@ export function PlanningGuide({
   eyebrow: string
   title: string
   intro: string
-  sections: GuideSection[]
+  sections: GuideSection[] | ReactElement
   callout: {title: string; text: string}
   heroImage?: GuideHeroImage
 }) {
@@ -59,22 +60,26 @@ export function PlanningGuide({
           </div>
         ) : null}
       </section>
-      <section className="grid gap-5 md:grid-cols-2">
-        {sections.map((section, index) => (
-          <article
-            key={section.title}
-            className="rounded-2xl border border-[color:var(--border)] bg-white p-7 shadow-[0_12px_32px_rgba(29,46,41,0.05)]"
-          >
-            <div className="text-xs font-bold tracking-[0.18em] text-[color:var(--accent)]">
-              {String(index + 1).padStart(2, '0')}
-            </div>
-            <h2 className="mt-4 font-serif text-3xl tracking-[-0.03em] text-[color:var(--fg)]">
-              {section.title}
-            </h2>
-            <p className="mt-4 leading-7 text-[color:var(--muted)]">{section.text}</p>
-          </article>
-        ))}
-      </section>
+      {Array.isArray(sections) ? (
+        <section className="grid gap-5 md:grid-cols-2">
+          {sections.map((section, index) => (
+            <article
+              key={section.title}
+              className="rounded-2xl border border-[color:var(--border)] bg-white p-7 shadow-[0_12px_32px_rgba(29,46,41,0.05)]"
+            >
+              <div className="text-xs font-bold tracking-[0.18em] text-[color:var(--accent)]">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+              <h2 className="mt-4 font-serif text-3xl tracking-[-0.03em] text-[color:var(--fg)]">
+                {section.title}
+              </h2>
+              <p className="mt-4 leading-7 text-[color:var(--muted)]">{section.text}</p>
+            </article>
+          ))}
+        </section>
+      ) : (
+        sections
+      )}
       <aside className="rounded-2xl border-l-4 border-[#a58348] bg-[#f9f6ed] px-6 py-7 md:px-8">
         <h2 className="font-serif text-3xl text-[color:var(--fg)]">{callout.title}</h2>
         <p className="mt-4 max-w-4xl leading-7 text-[color:var(--muted)]">{callout.text}</p>
