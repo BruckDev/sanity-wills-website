@@ -31,7 +31,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
                 href={content.ctaHref}
                 label={content.ctaLabel}
                 style="teal"
-                className="min-h-12 rounded-full !px-3 sm:!px-6"
+                className="min-h-12 rounded-full !border-[#66c64e] !bg-[#66c64e] !px-3 !text-[#061e31] hover:!border-[#55ad40] hover:!bg-[#55ad40] sm:!px-6"
               />
               <ButtonLink
                 href={content.attorneyCtaHref}
