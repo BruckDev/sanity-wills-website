@@ -107,7 +107,7 @@ function ProgramPage({page}: {page: AttorneyProgramContent}) {
             return (
               <article
                 key={index}
-                className="grid gap-6 rounded-2xl border border-[color:var(--border)] bg-white p-7 md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] md:items-center md:gap-8 md:p-9"
+                className="grid gap-6 rounded-2xl border border-[color:var(--border)] bg-white p-5 sm:p-7 md:gap-8 md:p-9 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-center"
               >
                 <div>
                   <h3 className="font-serif text-3xl">{plan.name}</h3>
@@ -135,10 +135,10 @@ function ProgramPage({page}: {page: AttorneyProgramContent}) {
                 <Image
                   src={foundingProfilePreview}
                   alt="Illustration of a featured attorney profile with office details, client feedback, and articles"
-                  sizes="(min-width: 768px) 352px, calc(100vw - 6rem)"
-                  className="h-auto w-full rounded-xl"
+                  sizes="(min-width: 1376px) 706px, (min-width: 1024px) calc(60vw - 120px), calc(100vw - 4.5rem)"
+                  className="h-auto w-full rounded-xl lg:order-first"
                 />
-                <div className="md:col-span-2" data-program-cta={`plan-${index}`}>
+                <div className="lg:col-span-2" data-program-cta={`plan-${index}`}>
                   <ButtonLink
                     href={checkout || '#apply'}
                     label={checkout ? page.payLabel : page.payFallbackLabel}
