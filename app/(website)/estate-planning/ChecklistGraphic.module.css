@@ -1,0 +1,17 @@
+@media (prefers-reduced-motion: no-preference) {
+  .check {
+    stroke-dasharray: 1;
+    animation: draw 360ms ease-out both;
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}

@@ -3,6 +3,8 @@ import type {Metadata} from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import {ChecklistGraphic} from './ChecklistGraphic'
+
 const checklist = [
   'A current list of assets, debts, business interests, and digital accounts',
   'Account titles and beneficiary designations for retirement, insurance, and transfer-on-death accounts',
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
 export default function EstatePlanningPage() {
   return (
     <div className="space-y-16 md:space-y-20">
-      <section className="overflow-hidden rounded-[2rem] border border-[#d5d7cb] bg-[#eef1e8] px-6 py-12 md:px-12 md:py-16">
+      <section className="grid items-center gap-8 overflow-hidden rounded-[2rem] border border-[#d5d7cb] bg-[#eef1e8] px-6 py-12 md:px-12 md:py-16 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="max-w-4xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent)]">
             Estate-planning checklist
@@ -37,6 +39,7 @@ export default function EstatePlanningPage() {
             <ButtonLink href="/#attorney-search" label="Find an attorney" style="secondary" />
           </div>
         </div>
+        <ChecklistGraphic />
       </section>
       <section className="space-y-10 md:space-y-12">
         <div className="mx-auto max-w-3xl text-center">
