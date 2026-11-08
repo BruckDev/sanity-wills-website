@@ -9,7 +9,7 @@ export function AttorneyExpertiseMarquee({
     <section
       aria-labelledby="attorney-expertise-heading"
       tabIndex={0}
-      className="attorney-expertise overflow-hidden rounded-xl border border-[color:var(--border)] bg-[#f0f5e9] py-7 outline-offset-4 focus-visible:outline-2 focus-visible:outline-[color:var(--accent-strong)] md:py-9"
+      className="attorney-expertise overflow-hidden rounded-xl border border-[color:var(--border)] bg-[#edf5f3] py-7 outline-offset-4 focus-visible:outline-2 focus-visible:outline-[color:var(--accent-strong)] md:py-9"
     >
       <h2
         id="attorney-expertise-heading"
@@ -31,7 +31,7 @@ export function AttorneyExpertiseMarquee({
                   <span className="font-serif text-2xl leading-9 text-[#082d4c] md:text-3xl">
                     {phrase}
                   </span>
-                  <span className="text-[#91a875]">·</span>
+                  <span className="text-[#7ba79e]">·</span>
                 </span>
               ))}
             </div>

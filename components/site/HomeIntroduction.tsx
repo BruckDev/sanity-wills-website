@@ -31,7 +31,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
                 href={content.ctaHref}
                 label={content.ctaLabel}
                 style="teal"
-                className="min-h-12 rounded-full !border-[#66c64e] !bg-[#66c64e] !px-3 !text-[#061e31] hover:!border-[#55ad40] hover:!bg-[#55ad40] sm:!px-6"
+                className="min-h-12 rounded-full !px-3 sm:!px-6"
               />
               <ButtonLink
                 href={content.attorneyCtaHref}
@@ -65,9 +65,9 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
           <Link
             key={topic.imagePath}
             href={topic.href}
-            className="group relative flex min-h-36 flex-col items-center justify-center rounded-xl border border-[#e0e9d6] bg-[#f5f8f0] px-3 py-2 text-center text-[#082d4c] transition hover:border-[#9eb86b] hover:bg-[#edf3e5] focus-visible:outline-2 focus-visible:outline-[#4b6200] lg:min-h-44 lg:py-3"
+            className="group relative flex min-h-36 flex-col items-center justify-center rounded-xl border border-[#e0eae4] bg-[#f4f8f3] px-3 py-2 text-center text-[#082d4c] transition hover:border-[#7bb9ad] hover:bg-[#eaf3eb] focus-visible:outline-2 focus-visible:outline-[#008a80] lg:min-h-44 lg:py-3"
           >
-            <span aria-hidden="true" className="absolute right-3 top-2 text-lg text-[#6f805c] transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1 motion-reduce:transition-none motion-reduce:group-hover:transform-none motion-reduce:group-focus-visible:transform-none">
+            <span aria-hidden="true" className="absolute right-3 top-2 text-lg text-[#6b8980] transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1 motion-reduce:transition-none motion-reduce:group-hover:transform-none motion-reduce:group-focus-visible:transform-none">
               ↗
             </span>
             <Image
@@ -85,7 +85,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
         ))}
       </nav>
       <section className="mx-auto grid max-w-[88rem] gap-8 px-6 pb-8 pt-14 md:grid-cols-[minmax(14rem,0.8fr)_2fr] md:items-center md:px-10 lg:gap-14 lg:px-12">
-        <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-2xl bg-[#eaf2db]">
+        <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-2xl bg-[#d9f2e9]">
           <Image
             src="/images/home/wills-trust-portrait-new.webp"
             alt={content.trustPhotoAlt}
@@ -105,7 +105,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
               [content.trustExpertsValue, content.trustExpertsLabel],
             ].map(([value, label]) => (
               <div key={label}>
-                <dt className="font-serif text-4xl font-semibold tracking-tight text-[#4b6200] md:text-5xl">{value}</dt>
+                <dt className="font-serif text-4xl font-semibold tracking-tight text-[#087d67] md:text-5xl">{value}</dt>
                 <dd className="mt-2 text-base leading-6 text-[#547080]">{label}</dd>
               </div>
             ))}
@@ -140,9 +140,9 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
             <Link
               key={card.href}
               href={card.href}
-              className="group flex items-center gap-5 rounded-2xl border border-[#e3e8e7] p-5 text-[#082d4c] transition hover:border-[#9eb86b] hover:bg-[#f8fbfa]"
+              className="group flex items-center gap-5 rounded-2xl border border-[#e3e8e7] p-5 text-[#082d4c] transition hover:border-[#7bb9ad] hover:bg-[#f8fbfa]"
             >
-              <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#f0f5e9] text-[#6b7c56]">
+              <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#edf5f2] text-[#577e7d]">
                 <svg
                   viewBox="0 0 48 48"
                   fill="none"
@@ -163,7 +163,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
                     <>
                       <path
                         d="M24 32S11 21 11 13a13 13 0 0 1 26 0c0 8-13 19-13 19Z"
-                        fill="#8da570"
+                        fill="#729b9c"
                         stroke="none"
                       />
                       <circle cx="24" cy="13" r="4" fill="white" stroke="none" />
@@ -183,7 +183,7 @@ export function HomeIntroduction({content}: {content: HomeIntroductionContent}) 
           ))}
           <Link
             href={content.insightHref}
-            className="flex items-center gap-5 rounded-2xl bg-[#edf4e6] p-6 text-[#082d4c] transition hover:bg-[#e5efda]"
+            className="flex items-center gap-5 rounded-2xl bg-[#eaf4f1] p-6 text-[#082d4c] transition hover:bg-[#deeee8]"
           >
             <div>
               <p className="text-xs font-semibold">{content.insightEyebrow}</p>

@@ -95,11 +95,11 @@ export function PlanChooser({heading}: {heading?: string | null}) {
     >
       <span
         aria-hidden="true"
-        className="absolute -bottom-8 -left-9 h-36 w-36 rounded-full border-[18px] border-[#e6eed8] opacity-75"
+        className="absolute -bottom-8 -left-9 h-36 w-36 rounded-full border-[18px] border-[#dcebe2] opacity-75"
       />
       <span
         aria-hidden="true"
-        className="absolute right-4 top-8 hidden h-24 w-12 rotate-[-28deg] rounded-[100%_0] border-l-[14px] border-[#e6eed8] opacity-75 md:block"
+        className="absolute right-4 top-8 hidden h-24 w-12 rotate-[-28deg] rounded-[100%_0] border-l-[14px] border-[#dcebe2] opacity-75 md:block"
       />
       <div className="relative mx-auto max-w-3xl text-center">
         <h2
@@ -116,7 +116,7 @@ export function PlanChooser({heading}: {heading?: string | null}) {
             key={option.title}
             className="flex h-full flex-col rounded-lg border border-[#e5ece8] bg-white p-6 shadow-[0_6px_18px_rgba(8,35,58,0.035)] md:p-7"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f0f7e8] text-[#4b6200]">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#e8f8f3] text-[#0b987e]">
               <PlanIcon type={option.icon} />
             </span>
             <h3 className="mt-4 font-serif text-3xl tracking-[-0.035em] text-[#062842]">
@@ -126,7 +126,7 @@ export function PlanChooser({heading}: {heading?: string | null}) {
             <ul className="!ml-0 mt-3 space-y-3 pb-6 text-sm leading-6 text-[#385568]">
               {option.features.map((feature) => (
                 <li key={feature} className="flex gap-2">
-                  <span className="font-bold text-[#4b6200]">✓</span>
+                  <span className="font-bold text-[#0b987e]">✓</span>
                   {feature}
                 </li>
               ))}

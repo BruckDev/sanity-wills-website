@@ -83,7 +83,7 @@ export default async function EstatePlanningProfessionalsPage({
                 className={`rounded-lg border px-3 py-2 text-center text-sm font-semibold transition ${
                   isCurrentPage
                     ? 'border-[#071f33] bg-[#071f33] text-white'
-                    : 'border-[color:var(--border)] text-[color:var(--fg)] hover:border-[color:var(--accent)] hover:bg-[#f3f7eb]'
+                    : 'border-[color:var(--border)] text-[color:var(--fg)] hover:border-[color:var(--accent)] hover:bg-[#edf4f0]'
                 }`}
               >
                 {number}

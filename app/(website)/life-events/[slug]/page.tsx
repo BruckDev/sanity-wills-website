@@ -85,7 +85,7 @@ function LifeEventView({event}: {event: LifeEvent}) {
             </div>
           </div>
           {image && (
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-white/15 bg-[#f3f7eb] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-white/15 bg-[#eef5f0] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -102,7 +102,7 @@ function LifeEventView({event}: {event: LifeEvent}) {
         event.slug,
       ) && (
         <section className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-          <aside className="rounded-2xl border border-[#c8d6b4] bg-[#f3f7eb] p-7">
+          <aside className="rounded-2xl border border-[#b8cdb6] bg-[#eef5f0] p-7">
             <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
               Why now matters
             </div>
@@ -217,7 +217,7 @@ function LifeEventView({event}: {event: LifeEvent}) {
             ))}
           </div>
           {event.article.conclusion && (
-            <p className="mt-10 rounded-[18px] border border-[#c8d6b4] bg-[#f3f7eb] p-6 text-lg leading-8 text-[color:var(--fg)] md:p-8">
+            <p className="mt-10 rounded-[18px] border border-[#b8cdb6] bg-[#eef5f0] p-6 text-lg leading-8 text-[color:var(--fg)] md:p-8">
               {event.article.conclusion}
             </p>
           )}
@@ -262,5 +262,5 @@ function LifeEventView({event}: {event: LifeEvent}) {
   )
 }
 function LifeEventFallback() {
-  return <div className="min-h-[32rem] animate-pulse rounded-[2rem] bg-[#f3f7eb]" aria-busy />
+  return <div className="min-h-[32rem] animate-pulse rounded-[2rem] bg-[#eef5f0]" aria-busy />
 }

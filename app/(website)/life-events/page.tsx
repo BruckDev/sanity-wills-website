@@ -27,7 +27,7 @@ export default function LifeEventsPage() {
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-[#c8d6b4] bg-[#f3f7eb] p-7 md:p-10">
+      <section className="rounded-[2rem] border border-[#b8cdb6] bg-[#eef5f0] p-7 md:p-10">
         <div className="max-w-3xl">
           <div className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
             When life changes
@@ -48,7 +48,7 @@ export default function LifeEventsPage() {
               <Link
                 key={event.slug}
                 href={`/life-events/${event.slug}`}
-                className="group flex flex-col rounded-[18px] border border-[#e1e9da] bg-white p-5 shadow-[0_6px_20px_rgba(7,31,51,0.05)] transition duration-200 hover:-translate-y-0.5 hover:border-[#c8d6b4] hover:shadow-[0_14px_28px_rgba(7,31,51,0.1)]"
+                className="group flex flex-col rounded-[18px] border border-[#dce7e6] bg-white p-5 shadow-[0_6px_20px_rgba(7,31,51,0.05)] transition duration-200 hover:-translate-y-0.5 hover:border-[#b8cdb6] hover:shadow-[0_14px_28px_rgba(7,31,51,0.1)]"
               >
                 <div className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--accent)]">
                   {event.eyebrow}

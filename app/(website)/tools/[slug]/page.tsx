@@ -112,5 +112,5 @@ function ToolView({tool}: {tool: PlanningTool}) {
   )
 }
 function ToolFallback() {
-  return <div className="min-h-[32rem] animate-pulse rounded-[2rem] bg-[#f3f7eb]" aria-busy />
+  return <div className="min-h-[32rem] animate-pulse rounded-[2rem] bg-[#eef5f0]" aria-busy />
 }

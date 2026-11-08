@@ -56,7 +56,7 @@ export function PageHero({
         {eyebrow ? (
           <div
             className={`mb-5 text-xs font-bold uppercase tracking-[0.18em] ${
-              hasBackgroundImage ? 'text-[#bbd967]' : 'text-[color:var(--accent)]'
+              hasBackgroundImage ? 'text-[#8de1b1]' : 'text-[color:var(--accent)]'
             }`}
           >
             {eyebrow}

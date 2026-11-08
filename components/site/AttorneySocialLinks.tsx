@@ -44,7 +44,7 @@ export function AttorneySocialLinks({content}: {content: AttorneyProgramContent[
         }
         const icon = <SocialIcon platform={stegaClean(link.platform)} />
         const className =
-          'flex h-11 w-11 items-center justify-center rounded-full border border-[#bbcd9e] text-[#082d4c]'
+          'flex h-11 w-11 items-center justify-center rounded-full border border-[#a6c9c2] text-[#082d4c]'
         return (
           <li key={index}>
             {href ? (
@@ -54,7 +54,7 @@ export function AttorneySocialLinks({content}: {content: AttorneyProgramContent[
                 rel="noopener noreferrer"
                 aria-label={link.label}
                 title={link.label}
-                className={`${className} transition hover:border-[#4b6200] hover:bg-[#e8f8f8] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#4b6200]`}
+                className={`${className} transition hover:border-[#008e94] hover:bg-[#e8f8f8] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#008e94]`}
               >
                 {icon}
               </a>

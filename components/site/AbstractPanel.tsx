@@ -7,7 +7,7 @@ type AbstractPanelProps = {
 export function AbstractPanel({title, subtitle, className = ''}: AbstractPanelProps) {
   return (
     <div
-      className={`editorial-panel relative min-h-[320px] overflow-hidden rounded-xl border border-[color:var(--border)] bg-[#f3f7ed] p-8 md:min-h-[420px] md:p-12 ${className}`}
+      className={`editorial-panel relative min-h-[320px] overflow-hidden rounded-xl border border-[color:var(--border)] bg-[#eef5f1] p-8 md:min-h-[420px] md:p-12 ${className}`}
       aria-hidden="true"
     >
       <div className="absolute inset-y-0 right-[16%] w-px bg-[color:var(--border)]" />

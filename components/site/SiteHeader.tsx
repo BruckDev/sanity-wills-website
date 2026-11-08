@@ -43,8 +43,8 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
                 aria-current={active ? 'page' : undefined}
                 className={`cursor-pointer whitespace-nowrap rounded-md border-b-2 px-2 py-3 text-sm font-bold transition 2xl:px-2.5 2xl:text-base ${
                   active
-                    ? 'border-[color:var(--accent)] bg-white/10 text-[#b5d448]'
-                    : 'border-transparent text-white hover:bg-white/10 hover:text-[#b5d448]'
+                    ? 'border-[color:var(--accent)] bg-white/10 text-[#7ee0c7]'
+                    : 'border-transparent text-white hover:bg-white/10 hover:text-[#7ee0c7]'
                 }`}
               >
                 {item.label}
@@ -56,8 +56,8 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
             aria-current={isCurrent('/find-an-attorney') ? 'page' : undefined}
             className={`ml-2 shrink-0 cursor-pointer rounded-full border px-4 py-3 text-center text-sm font-semibold transition 2xl:px-5 2xl:text-base ${
               isCurrent('/find-an-attorney')
-                ? 'border-[#435900] bg-[#edf4d9] text-[#435900]'
-                : 'border-[#b5d448] text-[#b5d448] hover:bg-white/10'
+                ? 'border-[#075f43] bg-[#dff3ea] text-[#075f43]'
+                : 'border-[#7ee0c7] text-[#7ee0c7] hover:bg-white/10'
             }`}
           >
             Find an estate-planning professional
@@ -92,7 +92,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
                     aria-current={active ? 'page' : undefined}
                     className={`cursor-pointer rounded-lg border-l-4 px-4 py-3 text-lg font-bold ${
                       active
-                        ? 'border-[color:var(--accent)] bg-white/10 text-[#b5d448]'
+                        ? 'border-[color:var(--accent)] bg-white/10 text-[#7ee0c7]'
                         : 'border-transparent text-white hover:bg-white/10'
                     }`}
                     onClick={() => setOpen(false)}
@@ -107,7 +107,7 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
               aria-current={isCurrent('/find-an-attorney') ? 'page' : undefined}
               className={`mt-2 cursor-pointer rounded-lg border-2 px-4 py-3.5 text-center text-lg font-semibold ${
                 isCurrent('/find-an-attorney')
-                  ? 'border-[#435900] bg-[#edf4d9] text-[#435900]'
+                  ? 'border-[#075f43] bg-[#dff3ea] text-[#075f43]'
                   : 'border-[color:var(--accent)] bg-[color:var(--accent)] text-[#061e31]'
               }`}
               onClick={() => setOpen(false)}
