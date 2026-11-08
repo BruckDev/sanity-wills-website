@@ -1,3 +1,4 @@
+import willsLogo from '@/public/brand/wills-logo.png'
 import {
   attorneyProgramContent,
   type AttorneyProgramContent,
@@ -11,7 +12,7 @@ export function SiteFooter({program = attorneyProgramContent}: {program?: Attorn
       <div className="mx-auto flex max-w-[88rem] flex-col gap-5 px-5 py-7 md:flex-row md:items-center md:justify-between md:px-8">
         <div className="flex items-center gap-7">
           <Link href="/" aria-label="Wills.com home" className="shrink-0">
-            <Image src="/brand/wills-logo.png" alt="" width={180} height={56} className="h-auto w-36" />
+            <Image src={willsLogo} alt="" sizes="144px" className="h-auto w-36" />
           </Link>
           <nav
             aria-label="Footer navigation"

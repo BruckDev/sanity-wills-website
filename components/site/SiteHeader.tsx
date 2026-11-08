@@ -1,5 +1,6 @@
 'use client'
 
+import willsLogo from '@/public/brand/wills-logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
@@ -29,7 +30,13 @@ export function SiteHeader({navigation = []}: SiteHeaderProps) {
     >
       <div className="mx-auto flex w-full max-w-[88rem] items-center justify-between gap-4 px-5 py-4 md:px-8 md:py-5">
         <Link href="/" className="cursor-pointer shrink-0" onClick={() => setOpen(false)}>
-          <Image src="/brand/wills-logo.png" alt="" width={210} height={65} className="h-auto w-40 rounded-lg bg-white px-2 py-1 md:w-48" priority />
+          <Image
+            src={willsLogo}
+            alt=""
+            sizes="(min-width: 768px) 176px, 144px"
+            className="h-auto w-40 rounded-lg bg-white px-2 py-1 md:w-48"
+            preload
+          />
           <span className="sr-only">Wills.com</span>
         </Link>
         <nav aria-label="Main navigation" className="hidden items-center gap-1 xl:flex">
