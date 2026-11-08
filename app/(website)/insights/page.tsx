@@ -69,10 +69,6 @@ function InsightsContent({
           aria-hidden="true"
           className="absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[linear-gradient(160deg,#00766b_0%,#064c4d_50%,#082d4c_100%)] md:h-[35rem]"
         />
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-[36rem] opacity-[0.08] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:40px_40px] md:h-[35rem]"
-        />
         <div className="mx-auto max-w-[76rem] px-5 md:px-10">
           <div className="flex justify-end">
             <Link
