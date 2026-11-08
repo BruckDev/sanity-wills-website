@@ -14,6 +14,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {Suspense} from 'react'
 
+import {StateCoverageMap} from './StateCoverageMap'
+
 export const metadata: Metadata = {
   title: 'For Attorneys / Advertise — Founding Attorney Program',
   description:
@@ -153,11 +155,15 @@ function ProgramPage({page}: {page: AttorneyProgramContent}) {
         <p className="mt-5 text-sm leading-6 text-[color:var(--muted)]">{page.paymentNote}</p>
       </section>
 
-      <section className="rounded-[2rem] border border-[color:var(--border)] bg-[#eaf3f6] p-7 md:p-10">
+      <section
+        id="local-visibility"
+        className="scroll-mt-28 rounded-[2rem] border border-[color:var(--border)] bg-[#eaf3f6] p-7 md:p-10"
+      >
         <h2 className="font-serif text-3xl tracking-[-0.035em] md:text-4xl">
           {page.coverageTitle}
         </h2>
         <p className="mt-5 max-w-4xl leading-8 text-[color:var(--muted)]">{page.coverageCopy}</p>
+        <StateCoverageMap />
         <p className="mt-5 max-w-4xl border-t border-[#cbdce3] pt-5 text-sm leading-6 text-[color:var(--muted)]">
           {page.launchNote}
         </p>
