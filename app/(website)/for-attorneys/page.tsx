@@ -1,5 +1,6 @@
 import {AttorneyContactForm} from '@/components/site/AttorneyContactForm'
 import {ButtonLink} from '@/components/site/ButtonLink'
+import foundingProfilePreview from '@/public/images/estate-planning/founding-profile-preview.webp'
 import {getAttorneyProgram} from '@/sanity/lib/attorneyProgram'
 import {
   attorneyProgramContent,
@@ -132,10 +133,8 @@ function ProgramPage({page}: {page: AttorneyProgramContent}) {
                   </ul>
                 </div>
                 <Image
-                  src="/images/estate-planning/founding-profile-preview.webp"
+                  src={foundingProfilePreview}
                   alt="Illustration of a featured attorney profile with office details, client feedback, and articles"
-                  width={1672}
-                  height={941}
                   sizes="(min-width: 768px) 352px, calc(100vw - 6rem)"
                   className="h-auto w-full rounded-xl"
                 />
