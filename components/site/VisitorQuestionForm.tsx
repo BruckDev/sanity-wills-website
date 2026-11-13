@@ -114,14 +114,10 @@ export function VisitorQuestionForm({copy}: {copy: VisitorQuestionCopy}) {
               maxLength={3000}
               required
               readOnly={status === 'sending'}
-              aria-describedby="visitor-question-note"
               onChange={(event) => event.currentTarget.setCustomValidity('')}
               className="w-full resize-y rounded-lg border border-[#718292] bg-white px-3 py-2 text-base font-normal focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#08765c]"
             />
           </label>
-          <p id="visitor-question-note" className="text-xs leading-5 text-[#355267]">
-            {copy.note}
-          </p>
           <button
             type="submit"
             disabled={status === 'sending'}

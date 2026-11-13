@@ -4,7 +4,6 @@ export const visitorQuestionCopy = {
   closeLabel: 'Close question form',
   emailLabel: 'Your email',
   questionLabel: 'Your question',
-  note: 'Please leave out private legal or financial details.',
   submitLabel: 'Send question',
   emptyQuestion: 'Enter your question.',
   sending: 'Sending…',

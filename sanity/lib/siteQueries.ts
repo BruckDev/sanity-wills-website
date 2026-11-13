@@ -42,7 +42,6 @@ export const settingsQuery = defineQuery(`
       closeLabel,
       emailLabel,
       questionLabel,
-      note,
       submitLabel,
       emptyQuestion,
       sending,

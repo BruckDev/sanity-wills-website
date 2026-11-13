@@ -68,7 +68,6 @@ export default defineType({
         defineField({name: 'closeLabel', title: 'Close button label', type: 'string'}),
         defineField({name: 'emailLabel', title: 'Email field label', type: 'string'}),
         defineField({name: 'questionLabel', title: 'Question field label', type: 'string'}),
-        defineField({name: 'note', title: 'Privacy note', type: 'text', rows: 2}),
         defineField({name: 'submitLabel', title: 'Submit button label', type: 'string'}),
         defineField({name: 'emptyQuestion', title: 'Empty question message', type: 'string'}),
         defineField({name: 'sending', title: 'Sending message', type: 'string'}),

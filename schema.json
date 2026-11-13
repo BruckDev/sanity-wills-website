@@ -5417,13 +5417,6 @@
               },
               "optional": true
             },
-            "note": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
             "submitLabel": {
               "type": "objectAttribute",
               "value": {
