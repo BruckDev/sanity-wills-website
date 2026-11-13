@@ -775,6 +775,20 @@ export type Settings = {
     _type: 'block'
     _key: string
   }>
+  visitorQuestionForm?: {
+    title?: string
+    description?: string
+    closeLabel?: string
+    emailLabel?: string
+    questionLabel?: string
+    note?: string
+    submitLabel?: string
+    emptyQuestion?: string
+    sending?: string
+    success?: string
+    failure?: string
+    emailFallback?: string
+  }
   seo?: Seo
   uiText?: {
     brandEyebrow?: string
@@ -1468,6 +1482,14 @@ export type Home = {
       imagePath?: string
       _key: string
     }>
+    trustTitle?: string
+    trustDecisionsValue?: string
+    trustDecisionsLabel?: string
+    trustArticlesValue?: string
+    trustArticlesLabel?: string
+    trustExpertsValue?: string
+    trustExpertsLabel?: string
+    trustPhotoAlt?: string
     beginningEyebrow?: string
     beginningTitle?: string
     basicsTitle?: string
@@ -2230,6 +2252,14 @@ export type HomeAppearanceQueryResult = {
       imagePath?: string
       _key: string
     }>
+    trustTitle?: string
+    trustDecisionsValue?: string
+    trustDecisionsLabel?: string
+    trustArticlesValue?: string
+    trustArticlesLabel?: string
+    trustExpertsValue?: string
+    trustExpertsLabel?: string
+    trustPhotoAlt?: string
     beginningEyebrow?: string
     beginningTitle?: string
     basicsTitle?: string
@@ -2257,7 +2287,7 @@ export type HomeAppearanceQueryResult = {
 
 // Source: sanity/lib/siteQueries.ts
 // Variable: settingsQuery
-// Query: *[_type == "settings"][0]{    _id,    _type,    siteTitle,    brandEyebrow,    headerNavigation[]{      label,      href,      description,      children[]{        label,        href,        style      }    },    contactMethods[]{      label,      value,      href    },    linkedin,    footerColumns[]{      title,      body,      links[]{        label,        href,        style      }    },    footerNote,    uiText{      heroStatsHeading,      headerContactCtaLabel,      headerMenuToggleLabel,      mainNavigationLabel,      mobileNavigationLabel,      footerLinkedinLabel,      footerLinkedinPlaceholder,      footerPrivacyLabel,      footerAccessibilityLabel    },    ogImage,    seo  }
+// Query: *[_type == "settings"][0]{    _id,    _type,    siteTitle,    brandEyebrow,    headerNavigation[]{      label,      href,      description,      children[]{        label,        href,        style      }    },    contactMethods[]{      label,      value,      href    },    linkedin,    footerColumns[]{      title,      body,      links[]{        label,        href,        style      }    },    footerNote,    visitorQuestionForm{      title,      description,      closeLabel,      emailLabel,      questionLabel,      note,      submitLabel,      emptyQuestion,      sending,      success,      failure,      emailFallback    },    uiText{      heroStatsHeading,      headerContactCtaLabel,      headerMenuToggleLabel,      mainNavigationLabel,      mobileNavigationLabel,      footerLinkedinLabel,      footerLinkedinPlaceholder,      footerPrivacyLabel,      footerAccessibilityLabel    },    ogImage,    seo  }
 export type SettingsQueryResult = {
   _id: string
   _type: 'settings'
@@ -2323,6 +2353,20 @@ export type SettingsQueryResult = {
     _type: 'block'
     _key: string
   }> | null
+  visitorQuestionForm: {
+    title: string | null
+    description: string | null
+    closeLabel: string | null
+    emailLabel: string | null
+    questionLabel: string | null
+    note: string | null
+    submitLabel: string | null
+    emptyQuestion: string | null
+    sending: string | null
+    success: string | null
+    failure: string | null
+    emailFallback: string | null
+  } | null
   uiText: {
     heroStatsHeading: string | null
     headerContactCtaLabel: string | null
@@ -3719,7 +3763,7 @@ declare module '@sanity/client' {
     '*[_type == "lifeEvent" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, urgency, checklist, faqs, article{title, intro, sections[]{heading, paragraphs, questions, afterQuestions, items[]{title, description}, checklist, afterChecklist, resources[]{label, href}}, conclusion, disclaimer}}': LifeEventQueryResult
     '*[_type == "planningTool" && slug.current == $slug][0]{title, "slug": slug.current, eyebrow, summary, kind, time, worksheet{title, intro, privacyNote, statusLabel, unansweredLabel, doneLabel, followUpLabel, notApplicableLabel, notesLabel, summaryTitle, progressLabel, nextSteps, printLabel, downloadLabel, disclaimer, questions[]{_key, prompt, help}}}': PlanningToolQueryResult
     '*[_type == "home"][0]{introduction, planningEyebrow, planChooserHeading, "attorneySearchBackground": attorneySearchBackground.asset->url, articleCards[0...6]{title, category, description, href, alt, "image": coalesce(image.asset->url, imagePath)}}': HomeAppearanceQueryResult
-    '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    siteTitle,\n    brandEyebrow,\n    headerNavigation[]{\n      label,\n      href,\n      description,\n      children[]{\n        label,\n        href,\n        style\n      }\n    },\n    contactMethods[]{\n      label,\n      value,\n      href\n    },\n    linkedin,\n    footerColumns[]{\n      title,\n      body,\n      links[]{\n        label,\n        href,\n        style\n      }\n    },\n    footerNote,\n    uiText{\n      heroStatsHeading,\n      headerContactCtaLabel,\n      headerMenuToggleLabel,\n      mainNavigationLabel,\n      mobileNavigationLabel,\n      footerLinkedinLabel,\n      footerLinkedinPlaceholder,\n      footerPrivacyLabel,\n      footerAccessibilityLabel\n    },\n    ogImage,\n    seo\n  }\n': SettingsQueryResult
+    '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    siteTitle,\n    brandEyebrow,\n    headerNavigation[]{\n      label,\n      href,\n      description,\n      children[]{\n        label,\n        href,\n        style\n      }\n    },\n    contactMethods[]{\n      label,\n      value,\n      href\n    },\n    linkedin,\n    footerColumns[]{\n      title,\n      body,\n      links[]{\n        label,\n        href,\n        style\n      }\n    },\n    footerNote,\n    visitorQuestionForm{\n      title,\n      description,\n      closeLabel,\n      emailLabel,\n      questionLabel,\n      note,\n      submitLabel,\n      emptyQuestion,\n      sending,\n      success,\n      failure,\n      emailFallback\n    },\n    uiText{\n      heroStatsHeading,\n      headerContactCtaLabel,\n      headerMenuToggleLabel,\n      mainNavigationLabel,\n      mobileNavigationLabel,\n      footerLinkedinLabel,\n      footerLinkedinPlaceholder,\n      footerPrivacyLabel,\n      footerAccessibilityLabel\n    },\n    ogImage,\n    seo\n  }\n': SettingsQueryResult
     '\n  *[_type == "home"][0]{\n    _id,\n    _type,\n    title,\n    display{\n      heroEyebrow,\n      heroBackgroundImageAlt,\n      heroReassuranceHeading,\n      heroReassuranceText,\n      servicesEyebrow,\n      serviceCardLinkLabel,\n      allServicesLinkLabel,\n      servicesAnimationAriaLabel,\n      insightsEyebrow,\n      caseStudiesEyebrow,\n      caseStudiesTitle,\n      caseStudiesDescription,\n      caseStudyPlaceholderLabel,\n      industriesEyebrow,\n      governmentEyebrow,\n      governmentCtaLabel,\n      governmentPanelTitle,\n      governmentPanelSubtitle,\n      engineeringEyebrow,\n      whyUsEyebrow,\n      finalCtaEyebrow\n    },\n    overview,\n    heroPrimaryCta{label, href, style},\n    heroSecondaryCta{label, href, style},\n    heroHighlights[]{value, label},\n    servicesTitle,\n    servicesIntro,\n    servicesVideoTitle,\n    servicesVideoText,\n    servicesVideoLinks[]{label, href, style},\n    featuredServices[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      summary\n    },\n    insightsTitle,\n    insightsIntro,\n    featuredInsights[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      excerpt,\n      articleType,\n      estimatedReadTime,\n      publishedAt,\n      coverImage{\n        ...,\n        asset->\n      }\n    },\n    featuredCaseStudies[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      excerpt\n    },\n    industriesTitle,\n    industriesIntro,\n    featuredIndustries[]->{\n      _id,\n      title,\n      "slug": slug.current,\n      summary\n    },\n    governmentTitle,\n    governmentIntro,\n    governmentCapabilities,\n    engineeringCapabilitiesTitle,\n    engineeringCapabilitiesIntro,\n    engineeringCapabilities[]{title, text},\n    whyUsTitle,\n    whyUsCards[]{\n      title,\n      text\n    },\n    finalCtaTitle,\n    finalCtaText,\n    finalPrimaryCta{label, href, style},\n    finalSecondaryCta{label, href, style},\n    seo\n  }\n': HomeQueryResult
     '\n  *[_type == "home"][0]{\n    display{\n      heroReassuranceHeading,\n      heroReassuranceText\n    }\n  }\n': HomeHeroReassuranceQueryResult
     '\n  *[_type == "service"] | order(title asc){\n    _id,\n    title,\n    "slug": slug.current,\n    summary,\n    image{\n      ...,\n      asset->\n    },\n    clientProblem,\n    whatWeProvide,\n    deliverables,\n    outcomes,\n    featuredStats[]{value, label},\n    cta{label, href, style},\n    seo\n  }\n': ServicesQueryResult

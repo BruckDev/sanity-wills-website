@@ -36,6 +36,20 @@ export const settingsQuery = defineQuery(`
       }
     },
     footerNote,
+    visitorQuestionForm{
+      title,
+      description,
+      closeLabel,
+      emailLabel,
+      questionLabel,
+      note,
+      submitLabel,
+      emptyQuestion,
+      sending,
+      success,
+      failure,
+      emailFallback
+    },
     uiText{
       heroStatsHeading,
       headerContactCtaLabel,

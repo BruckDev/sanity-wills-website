@@ -16,6 +16,7 @@ export function toBlocks(paragraphs: string[]) {
 
 export const fallbackSettings = {
   siteTitle: 'Wills',
+  visitorQuestionForm: null,
   brandEyebrow: 'Consulting and technology',
   headerNavigation: [
     {

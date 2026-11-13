@@ -2,6 +2,7 @@ import '@/styles/index.css'
 import {ConversionAnalytics} from '@/components/site/ConversionAnalytics'
 import {SiteFooter} from '@/components/site/SiteFooter'
 import {SiteHeader} from '@/components/site/SiteHeader'
+import {VisitorQuestionForm} from '@/components/site/VisitorQuestionForm'
 import {getAttorneyProgram} from '@/sanity/lib/attorneyProgram'
 import {
   attorneyProgramContent,
@@ -15,6 +16,7 @@ import {
 } from '@/sanity/lib/live'
 import {fallbackSettings} from '@/sanity/lib/siteFallbacks'
 import {settingsQuery} from '@/sanity/lib/siteQueries'
+import {visitorQuestionCopy, type VisitorQuestionCopy} from '@/sanity/lib/visitorQuestionCopy'
 import {SpeedInsights} from '@vercel/speed-insights/next'
 import type {Metadata, Viewport} from 'next'
 import {VisualEditing} from 'next-sanity/visual-editing'
@@ -103,7 +105,7 @@ async function fetchSettings(fetchOptions: DynamicFetchOptions) {
     ...fetchOptions,
   })
 
-  return (data as any) || fallbackSettings
+  return data ?? fallbackSettings
 }
 
 function WebsiteHeader({
@@ -128,6 +130,25 @@ function WebsiteHeader({
   )
 }
 
-function WebsiteFooter({data, program}: {data: any; program?: AttorneyProgramContent}) {
-  return <SiteFooter program={program} />
+function WebsiteFooter({
+  data,
+  program,
+}: {
+  data: {visitorQuestionForm?: Partial<Record<keyof VisitorQuestionCopy, string | null>> | null}
+  program?: AttorneyProgramContent
+}) {
+  const copy = {...visitorQuestionCopy}
+  for (const key of Object.keys(copy) as (keyof VisitorQuestionCopy)[]) {
+    const value = data.visitorQuestionForm?.[key]
+    if (value?.trim()) copy[key] = value
+  }
+
+  return (
+    <>
+      <div className="bg-white pb-16 print:pb-0">
+        <SiteFooter program={program} />
+      </div>
+      <VisitorQuestionForm copy={copy} />
+    </>
+  )
 }
